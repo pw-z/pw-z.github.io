@@ -1,37 +1,121 @@
-## Welcome to GitHub Pages
+————————————————[归档](#%E5%BD%92%E6%A1%A3)——[关于](./docs/navi/about)————
 
-You can use the [editor on GitHub](https://github.com/pw-z/pw-z.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## 分类
 
-### Markdown
+* 编程
+    - JAVA
+        * [JAVA基础知识复盘（七）：泛型程序设计入门][2020033101]
+        * [JAVA基础知识复盘（六）：字符串处理][2020033001]
+        * [JAVA基础知识复盘（五）：异常处理与日志记录][2020032402]
+        * [JAVA基础知识复盘（四）：抽象类与接口][2020032401]
+        * [JAVA基础知识复盘（三）：访问权限控制与特征修饰][2020032301]
+        * [JAVA基础知识复盘（二）：面向对象程序设计及其基本特性][2020031201]
+        * [JAVA基础知识复盘（一）：八大基本数据类型][2020031101]
+    - Python
+        * [NumPy入门实践][2020041101]
+        * [Python3从零到一挑战：写个文字版RPG][2020040401]
+* 英语
+    - [理解短语“state-of-the-art”][2020041401]
+* 翻译
+    - [何为博士（译The illustrated guide to a Ph.D.）][2020032801]
+* 运维
+    - [轻量化博客构建方案与写作规范][2020040701]
+    - [WordPress博客搭建详细过程][2019031701]
+* 网安
+    - [全国网络空间安全“英才计划”集训营课程笔记][2018081501]
+* 阅读
+    - [再谈观察（读《看见》随笔）][2020050803]
+    - [《非暴力沟通》读书笔记][2020050802]
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+##  归档
 
-1. Numbered
-2. List
+* 2020
+    - 05
+        + 050803 [再谈观察（读《看见》随笔）][2020050803]
+        + 050802 [《非暴力沟通》读书笔记][2020050802]
+    - 04
+        + 041401 [理解短语“state-of-the-art”][2020041401]
+        + 041101 [NumPy入门实践][2020041101]
+        + 040701 [轻量化博客构建方案与写作规范][2020040701]
+        + 040401 [Python3从零到一挑战：写个文字版RPG][2020040401]
+    - 03
+        + 033101 [JAVA基础知识复盘（七）：泛型程序设计入门][2020033101]
+        + 033001 [JAVA基础知识复盘（六）：字符串处理][2020033001]
+        + 032801 [何为博士（译The illustrated guide to a Ph.D.）][2020032801]
+        + 032402 [JAVA基础知识复盘（五）：异常处理与日志记录][2020032402]
+        + 032401 [JAVA基础知识复盘（四）：抽象类与接口][2020032401]
+        + 032301 [JAVA基础知识复盘（三）：访问权限控制与特征修饰][2020032301]
+        + 031201 [JAVA基础知识复盘（二）：面向对象程序设计及其基本特性][2020031201]
+        + 031101 [JAVA基础知识复盘（一）：八大基本数据类型][2020031101]
+* 2019
+    - 03
+        + 031701 [WordPress博客搭建详细过程][2019031701]
+        + 031901 [Windows上配置运行 bottom-up-attention][2019031901]
+* 2018
+    - 08
+        + 081501 [全国网络空间安全“英才计划”集训营课程笔记][2018081501]
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pw-z/pw-z.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+[commit]:url-filed------------------------------------------------------start
+
+[commit]:2020年5月-----------------------
+[2020050801]:./docs/2020/05/2020050801-about-reading-and-writing "2020050801 关于阅读与写作"
+[2020050802]:./docs/2020/05/2020050802-book-notes-of-Nonviolent-Communication-A-Language-of-Life "2020050802 《非暴力沟通》读书笔记"
+[2020050803]:./docs/2020/05/2020050803-book-notes-of-Insight-by-Chai-Jing "2020050803 再谈观察（读《看见》随笔）"
+[2020050804]:./docs/2020/05/2020050804-book-notes-of-Amusing-Ourselves-to-Death-by-Neil-Postman "2020050804 关于传媒：铅字、电视及互联网（《娱乐至死》随笔）"
+[2020050901]:./docs/2020/05/2020050901-book-notes-of-The-Island-and-The-Thread-by-Victoria-Hislop "2020050901 维多利亚·希斯洛普的《岛》与《线》"
+
+
+[commit]:2020年4月-----------------------
+[2020040401]:./docs/2020/04/2020040401-python3-zero-to-one-challenge-a-text-rpg-game "2020040401 Python3从零到一大挑战：写个文字版RPG"
+[2020040701]:./docs/2020/04/2020040701-lightweight-blog-construction-plan-and-writing-standard "2020040701 轻量化博客构建方案与写作规范"
+[2020041101]:./docs/2020/04/2020041101-numpy-quick-start-practice "2020041101 NumPy入门实践"
+[2020041401]:./docs/2020/04/2020041401-what-is-the-meaning-of-state-of-the-art "2020041401 理解短语“state-of-the-art”"
+
+
+[commit]:2020年3月-----------------------
+[2020031101]:./docs/2020/03/2020031101-java-basic-knowledge-review-1-eight-primitive-data-types "2020031101 JAVA基础知识复盘（一）：八大基本数据类型"
+[2020031201]:./docs/2020/03/2020031201-java-basic-knowledge-review-2-oop-and-its-basic-characteristics "2020031201 JAVA基础知识复盘（二）：面向对象程序设计及其基本特性"
+[2020032301]:./docs/2020/03/2020032301-java-basic-knowledge-review-3-access-control-and-feature-modifier "2020031301 JAVA基础知识复盘（三）：访问权限控制与特征修饰"
+[2020032401]:./docs/2020/03/2020032401-java-basic-knowledge-review-4-abstract-class-and-interface "2020032401 JAVA基础知识复盘（四）：抽象类与接口"
+[2020032402]:./docs/2020/03/2020032402-java-basic-knowledge-review-5-exception-handling-and-log-logging "2020032402 JAVA基础知识复盘（五）：错误处理"
+[2020032801]:./docs/2020/03/2020032801-the-illustrated-guide-to-a-phd-in-chinese-with-picture-in-css "2020032801 什么是博士（译The illustrated guide to a Ph.D.）"
+[2020033001]:./docs/2020/03/2020033001-java-basic-knowledge-review-6-character-string-handling "2020033001 JAVA基础知识复盘（六）：字符串处理"
+[2020033101]:./docs/2020/03/2020033101-java-basic-knowledge-review-7-generic-programming "2020033101 JAVA基础知识复盘（七）：泛型程序设计"
+
+
+[commit]:2019年及以前的-----------------------
+[2019031901]:./docs/2019/run-bottom-up-attention-in-windows "Windows上配置运行 bottom-up-attention"
+[2019031701]:./docs/2019/all-about-how-i-build-a-wordpress-site "WordPress博客搭建详细过程"
+[2018081501]:./docs/2018/some-views-about-cyberspace-security "全国网络空间安全“英才计划”集训营课程笔记"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
