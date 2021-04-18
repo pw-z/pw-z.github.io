@@ -1,6 +1,4 @@
 
-## [PWZ.WIKI](www.pwz.wiki)
-
 Hi, this is Pengwei.
 
 I'm a photographer, programmer and guitarist currently living in
