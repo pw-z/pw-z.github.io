@@ -1,5 +1,5 @@
 
-## [PWZ.WIKI](pwz.wiki)
+## [PWZ.WIKI](www.pwz.wiki)
 
 Hi, this is Pengwei.
 
