@@ -28,6 +28,5 @@
 <br>
 
 <img src="./Monet-Impression-07.jpg"><br>
-*OnePlus 8plus _ f1.8 1/17 5mm _ 2021.04.04*  
-<br>
+*OnePlus 8plus _ f1.8 1/17 5mm _ 2021.04.04*
 
