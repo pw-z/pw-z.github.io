@@ -1,7 +1,6 @@
 # Python3从零到一挑战：写个文字版RPG
 *2020040401-python3-zero-to-one-challenge-a-text-rpg-game*  
 *Posted on 2020.04.04 by [Pengwei Zhang](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)*  
-*Updated on 2020.04.05 本文代码已归档于[AboutProgramming/AboutPython3/rpg-game][rpg-game]*  
 
 
 * [Python3从零到一挑战：写个文字版RPG](#python3%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%8C%91%E6%88%98%E5%86%99%E4%B8%AA%E6%96%87%E5%AD%97%E7%89%88rpg)
@@ -1874,9 +1873,4 @@ Process finished with exit code 0
 网络方面的学习资源实在零散，质量也参差不齐，开头提到的那三本python书还是不错的，推荐。
 
 
-P.S. 本文中的代码统一归档在GitHub上的[练习代码归档仓库][baserepo]中，地址[AboutProgramming/AboutPython3/rpg-game][rpg-game]  
-
 **P.P.S. 清明，公祭，鸣笛、警报、降半旗。致哀。希望疫情的阴霾早日散去。**
-
-[baserepo]:https://github.com/Vilaseaka/AboutProgramming "Vilaseaka/AboutProgramming"
-[rpg-game]:https://github.com/Vilaseaka/AboutProgramming/tree/master/AboutPython3/rpg-game "Vilaseaka/AboutProgramming/AboutPython3/rpg-game/"
