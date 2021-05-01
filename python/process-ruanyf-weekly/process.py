@@ -21,6 +21,8 @@ def analyze():
     output.close()
 
 def process():
+    with open('ruanyf-weekly-compilation-1-155.md') as mdfile:
+        
     print()
 
 if __name__=="__main__": 
