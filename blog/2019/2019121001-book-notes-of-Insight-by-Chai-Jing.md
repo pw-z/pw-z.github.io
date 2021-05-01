@@ -1,7 +1,6 @@
-# 再谈观察（读《看见》随笔）
-*2020050803-book-notes-of-Insight-by-Chai-Jing*  
-*Written by [Pengwei Zhang](http://pwz.wiki) on 2019.12.10*  
-*Posted on 2020.05.08 under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)*  
+# 关于观察，读《看见》随笔
+*2019121001-book-notes-of-Insight-by-Chai-Jing*  
+*Posted on 2019.12.10 by [Pengwei Zhang](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)*  
 
 ```
 书籍信息
