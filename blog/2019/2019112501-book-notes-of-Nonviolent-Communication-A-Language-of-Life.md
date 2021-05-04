@@ -1,7 +1,6 @@
-# 《非暴力沟通》读书笔记
-*2020050802-book-notes-of-Nonviolent-Communication-A-Language-of-Life*  
-*Written by [Pengwei Zhang](http://pwz.wiki) on 2019.11.25*  
-*Posted on 2020.05.08 under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)*  
+# 关于沟通，读《非暴力沟通》随笔
+*2019112501-book-notes-of-Nonviolent-Communication-A-Language-of-Life*  
+*Posted on 2019.11.25 by [Pengwei Zhang](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)*  
 
 ```
 书籍信息
