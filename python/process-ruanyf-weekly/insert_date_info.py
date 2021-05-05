@@ -13,11 +13,15 @@ if __name__ == "__main__":
     with open('ruanyf-weekly-compilation-1-155.md', 'r', encoding='utf-8') as f1:
         with open('ruanyf-weekly-compilation-1-155-with-post-date.md', 'w', encoding='utf-8') as f2:
             for line in f1:
-                if line[:2] == '# ':  # 如果是一级标题，准备插入日期
+                if line[:2] == '# ':  # 如果是一级标题，插入日期信息，同时将一级标题处理成三级标题
                     num = re.compile(r'[0-9]{1,3}').search(line).group()
                     # print(num)
+                    line = '##' + line
                     print(line, file=f2, end="")
                     print('*Posted on %s by [阮一峰](http://www.ruanyifeng.com/blog/) under the '
                           '[CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh) license*\n' % date_result[num], file=f2, end="")
+                elif line[:2] == '##':  # 将二级标题处理成四级标题
+                    line = '##' + line
+                    print(line, file=f2, end="")
                 else:
                     print(line, file=f2, end="")
