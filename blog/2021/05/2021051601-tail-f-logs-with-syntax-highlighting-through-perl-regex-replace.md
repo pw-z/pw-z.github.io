@@ -211,6 +211,7 @@ tail -10000f 2021-03-21.log | perl -pe '$PID_PATTERN = "(\[[a-zA-Z0-9]{8}])";$TI
 *以上信息并不严谨*
 
 示例：
+
 ```perl
 #!/bin/perl
 $vocal = <STDIN>;
@@ -246,6 +247,7 @@ perl的正则表达式分三种模式：
 3. 转化：tr/PATTERN1/PATTERN2/
 
 `$_`是一个特殊变量，是默认的输入及正则匹配的对象：
+
 ```perl
 #!/bin/perl
 while(1){
@@ -269,6 +271,7 @@ while(1){
 ```
 
 *上述代码可以简写为：*
+
 ```perl
 #!/bin/perl
 while(<STDIN>){  # STDIN被自动存到了$_中
@@ -279,7 +282,9 @@ while(<STDIN>){  # STDIN被自动存到了$_中
   }
 }
 ```
+
 *！但是注意这不代表标准输入`<STDIN>`总会被自动存到`$_`中：*  
+
 >Perl doesn’t 
 matically store the line of input into $_ unless  the  line-input  operator  (\<STDIN>)  is  all  alone  in  the  conditional expression of a while loop.[`2][2]
 
@@ -288,6 +293,7 @@ matically store the line of input into $_ unless  the  line-input  operator  (\<
 正则操作中通常不是像如上代码直接去处理`$_`，更常用的是利用`=~`处理指定变量：
 
 示例：
+
 ```perl
 #!/bin/perl
 while(1){
@@ -319,7 +325,7 @@ while(1){
 
 通过`perl -h`检索各参数的意义，参数组合`-pe`可以实现在命令行中执行perl代码，并且自动输入输出。
 
-```shell
+```vb
 [test@localhost ~]$ perl -h | grep -E "\-n|\-e|\-p"
   -a                
   split mode with -n or -p (splits $_ into @F)
@@ -395,7 +401,9 @@ perl语言中定义了很多特殊变量，除了`$_`，与正则表达式相关
 |$'  |$POSTMATCH  |前次匹配成功的子串之后的内容|
 |$+  |$LAST_PAREN_MATCH  |与上个正则表达式搜索格式匹配的最后一个括号|
 
+
 示例：
+
 ```perl
 #!/bin/perl
 
