@@ -1,5 +1,5 @@
 # ~~阮一峰科技爱好者周刊1~155期合集及~~处理脚本
-*~~Ruanyifeng weekly compilation 1~155 with~~ the process code*  
+*2021050501-ruanyf-weekly-compilation-1-155-with-the-process-code*  
 *Posted on 2021.05.05 by [Pengwei Zhang](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)*  
 
 

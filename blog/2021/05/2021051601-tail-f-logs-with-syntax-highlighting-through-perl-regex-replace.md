@@ -1,5 +1,5 @@
 # 使用Perl正则替换优化tail-f命令查看日志的显示效果
-Tail -f logs with syntax highlighting through perl regex replace  
+*2021051601-tail-f-logs-with-syntax-highlighting-through-perl-regex-replace*  
 *Posted on 2021.05.16 by [Pengwei Zhang](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)*  
 
 <!-- TOC -->
