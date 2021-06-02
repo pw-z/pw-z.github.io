@@ -15,10 +15,10 @@
 老板让每天汇报一下当日测试情况，每天数数过于快乐，所以这里是一份Python脚本，定时获取Jira与Testlink上的指定数据并通过钉钉的自定义机器人接口推送到工作群里。原计划从零开始写请求继续熟悉爬虫的结构，时间有限+周末愉快，还是调包直接取数据了。
 
 相关文档地址：  
-[钉钉开放平台@自定义机器人接入](https://developers.dingtalk.com/document/app/custom-robot-access)  
-[Jira Cloud platform](https://developer.atlassian.com/cloud/jira/platform/)  
-[Jira Python Library](https://github.com/pycontribs/jira)  
-[TestLink API Python Client](https://github.com/lczub/TestLink-API-Python-client)
+* [钉钉开放平台@自定义机器人接入](https://developers.dingtalk.com/document/app/custom-robot-access)  
+* [Jira Cloud platform](https://developer.atlassian.com/cloud/jira/platform/)  
+* [Jira Python Library](https://github.com/pycontribs/jira)  
+* [TestLink API Python Client](https://github.com/lczub/TestLink-API-Python-client)
 
 
 ## JIRA数据获取
