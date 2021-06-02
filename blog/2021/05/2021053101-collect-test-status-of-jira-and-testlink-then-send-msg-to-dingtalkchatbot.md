@@ -2,6 +2,24 @@
 *2021053101-collect-test-status-of-jira-and-testlink-then-send-msg-to-dingtalkchatbot*  
 *Posted on 2021.05.31 by [Pengwei Zhang](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)*  
 
+<!-- TOC -->
+
+- [JIRA数据获取](#jira数据获取)
+- [TESTLINK数据获取](#testlink数据获取)
+- [推送消息到钉钉机器人](#推送消息到钉钉机器人)
+- [定时获取数据并推送消息](#定时获取数据并推送消息)
+- [收尾及结果预览](#收尾及结果预览)
+
+<!-- /TOC -->
+
+老板让每天汇报一下当日测试情况，每天数数过于快乐，所以这里是一份Python脚本，定时获取Jira与Testlink上的指定数据并通过钉钉的自定义机器人接口推送到工作群里。原计划从零开始写请求继续熟悉爬虫的结构，时间有限+周末愉快，还是调包直接取数据了。
+
+相关文档地址：  
+[钉钉开放平台@自定义机器人接入](https://developers.dingtalk.com/document/app/custom-robot-access)  
+[Jira Cloud platform](https://developer.atlassian.com/cloud/jira/platform/)  
+[Jira Python Library](https://github.com/pycontribs/jira)  
+[TestLink API Python Client](https://github.com/lczub/TestLink-API-Python-client)
+
 
 ## JIRA数据获取
 
@@ -68,7 +86,7 @@ def login_testlink_and_get_case_status(export_file):
     """
     # TESTLINK_SERVER_URL = "http://XXX.XXX.XXX.XXX:XXXX/testlink/lib/api/xmlrpc/v1/xmlrpc.php"  # 内网
     TESTLINK_SERVER_URL = "http://XXX.XXX.XXX.XXX:XXXX/testlink/lib/api/xmlrpc/v1/xmlrpc.php"  # 外网
-    TESTLINK_API_KEY = "bdfabc369495f0cbb93a2be883bd3ab0"
+    TESTLINK_API_KEY = "bdfabXXXX495f0cbb93a2be883XXXXXX"
     PROJECT_NAME = "XXXXXX"
     TESTPLAN_NAME = "自动化测试"
     SUITES_NAME = ("客户管理", "客户资金管理", "大额操作管理", "操作管理", "交易管理", "费率管理", "抵押品管理", "对账", "报表管理")
@@ -334,7 +352,7 @@ if __name__ == '__main__':
             time.sleep(3600)
 ```
 
-## 潦草收尾
+## 收尾及结果预览
 
 这个脚本已经超出预期的长度，之前没想让它放到服务器上一直跑，日志、错误处理都被省掉，实测一个网络超时整个脚本就会崩，不过秉着能用就行的原则暂时就写成这样不再多花费时间，以后有需要再完善。
 
@@ -357,4 +375,32 @@ def print(*arg):
     log_name = 'log.txt'  # 日志文件名称
     filename = os.path.join(output_dir, log_name)
     rewrite_print(*arg, file=open(filename, "a"))  # 写入文件
+```
+
+
+推送的消息（日志）预览：
+
+```
+current time is 23:26:15
+now run >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+今日新增 = 2
+缺陷总数 = 134
+未处理 = 2
+未回归 = 16
+
+项目：XXXX project_id = 1
+测试计划：自动化测试0.1 testplan_id = 118963
+测试版本：系统测试一轮 已执行：635 待执行：561
+各个模块执行情况：
+> 交易管理 id=78424	已执行：53  待执行：10
+> 大额操作管理 id=78422	已执行：35  待执行：64
+> 客户管理 id=77491	已执行：218  待执行：45
+> 客户资金管理 id=77492	已执行：101  待执行：126
+> 对账 id=78426	已执行：0  待执行：43
+> 报表管理 id=82184	已执行：35  待执行：94
+> 抵押品管理 id=78347	已执行：0  待执行：22
+> 操作管理 id=78423	已执行：74  待执行：130
+> 费率管理 id=77706	已执行：119  待执行：27
+当前进度 = 53.09%  较预期：+ 1.36%
+run over >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ```
