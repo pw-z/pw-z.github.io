@@ -7,10 +7,12 @@ import time
 """
 
 """参数区"""
-file_name = "招行测试用例.IRS.20210406"
+file_name = "testcase_template"
 excel_path = "./input/" + file_name + ".xlsx"  # 用例文件路径
-testsuite_name = "123123123"  # 用例集名称
+testsuite_name = "手续费核算"  # 用例集名称
 sheet_number = 2  # 处理前多少个sheet页面
+
+# TODO:
 # step_mode = 0  # 0=多步骤（需要执行步骤与期望结果一一对应） 1=单步骤
 
 workbook = xlrd.open_workbook(excel_path)
@@ -34,6 +36,8 @@ for sheet in all_sheet[:sheet_number]:  # 暂时只处理第一个sheet
     xml_file.write("\t<testsuite name = \"{0}\">\n".format(sheet.name))
 
     """打印case"""
+
+
     def print_case():
         tempString1 = sheet.cell_value(x, 4)  # 处理【摘要】字段中”<“与”&“的转义问题
         tempString1 = tempString1.replace("&", "&amp;")
@@ -87,6 +91,7 @@ for sheet in all_sheet[:sheet_number]:  # 暂时只处理第一个sheet
         print("\t\t\t\t</testcase>\n")
         xml_file.write("\t\t\t\t</steps>\n")
         xml_file.write("\t\t\t\t</testcase>\n\n")
+
 
     """sheet内按行处理"""
     for x in range(1, sheet_row_mount):  # 忽略表头
