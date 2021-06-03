@@ -1,114 +1,149 @@
-"""Excel2Xml tiny tool By 2087 @20210108"""
-
-# 导入模块
-# 注意xlrd需要1.2.0版本，2.0.1版本不支持xlsx
-# pip install xlrd==1.2.0
 import xlrd
- 
-excel_path = "/home/v/Downloads/OneDrive-2021-01-07/test.xls"
 
-# 打开文件方式1：
+excel_path = "C:/tttt.xlsx"
+
 workbook = xlrd.open_workbook(excel_path)
+print("DocInfo sheets number = " + str(workbook.nsheets) + "\n")
 
-# 获取工作簿中sheet表数量
-print("INFO~ sheets number = " + str(workbook.nsheets))
+all_sheet = workbook.sheets()
 
-#返回所有Sheet对象的list
-all_sheet = workbook.sheets()#Book(工作簿)对象方法
-print(all_sheet)
-
-#遍历返回的Sheet对象的list
-for each_sheet in all_sheet:
-    print(each_sheet)
-    print("sheet名称为：",each_sheet.name)#sheet对象方法
-
-
-#循环遍历每个sheet对象
-sheet_name = []
-sheet_row = []
-sheet_col = []
-for sheet in all_sheet:
-    sheet_name.append(sheet.name)
-    print("该Excel共有{0}个sheet,当前sheet名称为{1},该sheet共有{2}行,{3}列"
-          .format(len(all_sheet),sheet.name,sheet.nrows,sheet.ncols))
-    sheet_row.append(sheet.nrows)
-    sheet_col.append(sheet.ncols)
- 
-print(sheet_name)#获取sheet的名称
-print(sheet_row )#获取sheet对象的行数
-print(sheet_col)#获取sheet对象的列数
-
-
-
-
-
-print("hello 2087\n******************************\n\n\n")
-
-
-for sheet in all_sheet:
-    sheet_name.append(sheet.name)
-    print("该Excel共有{0}个sheet,当前sheet名称为{1},该sheet共有{2}行,{3}列\n\n"
-          .format(len(all_sheet),sheet.name,sheet.nrows,sheet.ncols))
-    for each_row in range(sheet.nrows):#循环打印每一行
-        print("当前为%s行："% each_row,type(each_row))
-        print(sheet.row_values(each_row),type(sheet.row_values(each_row)))
-        
-        
-
-print("hello 2087\n******************************\n\n\n\n\n")
-
-first_row_value = sheet.row_values(0)#打印指定的某一行
-print("第一行的数据为:%s" % first_row_value)
-
-"""
-xmlfile = open("./xml-file.xml","x")
-xmlfile.write("hello")
-xmlfile.close()
-"""
+print("<testsuite name = \"债券\">")
 
 for sheet in all_sheet:
     sheet_row_mount = sheet.nrows
     sheet_col_mount = sheet.ncols
-    print("该excel表的行列数为（{0},{1}）\n\n\n".format(sheet_row_mount,sheet_col_mount))
+    # print("该excel表的行列数为（{0},{1}）\n".format(sheet_row_mount,sheet_col_mount))
+    """打印sheet层级suite标签"""
+    print("<testsuite name = \"{0}\">".format(sheet.name))
 
-    suite = set()
-    for x in range(1,sheet.nrows):
-        if sheet.cell_value(x,1) not in suite:
-            suite.add(sheet.cell_value(x,1))
-            print("new suite")
-        
-            
-            
-            
-    """
-    for x in range(sheet_row_mount):
-        y = 0
-        while y < sheet_col_mount:
-            if sheet.cell_value(x,y):
-            	print(sheet.cell_value(x,y))
+    """sheet内按行处理"""
+    sub_sys = ""
+    sub_function = ""
+    for x in range(1, sheet_row_mount):  # 忽略表头
+
+        # 打印case（单步骤）
+        def print_case():
+            print("<testcase name = \"{0}\">".format(sheet.cell_value(x, 3)))
+            print("<summary>{0}</summary>".format(sheet.cell_value(x, 4)))
+
+            # 处理小于号的转义字符问题
+            temp = ""
+            t = sheet.cell_value(x, 5)
+            while "<" in str(t):
+                for index in range(len(t)):
+                    if t[index] == '<':
+                        temp = t[0:index] + "&lt;" + t[index + 1:]
+                        t = temp
+            print("<preconditions>{0}</preconditions>".format(temp))
+
+            print("<steps>")
+            print("<step>")
+            """step"""
+            print("<step_number>1</step_number>")
+
+            # 处理&的转义字符问题
+            # temp2 = ""
+            # t2 = sheet.cell_value(x, 6)
+            # while "&" in str(t2):
+            #     for index in range(len(t2)):
+            #         if t2[index] == '&':
+            #             temp2 = t[0:index] + "&amp;" + t[index + 1:]
+            #             t2 = temp2
+            print("<actions>{0}</actions>".format(sheet.cell_value(x, 6)))
+
+            print("<expectedresults>{0}</expectedresults>".format(sheet.cell_value(x, 7)))
+            """step"""
+            print("</step>")
+            print("</steps>")
+            print("</testcase>\n")
+
+
+        # 内部判断
+        def inner_judge(sub_function, flag):
+            if x < sheet_row_mount - 1:
+
+                if (flag == 1 or sheet.cell_value(x, 2) != sub_function ) and sheet.cell_value(x, 2) == sheet.cell_value(x + 1, 2):
+                    """功能序列头"""
+                    print("<testsuite name = \"{0}\">".format(sheet.cell_value(x, 2)))
+                    sub_function = sheet.cell_value(x, 2)
+
+                    # 打印整个case
+                    print_case()
+                elif flag == 2 or (sheet.cell_value(x, 2) == sub_function  and sheet.cell_value(x, 2) != sheet.cell_value(x + 1, 2)):
+                    """功能序列尾"""
+
+                    # 打印整个case
+                    print_case()
+
+                    print("</testsuite>")
+                    sub_function = sheet.cell_value(x, 2)
+                elif flag == 3 or (sheet.cell_value(x, 2) != sub_function and sheet.cell_value(x, 2) != sheet.cell_value(x + 1, 2)):
+                    """功能序列头+尾"""
+                    print("<testsuite name = \"{0}\">".format(sheet.cell_value(x, 2)))
+
+                    # 打印整个case
+                    print_case()
+
+                    print("</testsuite>")
+                    sub_function = sheet.cell_value(x, 2)
+                else:
+                    """功能序列中"""
+                    # 打印整个case
+                    print_case()
             else:
-                print("####")
-            y += 1
-        print("\n")
-    
-    flag = ""
-    for x in range(sheet_row_mount):
-        if flag == "":
-            flag = sheet.cell_value(x,1)
-            print("<testsuite name = \"{0}\">".format(sheet.cell_value(x,1)))
-        elif sheet.cell_value(x,1)!=flag:
-            print("</testsuite>\n")
-            print("<testsuite name = \"{0}\">".format(sheet.cell_value(x,1)))
-            flag = sheet.cell_value(x,1)
+                if sheet.cell_value(x, 2) != sub_function:
+                    print("<testsuite name = \"{0}\">".format(sheet.cell_value(x, 2)))
+
+                # 打印整个case
+                print_case()
+
+                print("</testsuite>")
+
+
+        # 外部判断（主干）
+        if x < sheet_row_mount - 1:
+            if sheet.cell_value(x, 1) != sub_sys and sheet.cell_value(x, 1) == sheet.cell_value(x + 1, 1):
+                """模块序列头"""
+                print("<testsuite name = \"{0}\">".format(sheet.cell_value(x, 1)))
+                # 内部判断
+                flag = 1
+                inner_judge(sub_function, flag)
+                sub_function = sheet.cell_value(x, 2)
+                sub_sys = sheet.cell_value(x, 1)
+            elif sheet.cell_value(x, 1) == sub_sys and sheet.cell_value(x, 1) != sheet.cell_value(x + 1, 1):
+                """模块序列尾"""
+                # 内部判断
+                flag = 2
+                inner_judge(sub_function, flag)
+                sub_function = sheet.cell_value(x, 2)
+                print("</testsuite>")
+                sub_sys = sheet.cell_value(x, 1)
+            elif sheet.cell_value(x, 1) != sub_sys and sheet.cell_value(x, 1) != sheet.cell_value(x + 1, 1):
+                """模块序列头+尾"""
+                print("<testsuite name = \"{0}\">".format(sheet.cell_value(x, 1)))
+                # 内部判断
+                flag = 3
+                inner_judge(sub_function, flag)
+                sub_function = sheet.cell_value(x, 2)
+                print("</testsuite>")
+                sub_sys = sheet.cell_value(x, 1)
+            else:
+                """模块序列中"""
+                # 内部判断
+                flag = 0
+                inner_judge(sub_function, flag)
+                sub_function = sheet.cell_value(x, 2)
+                sub_sys = sheet.cell_value(x, 1)
         else:
-            pass
-        y = 2
-        while y < sheet_col_mount:
-            if sheet.cell_value(x,y):
-            	print(sheet.cell_value(x,y))
-            else:
-                print("####")
-            y += 1
-    print("</testsuite>\n")
-    """
+            if sheet.cell_value(x, 1) != sub_sys:
+                print("<testsuite name = \"{0}\">".format(sheet.cell_value(x, 1)))
+            # 内部判断
+            flag = 0
+            inner_judge(sub_function, flag)
+            sub_function = sheet.cell_value(x, 2)
+            sub_sys = sheet.cell_value(x, 1)
+            print("</testsuite>")
 
+    print("</testsuite>")
+
+print("</testsuite>")
