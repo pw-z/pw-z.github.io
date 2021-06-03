@@ -2,21 +2,22 @@ import xlrd
 import time
 
 """
-0224更新：summary字段对换行符进行转义
+2021.02.24：summary字段对换行符进行转义
+2021.04.06：细节修改
 """
 
 """参数区"""
-file_name = "测试用例.20210401"
+file_name = "招行测试用例.IRS.20210406"
 excel_path = "./input/" + file_name + ".xlsx"  # 用例文件路径
-testsuite_name = "日终清算"  # 用例集名称
-sheet_number = 1  # 只处理前多少个sheet页面
+testsuite_name = "123123123"  # 用例集名称
+sheet_number = 2  # 处理前多少个sheet页面
 # step_mode = 0  # 0=多步骤（需要执行步骤与期望结果一一对应） 1=单步骤
 
 workbook = xlrd.open_workbook(excel_path)
 print("DocInfo sheets number = " + str(workbook.nsheets) + "\n")
 
 date_stamp = time.strftime("%Y%m%d-%H%M%S", time.localtime())
-output_file_path = "./output/TestCase-" + file_name + "-Export@" + date_stamp + ".xml"
+output_file_path = "./output/TestCase-" + file_name + "-Export@" + date_stamp + ".xml"  # 导出文件名自定义
 all_sheet = workbook.sheets()
 xml_file = open(output_file_path, "w", encoding="utf8")
 
