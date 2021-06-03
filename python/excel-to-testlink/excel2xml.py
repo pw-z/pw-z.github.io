@@ -1,6 +1,7 @@
 import xlrd
 
-excel_path = "C:/tttt.xlsx"
+excel_path = "C:/Users/pengwei.zhang/OneDrive/work/tttt.xlsx"
+
 
 workbook = xlrd.open_workbook(excel_path)
 print("DocInfo sheets number = " + str(workbook.nsheets) + "\n")
@@ -13,6 +14,7 @@ for sheet in all_sheet:
     sheet_row_mount = sheet.nrows
     sheet_col_mount = sheet.ncols
     # print("该excel表的行列数为（{0},{1}）\n".format(sheet_row_mount,sheet_col_mount))
+
     """打印sheet层级suite标签"""
     print("<testsuite name = \"{0}\">".format(sheet.name))
 
