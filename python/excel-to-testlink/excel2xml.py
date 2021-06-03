@@ -1,7 +1,13 @@
 import xlrd
+import time
+
+"""
+0224更新：summary字段对换行符进行转义
+"""
 
 """参数区"""
-excel_path = "input/20210304.xlsx"  # 用例文件路径
+file_name = "测试用例.20210401"
+excel_path = "./input/" + file_name + ".xlsx"  # 用例文件路径
 testsuite_name = "日终清算"  # 用例集名称
 sheet_number = 1  # 只处理前多少个sheet页面
 # step_mode = 0  # 0=多步骤（需要执行步骤与期望结果一一对应） 1=单步骤
@@ -9,8 +15,10 @@ sheet_number = 1  # 只处理前多少个sheet页面
 workbook = xlrd.open_workbook(excel_path)
 print("DocInfo sheets number = " + str(workbook.nsheets) + "\n")
 
+date_stamp = time.strftime("%Y%m%d-%H%M%S", time.localtime())
+output_file_path = "./output/TestCase-" + file_name + "-Export@" + date_stamp + ".xml"
 all_sheet = workbook.sheets()
-xml_file = open("./test.xml", "w", encoding="utf8")
+xml_file = open(output_file_path, "w", encoding="utf8")
 
 print("<testsuite name = \"{0}\">".format(testsuite_name))  # 用例集一级标题
 xml_file.write("<testsuite name = \"{0}\">\n".format(testsuite_name))
@@ -26,68 +34,19 @@ for sheet in all_sheet[:sheet_number]:  # 暂时只处理第一个sheet
 
     """打印case"""
     def print_case():
+        tempString1 = sheet.cell_value(x, 4)  # 处理【摘要】字段中”<“与”&“的转义问题
+        tempString1 = tempString1.replace("&", "&amp;")
+        tempString1 = tempString1.replace("<", "&lt;")
         print("\n\t\t\t\t<testcase name = \"{0}\">".format(sheet.cell_value(x, 3)))
-        print("\t\t\t\t<summary>{0}</summary>".format(sheet.cell_value(x, 4)))
+        print("\t\t\t\t<summary>{0}</summary>".format(tempString1))
         xml_file.write("\n\t\t\t\t<testcase name = \"{0}\">\n".format(sheet.cell_value(x, 3)))
-        xml_file.write("\t\t\t\t<summary>{0}</summary>\n".format(sheet.cell_value(x, 4)))
+        xml_file.write("\t\t\t\t<summary>{0}</summary>\n".format(tempString1))
 
-        t = sheet.cell_value(x, 5)  # 处理”<“与”&“的转义问题
-        t = t.replace("&", "&amp;")
-        t = t.replace("<", "&lt;")
-        print("\t\t\t\t<preconditions>{0}</preconditions>".format(t))
-        xml_file.write("\t\t\t\t<preconditions>{0}</preconditions>\n".format(t))
-        print("\t\t\t\t<steps>\n")
-        xml_file.write("\t\t\t\t<steps>\n\n")
-
-        # print("\t\t\t\t# -----------------------------------------------------------------打印具体操作步骤")
-        actions = sheet.cell_value(x, 6) + "\n"  # 末尾+换行符方便后面统一处理
-        results = sheet.cell_value(x, 7) + "\n"
-
-        actions = actions.replace("&", "&amp;")  # 处理”<“与”&“的转义问题
-        actions = actions.replace("<", "&lt;")
-        results = results.replace("&", "&amp;")
-        results = results.replace("<", "&lt;")
-
-        n1 = actions.count("\n")
-        n2 = results.count("\n")
-        if n1 != n2:
-            print("步骤动作与期望结果的条数对应不上")
-            print("总共有{0}个步骤，{1}个结果".format(n1, n2))
-        else:
-            for i in range(n1):
-                print("\t\t\t\t<step>")
-                print("\t\t\t\t<step_number>{0}</step_number>".format(i + 1))
-                print("\t\t\t\t<actions>{0}</actions>".format(actions[:actions.find("\n")]))
-                print("\t\t\t\t<expectedresults>{0}</expectedresults>".format(results[:results.find("\n")]))
-
-                xml_file.write("\t\t\t\t<step>\n")
-                xml_file.write("\t\t\t\t<step_number>{0}</step_number>\n".format(i + 1))
-                xml_file.write("\t\t\t\t<actions>{0}</actions>\n".format(actions[:actions.find("\n")]))
-                xml_file.write("\t\t\t\t<expectedresults>{0}</expectedresults>\n".format(results[:results.find("\n")]))
-
-                actions = actions[actions.find("\n") + 1:]
-                results = results[results.find("\n") + 1:]
-                print("\t\t\t\t</step>\n")
-                xml_file.write("\t\t\t\t</step>\n\n")
-        # print("\t\t\t\t# -----------------------------------------------------------------打印具体操作步骤")
-
-        print("\t\t\t\t</steps>")
-        print("\t\t\t\t</testcase>\n")
-        xml_file.write("\t\t\t\t</steps>\n")
-        xml_file.write("\t\t\t\t</testcase>\n\n")
-
-
-    def print_case2():
-        print("\n\t\t\t\t<testcase name = \"{0}\">".format(sheet.cell_value(x, 3)))
-        print("\t\t\t\t<summary>{0}</summary>".format(sheet.cell_value(x, 4)))
-        xml_file.write("\n\t\t\t\t<testcase name = \"{0}\">\n".format(sheet.cell_value(x, 3)))
-        xml_file.write("\t\t\t\t<summary>{0}</summary>\n".format(sheet.cell_value(x, 4)))
-
-        t = sheet.cell_value(x, 5)  # 处理”<“与”&“的转义问题
-        t = t.replace("&", "&amp;")
-        t = t.replace("<", "&lt;")
-        print("\t\t\t\t<preconditions>{0}</preconditions>".format(t))
-        xml_file.write("\t\t\t\t<preconditions>{0}</preconditions>\n".format(t))
+        tempString2 = sheet.cell_value(x, 5)  # 处理【前提条件】字段中”<“与”&“的转义问题
+        tempString2 = tempString2.replace("&", "&amp;")
+        tempString2 = tempString2.replace("<", "&lt;")
+        print("\t\t\t\t<preconditions>{0}</preconditions>".format(tempString2))
+        xml_file.write("\t\t\t\t<preconditions>{0}</preconditions>\n".format(tempString2))
         print("\t\t\t\t<steps>\n")
         xml_file.write("\t\t\t\t<steps>\n\n")
 
