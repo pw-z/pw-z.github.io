@@ -38,9 +38,49 @@ for sheet in all_sheet[:sheet_number]:  # 暂时只处理第一个sheet
     print("\t<testsuite name = \"{0}\">".format(sheet.name))  # 用例集二级标题：sheet页名称
     xml_file.write("\t<testsuite name = \"{0}\">\n".format(sheet.name))
 
-    """打印case"""
+    def print_steps_one_by_one(_actions, _results):
+        """每个操作步骤对应一个预期结果，需要excel中步骤与结果一一对应"""
+        n1 = _actions.count("\n")
+        n2 = _results.count("\n")
+        if n1 != n2:
+            print("步骤动作与期望结果的条数对应不上")
+            print("总共有{0}个步骤，{1}个结果".format(n1, n2))
+        else:
+            for i in range(n1):
+                print("\t\t\t\t<step>")
+                print("\t\t\t\t<step_number>{0}</step_number>".format(i + 1))
+                print("\t\t\t\t<actions>{0}</actions>".format(actions[:actions.find("\n")]))
+                print("\t\t\t\t<expectedresults>{0}</expectedresults>".format(results[:results.find("\n")]))
 
+                xml_file.write("\t\t\t\t<step>\n")
+                xml_file.write("\t\t\t\t<step_number>{0}</step_number>\n".format(i + 1))
+                xml_file.write("\t\t\t\t<actions>{0}</actions>\n".format(actions[:actions.find("\n")]))
+                xml_file.write("\t\t\t\t<expectedresults>{0}</expectedresults>\n".format(results[:results.find("\n")]))
 
+                actions = actions[actions.find("\n") + 1:]
+                results = results[results.find("\n") + 1:]
+                print("\t\t\t\t</step>\n")
+                xml_file.write("\t\t\t\t</step>\n\n")
+
+    def print_steps_as_one_step(_actions, _results):
+        """将步骤按照一个步骤创建"""
+        _actions = _actions.replace("\n", "<![CDATA[</p>]]>")
+        _results = _results.replace("\n", "<![CDATA[</p>]]>")
+
+        print("\t\t\t\t<step>")
+        print("\t\t\t\t<step_number>1</step_number>")
+        print("\t\t\t\t<actions>{0}</actions>".format(_actions))
+        print("\t\t\t\t<expectedresults>{0}</expectedresults>".format(_results))
+
+        xml_file.write("\t\t\t\t<step>\n")
+        xml_file.write("\t\t\t\t<step_number>1</step_number>\n")
+        xml_file.write("\t\t\t\t<actions>{0}</actions>\n".format(_actions))
+        xml_file.write("\t\t\t\t<expectedresults>{0}</expectedresults>\n".format(_results))
+
+        print("\t\t\t\t</step>\n")
+        xml_file.write("\t\t\t\t</step>\n\n")
+
+    # 打印case
     def print_case():
         tempString1 = sheet.cell_value(x, 4)  # 处理【摘要】字段中”<“与”&“的转义问题
         tempString1 = tempString1.replace("&", "&amp;")
@@ -67,27 +107,7 @@ for sheet in all_sheet[:sheet_number]:  # 暂时只处理第一个sheet
         results = results.replace("&", "&amp;")
         results = results.replace("<", "&lt;")
 
-        n1 = actions.count("\n")
-        n2 = results.count("\n")
-        if n1 != n2:
-            print("步骤动作与期望结果的条数对应不上")
-            print("总共有{0}个步骤，{1}个结果".format(n1, n2))
-        else:
-            for i in range(n1):
-                print("\t\t\t\t<step>")
-                print("\t\t\t\t<step_number>{0}</step_number>".format(i + 1))
-                print("\t\t\t\t<actions>{0}</actions>".format(actions[:actions.find("\n")]))
-                print("\t\t\t\t<expectedresults>{0}</expectedresults>".format(results[:results.find("\n")]))
-
-                xml_file.write("\t\t\t\t<step>\n")
-                xml_file.write("\t\t\t\t<step_number>{0}</step_number>\n".format(i + 1))
-                xml_file.write("\t\t\t\t<actions>{0}</actions>\n".format(actions[:actions.find("\n")]))
-                xml_file.write("\t\t\t\t<expectedresults>{0}</expectedresults>\n".format(results[:results.find("\n")]))
-
-                actions = actions[actions.find("\n") + 1:]
-                results = results[results.find("\n") + 1:]
-                print("\t\t\t\t</step>\n")
-                xml_file.write("\t\t\t\t</step>\n\n")
+        print_steps_one_by_one(actions, results)
         # print("\t\t\t\t# -----------------------------------------------------------------打印具体操作步骤")
 
         print("\t\t\t\t</steps>")
