@@ -11,7 +11,7 @@ pip install xlrd==1.2.0
 
 """参数区"""
 file_name = "testcase_template"
-excel_path = "./input/" + file_name + ".xlsx"  # 用例文件路径
+excel_path = "../input/" + file_name + ".xlsx"  # 用例文件路径
 testsuite_name = "手续费核算"  # 用例集名称
 sheet_number = 2  # 处理前多少个sheet页面
 
@@ -22,7 +22,7 @@ workbook = xlrd.open_workbook(excel_path)
 print("DocInfo sheets number = " + str(workbook.nsheets) + "\n")
 
 date_stamp = time.strftime("%Y%m%d-%H%M%S", time.localtime())
-output_file_path = "./output/TestCase-" + file_name + "-Export@" + date_stamp + ".xml"  # 导出文件名自定义
+output_file_path = "../output/TestCase-" + file_name + "-Export@" + date_stamp + ".xml"  # 导出文件名自定义
 all_sheet = workbook.sheets()
 xml_file = open(output_file_path, "w", encoding="utf8")
 
@@ -107,7 +107,7 @@ for sheet in all_sheet[:sheet_number]:  # 暂时只处理第一个sheet
         results = results.replace("&", "&amp;")
         results = results.replace("<", "&lt;")
 
-        print_steps_one_by_one(actions, results)
+        print_steps_as_one_step(actions, results)
         # print("\t\t\t\t# -----------------------------------------------------------------打印具体操作步骤")
 
         print("\t\t\t\t</steps>")
