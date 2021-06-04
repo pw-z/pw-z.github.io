@@ -49,16 +49,16 @@ for sheet in all_sheet[:sheet_number]:  # 暂时只处理第一个sheet
             for i in range(n1):
                 print("\t\t\t\t<step>")
                 print("\t\t\t\t<step_number>{0}</step_number>".format(i + 1))
-                print("\t\t\t\t<actions>{0}</actions>".format(actions[:actions.find("\n")]))
-                print("\t\t\t\t<expectedresults>{0}</expectedresults>".format(results[:results.find("\n")]))
+                print("\t\t\t\t<actions>{0}</actions>".format(_actions[:_actions.find("\n")]))
+                print("\t\t\t\t<expectedresults>{0}</expectedresults>".format(_results[:_results.find("\n")]))
 
                 xml_file.write("\t\t\t\t<step>\n")
                 xml_file.write("\t\t\t\t<step_number>{0}</step_number>\n".format(i + 1))
-                xml_file.write("\t\t\t\t<actions>{0}</actions>\n".format(actions[:actions.find("\n")]))
-                xml_file.write("\t\t\t\t<expectedresults>{0}</expectedresults>\n".format(results[:results.find("\n")]))
+                xml_file.write("\t\t\t\t<actions>{0}</actions>\n".format(_actions[:_actions.find("\n")]))
+                xml_file.write("\t\t\t\t<expectedresults>{0}</expectedresults>\n".format(_results[:_results.find("\n")]))
 
-                actions = actions[actions.find("\n") + 1:]
-                results = results[results.find("\n") + 1:]
+                _actions = _actions[_actions.find("\n") + 1:]
+                _results = _results[_results.find("\n") + 1:]
                 print("\t\t\t\t</step>\n")
                 xml_file.write("\t\t\t\t</step>\n\n")
 
