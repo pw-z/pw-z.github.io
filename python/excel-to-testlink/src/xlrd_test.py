@@ -4,9 +4,8 @@
 """
 Excel2Xml tiny tool By 2087 @20210108
 
-# 导入模块
-# 注意xlrd需要1.2.0版本，2.0.1版本不支持xlsx
-# pip install xlrd==1.2.0
+注意xlrd需要1.2.0版本，2.0.1版本不支持xlsx，
+pip install xlrd==1.2.0
 """
 
 import xlrd
