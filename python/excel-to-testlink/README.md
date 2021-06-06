@@ -1,3 +1,3 @@
-# Testlink导入工具
+# Testlink Cases Import Tool
 
 Testlink导入需要xml格式，此项目将指定模板的excel转换为能够导入到testlink中的xml文件

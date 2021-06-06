@@ -1,11 +1,17 @@
-"""Excel2Xml tiny tool By 2087 @20210108"""
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+Excel2Xml tiny tool By 2087 @20210108
 
 # 导入模块
 # 注意xlrd需要1.2.0版本，2.0.1版本不支持xlsx
 # pip install xlrd==1.2.0
+"""
+
 import xlrd
  
-excel_path = "/home/v/Downloads/OneDrive-2021-01-07/test.xls"
+excel_path = "../input/testcase_template.xls"
 
 # 打开文件方式1：
 workbook = xlrd.open_workbook(excel_path)
