@@ -26,6 +26,8 @@ int main(int argc, char const *argv[])
     char number_sum[101];
     for (int i = 0; i < lines; i++){
         cin>>number_a>>number_b;
+<<<<<<< HEAD:solution-of-HDU-OJ/1001.cpp
+=======
         for (int i = 100; i >= 0; i--){
             cout<<number_a[i];
             // if (number_a[i] != '\0' || number_b[i] != '\0'){
@@ -36,6 +38,7 @@ int main(int argc, char const *argv[])
         }
         
         cout<<number_a<<" + "<<number_b<<" = "<<number_sum<<endl<<endl;
+>>>>>>> d23117377215519a4f166d0efb9f224924f2a25f:cpp/solution-of-HDU-OJ/1001.cpp
     }
     
     return 0;
