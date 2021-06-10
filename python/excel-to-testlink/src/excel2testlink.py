@@ -8,13 +8,27 @@ Testlink测试用例的结构：唯一的根suite下面可以循环嵌套子suit
 """
 
 # TODO : python3.9使用xlrd会报错【AttributeError: 'ElementTree' object has no attribute 'getiterator'】
+import testlink
 
 import xlrd
 import logging
 
-filepath = r"../input/testcase_template2.xlsx"
+filepath = r"../input/testcase_template_new.xlsx"
 sheets = ['suitename1']
 logger = logging.getLogger()
+
+TESTLINK_SERVER_URL = "http://10.243.141.86:8089/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
+TESTLINK_API_KEY = "bdfabc369495f0cbb93a2be883bd3ab0"
+PROJECT_NAME = "TEST-PROJECT"
+TESTPLAN_NAME = "TEST-TESTPLAN"
+
+
+def get_projectid_by_name(tlapi, name):
+    projects = tlapi.getProjects()
+    for project in projects:
+        if project["name"] == name:
+            return project["id"]
+    return -1
 
 
 def get_column_index(sheet, column_name):
@@ -68,7 +82,13 @@ def main():
     for sheet in sheets:
         cases = read_excel(filepath, sheet)
         print(cases)
+    pid = get_projectid_by_name(PROJECT_NAME)
+    if pid == -1:  # project not exist, create one
+
 
 
 if __name__ == '__main__':
-    main()
+    # main()
+    tlapi = testlink.TestlinkAPIGeneric(TESTLINK_SERVER_URL, TESTLINK_API_KEY)
+    tlapi.createTestCase
+
