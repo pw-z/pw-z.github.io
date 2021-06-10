@@ -17,8 +17,8 @@ filepath = r"../input/testcase_template_new.xlsx"
 sheets = ['suitename1']
 logger = logging.getLogger()
 
-TESTLINK_SERVER_URL = "http://10.243.141.86:8089/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
-TESTLINK_API_KEY = "bdfabc369495f0cbb93a2be883bd3ab0"
+TESTLINK_SERVER_URL = "http://xxxx:8089/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
+TESTLINK_API_KEY = "bdfabc36949xxxxb0"
 PROJECT_NAME = "TEST-PROJECT"
 TESTPLAN_NAME = "TEST-TESTPLAN"
 
@@ -82,9 +82,10 @@ def main():
     for sheet in sheets:
         cases = read_excel(filepath, sheet)
         print(cases)
-    pid = get_projectid_by_name(PROJECT_NAME)
-    if pid == -1:  # project not exist, create one
-
+    project_id = get_projectid_by_name(PROJECT_NAME)
+    if project_id == -1:  # project not exist, create one
+        # TODO create project.
+        print("hi")
 
 
 if __name__ == '__main__':
