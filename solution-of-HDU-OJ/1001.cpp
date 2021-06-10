@@ -24,7 +24,6 @@ int main(int argc, char const *argv[])
     for (int i = 0; i < lines; i++)
     {
         cin>>number_a>>number_b;
-        cout<<number_b;
     }
     
     return 0;
