@@ -10,7 +10,7 @@ pip install xlrd==1.2.0
 """
 
 """参数区"""
-file_name = "testcase_template"
+file_name = "testcase_template_1"
 excel_path = "../input/" + file_name + ".xlsx"  # 用例文件路径
 testsuite_name = "手续费核算"  # 用例集名称
 sheet_number = 2  # 处理前多少个sheet页面

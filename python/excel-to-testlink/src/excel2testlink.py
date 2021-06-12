@@ -13,7 +13,7 @@ import testlink as tl
 import xlrd
 import logging
 
-filepath = r"../input/testcase_template2.xlsx"
+filepath = r"../input/testcase_template_2.xlsx"
 sheets = ['suitename1']
 logger = logging.getLogger()
 

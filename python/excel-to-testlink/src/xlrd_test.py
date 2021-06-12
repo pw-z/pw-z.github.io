@@ -10,7 +10,7 @@ pip install xlrd==1.2.0
 
 import xlrd
  
-excel_path = "../input/testcase_template.xls"
+excel_path = "../input/testcase_template_1.xls"
 
 # 打开文件方式1：
 workbook = xlrd.open_workbook(excel_path)
