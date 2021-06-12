@@ -3,9 +3,10 @@
 from __future__ import print_function  # 让python2 print 支持 python3 中使用end= 换行的语法
 from __future__ import division  # 让python2 /相除的时候,保留真实结果.小数
 
-import requests
 from jira import JIRA
 import testlink
+
+import requests
 import dingtalkchatbot as cb  # 已经从dingtalkchatbot包中抽离出来，在同级目录，有修改
 import time
 import sys
@@ -19,9 +20,9 @@ def login_jira_and_get_bug_status(export_file):
     :param export_file: 数据导出文件
     :return:
     """
-    JIRA_URL = "http://XXX.XXX.XXX.XXX:XXXX"
-    JIRA_USERNAME = "XXX"
-    JIRA_PASSWORD = "XXX"
+    JIRA_URL = "http://xxx:8079"
+    JIRA_USERNAME = "xxx"
+    JIRA_PASSWORD = "xxx."
 
     def print_all_project_info(_jira):
         for _project in _jira.projects():
@@ -40,7 +41,7 @@ def login_jira_and_get_bug_status(export_file):
 
     print("今日新增 = " + str(len(count_new_lastday)))
     print("缺陷总数 = " + str(len(count_all)))
-    print("未处理 = " + str(len(count_not_handle)))
+    print("未解决 = " + str(len(count_not_handle)))
     print("未回归 = " + str(len(count_not_verify)))
     export_file.write("今日新增 = " + str(len(count_new_lastday)) + "\n")
     export_file.write("缺陷总数 = " + str(len(count_all)) + "\n")
@@ -55,9 +56,9 @@ def login_testlink_and_get_case_status(export_file):
     :param export_file: 数据导出文件
     :return:
     """
-    TESTLINK_SERVER_URL = "http://XXXXXXXXXXXXX/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
-    TESTLINK_API_KEY = "XXXXX"
-    PROJECT_NAME = "XXXXX"
+    TESTLINK_SERVER_URL = "http://10.243.141.86:8089/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
+    TESTLINK_API_KEY = "bdfabc369495f0cbb93a2be883bd3ab0"
+    PROJECT_NAME = "IRS-招商银行"
     TESTPLAN_NAME = "自动化测试0.1"
 
     def print_all_project_info(tlapi):
@@ -239,7 +240,7 @@ def login_testlink_and_get_case_status(export_file):
     export_file.write("当前进度：%2.2f%%" % (progress * 100) + "  较预期：" + sign + "%2.2f%%" % (delta * 100) + "\n")
 
 
-def send_to_dingtalk_robot(msg, url=''):
+def send_to_dingtalk_robot(msg, url):
     """
     根据日期获取当日数据，推送到钉钉机器人
 
@@ -247,15 +248,12 @@ def send_to_dingtalk_robot(msg, url=''):
     :param url: 钉钉机器人webhook
     :return:
     """
-    # 测试群
-    ROBOT_URL = "https://oapi.dingtalk.com/robot/send?access_token=b56edda6af62fad4f3ec1aacc356f0643b1203dff40c1d26b4636c06086ed541"
-    # 利率互换群
-    # ROBOT_URL = "https://oapi.dingtalk.com/robot/send?access_token=0d6c0d7a1ad6d43977633afd6e397d615b8b319bbd5b5ece9b049de58561988f"
+
     with open(msg, 'r') as f:
         datas = f.read()
         # print("当日测试情况：\n" + datas)
         if len(datas) != 0:
-            bot = cb.DingtalkChatbot(ROBOT_URL)
+            bot = cb.DingtalkChatbot(url)
             bot.send_text(msg=datas)
         else:
             print("当日数据生成失败，已停止消息推送")
@@ -292,34 +290,18 @@ def getBeijinTime():
         return ltime
 
 
-def is18clock():
+def whats_the_time():
     current_time = time.strftime('%H:%M:%S', getBeijinTime())
-    print("current time is " + current_time)
-    # if current_time[:2] == "17" or current_time[:2] == "19":
-    if current_time[:2] == "18":
-        return True
+    print("current time is " + time.strftime('%Y.%m.%d %H:%M:%S', getBeijinTime()))
+    if current_time[:2] == "18":  # report time
+        return 1
+    elif current_time[:2] in ['00', '01', '02', '03', '04', '05', '06', '07', '22', '23']:  # rest time
+        print("not the working time, pass.")
+        return 0
+    elif current_time[3:5] == "00" or current_time[3:5] == "20" or current_time[3:5] == "40":  # working time
+        return 2
     else:
-        return False
-
-
-def main():
-    # current_date = time.strftime("%Y-%m-%d", time.localtime())  # 本地时间
-    current_date = time.strftime('%Y-%m-%d', getBeijinTime())  # 网络时间
-    filepath = "data/" + current_date + ".txt"
-    # print(filename)
-
-    with open(filepath, 'w') as f:
-        f.write("=" * 15 + "缺陷概况" + "=" * 15 + "\n")
-        login_jira_and_get_bug_status(f)
-        f.write("=" * 36 + "\n\n")
-        print()
-        f.write("=" * 15 + "用例概况" + "=" * 15 + "\n")
-        login_testlink_and_get_case_status(f)
-        f.write("=" * 36 + "\n\n")
-        # f.write("Timestamp # " + time.strftime("%Y.%m.%d %H:%M:%S", time.localtime()))  # 本地时间
-        f.write("Timestamp # " + time.strftime('%Y-%m-%d %H:%M:%S', getBeijinTime()))  # 网络时间
-
-    send_to_dingtalk_robot(filepath)
+        return 0
 
 
 rewrite_print = print
@@ -335,16 +317,65 @@ def print(*arg):
     rewrite_print(*arg, file=open(filename, "a"))  # 写入文件
 
 
+# 测试群
+ROBOT_URL_TEST = "https://oapi.dingtalk.com/robot/send?access_token=b56edda6af62fad4f3ec1aacc356f0643b1203dff40c1d26b4636c06086ed541"
+# 利率互换群
+ROBOT_URL = "https://oapi.dingtalk.com/robot/send?access_token=0d6c0d7a1ad6d43977633afd6e397d615b8b319bbd5b5ece9b049de58561988f"
+
+
+def main(type):
+    # current_date = time.strftime("%Y-%m-%d", time.localtime())  # 本地时间
+    current_date = time.strftime('%Y-%m-%d', getBeijinTime())  # 网络时间
+    filepath = "data/" + current_date + ".txt"
+    # print(filename)
+
+    with open(filepath, 'w') as f:
+        f.write("=" * 15 + "缺陷概况" + "=" * 15 + "\n")
+        print("=" * 15 + "缺陷概况" + "=" * 15)
+        login_jira_and_get_bug_status(f)
+        f.write("=" * 36 + "\n\n")
+        print("=" * 36 + "\n")
+        f.write("=" * 15 + "用例概况" + "=" * 15 + "\n")
+        print("=" * 15 + "用例概况" + "=" * 15)
+        login_testlink_and_get_case_status(f)
+        f.write("=" * 36 + "\n\n")
+        print("=" * 36 + "\n")
+        # f.write("Timestamp # " + time.strftime("%Y.%m.%d %H:%M:%S", time.localtime()))  # 本地时间
+        f.write("Timestamp # " + time.strftime('%Y-%m-%d %H:%M:%S', getBeijinTime()))  # 网络时间
+        print("Timestamp # " + time.strftime('%Y-%m-%d %H:%M:%S', getBeijinTime()))
+    if type == 1:
+        send_to_dingtalk_robot(filepath, ROBOT_URL)
+    elif type == 2:
+        send_to_dingtalk_robot(filepath, ROBOT_URL_TEST)
+
+
 if __name__ == '__main__':
     reload(sys)
     sys.setdefaultencoding('utf8')
 
     while True:
-        if is18clock():
-            print("run >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-            # main()
-            send_to_dingtalk_robot("data/testmsg.txt")
-            time.sleep(60)
+        try:
+            the_time = whats_the_time()
+        except Exception as e:
+            print("occur error while getting Beijing time")
+            print(e)
         else:
-            print("not run +++++++++++++++++++++++++++++++")
-            time.sleep(60)
+            try:
+                if the_time == 1:
+                    print("dey end hit")
+                    print("now run >>>>>>>>>>day end>>>>>>>>>>>>>>")
+                    main(1)
+                    print("run done >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
+                    time.sleep(3600)
+                elif the_time == 2:
+                    print("dey time hit")
+                    print("now run >>>>>>>>>>day time>>>>>>>>>>>>>")
+                    main(2)
+                    print("run done >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
+                    time.sleep(60)
+                else:
+                    print("not run +++++++++++++++++++++++++++++++\n")
+                    time.sleep(60)
+            except Exception as e:
+                print("occur error while getting status and push msg")
+                print(e)
