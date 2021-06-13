@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# by Pengwei Zhang
+# created by pwz.wiki 2021
 
 """
 把Excel管理的测试用例通过API导入到Testlink中，需要使用指定的Excel模板，见input目录testcase_template2.xlsx。
