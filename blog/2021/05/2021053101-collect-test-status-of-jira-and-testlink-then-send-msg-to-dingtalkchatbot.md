@@ -12,7 +12,9 @@
 
 <!-- /TOC -->
 
-老板让每天汇报一下当日测试情况，每天数数过于快乐，所以这里是一份Python脚本，定时获取Jira与Testlink上的指定数据并通过钉钉的自定义机器人接口推送到工作群里。原计划从零开始写请求继续熟悉爬虫的结构，时间有限+周末愉快，还是调包直接取数据了。
+这是一份Python脚本，定时获取Jira与Testlink上的指定数据并通过钉钉的自定义机器人接口推送到工作群里。
+
+*NOTE@2021.06.17 : 日常代码归档在`daily-code-filing`仓库，代码有更新，本文不再更新*
 
 相关文档地址：  
 * [钉钉开放平台@自定义机器人接入](https://developers.dingtalk.com/document/app/custom-robot-access)  
@@ -244,7 +246,7 @@ def login_testlink_and_get_case_status(export_file):
 
 ## 推送消息到钉钉机器人
 
-到钉钉群中新建一个自定义机器人后拿到webhook，也就是下面的`ROBOT_URL`，然后即可通过官方的python包傻瓜式发消息。`chatbot`这个包似乎很久没有维护了，Python2环境下会有小问题。这篇博客是脚本写完后好几天才整理的，这里第一个参数为啥要传文件路径而不是直接传要发送的消息，第二个参数为什么写上去了后面又把它晾那里没有用起来，不记得了，就这样吧。
+到钉钉群中新建一个自定义机器人后拿到webhook，也就是下面的`ROBOT_URL`，然后即可通过官方的python包傻瓜式发消息。`chatbot`这个包似乎很久没有维护了，Python2环境下会有小问题。
 
 ```python
 import dingtalkchatbot.chatbot as cb
@@ -272,9 +274,9 @@ def send_to_dingtalk_robot(msg, url=''):
 
 ## 定时获取数据并推送消息
 
-服务器由于测试需要，会频繁变更系统时间，所以此处又添加了一个方法`getBeijinTime()`获取网络时间（直接在网上找来的），再通过网络时间来实现定时发送。
+服务器由于测试需要，会频繁变更系统时间，所以此处添加方法`getBeijinTime()`获取网络时间（直接在网上找来的），再通过网络时间来实现定时发送。
 
-*如果服务器也不联网，那这里如何实现每天的定时任务？在初始某个时刻开始累加CPU时间？可以开一开脑洞。*
+*如果服务器也不联网，那这里如何实现每天的定时任务？*
 
 ```python
 import time
