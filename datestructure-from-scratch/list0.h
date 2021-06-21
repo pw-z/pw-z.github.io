@@ -22,9 +22,4 @@ public:
     bool isfull() const;
 };
 
-List::List(/* args */)
-{
-    
-}
-
 #endif
