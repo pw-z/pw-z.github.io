@@ -1,0 +1,235 @@
+<testsuite name = "手续费核算">
+	<testsuite name = "手续费核算">
+		<testsuite name = "手续费核算">
+			<testsuite name = "查询">
+
+				<testcase name = "界面要素检查">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.打开手续费核算界面，检查界面要素<![CDATA[</p>]]>2.点击划扣至招行，检查弹窗界面要素<![CDATA[</p>]]></actions>
+				<expectedresults>1.界面要素与需求文档一致<![CDATA[</p>]]>2.界面要素与需求文档一致<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "按默认条件查询">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.输入任意查询条件，点击查询<![CDATA[</p>]]>2.点击重置按钮，点击查询<![CDATA[</p>]]></actions>
+				<expectedresults>1.查询成功<![CDATA[</p>]]>2.数据更新成功，符合默认条件<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "按银行客户号查询">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.打开手续费核算界面<![CDATA[</p>]]>2.输入特定银行客户号，点击查询<![CDATA[</p>]]></actions>
+				<expectedresults>1.正确打开<![CDATA[</p>]]>2.查询成功，数据正确<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "按保证金户口号查询">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.打开手续费核算界面<![CDATA[</p>]]>2.输入特定保证金户口号，点击查询<![CDATA[</p>]]></actions>
+				<expectedresults>1.正确打开<![CDATA[</p>]]>2.查询成功，数据正确<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "按客户中文名称查询">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.打开手续费核算界面<![CDATA[</p>]]>2.输入特定客户中文名称，点击查询<![CDATA[</p>]]></actions>
+				<expectedresults>1.正确打开<![CDATA[</p>]]>2.查询成功，数据正确<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "按清算客户号查询">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.打开手续费核算界面<![CDATA[</p>]]>2.输入特定清算客户号，点击查询<![CDATA[</p>]]></actions>
+				<expectedresults>1.正确打开<![CDATA[</p>]]>2.查询成功，数据正确<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "按综合条件查询">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.打开手续费核算界面<![CDATA[</p>]]>2.输入若干组查询条件，点击查询<![CDATA[</p>]]></actions>
+				<expectedresults>1.正确打开<![CDATA[</p>]]>2.对于每组特定的条件，查询结果均正确<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "模糊查询功能校验">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.按照需求文档描述，对所有支持模糊查询的字段依次进行模糊查询，校验模糊查询是否正常可用，结果是否正确<![CDATA[</p>]]></actions>
+				<expectedresults>1.模糊查询功能正常可用，对应字段模糊查询结果正确<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "非法输入拦截校验">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.按照需求文档描述，对字段进行非法输入，点击查询<![CDATA[</p>]]></actions>
+				<expectedresults>1.输入非法的情况下查询不到数据，提示友好<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "查询结果排序校验">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.检查查询结果排序情况<![CDATA[</p>]]></actions>
+				<expectedresults>1.按照交易编码升序排序<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+			</testsuite>
+			<testsuite name = "数据校验">
+
+				<testcase name = "DE17数据读取正确">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.检查计费区间、计费日、支付日、应缴手续费（应缴给上清所）这四个字段的值是否正确<![CDATA[</p>]]></actions>
+				<expectedresults>1.数据正确<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "手续费上浮部分总额计算正确">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.根据每日DE18导入情况，计算应缴手续费总额，与界面显示的金额进行对比<![CDATA[</p>]]></actions>
+				<expectedresults>1.金额一致，计算正确<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "应缴手续费金额正确">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.检查应缴手续费金额是否与DE17文件中一致<![CDATA[</p>]]></actions>
+				<expectedresults>1.一致<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "季度内费率有变化，上浮计算正确">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.季度内费率乘数有变化，检查最后的上浮总额计算是否正确<![CDATA[</p>]]></actions>
+				<expectedresults>1.正确<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+
+				<testcase name = "费率为0，上浮计算正确">
+				<summary></summary>
+				<preconditions></preconditions>
+				<steps>
+
+				<step>
+				<step_number>1</step_number>
+				<actions>1.对某一客户设置其所有手续费率乘数为0，检查其上浮总额计算是否正确<![CDATA[</p>]]></actions>
+				<expectedresults>1.正确<![CDATA[</p>]]></expectedresults>
+				</step>
+
+				</steps>
+				</testcase>
+
+			</testsuite>
+		</testsuite>
+	</testsuite>
+</testsuite>
