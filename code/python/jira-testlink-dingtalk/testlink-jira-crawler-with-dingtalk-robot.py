@@ -1,10 +1,30 @@
+# _*_ coding:utf-8 _*_
+
+"""
+@Description:
+1. login_jira_and_get_bug_status
+2. login_testlink_and_get_case_status
+3. generate_test_status_log
+4. push_test_status_to_dingtalk_robot
+
+@Dependencies:
+python 3.8 (incompatible with python2)
+jira 3.0.1
+TestLink-API-Python-client	0.8.1
+requests	2.25.1
+"""
+
 from jira import JIRA
 import testlink
 import dingtalkchatbot.chatbot as cb
-
 import requests
 import time
 import os
+
+# 测试群
+ROBOT_URL_TEST = "https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# 工作群
+ROBOT_URL = "https://oapi.dingtalk.com/robot/send?access_token=0d6c0d7a1axxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx61988f"
 
 
 def login_jira_and_get_bug_status(export_file):
@@ -14,10 +34,9 @@ def login_jira_and_get_bug_status(export_file):
     :param export_file: 数据导出文件
     :return:
     """
-    # JIRA_URL = "http://XXX.XXX.XXX.XXX:XXXX"  # 内网
-    JIRA_URL = "http://XXX.XXX.XXX.XXX:XXXX"  # 外网
-    JIRA_USERNAME = "XXX"
-    JIRA_PASSWORD = "XXX"
+    JIRA_URL = "http://XXXXXXXXXXXXX:8079"
+    JIRA_USERNAME = "username"
+    JIRA_PASSWORD = "password"
 
     def print_all_project_info(_jira):
         for _project in _jira.projects():
@@ -25,9 +44,8 @@ def login_jira_and_get_bug_status(export_file):
 
     jira = JIRA(JIRA_URL, basic_auth=(JIRA_USERNAME, JIRA_PASSWORD))
     # print_all_project_info(jira)
-    project = jira.project('XXX')
-    count_new_lastday = jira.search_issues(
-        'project = "{0}" and created > "-12h"'.format(project.name), maxResults=-1)
+    project = jira.project('CMBIRS')
+    count_new_lastday = jira.search_issues('project = "{0}" and created > "-12h"'.format(project.name), maxResults=-1)
     count_all = jira.search_issues('project = "{0}"'.format(project.name), maxResults=-1)
     count_not_handle = jira.search_issues(
         'project = "{0}" AND status in ("In Progress", Reopened, New, REJECTED)'.format(project.name), maxResults=-1)
@@ -37,7 +55,7 @@ def login_jira_and_get_bug_status(export_file):
 
     print("今日新增 = " + str(len(count_new_lastday)))
     print("缺陷总数 = " + str(len(count_all)))
-    print("未处理 = " + str(len(count_not_handle)))
+    print("未解决 = " + str(len(count_not_handle)))
     print("未回归 = " + str(len(count_not_verify)))
     export_file.write("今日新增 = " + str(len(count_new_lastday)) + "\n")
     export_file.write("缺陷总数 = " + str(len(count_all)) + "\n")
@@ -52,12 +70,10 @@ def login_testlink_and_get_case_status(export_file):
     :param export_file: 数据导出文件
     :return:
     """
-    # TESTLINK_SERVER_URL = "http://XXX.XXX.XXX.XXX:XXXX/testlink/lib/api/xmlrpc/v1/xmlrpc.php"  # 内网
-    TESTLINK_SERVER_URL = "http://XXX.XXX.XXX.XXX:XXXX/testlink/lib/api/xmlrpc/v1/xmlrpc.php"  # 外网
-    TESTLINK_API_KEY = "XXX"
-    PROJECT_NAME = "IRS-XXX"
+    TESTLINK_SERVER_URL = "http://XXXXXXXXXXXXX:8089/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
+    TESTLINK_API_KEY = "XXXXXXXXXXXXXXX"
+    PROJECT_NAME = "XXXXXXXXXX"
     TESTPLAN_NAME = "自动化测试0.1"
-    SUITES_NAME = ("客户管理", "客户资金管理", "大额操作管理", "操作管理", "交易管理", "费率管理", "抵押品管理", "对账", "报表管理")
 
     def print_all_project_info(tlapi):
         projects = tlapi.getProjects()
@@ -157,16 +173,19 @@ def login_testlink_and_get_case_status(export_file):
                          "20210710": 0.9834,
                          "20210711": 0.9834,
                          "20210712": 1}
+        print(_progress)
+        print(progress_goal[_current_date])
         return _progress - progress_goal[_current_date]
 
     tlapi = testlink.TestlinkAPIGeneric(TESTLINK_SERVER_URL, TESTLINK_API_KEY)
     project_id = get_projectid_by_name(tlapi, PROJECT_NAME)
-    print("PROJECT: " + PROJECT_NAME + " Project id = " + project_id)
-    testplan_id = get_testplanid_by_project_id_and_planname(tlapi, project_id, TESTPLAN_NAME)
-    print("TESTPLAN:" + TESTPLAN_NAME + " Testplan id = " + testplan_id)
-    builds = tlapi.getBuildsForTestPlan(testplan_id)
+    print("项目：" + PROJECT_NAME + " project_id = " + project_id)
     # print_all_top_testsuites_by_projectid(tlapi, project_id)
+
+    testplan_id = get_testplanid_by_project_id_and_planname(tlapi, project_id, TESTPLAN_NAME)
+    print("测试计划：" + TESTPLAN_NAME + " testplan_id = " + testplan_id)
     # print_all_testsuites_by_planid(tlapi, testplan_id)
+    builds = tlapi.getBuildsForTestPlan(testplan_id)
     # print(builds[0]['name'] + " build id = " + builds[0]['id'])
 
     """
@@ -196,6 +215,7 @@ def login_testlink_and_get_case_status(export_file):
     # 按模块获取测试用例并对用例执行情况进行计数
     print("各个模块执行情况：")
     export_file.write("各个模块执行情况：" + "\n")
+    SUITES_NAME = ("客户管理", "客户资金管理", "大额操作管理", "操作管理", "交易管理", "费率管理", "抵押品管理", "对账", "报表管理")
     suites = tlapi.getTestSuitesForTestPlan(testplan_id)
     for suite in suites:
         count_passed = 0
@@ -203,7 +223,6 @@ def login_testlink_and_get_case_status(export_file):
         count_failed = 0
         count_not_run = 0
         if suite["name"] in SUITES_NAME:
-
             cases = tlapi.getTestCasesForTestSuite(suite["id"])
             # print(cases)
             for case in cases:
@@ -225,10 +244,11 @@ def login_testlink_and_get_case_status(export_file):
 
             _count_executed = count_passed + count_blocked + count_failed
             _count_not_run = count_not_run
-            print("> " + suite["name"] + " id=" + suite["id"] + "\t" + "已执行：" + str(_count_executed) + "  待执行：" + str(_count_not_run))
-            export_file.write("> " + suite["name"] + "\t" + "已执行：" + str(_count_executed) + "  待执行：" + str(_count_not_run) + "\n")
+            print("> " + suite["name"] + " id=" + suite["id"] + "\t" + "已执行：" + str(_count_executed) + "  待执行：" + str(
+                _count_not_run))
+            export_file.write(
+                "> " + suite["name"] + "\t" + "已执行：" + str(_count_executed) + "  待执行：" + str(_count_not_run) + "\n")
 
-    # 计算并输入当前测试用例的执行进度
     delta = calculate_progress(progress)
     sign = ''
     if delta > 0: sign = '+'
@@ -236,7 +256,7 @@ def login_testlink_and_get_case_status(export_file):
     export_file.write("当前进度：%2.2f%%" % (progress * 100) + "  较预期：" + sign + "%2.2f%%" % (delta * 100) + "\n")
 
 
-def send_to_dingtalk_robot(msg, url=''):
+def send_to_dingtalk_robot(msg, url):
     """
     根据日期获取当日数据，推送到钉钉机器人
 
@@ -245,23 +265,18 @@ def send_to_dingtalk_robot(msg, url=''):
     :return:
     """
 
-    ROBOT_URL = "https://oapi.dingtalk.com/robot/send?access_token=XXX"  # 测试群
-    # ROBOT_URL = "https://oapi.dingtalk.com/robot/send?access_token=XXX"  # 工作群
     with open(msg, 'r') as f:
         datas = f.read()
         # print("当日测试情况：\n" + datas)
         if len(datas) != 0:
-            bot = cb.DingtalkChatbot(ROBOT_URL)
+            bot = cb.DingtalkChatbot(url)
             bot.send_text(msg=datas)
         else:
-            print("empty msg file")
+            print("当日数据生成失败，已停止消息推送")
 
 
-def getBeijinTime():
-    """
-    获取北京时间
-    这个函数从这里copy的：https://www.cnblogs.com/xiexiaokui/p/14217254.html
-    """
+def get_beijing_time():
+    """这个函数从这里copy的：https://www.cnblogs.com/xiexiaokui/p/14217254.html"""
     # HTTP客户端运行的浏览器类型的详细信息。通过该头部信息，web服务器可以判断到当前HTTP请求的客户端浏览器类别。
     hea = {'User-Agent': 'Mozilla/5.0'}  # 站点服务器认为自己（浏览器）兼容Moailla的一些标准
     # 设置访问地址，我们分析到的；
@@ -293,57 +308,81 @@ def getBeijinTime():
 
 rewrite_print = print
 def print(*arg):
-    """
-    重写print函数，向日志文件中输出
-    这个重写copy自：https://blog.csdn.net/weixin_43046726/article/details/108999846
-    """
     rewrite_print(*arg)
-    output_dir = "log"
+    output_dir = "./log"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-        # print('新建log文件夹')
-    log_name = 'log.txt'  # 日志文件名称
-    filename = os.path.join(output_dir, log_name)
-    rewrite_print(*arg, file=open(filename, "a"))  # 写入文件
+    log_path = output_dir + '/log.txt'
+    with open(log_path, 'a') as f:
+        rewrite_print(*arg, file=f)  # 写入文件
 
 
-def is_18_clock():
-    current_time = time.strftime('%H:%M:%S', getBeijinTime())
-    print("current time is " + current_time)
-    # if current_time[3:5] == "10" or current_time[3:5] == "20" or current_time[3:5] == "30" or current_time[3:5] == "40" or current_time[3:5] == "50" or current_time[3:5] == "00":
-    if current_time[:2] == "18":
-        return True
-    else:
-        return False
-
-
-def main():
+def main(type):
     # current_date = time.strftime("%Y-%m-%d", time.localtime())  # 本地时间
-    current_date = time.strftime('%Y-%m-%d', getBeijinTime())  # 网络时间
-    filepath = "data/" + current_date + ".txt"
+    current_date = time.strftime('%Y-%m-%d', get_beijing_time())  # 网络时间
+    file_dir = "./data"
+    filepath = file_dir + "/" + current_date + ".txt"
     # print(filename)
-
+    if not os.path.exists(file_dir):
+        os.makedirs(file_dir)
     with open(filepath, 'w') as f:
         f.write("=" * 15 + "缺陷概况" + "=" * 15 + "\n")
+        print("=" * 15 + "缺陷概况" + "=" * 15)
         login_jira_and_get_bug_status(f)
         f.write("=" * 36 + "\n\n")
-        print()
+        print("=" * 36 + "\n")
         f.write("=" * 15 + "用例概况" + "=" * 15 + "\n")
+        print("=" * 15 + "用例概况" + "=" * 15)
         login_testlink_and_get_case_status(f)
         f.write("=" * 36 + "\n\n")
+        print("=" * 36 + "\n")
         # f.write("Timestamp # " + time.strftime("%Y.%m.%d %H:%M:%S", time.localtime()))  # 本地时间
-        f.write("Timestamp # " + time.strftime('%Y-%m-%d %H:%M:%S', getBeijinTime()))  # 网络时间
+        f.write("Timestamp # " + time.strftime('%Y-%m-%d %H:%M:%S', get_beijing_time()))  # 网络时间
+        print("Timestamp # " + time.strftime('%Y-%m-%d %H:%M:%S', get_beijing_time()))
+    if type == 1:
+        send_to_dingtalk_robot(filepath, ROBOT_URL)
+    elif type == 2:
+        send_to_dingtalk_robot(filepath, ROBOT_URL_TEST)
 
-    send_to_dingtalk_robot(filepath)
+
+def whats_the_time():
+    current_time = time.strftime('%H:%M:%S', get_beijing_time())
+    print("current time is " + time.strftime('%Y.%m.%d %H:%M:%S', get_beijing_time()))
+    if current_time[:2] == "18":  # report time
+        return 1
+    elif current_time[:2] in ['00', '01', '02', '03', '04', '05', '06', '07', '22', '23']:  # rest time
+        print("not the working time, pass.")
+        return 0
+    elif current_time[3:5] == "57" or current_time[3:5] == "20" or current_time[3:5] == "40":  # working time
+        return 2
+    else:
+        return 0
 
 
 if __name__ == '__main__':
     while True:
-        if is_18_clock():
-            print("now run >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-            main()
-            print("run over >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
-            time.sleep(3600)
+        try:
+            the_time = whats_the_time()
+        except Exception as e:
+            print("occur error while getting Beijing time")
+            print(e)
         else:
-            print("not the time --------------------------\n")
-            time.sleep(3600)
+            try:
+                if the_time == 1:
+                    print("dey end hit")
+                    print("now run >>>>>>>>>>day end>>>>>>>>>>>>>>")
+                    main(1)
+                    print("run done >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
+                    time.sleep(3600)
+                elif the_time == 2:
+                    print("dey time hit")
+                    print("now run >>>>>>>>>>day time>>>>>>>>>>>>>")
+                    main(2)
+                    print("run done >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
+                    time.sleep(60)
+                else:
+                    print("not run +++++++++++++++++++++++++++++++\n")
+                    time.sleep(60)
+            except Exception as e:
+                print("occur error while getting status and push msg")
+                print(e)

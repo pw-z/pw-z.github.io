@@ -56,9 +56,9 @@ def login_testlink_and_get_case_status(export_file):
     :param export_file: 数据导出文件
     :return:
     """
-    TESTLINK_SERVER_URL = "http://10.243.141.86:8089/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
-    TESTLINK_API_KEY = "bdfabc369495f0cbb93a2be883bd3ab0"
-    PROJECT_NAME = "IRS-招商银行"
+    TESTLINK_SERVER_URL = "http://XXXXXXXXXXXXXXXXXXXXX:8089/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
+    TESTLINK_API_KEY = "XXXXXXXXXXXX"
+    PROJECT_NAME = "XXX"
     TESTPLAN_NAME = "自动化测试0.1"
 
     def print_all_project_info(tlapi):
@@ -318,9 +318,9 @@ def print(*arg):
 
 
 # 测试群
-ROBOT_URL_TEST = "https://oapi.dingtalk.com/robot/send?access_token=b56edda6af62fad4f3ec1aacc356f0643b1203dff40c1d26b4636c06086ed541"
+ROBOT_URL_TEST = "https://oapi.dingtalk.com/robot/send?access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 # 利率互换群
-ROBOT_URL = "https://oapi.dingtalk.com/robot/send?access_token=0d6c0d7a1ad6d43977633afd6e397d615b8b319bbd5b5ece9b049de58561988f"
+ROBOT_URL = "https://oapi.dingtalk.com/robot/send?access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 
 def main(type):
