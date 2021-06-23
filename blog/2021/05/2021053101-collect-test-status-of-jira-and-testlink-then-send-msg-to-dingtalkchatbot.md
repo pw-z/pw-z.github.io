@@ -14,7 +14,7 @@
 
 这是一份Python脚本，定时获取Jira与Testlink上的指定数据并通过钉钉的自定义机器人接口推送到工作群里。
 
-*NOTE@2021.06.17 : 日常代码归档在`daily-code-filing`仓库，代码有更新，本文不再更新*
+*NOTE@2021.06.17 : 日常的琐碎代码归档在`../code`子目录下，代码有更新，本文不再更新*
 
 相关文档地址：  
 * [钉钉开放平台@自定义机器人接入](https://developers.dingtalk.com/document/app/custom-robot-access)  
