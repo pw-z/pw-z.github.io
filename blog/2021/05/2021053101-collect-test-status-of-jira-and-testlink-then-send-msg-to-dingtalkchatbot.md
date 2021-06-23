@@ -282,11 +282,9 @@ def send_to_dingtalk_robot(msg, url=''):
 import time
 import requests
 
-def getBeijinTime():
-    """
-    获取北京时间
-    这个方法来自这里：https://www.cnblogs.com/xiexiaokui/p/14217254.html
-    """
+
+def get_beijing_time():
+    """这个函数从这里copy的：https://www.cnblogs.com/xiexiaokui/p/14217254.html"""
     # HTTP客户端运行的浏览器类型的详细信息。通过该头部信息，web服务器可以判断到当前HTTP请求的客户端浏览器类别。
     hea = {'User-Agent': 'Mozilla/5.0'}  # 站点服务器认为自己（浏览器）兼容Moailla的一些标准
     # 设置访问地址，我们分析到的；
@@ -312,46 +310,81 @@ def getBeijinTime():
         beijinTimeStr = "%s-%s-%s %s:%s:%s" % (year, month, day, hrs, minute, sec)
         ltime = time.strptime(beijinTimeStr, "%Y-%m-%d %H:%M:%S")  # 返回结果是一个结构体
         # ltime：time.struct_time(tm_year=2020, tm_mon=10, tm_mday=9, tm_hour=9, tm_min=32, tm_sec=39, tm_wday=4, tm_yday=283, tm_isdst=-1)
+
         return ltime
 
-def is_18_clock():
-    current_time = time.strftime('%H:%M:%S', getBeijinTime())
-    print("current time is " + current_time)
-    if current_time[:2] == "18":
-        return True
-    else:
-        return False
 
-
-def main():
+def main(type):
     # current_date = time.strftime("%Y-%m-%d", time.localtime())  # 本地时间
-    current_date = time.strftime('%Y-%m-%d', getBeijinTime())  # 网络时间
-    filepath = "data/" + current_date + ".txt"
-
+    current_date = time.strftime('%Y-%m-%d', get_beijing_time())  # 网络时间
+    file_dir = "./data"
+    filepath = file_dir + "/" + current_date + ".txt"
+    # print(filename)
+    if not os.path.exists(file_dir):
+        os.makedirs(file_dir)
     with open(filepath, 'w') as f:
         f.write("=" * 15 + "缺陷概况" + "=" * 15 + "\n")
+        print("=" * 15 + "缺陷概况" + "=" * 15)
         login_jira_and_get_bug_status(f)
         f.write("=" * 36 + "\n\n")
-        print()
+        print("=" * 36 + "\n")
         f.write("=" * 15 + "用例概况" + "=" * 15 + "\n")
+        print("=" * 15 + "用例概况" + "=" * 15)
         login_testlink_and_get_case_status(f)
         f.write("=" * 36 + "\n\n")
+        print("=" * 36 + "\n")
         # f.write("Timestamp # " + time.strftime("%Y.%m.%d %H:%M:%S", time.localtime()))  # 本地时间
-        f.write("Timestamp # " + time.strftime('%Y-%m-%d %H:%M:%S', getBeijinTime()))  # 网络时间
+        f.write("Timestamp # " + time.strftime('%Y-%m-%d %H:%M:%S', get_beijing_time()))  # 网络时间
+        print("Timestamp # " + time.strftime('%Y-%m-%d %H:%M:%S', get_beijing_time()))
+    if type == 1:
+        send_to_dingtalk_robot(filepath, ROBOT_URL)
+    elif type == 2:
+        send_to_dingtalk_robot(filepath, ROBOT_URL_TEST)
 
-    send_to_dingtalk_robot(filepath)
+
+def whats_the_time():
+    current_time = time.strftime('%H:%M:%S', get_beijing_time())
+    print("current time is " + time.strftime('%Y.%m.%d %H:%M:%S', get_beijing_time()))
+    if current_time[:2] == "18":  # report time
+        return 1
+    elif current_time[:2] in ['00', '01', '02', '03', '04', '05', '06', '07', '22', '23']:  # rest time
+        print("not the working time, pass.")
+        return 0
+    elif current_time[3:5] == "57" or current_time[3:5] == "20" or current_time[3:5] == "40":  # working time
+        return 2
+    else:
+        return 0
 
 
 if __name__ == '__main__':
     while True:
-        if is_18_clock():
-            print("now run >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-            main()
-            print("run over >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
-            time.sleep(3600)
+        try:
+            the_time = whats_the_time()
+        except Exception as e:
+            print("occur error while getting Beijing time")
+            print(e)
         else:
-            print("not the time --------------------------\n")
-            time.sleep(3600)
+            try:
+                if the_time == 1:
+                    print("dey end hit")
+                    print("now run >>>>>>>>>>day end>>>>>>>>>>>>>>")
+                    main(1)
+                    print("run done >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
+                    time.sleep(3600)
+                elif the_time == 2:
+                    print("dey time hit")
+                    print("now run >>>>>>>>>>day time>>>>>>>>>>>>>")
+                    main(2)
+                    print("run done >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
+                    time.sleep(60)
+                else:
+                    print("not run +++++++++++++++++++++++++++++++\n")
+                    time.sleep(60)
+            except Exception as e:
+                print("occur error while getting status and push msg")
+                print(e)
+
+
 ```
 
 ## 收尾及结果预览
@@ -363,20 +396,16 @@ if __name__ == '__main__':
 ```python
 import os
 
+
 rewrite_print = print
 def print(*arg):
-    """
-    重写print函数，向日志文件中输出
-    这个重写copy自：https://blog.csdn.net/weixin_43046726/article/details/108999846
-    """
     rewrite_print(*arg)
-    output_dir = "log"
+    output_dir = "./log"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-        # print('新建log文件夹')
-    log_name = 'log.txt'  # 日志文件名称
-    filename = os.path.join(output_dir, log_name)
-    rewrite_print(*arg, file=open(filename, "a"))  # 写入文件
+    log_path = output_dir + '/log.txt'
+    with open(log_path, 'a') as f:
+        rewrite_print(*arg, file=f)
 ```
 
 

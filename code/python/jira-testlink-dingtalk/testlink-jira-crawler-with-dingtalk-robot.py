@@ -72,7 +72,7 @@ def login_testlink_and_get_case_status(export_file):
     """
     TESTLINK_SERVER_URL = "http://XXXXXXXXXXXXX:8089/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
     TESTLINK_API_KEY = "XXXXXXXXXXXXXXX"
-    PROJECT_NAME = "XXXXXXXXXX"
+    PROJECT_NAME = "XXXXXXXX"
     TESTPLAN_NAME = "自动化测试0.1"
 
     def print_all_project_info(tlapi):
