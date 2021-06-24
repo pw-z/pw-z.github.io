@@ -32,13 +32,41 @@ bool List::remove(int i) {
     return true;
 }
 
-void List::printlist() const{
+bool List::replace(int i, Item e) {
+    if (i<1 | i> _length)
+        return false;
+    items[i - 1] = e;
+    return true;
+}
+
+Item List::get(int i) {
+    if (i < 1 || i > _length) {
+        std::cout << "Error: invalid index";
+        // here must return something, but return what?
+        Item e;
+        return e;
+    } else
+        return items[i - 1];
+}
+
+int List::find(Item e) {
+    if (isempty())
+        return -1;
+    for (int i = 0; i < _length; ++i) {
+        if (items[i] == e)
+            return i + 1;
+    }
+    return -1;
+}
+
+void List::printlist() const {
     if (isempty()) {
-        std::cout << "Error: try to print an empty list!";
+        std::cout << "Error: try to print an empty list";
     } else {
         for (int i = 0; i < _length; i++) {
             std::cout << items[i] << " ";
         }
+        std::cout<<"\n";
     }
 }
 
