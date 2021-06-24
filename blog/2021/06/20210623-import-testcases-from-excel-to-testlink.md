@@ -11,6 +11,7 @@
     * [Init Test Porject](#init-test-porject)
     * [Handle Test Suite](#handle-test-suite)
     * [Import Test Cases](#import-test-cases)
+* [reference](#reference)
 
 <!-- /TOC -->
 
@@ -333,4 +334,7 @@ def import_test_cases(tlapi, project_id, cases):
     return count
 ```
 
+## reference
 
+[https://github.com/orenault/TestLink-API-Python-client/blob/master/example/TestLinkExampleGenericApi.pyj](https://github.com/orenault/TestLink-API-Python-client/blob/master/example/TestLinkExampleGenericApi.py)  
+[https://blog.csdn.net/weixin_41576586/article/details/89551395](https://blog.csdn.net/weixin_41576586/article/details/89551395)
