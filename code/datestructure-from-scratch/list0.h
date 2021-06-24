@@ -8,6 +8,7 @@ class List
 private:
     enum {MAX = 100};
     Item items[MAX];
+    int _length;
 public:
     List();
     bool insert(int i, Item e);
@@ -15,7 +16,7 @@ public:
     bool replace(int i, Item e);
     Item get(int i);
     int find(Item e);
-    void printlist();
+    void printlist() const;
     void destroylist();
     int length();
     bool isempty() const;
