@@ -1,7 +1,7 @@
 # Data Structure from Scratch: LinearList & Linkedlist
 
 - [Data Structure from Scratch: LinearList & Linkedlist](#data-structure-from-scratch-linearlist--linkedlist)
-  - [1 LinearList & Linkedlist from Scratch](#1-linearlist--linkedlist-from-scratch)
+  - [1 LinearList from Scratch](#1-linearlist-from-scratch)
     - [1.1 Basic LinearList](#11-basic-linearlist)
       - [1.1.1 header](#111-header)
       - [1.1.2 implement](#112-implement)
@@ -14,9 +14,11 @@
       - [1.3.1 header](#131-header)
       - [1.3.2 implement](#132-implement)
       - [1.3.3 test](#133-test)
-    - [1.4](#14)
+    - [1.4 Using Template Version](#14-using-template-version)
+      - [1.4.1 header & implement](#141-header--implement)
+      - [1.4.2 test](#142-test)
 
-## 1 LinearList & Linkedlist from Scratch
+## 1 LinearList from Scratch
 
 ### 1.1 Basic LinearList
 
@@ -647,4 +649,271 @@ get item >>8<< from list
 ```
 
 
-### 1.4 
+### 1.4 Using Template Version
+
+#### 1.4.1 header & implement
+
+```c++
+// list3.h
+#ifndef LIST3_H_
+#define LIST3_H_
+
+#include <cstring>
+#include <iostream>
+
+static int LIST_INIT_SIZE = 10;
+static int LIST_EXPAND_SIZE = 10;
+
+// typedef int Item;
+template<class Item>
+class List {
+   private:
+    Item* p_items_;
+    int capacity_;
+    int length_;
+    bool expand() {
+        Item* temp;
+        try {
+            temp = new Item[capacity_ + LIST_EXPAND_SIZE];
+            memcpy(temp, p_items_, length_ * sizeof(Item));
+        } catch (std::bad_alloc e) {
+            std::cout << "Error: allocate new memory failed.\n";
+            std::cout << e.what();
+            return false;
+        }
+        delete[] p_items_;
+        p_items_ = temp;
+        capacity_ += LIST_EXPAND_SIZE;
+        std::cout << "expanded from " << capacity_-LIST_EXPAND_SIZE << " to " << capacity_ << "\n";
+        return true;
+    };
+
+   public:
+    List();
+    ~List();  // new for `delete`
+    bool insert(int i, Item e);
+    bool remove(int i);
+    bool replace(int i, Item e);
+    bool get(int i, Item& e);  // little change
+    int find(Item e);
+    void printlist() const;
+    // void destroylist();
+    int length();
+    bool isempty() const;
+    bool isfull() const;
+};
+
+
+template<class Item>
+List<Item>::List() {
+    p_items_ = new Item[LIST_INIT_SIZE];
+    capacity_ = LIST_INIT_SIZE;
+    length_ = 0;
+}
+
+template<class Item>
+List<Item>::~List() {
+    delete[] p_items_;
+}
+
+template<class Item>
+bool List<Item>::insert(int i, Item e) {  // updated
+    if (isfull()) {
+        if (!expand())
+            return false;
+    }
+    for (int index = length_; index >= i; --index) {
+        p_items_[index] = p_items_[index - 1];
+    }
+    p_items_[i - 1] = e;
+    ++length_;
+    return true;
+}
+
+template<class Item>
+bool List<Item>::remove(int i) {
+    if (i < 1 || i > length_)
+        return false;
+    if (i == length_) {
+        --length_;
+        return true;
+    }
+    for (int index = i; index <= length_; ++index) {
+        p_items_[index - 1] = p_items_[index];
+    }
+    --length_;
+    return true;
+}
+
+template<class Item>
+bool List<Item>::replace(int i, Item e) {
+    if (i<1 | i> length_)
+        return false;
+    p_items_[i - 1] = e;
+    return true;
+}
+
+template<class Item>
+bool List<Item>::get(int i, Item& e) {  // updated
+    if (i < 1 || i > length_) {
+        std::cout << "Error: invalid index\n";
+        // here must return something
+        return false;
+    } else {
+        e = p_items_[i - 1];
+        return true;
+    }
+}
+
+template<class Item>
+int List<Item>::find(Item e) {
+    if (isempty())
+        return -1;
+    for (int i = 0; i < length_; ++i) {
+        if (p_items_[i] == e)
+            return i + 1;
+    }
+    return -1;
+}
+
+template<class Item>
+void List<Item>::printlist() const {  // updated
+    if (isempty()) {
+        std::cout << "Error: try to print an empty list\n";
+    } else {
+        for (int i = 0; i < length_; i++) {
+            if (i != 0 && i % 10 == 0)
+                std::cout << "\n";
+            std::cout << p_items_[i] << " ";
+        }
+        std::cout << "\n";
+    }
+}
+
+template<class Item>
+int List<Item>::length() {
+    return length_;
+}
+
+template<class Item>
+bool List<Item>::isempty() const {
+    if (length_ == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+template<class Item>
+bool List<Item>::isfull() const {
+    if (length_ == capacity_) {
+        return true;
+    } else {
+        return false;
+    }
+}
+#endif
+```
+
+#### 1.4.2 test
+
+```c++
+// list3_test.cpp
+#include "list3.h"
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char const* argv[]) {
+
+    List<int> mylist = List<int>();
+    cout << "current list length = " << mylist.length() << endl;
+    mylist.printlist();
+    for (int i = 0; i < 21; i++) {
+        mylist.insert(1, 1);
+        // cout << "current list length = " << mylist.length() << endl;
+        // mylist.printlist();
+    }
+    cout << "current list length = " << mylist.length() << endl;
+    mylist.printlist();
+    mylist.replace(8, 8);
+    mylist.replace(20, 20);
+    mylist.remove(21);
+    cout << "current list length = " << mylist.length() << endl;
+    mylist.printlist();
+    cout << "find 8 in list at " << mylist.find(8) << endl;
+    cout << "find 20 in list at " << mylist.find(20) << endl;
+    int myitem1;
+    mylist.get(8, myitem1);
+    cout << "get item '" << myitem1 << "' at 8 "<< endl;
+    mylist.get(20, myitem1);
+    cout << "get item '" << myitem1 << "' at 20 "<< endl;
+    
+    cout<<"\n\n\n";
+
+    List<char> mylist2;
+    cout << "current list length = " << mylist2.length() << endl;
+    mylist2.printlist();
+    for (int i = 0; i < 21; i++) {
+        mylist2.insert(1, '#');
+        // cout << "current list length = " << mylist.length() << endl;
+        // mylist.printlist();
+    }
+    cout << "current list length = " << mylist2.length() << endl;
+    mylist2.printlist();
+    mylist2.replace(8, '*');
+    mylist2.replace(20, '$');
+    mylist2.remove(21);
+    cout << "current list length = " << mylist2.length() << endl;
+    mylist2.printlist();
+    cout << "find '*' in list at " << mylist2.find('*') << endl;
+    cout << "find '$' in list at " << mylist2.find('$') << endl;
+    char myitem2;
+    mylist2.get(8, myitem2);
+    cout << "get item '" << myitem2 << "' at 8 "<< endl;
+    mylist2.get(20, myitem2);
+    cout << "get item '" << myitem2 << "' at 20 "<< endl;
+    return 0;
+}
+/*
+$ ./a.exe
+current list length = 0
+Error: try to print an empty list
+expanded from 10 to 20
+expanded from 20 to 30
+current list length = 21
+1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1
+1
+current list length = 20
+1 1 1 1 1 1 1 8 1 1
+1 1 1 1 1 1 1 1 1 20
+find 8 in list at 8
+find 20 in list at 20
+get item '8' at 8
+get item '20' at 20
+
+
+
+current list length = 0
+Error: try to print an empty list
+expanded from 10 to 20
+expanded from 20 to 30
+current list length = 21
+# # # # # # # # # #
+# # # # # # # # # #
+#
+current list length = 20
+# # # # # # # * # #
+# # # # # # # # # $
+find '*' in list at 8
+find '$' in list at 20
+get item '*' at 8
+get item '$' at 20
+
+*/
+```
+
+
+## 1.2 LinkedList Based on LinearList
+
