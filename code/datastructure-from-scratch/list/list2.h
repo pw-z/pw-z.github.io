@@ -6,11 +6,12 @@ typedef int Item;
 class List
 {
 private:
-    enum {MAX = 100};
-    Item items[MAX];
+    int INIT_SIZE = 10;
+    Item * p_items;
     int _length;
 public:
     List();
+    ~List();
     bool insert(int i, Item e);
     bool remove(int i);
     bool replace(int i, Item e);

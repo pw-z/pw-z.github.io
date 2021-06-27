@@ -1,19 +1,23 @@
-#include "list0.h"
+#include "list2.h"
 #include <iostream>
 
 List::List() {
+    p_items = new Item[INIT_SIZE];
     _length = 0;
 }
 
+List::~List(){
+    delete p_items;
+}
+
 bool List::insert(int i, Item e) {
-    if (i < 1 || i > _length + 1)
-        return false;
-    if (isfull())
-        return false;
-    for (int index = _length; index >= i; --index) {
-        items[index] = items[index - 1];
+    if (isfull()){
+        //
     }
-    items[i - 1] = e;
+    for (int index = _length; index >= i; --index) {
+        p_items[index] = p_items[index - 1];
+    }
+    p_items[i - 1] = e;
     ++_length;
     return true;
 }
@@ -26,7 +30,7 @@ bool List::remove(int i) {
         return true;
     }
     for (int index = i; index <= _length; ++index) {
-        items[index - 1] = items[index];
+        p_items[index - 1] = p_items[index];
     }
     --_length;
     return true;
@@ -35,7 +39,7 @@ bool List::remove(int i) {
 bool List::replace(int i, Item e) {
     if (i<1 | i> _length)
         return false;
-    items[i - 1] = e;
+    p_items[i - 1] = e;
     return true;
 }
 
@@ -46,14 +50,14 @@ Item List::get(int i) {
         Item e;
         return e;
     } else
-        return items[i - 1];
+        return p_items[i - 1];
 }
 
 int List::find(Item e) {
     if (isempty())
         return -1;
     for (int i = 0; i < _length; ++i) {
-        if (items[i] == e)
+        if (p_items[i] == e)
             return i + 1;
     }
     return -1;
@@ -64,7 +68,7 @@ void List::printlist() const {
         std::cout << "Error: try to print an empty list";
     } else {
         for (int i = 0; i < _length; i++) {
-            std::cout << items[i] << " ";
+            std::cout << p_items[i] << " ";
         }
         std::cout<<"\n";
     }
