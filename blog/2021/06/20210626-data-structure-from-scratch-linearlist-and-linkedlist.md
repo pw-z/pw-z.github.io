@@ -10,7 +10,11 @@
       - [1.2.1 exception class](#121-exception-class)
       - [1.2.2 header & implement](#122-header--implement)
       - [1.2.3 test](#123-test)
-    - [1.3](#13)
+    - [1.3 Dynamic Memory Version](#13-dynamic-memory-version)
+      - [1.3.1 header](#131-header)
+      - [1.3.2 implement](#132-implement)
+      - [1.3.3 test](#133-test)
+    - [1.4](#14)
 
 ## 1 LinearList & Linkedlist from Scratch
 
