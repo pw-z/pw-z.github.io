@@ -48,6 +48,8 @@ public:
 #endif
 ```
 
+This list can only store `int` type value.
+
 #### 1.1.2 implement
 
 ```c++
@@ -431,5 +433,214 @@ This is an empty list!
 ### 1.3 Dynamic Memory Version
 
 #### 1.3.1 header
+
+```c++
+// list2.h
+#ifndef LIST2_H_
+#define LIST2_H_
+
+#include <cstring>
+#include <iostream>
+typedef int Item;
+
+static int LIST_INIT_SIZE = 10;
+static int LIST_EXPAND_SIZE = 10;
+
+class List {
+   private:
+    Item* p_items_;
+    int capacity_;
+    int length_;
+    bool expand() {
+        Item* temp;
+        try {
+            temp = new Item[capacity_ + LIST_EXPAND_SIZE];
+            memcpy(temp, p_items_, length_ * sizeof(Item));
+        } catch (std::bad_alloc e) {
+            std::cout << "Error: allocate new memory failed.\n";
+            std::cout << e.what();
+            return false;
+        }
+        delete[] p_items_;
+        p_items_ = temp;
+        capacity_ += LIST_EXPAND_SIZE;
+        std::cout << "expanded from " << capacity_-LIST_EXPAND_SIZE << " to " << capacity_ << "\n";
+        return true;
+    };
+
+   public:
+    List();
+    ~List();  // new for `delete`
+    bool insert(int i, Item e);
+    bool remove(int i);
+    bool replace(int i, Item e);
+    bool get(int i, Item& e);  // little change
+    int find(Item e);
+    void printlist() const;
+    // void destroylist();
+    int length();
+    bool isempty() const;
+    bool isfull() const;
+};
+
+#endif
+```
 #### 1.3.2 implement
+
+```c++
+// list2.cpp
+#include "list2.h"
+#include <iostream>
+
+List::List() {
+    p_items_ = new Item[LIST_INIT_SIZE];
+    capacity_ = LIST_INIT_SIZE;
+    length_ = 0;
+}
+
+List::~List() {
+    delete[] p_items_;
+}
+
+bool List::insert(int i, Item e) {  // updated
+    if (isfull()) {
+        if (!expand())
+            return false;
+    }
+    for (int index = length_; index >= i; --index) {
+        p_items_[index] = p_items_[index - 1];
+    }
+    p_items_[i - 1] = e;
+    ++length_;
+    return true;
+}
+
+bool List::remove(int i) {
+    if (i < 1 || i > length_)
+        return false;
+    if (i == length_) {
+        --length_;
+        return true;
+    }
+    for (int index = i; index <= length_; ++index) {
+        p_items_[index - 1] = p_items_[index];
+    }
+    --length_;
+    return true;
+}
+
+bool List::replace(int i, Item e) {
+    if (i<1 | i> length_)
+        return false;
+    p_items_[i - 1] = e;
+    return true;
+}
+
+bool List::get(int i, Item& e) {  // updated
+    if (i < 1 || i > length_) {
+        std::cout << "Error: invalid index\n";
+        // here must return something
+        return false;
+    } else {
+        e = p_items_[i - 1];
+        return true;
+    }
+}
+
+int List::find(Item e) {
+    if (isempty())
+        return -1;
+    for (int i = 0; i < length_; ++i) {
+        if (p_items_[i] == e)
+            return i + 1;
+    }
+    return -1;
+}
+
+void List::printlist() const {  // updated
+    if (isempty()) {
+        std::cout << "Error: try to print an empty list\n";
+    } else {
+        for (int i = 0; i < length_; i++) {
+            if (i != 0 && i % 10 == 0)
+                std::cout << "\n";
+            std::cout << p_items_[i] << " ";
+        }
+        std::cout << "\n";
+    }
+}
+
+int List::length() {
+    return length_;
+}
+
+bool List::isempty() const {
+    if (length_ == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool List::isfull() const {
+    if (length_ == capacity_) {
+        return true;
+    } else {
+        return false;
+    }
+}
+```
+
 #### 1.3.3 test
+
+```c++
+// list2_test.cpp
+#include "list2.h"
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char const* argv[]) {
+    List mylist = List();
+    cout << "current list length = " << mylist.length() << endl;
+    mylist.printlist();
+    for (int i = 0; i < 21; i++) {
+        mylist.insert(1, 1);
+        // cout << "current list length = " << mylist.length() << endl;
+        // mylist.printlist();
+    }
+    cout << "current list length = " << mylist.length() << endl;
+    mylist.printlist();
+    mylist.replace(8, 8);
+    mylist.replace(20, 20);
+    mylist.remove(21);
+    cout << "current list length = " << mylist.length() << endl;
+    mylist.printlist();
+    cout << "find 8 in list at " << mylist.find(8) << endl;
+    cout << "find 20 in list at " << mylist.find(20) << endl;
+    Item myitem;
+    mylist.get(8, myitem);
+    cout << "get item >>" << myitem << "<< from list" << endl;
+    return 0;
+}
+/*
+$ ./a.exe
+current list length = 0
+Error: try to print an empty list
+expanded from 10 to 20
+expanded from 20 to 30
+current list length = 21
+1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1
+1
+current list length = 20
+1 1 1 1 1 1 1 8 1 1
+1 1 1 1 1 1 1 1 1 20
+find 8 in list at 8
+find 20 in list at 20
+get item >>8<< from list
+*/
+```
+
+
+### 1.4 
