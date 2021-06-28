@@ -11,7 +11,7 @@ template <class Item>
 class Node {
    public:
     Item item;
-    Item* next;
+    Node* next;
 };
 
 template <class Item>
@@ -38,26 +38,43 @@ class List {
 template <class Item>
 List<Item>::List() {
     head = new Node<Item>;
-    head->item = 999;
-    std::cout<<"head location: " << head << "\n";
+    head->next = NULL;
+    // std::cout<<"head location: " << head << "\n";
+    std::cout<<head->next;
     length_ = 0;
 }
 
 template <class Item>
 List<Item>::~List() {
     // for item in length, delete node->next
-    std::cout<<"head item: " << head->item<<"\n";
+    Node<Item>* p = head->next;
+    while (p != NULL) {
+        Node<Item>* q = p;
+        p = p->next;
+        delete q;
+    }
     delete head;
 }
 
-// template <class Item>
-// bool List<Item>::insert(int i, Item e) {
-//     if (i < 1 || i > length_ + 1)
-//         return false;
+template <class Item>
+bool List<Item>::insert(int i, Item e) {
+    if (i < 1 || i > length_ + 1)
+        return false;
 
-//     ++length_;
-//     return true;
-// }
+    Node<Item>* p = head;
+    while (i) {
+        p = p->next;
+        --i;
+    }
+
+    Node<Item> node = new Node<Item>();
+    node.item = e;
+    node.next = p->next;
+    p->next = &node;
+
+    ++length_;
+    return true;
+}
 
 // template <class Item>
 // bool List<Item>::remove(int i) {
@@ -105,33 +122,33 @@ List<Item>::~List() {
 //     return -1;
 // }
 
-// template <class Item>
-// void List<Item>::printlist() const {  // updated
-//     if (isempty()) {
-//         std::cout << "Error: try to print an empty list\n";
-//     } else {
-//         for (int i = 0; i < length_; i++) {
-//             if (i != 0 && i % 10 == 0)
-//                 std::cout << "\n";
-//             std::cout << p_items_[i] << " ";
-//         }
-//         std::cout << "\n";
-//     }
-// }
+template <class Item>
+void List<Item>::printlist() const {  // updated
+    if (isempty()) {
+        std::cout << "Error: try to print an empty list\n";
+    } else {
+        Node<Item>* p = head->next;
+        while (p != NULL) {
+            std::cout << p->item << " ";
+            p = p->next;
+        }
+        std::cout << "\n";
+    }
+}
 
 // template <class Item>
 // int List<Item>::length() {
 //     return length_;
 // }
 
-// template <class Item>
-// bool List<Item>::isempty() const {
-//     if (length_ == 0) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
+template <class Item>
+bool List<Item>::isempty() const {
+    if (length_ == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 // template <class Item>
 // bool List<Item>::isfull() const {
@@ -141,4 +158,16 @@ List<Item>::~List() {
 //         return false;
 //     }
 // }
+
+int main(int argc, char const *argv[])
+{
+    using std::cout;
+
+    List<int> mylist = List<int>();
+    mylist.printlist();
+    mylist.insert(1, 4);
+    mylist.printlist();
+    return 0;
+}
+
 #endif
