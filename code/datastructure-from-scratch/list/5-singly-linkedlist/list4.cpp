@@ -32,7 +32,7 @@ class List {
     // void destroylist();
     int length();
     bool isempty() const;
-    bool isfull() const;
+    // bool isfull() const;
 };
 
 template <class Item>
@@ -40,7 +40,6 @@ List<Item>::List() {
     head = new Node<Item>;
     head->next = NULL;
     // std::cout<<"head location: " << head << "\n";
-    std::cout<<head->next;
     length_ = 0;
 }
 
@@ -62,65 +61,88 @@ bool List<Item>::insert(int i, Item e) {
         return false;
 
     Node<Item>* p = head;
-    while (i) {
+    while (--i) {
         p = p->next;
-        --i;
     }
 
-    Node<Item> node = new Node<Item>();
-    node.item = e;
-    node.next = p->next;
-    p->next = &node;
+    Node<Item> * node = new Node<Item>();
+    node->item = e;
+    node->next = p->next;
+    p->next = node;
 
     ++length_;
     return true;
 }
 
-// template <class Item>
-// bool List<Item>::remove(int i) {
-//     if (i < 1 || i > length_)
-//         return false;
-//     if (i == length_) {
-//         --length_;
-//         return true;
-//     }
-//     for (int index = i; index <= length_; ++index) {
-//         p_items_[index - 1] = p_items_[index];
-//     }
-//     --length_;
-//     return true;
-// }
+template <class Item>
+bool List<Item>::remove(int i) {
+    if (i < 1 || i > length_)
+        return false;
+    
+    Node<Item>* p = head;
+    Node<Item>* temp;
+    while (--i)
+    {
+        p = p->next;
+    }
+    temp = p->next;
+    p->next = temp->next;
+    delete temp;
+    --length_;
 
-// template <class Item>
-// bool List<Item>::replace(int i, Item e) {
-//     if (i<1 | i> length_)
-//         return false;
-//     p_items_[i - 1] = e;
-//     return true;
-// }
+    return true;
+}
 
-// template <class Item>
-// bool List<Item>::get(int i, Item& e) {
-//     if (i < 1 || i > length_) {
-//         std::cout << "Error: invalid index\n";
-//         // here must return something
-//         return false;
-//     } else {
-//         e = p_items_[i - 1];
-//         return true;
-//     }
-// }
+template <class Item>
+bool List<Item>::replace(int i, Item e) {
+    if (i<1 | i> length_)
+        return false;
+    
+    Node<Item>* p = head;
+    while (i--)
+    {
+        p = p->next;
+    }
+    p->item = e;
+    
+    return true;
+}
 
-// template <class Item>
-// int List<Item>::find(Item e) {
-//     if (isempty())
-//         return -1;
-//     for (int i = 0; i < length_; ++i) {
-//         if (p_items_[i] == e)
-//             return i + 1;
-//     }
-//     return -1;
-// }
+template <class Item>
+bool List<Item>::get(int i, Item& e) {
+    if (i < 1 || i > length_) {
+        std::cout << "Error: invalid index\n";
+        // here must return something
+        return false;
+    } else {
+        Node<Item>* p = head;
+        while (i--) {
+            p = p->next;
+        }
+        e = p->item;
+        
+        return true;
+    }
+}
+
+template <class Item>
+int List<Item>::find(Item e) {
+    if (isempty())
+        return -1;
+    Node<Item>* p = head->next;
+    int index = 0;
+    while (p !=NULL)
+    {   
+        ++index;
+        if (p->item == e)
+        {
+            return index;
+        }
+        p = p->next;
+    }
+    
+    return -1;
+}
 
 template <class Item>
 void List<Item>::printlist() const {  // updated
@@ -136,10 +158,10 @@ void List<Item>::printlist() const {  // updated
     }
 }
 
-// template <class Item>
-// int List<Item>::length() {
-//     return length_;
-// }
+template <class Item>
+int List<Item>::length() {
+    return length_;
+}
 
 template <class Item>
 bool List<Item>::isempty() const {
@@ -166,7 +188,18 @@ int main(int argc, char const *argv[])
     List<int> mylist = List<int>();
     mylist.printlist();
     mylist.insert(1, 4);
+    mylist.insert(1, 7);
+    mylist.insert(2, 9);
     mylist.printlist();
+    mylist.remove(2);
+    mylist.printlist();
+    mylist.replace(1, 99);
+    mylist.printlist();
+    mylist.replace(2, 79);
+    mylist.printlist();
+
+    int x = mylist.find(79);
+    std::cout << x;
     return 0;
 }
 
