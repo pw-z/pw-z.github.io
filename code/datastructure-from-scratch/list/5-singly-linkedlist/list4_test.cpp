@@ -55,11 +55,9 @@ int main(int argc, char const* argv[]) {
     return 0;
 }
 /*
-$ ./a.exe
+$ ./a
 current list length = 0
 Error: try to print an empty list
-expanded from 10 to 20
-expanded from 20 to 30
 current list length = 21
 1 1 1 1 1 1 1 1 1 1
 1 1 1 1 1 1 1 1 1 1
@@ -67,6 +65,7 @@ current list length = 21
 current list length = 20
 1 1 1 1 1 1 1 8 1 1
 1 1 1 1 1 1 1 1 1 20
+
 find 8 in list at 8
 find 20 in list at 20
 get item '8' at 8
@@ -76,8 +75,6 @@ get item '20' at 20
 
 current list length = 0
 Error: try to print an empty list
-expanded from 10 to 20
-expanded from 20 to 30
 current list length = 21
 # # # # # # # # # #
 # # # # # # # # # #
@@ -85,6 +82,7 @@ current list length = 21
 current list length = 20
 # # # # # # # * # #
 # # # # # # # # # $
+
 find '*' in list at 8
 find '$' in list at 20
 get item '*' at 8

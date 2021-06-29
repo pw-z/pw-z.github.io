@@ -915,5 +915,300 @@ get item '$' at 20
 ```
 
 
-## 1.2 LinkedList Based on LinearList
+### 1.5 Singly LinkedList
 
+#### 1.5.1 header & implement
+
+```c++
+// list4.h
+#ifndef LIST4_H_
+#define LIST4_H_
+
+#include <cstring>
+#include <iostream>
+
+static int LIST_INIT_SIZE = 10;
+static int LIST_EXPAND_SIZE = 10;
+
+template <class Item>
+class Node {
+   public:
+    Item item;
+    Node* next;
+};
+
+template <class Item>
+class List {
+   private:
+    Node<Item>* head;
+    int length_;
+
+   public:
+    List();
+    ~List();
+    bool insert(int i, Item e);
+    bool remove(int i);
+    bool replace(int i, Item e);
+    bool get(int i, Item& e);
+    int find(Item e);
+    void printlist() const;
+    // void destroylist();
+    int length();
+    bool isempty() const;
+    // bool isfull() const;
+};
+
+template <class Item>
+List<Item>::List() {
+    head = new Node<Item>;
+    head->next = NULL;
+    // std::cout<<"head location: " << head << "\n";
+    length_ = 0;
+}
+
+template <class Item>
+List<Item>::~List() {
+    // for item in length, delete node->next
+    Node<Item>* p = head->next;
+    while (p != NULL) {
+        Node<Item>* q = p;
+        p = p->next;
+        delete q;
+    }
+    delete head;
+}
+
+template <class Item>
+bool List<Item>::insert(int i, Item e) {
+    if (i < 1 || i > length_ + 1)
+        return false;
+
+    Node<Item>* p = head;
+    while (--i) {
+        p = p->next;
+    }
+
+    Node<Item> * node = new Node<Item>();
+    node->item = e;
+    node->next = p->next;
+    p->next = node;
+
+    ++length_;
+    return true;
+}
+
+template <class Item>
+bool List<Item>::remove(int i) {
+    if (i < 1 || i > length_)
+        return false;
+    
+    Node<Item>* p = head;
+    Node<Item>* temp;
+    while (--i)
+    {
+        p = p->next;
+    }
+    temp = p->next;
+    p->next = temp->next;
+    delete temp;
+    --length_;
+
+    return true;
+}
+
+template <class Item>
+bool List<Item>::replace(int i, Item e) {
+    if (i<1 | i> length_)
+        return false;
+    
+    Node<Item>* p = head;
+    while (i--)
+    {
+        p = p->next;
+    }
+    p->item = e;
+    
+    return true;
+}
+
+template <class Item>
+bool List<Item>::get(int i, Item& e) {
+    if (i < 1 || i > length_) {
+        std::cout << "Error: invalid index\n";
+        // here must return something
+        return false;
+    } else {
+        Node<Item>* p = head;
+        while (i--) {
+            p = p->next;
+        }
+        e = p->item;
+        
+        return true;
+    }
+}
+
+template <class Item>
+int List<Item>::find(Item e) {
+    if (isempty())
+        return -1;
+    Node<Item>* p = head->next;
+    int index = 0;
+    while (p !=NULL)
+    {   
+        ++index;
+        if (p->item == e)
+        {
+            return index;
+        }
+        p = p->next;
+    }
+    return -1;
+}
+
+template <class Item>
+void List<Item>::printlist() const {  // updated
+    if (isempty()) {
+        std::cout << "Error: try to print an empty list\n";
+    } else {
+        Node<Item>* p = head->next;
+        int count = 0;
+        while (p != NULL) {
+            std::cout << p->item << " ";
+            p = p->next;
+            ++count;
+            if (count % 10 == 0 && count != 0)
+            {
+                std::cout<<"\n";
+            }
+            
+        }
+        std::cout << "\n";
+    }
+}
+
+template <class Item>
+int List<Item>::length() {
+    return length_;
+}
+
+template <class Item>
+bool List<Item>::isempty() const {
+    if (length_ == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// template <class Item>
+// bool List<Item>::isfull() const {
+//     if (length_ == capacity_) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+#endif
+```
+
+#### 1.5.2 test
+
+```c++
+// list4_test.cpp
+#include "list4.h"
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char const* argv[]) {
+
+    List<int> mylist = List<int>();
+    cout << "current list length = " << mylist.length() << endl;
+    mylist.printlist();
+    for (int i = 0; i < 21; i++) {
+        mylist.insert(1, 1);
+        // cout << "current list length = " << mylist.length() << endl;
+        // mylist.printlist();
+    }
+    cout << "current list length = " << mylist.length() << endl;
+    mylist.printlist();
+    mylist.replace(8, 8);
+    mylist.replace(20, 20);
+    mylist.remove(21);
+    cout << "current list length = " << mylist.length() << endl;
+    mylist.printlist();
+    cout << "find 8 in list at " << mylist.find(8) << endl;
+    cout << "find 20 in list at " << mylist.find(20) << endl;
+    int myitem1;
+    mylist.get(8, myitem1);
+    cout << "get item '" << myitem1 << "' at 8 "<< endl;
+    mylist.get(20, myitem1);
+    cout << "get item '" << myitem1 << "' at 20 "<< endl;
+    
+    cout<<"\n\n\n";
+
+    List<char> mylist2;
+    cout << "current list length = " << mylist2.length() << endl;
+    mylist2.printlist();
+    for (int i = 0; i < 21; i++) {
+        mylist2.insert(1, '#');
+        // cout << "current list length = " << mylist.length() << endl;
+        // mylist.printlist();
+    }
+    cout << "current list length = " << mylist2.length() << endl;
+    mylist2.printlist();
+    mylist2.replace(8, '*');
+    mylist2.replace(20, '$');
+    mylist2.remove(21);
+    cout << "current list length = " << mylist2.length() << endl;
+    mylist2.printlist();
+    cout << "find '*' in list at " << mylist2.find('*') << endl;
+    cout << "find '$' in list at " << mylist2.find('$') << endl;
+    char myitem2;
+    mylist2.get(8, myitem2);
+    cout << "get item '" << myitem2 << "' at 8 "<< endl;
+    mylist2.get(20, myitem2);
+    cout << "get item '" << myitem2 << "' at 20 "<< endl;
+    return 0;
+}
+/*
+$ ./a
+current list length = 0
+Error: try to print an empty list
+current list length = 21
+1 1 1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1 1 1
+1
+current list length = 20
+1 1 1 1 1 1 1 8 1 1
+1 1 1 1 1 1 1 1 1 20
+
+find 8 in list at 8
+find 20 in list at 20
+get item '8' at 8
+get item '20' at 20
+
+
+
+current list length = 0
+Error: try to print an empty list
+current list length = 21
+# # # # # # # # # #
+# # # # # # # # # #
+#
+current list length = 20
+# # # # # # # * # #
+# # # # # # # # # $
+
+find '*' in list at 8
+find '$' in list at 20
+get item '*' at 8
+get item '$' at 20
+
+*/
+```
+
+
+## 2 Performance 

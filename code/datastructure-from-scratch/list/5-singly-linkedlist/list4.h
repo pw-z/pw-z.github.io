@@ -140,7 +140,6 @@ int List<Item>::find(Item e) {
         }
         p = p->next;
     }
-    
     return -1;
 }
 
@@ -150,9 +149,16 @@ void List<Item>::printlist() const {  // updated
         std::cout << "Error: try to print an empty list\n";
     } else {
         Node<Item>* p = head->next;
+        int count = 0;
         while (p != NULL) {
             std::cout << p->item << " ";
             p = p->next;
+            ++count;
+            if (count % 10 == 0 && count != 0)
+            {
+                std::cout<<"\n";
+            }
+            
         }
         std::cout << "\n";
     }
@@ -180,27 +186,5 @@ bool List<Item>::isempty() const {
 //         return false;
 //     }
 // }
-
-int main(int argc, char const *argv[])
-{
-    using std::cout;
-
-    List<int> mylist = List<int>();
-    mylist.printlist();
-    mylist.insert(1, 4);
-    mylist.insert(1, 7);
-    mylist.insert(2, 9);
-    mylist.printlist();
-    mylist.remove(2);
-    mylist.printlist();
-    mylist.replace(1, 99);
-    mylist.printlist();
-    mylist.replace(2, 79);
-    mylist.printlist();
-
-    int x = mylist.find(79);
-    std::cout << x;
-    return 0;
-}
 
 #endif
