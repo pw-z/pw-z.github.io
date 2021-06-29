@@ -1,7 +1,7 @@
 # Data Structure from Scratch: LinearList & Linkedlist
 
 - [Data Structure from Scratch: LinearList & Linkedlist](#data-structure-from-scratch-linearlist--linkedlist)
-  - [1 LinearList from Scratch](#1-linearlist-from-scratch)
+  - [1 List from Scratch C++](#1-list-from-scratch-c)
     - [1.1 Basic LinearList](#11-basic-linearlist)
       - [1.1.1 header](#111-header)
       - [1.1.2 implement](#112-implement)
@@ -10,19 +10,24 @@
       - [1.2.1 exception class](#121-exception-class)
       - [1.2.2 header & implement](#122-header--implement)
       - [1.2.3 test](#123-test)
-    - [1.3 Dynamic Memory Version](#13-dynamic-memory-version)
+    - [1.3 LinearList Dynamic Memory Version](#13-linearlist-dynamic-memory-version)
       - [1.3.1 header](#131-header)
       - [1.3.2 implement](#132-implement)
       - [1.3.3 test](#133-test)
-    - [1.4 Using Template Version](#14-using-template-version)
+    - [1.4 LinearList Using Template Version](#14-linearlist-using-template-version)
       - [1.4.1 header & implement](#141-header--implement)
       - [1.4.2 test](#142-test)
+    - [1.5 Singly LinkedList](#15-singly-linkedlist)
+      - [1.5.1 header & implement](#151-header--implement)
+      - [1.5.2 test](#152-test)
+  - [2 Python](#2-python)
+  - [3 Performance](#3-performance)
 
-## 1 LinearList from Scratch
+## 1 List from Scratch C++
 
 ### 1.1 Basic LinearList
 
-#### 1.1.1 header
+#### 1.1.1 Header
 
 ```c++
 // list0.h
@@ -56,7 +61,7 @@ public:
 
 This list can only store `int` type value.
 
-#### 1.1.2 implement
+#### 1.1.2 Implement
 
 ```c++
 // list0.cpp
@@ -153,7 +158,7 @@ bool List::isfull() const {
 }
 ```
 
-#### 1.1.3 test
+#### 1.1.3 Test
 
 ```c++
 // list0_test.cpp
@@ -214,7 +219,7 @@ About C++ Exceptions and Error Handling, these pages hava some useful info:
 
 Have a try anyway.
 
-#### 1.2.1 exception class
+#### 1.2.1 Exception Class
 
 Create some exception first:
 
@@ -241,7 +246,7 @@ class FullListException {
 #endif
 ```
 
-#### 1.2.2 header & implement
+#### 1.2.2 Header & Implement
 
 Just rename list0.h to list1.h, no content change of header.
 
@@ -349,7 +354,7 @@ bool List::isfull() const {
 }
 ```
 
-#### 1.2.3 test
+#### 1.2.3 Test
 
 ```c++
 // list1_test.cpp
@@ -436,9 +441,9 @@ This is an empty list!
 */
 ```
 
-### 1.3 Dynamic Memory Version
+### 1.3 LinearList Dynamic Memory Version
 
-#### 1.3.1 header
+#### 1.3.1 Header
 
 ```c++
 // list2.h
@@ -491,7 +496,7 @@ class List {
 
 #endif
 ```
-#### 1.3.2 implement
+#### 1.3.2 Implement
 
 ```c++
 // list2.cpp
@@ -597,7 +602,7 @@ bool List::isfull() const {
 }
 ```
 
-#### 1.3.3 test
+#### 1.3.3 Test
 
 ```c++
 // list2_test.cpp
@@ -649,9 +654,9 @@ get item >>8<< from list
 ```
 
 
-### 1.4 Using Template Version
+### 1.4 LinearList Using Template Version
 
-#### 1.4.1 header & implement
+#### 1.4.1 Header & Implement
 
 ```c++
 // list3.h
@@ -815,7 +820,7 @@ bool List<Item>::isfull() const {
 #endif
 ```
 
-#### 1.4.2 test
+#### 1.4.2 Test
 
 ```c++
 // list3_test.cpp
@@ -917,7 +922,7 @@ get item '$' at 20
 
 ### 1.5 Singly LinkedList
 
-#### 1.5.1 header & implement
+#### 1.5.1 Header & Implement
 
 ```c++
 // list4.h
@@ -1113,7 +1118,7 @@ bool List<Item>::isempty() const {
 #endif
 ```
 
-#### 1.5.2 test
+#### 1.5.2 Test
 
 ```c++
 // list4_test.cpp
@@ -1210,5 +1215,20 @@ get item '$' at 20
 */
 ```
 
+## 2 List from Scratch Python3
 
-## 2 Performance 
+### 2.1 LinearList
+
+#### 2.1.1 Implement
+
+
+#### 2.1.2 Test
+
+
+### 2.2 LinkedList
+
+#### 2.2.1 Implement
+
+#### 2.2.2 Test
+
+## 3 Performance 
