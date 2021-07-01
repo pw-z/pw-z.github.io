@@ -34,7 +34,15 @@ def test_configparser():
 if __name__ == '__main__':
     configpath = '../config.ini'
     para = Parameter(configpath)
-    print(para.get_parameter('uri'))
-    print(para.get_parameter('ur'))
+    # print(para.get_parameter('uri'))
+    # print(para.get_parameter('ur'))
+    para.add_parameter('token', ' #TEST# ')
+    # token = para.get_parameter('token')
+    # print(token)
 
+    # s = 'hello-${token}-7894654'
+    # print(s.replace('${token}', para.get_parameter('token')))
+
+    s = para.flush_body_parameter('hello-${token}-7894${X}65${Y}4')
+    print(s)
 

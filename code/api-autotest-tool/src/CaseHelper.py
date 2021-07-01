@@ -27,7 +27,7 @@ def read_excel(file_path, sheet_name):
     try:
         book = xlrd.open_workbook(file_path)  # 打开excel
     except Exception as error:
-        logger.error('路径不在或者excel不正确 : ' + str(error))
+        logger.error(r'can not open the excel file  ' + str(error))
         return error
     else:
         sheet = book.sheet_by_name(sheet_name)
@@ -41,7 +41,8 @@ def read_excel(file_path, sheet_name):
                 'Port': sheet.row_values(i)[get_column_index(sheet, 'Port')],
                 'Address': sheet.row_values(i)[get_column_index(sheet, 'Address')],
                 'Body': sheet.row_values(i)[get_column_index(sheet, 'Body')],
-                'ContentType': sheet.row_values(i)[get_column_index(sheet, 'ContentType')]
+                'ContentType': sheet.row_values(i)[get_column_index(sheet, 'ContentType')],
+                'ResponseParameter': sheet.row_values(i)[get_column_index(sheet, 'ResponseParameter')]
             }
             case_list_dic.append(case_dic)
     return case_list_dic

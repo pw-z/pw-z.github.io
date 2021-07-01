@@ -10,6 +10,14 @@ class CaseHandler:
     configpath = './config.ini'
     para = Parameter(configpath)
 
+    def __before_run(self, body):
+        new_body = self.para.flush_body_parameter(body)
+        return new_body
+
+    def __after_run(self, parameters, response):
+        self.para.flush_parameter_pool(parameters, response)
+        pass
+
     def run(self, case):
         # __uri = (case['URI']!='') ? case['URI'] : para.get_parameter('uri')
         __uri = case['URI'] if case['URI'] != '' else self.para.get_parameter('uri')
@@ -23,12 +31,17 @@ class CaseHandler:
             return False
 
         # TODO: PARAMETER REPLACE
-        data = case['Body']
+        body = case['Body']
+        body = self.__before_run(body)
 
         try:
-            res = requests.post(url, headers=header, data=data.encode('utf-8'))
-            print(res.json())
-            # print(res)
+            res = requests.post(url, headers=header, data=body.encode('utf-8'))
+            # print(res.json())
+            print(res.text)
+
+            para = str(case['ResponseParameter']).splitlines()
+            # print(para)
+            self.__after_run(para, res.text)
         except Exception as e:
             print(e)
 
