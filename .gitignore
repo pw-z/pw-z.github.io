@@ -5,3 +5,4 @@ venv/
 .vscode/
 *.exe
 *.gch
+__pycache__/
