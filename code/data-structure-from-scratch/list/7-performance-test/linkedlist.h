@@ -1,8 +1,10 @@
-#ifndef LIST4_H_
-#define LIST4_H_
+#ifndef LINKEDLIST_H_
+#define LINKEDLIST_H_
 
 #include <cstring>
 #include <iostream>
+
+namespace linked {
 
 template <class Item>
 class Node {
@@ -183,5 +185,7 @@ bool List<Item>::isempty() const {
 //         return false;
 //     }
 // }
+
+}  // namespace
 
 #endif
