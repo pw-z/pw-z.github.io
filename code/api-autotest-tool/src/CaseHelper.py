@@ -4,8 +4,6 @@
 
 import xlrd
 import logging
-import requests
-from Handler import CaseHandler
 
 
 filepath = r"../case/case.xlsx"
@@ -25,55 +23,43 @@ def get_column_index(sheet, column_name):
 def read_excel(file_path, sheet_name):
     case_list_dic = []
     try:
-        book = xlrd.open_workbook(file_path)  # 打开excel
+        book = xlrd.open_workbook(file_path)
     except Exception as error:
         logger.error(r'can not open the excel file  ' + str(error))
         return error
     else:
         sheet = book.sheet_by_name(sheet_name)
-        rows = sheet.nrows  # 取这个sheet页的所有行数
-        for i in range(1, rows):  # 忽略第一行表头
+        rows = sheet.nrows
+        for i in range(1, rows):
             case_dic = {
                 # 'suite_path': sheet.row_values(i)[get_column_index(sheet, 'suite_path')],
                 'CaseStep': sheet.row_values(i)[get_column_index(sheet, 'CaseStep')],
                 'Method': sheet.row_values(i)[get_column_index(sheet, 'Method')],
                 'URI': sheet.row_values(i)[get_column_index(sheet, 'URI')],
-                'Port': sheet.row_values(i)[get_column_index(sheet, 'Port')],
+                'Port': sheet.row_values(i)[get_column_index(sheet, 'Port')],   # 9192.0
                 'Address': sheet.row_values(i)[get_column_index(sheet, 'Address')],
                 'Body': sheet.row_values(i)[get_column_index(sheet, 'Body')],
                 'ContentType': sheet.row_values(i)[get_column_index(sheet, 'ContentType')],
-                'ResponseParameter': sheet.row_values(i)[get_column_index(sheet, 'ResponseParameter')]
+                'ResponseParameter': sheet.row_values(i)[get_column_index(sheet, 'ResponseParameter')],
+                'ExpectedData': sheet.row_values(i)[get_column_index(sheet, 'ExpectedData')],
+                'ShellScript': sheet.row_values(i)[get_column_index(sheet, 'ShellScript')],
+                'Run?': str(sheet.row_values(i)[get_column_index(sheet, 'Run?')])[:-2],   # 111.0
+                'DQL': sheet.row_values(i)[get_column_index(sheet, 'DQL')]
             }
+
+            case_dic['ResponseParameter'] = str(case_dic['ResponseParameter']).splitlines()
+
+            wanted_paras = {}
+            lines = str(case_dic['ExpectedData']).splitlines()
+            for line in lines:
+                i = line.find(':')
+                wanted_paras[line[:i]] = line[i+1:]
+            case_dic['ExpectedData'] = wanted_paras
+
             case_list_dic.append(case_dic)
     return case_list_dic
 
 
-if __name__ == '__main__':
-    # for sheet in sheets:
-    #     cases = read_excel(filepath, sheet)
-    #     print(cases)
-
-    # url = 'http://10.243.141.100:9192/secu'
-    # header = {'content-type': 'text/html;charset=UTF-8'}
-    # data = {
-    #     "userId": "143374",
-    #     "PASSWORD": "qwer1234",
-    #     "f": "SECU_Login"
-    # }
-
-    # try:
-    #     res = requests.post(url, headers=header, data=json.dumps(data))
-    #     print(res.json())
-    #     # print(res)
-    # except Exception as e:
-    #     print(e)
-    casehandler =CaseHandler()
-    for sheet in sheets:
-        cases = read_excel(filepath, sheet)
-        # print(cases)
-        for case in cases:
-            # print(case)
-            casehandler.run(case)
 
 
 

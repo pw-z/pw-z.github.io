@@ -19,12 +19,28 @@ class Parameter:
         uri = cnf.get('http', 'URI')
         port = cnf.get('http', 'Port')
         content_type = cnf.get('http', 'content_type')
-        print(uri + '/' + port)
-        print('content type: ' + content_type)
+
+        ssh_hostname = cnf.get('shell', 'ssh_hostname')
+        ssh_username = cnf.get('shell', 'ssh_username')
+        ssh_password = cnf.get('shell', 'ssh_password')
+
+        db_uri = cnf.get('database', 'db_uri')
+        db_username = cnf.get('database', 'db_username')
+        db_password = cnf.get('database', 'db_password')
+        db_oracle_lib_dir = cnf.get('database', 'db_oracle_lib_dir')
 
         self.__global_configs['uri'] = uri
         self.__global_configs['port'] = port
         self.__global_configs['content_type'] = content_type
+        self.__global_configs['ssh_hostname'] = ssh_hostname
+        self.__global_configs['ssh_username'] = ssh_username
+        self.__global_configs['ssh_password'] = ssh_password
+        self.__global_configs['db_uri'] = db_uri
+        self.__global_configs['db_username'] = db_username
+        self.__global_configs['db_password'] = db_password
+        self.__global_configs['db_oracle_lib_dir'] = db_oracle_lib_dir
+
+        print("config object initialize success # " + str(self.__global_configs))
 
     def get_parameter(self, p_name):
         if p_name in self.__global_configs:
@@ -47,16 +63,15 @@ class Parameter:
             return True
         else:
             for p in parameters:
-                print('P: ' + p)
+                print('flush_parameter_pool: ' + p)
                 if p in response:
-                    print('hit')
                     finds = re.finditer(r'\"{0}\" *: *\"\w*\"'.format(p), response)
                     for _p in finds:
-                        print('find: ' + _p.group())
+                        # print('find: ' + _p.group())
                         s = _p.group().split(':')
                         s = s[1]
-                        print(s)
-                        print(s[1:-1])
+                        # print(s)
+                        # print(s[1:-1])
                         self.__parameter_pool[p] = s[1:-1]  # TODO
                         return True
                 else:
@@ -85,8 +100,24 @@ class Parameter:
 
         # if fail_count:
         #     self.logger.error("fail to replace parameter * {0}".format(fail_count))
-
         return body
+
+    def verify_parameter_in_response(self, paras_dict, response):
+        for key in paras_dict:
+            print("verify_parameter_in_response: " + key + " ?= " + paras_dict[key])
+            if key in response:
+                finds = re.finditer(r'\"{0}\" *: *\"\w*\"'.format(key), response)
+                for _p in finds:
+                    s = _p.group().split(':')
+                    s = s[1]
+                    # print(s)
+                    # print(s[1:-1])
+                    if paras_dict[key] == s[1:-1]:
+                        print("wanted value of [{0}] is [{1}], correct!".format(key, paras_dict[key]))
+                    else:
+                        self.logger.error("wanted value of [{0}] is [{1}] but found [{2}]".format(key, paras_dict[key], s[1:-1]))
+            else:
+                self.logger.error("could not find the parameter [{0}] in response".format(key))
 
 
 
