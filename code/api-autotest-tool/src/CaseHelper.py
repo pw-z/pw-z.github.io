@@ -1,36 +1,35 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# created by pwz.wiki 2021
 
 import xlrd
 import logging
 
 
 filepath = r"../case/case.xlsx"
-sheets = ['test']
+sheets = ['clear']
 logger = logging.getLogger()
 
 
+def get_column_index(sheet, column_name):
+    column_index = None
+    for i in range(sheet.ncols):
+        if sheet.cell_value(0, i) == column_name:
+            column_index = i
+            break
+    return column_index
+
+
 def read_excel(file_path, sheet_name):
-
-    def get_column_index(sheet, column_name):
-        column_index = None
-        for i in range(sheet.ncols):
-            if sheet.cell_value(0, i) == column_name:
-                column_index = i
-                break
-        return column_index
-
     case_list_dic = []
     try:
-        book = xlrd.open_workbook(file_path)
+        book = xlrd.open_workbook(file_path)  # 打开excel
     except Exception as error:
         logger.error(r'can not open the excel file  ' + str(error))
         return error
     else:
         sheet = book.sheet_by_name(sheet_name)
-        rows = sheet.nrows
-        for i in range(1, rows):
+        rows = sheet.nrows  # 取这个sheet页的所有行数
+        for i in range(1, rows):  # 忽略第一行表头
             case_dic = {
                 # 'suite_path': sheet.row_values(i)[get_column_index(sheet, 'suite_path')],
                 'CaseStep': sheet.row_values(i)[get_column_index(sheet, 'CaseStep')],
@@ -43,8 +42,10 @@ def read_excel(file_path, sheet_name):
                 'ResponseParameter': sheet.row_values(i)[get_column_index(sheet, 'ResponseParameter')],
                 'ExpectedData': sheet.row_values(i)[get_column_index(sheet, 'ExpectedData')],
                 'ShellScript': sheet.row_values(i)[get_column_index(sheet, 'ShellScript')],
-                'Run?': str(sheet.row_values(i)[get_column_index(sheet, 'Run?')])[:-2],   # 111.0
-                'DQL': sheet.row_values(i)[get_column_index(sheet, 'DQL')]
+                # 'Run?': str(sheet.row_values(i)[get_column_index(sheet, 'Run?')])[:-2],   # 111.0
+                'Run?': str(sheet.row_values(i)[get_column_index(sheet, 'Run?')]),  # '111
+                'DQL': sheet.row_values(i)[get_column_index(sheet, 'DQL')],
+                'ExpectedDQLData': sheet.row_values(i)[get_column_index(sheet, 'ExpectedDQLData')]
             }
 
             case_dic['ResponseParameter'] = str(case_dic['ResponseParameter']).splitlines()

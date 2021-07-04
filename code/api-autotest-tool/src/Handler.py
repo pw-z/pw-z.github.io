@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# created by pwz.wiki 2021.06.25
 
 import requests  # CaseHandler
 import paramiko  # ShellHandler
-import cx_Oracle as oracle # SQLHandler
+import cx_Oracle as oracle  # SQLHandler
+from Log import *
+
+logger = init_logger(__name__)
 
 
 class CaseHandler:
@@ -42,9 +44,9 @@ class CaseHandler:
         try:
             res = requests.post(url, headers=header, data=body.encode('utf-8'))
             # print(res.json())
-            print(res.text)
+            logger.debug(res.text)
         except Exception as e:
-            print(e)
+            logger.error(e)
         else:
             self.__after_run(case, res)
 
@@ -61,11 +63,11 @@ class ShellHandler:
     def run(self, case):
         self.ssh.connect(hostname=self.ssh_hostname, port=22, username=self.ssh_username, password=self.ssh_password)
         sh = case['ShellScript']
-        print("Execute command: " + sh)
+        logger.info("Execute command: " + sh)
         stdin, stdout, stderr = self.ssh.exec_command(sh)
         res, err = stdout.read(), stderr.read()
         result = res if res else err
-        print("Command result:\n " + result.decode())
+        logger.info("Command result:\n " + result.decode())
 
         self.ssh.close()
 
@@ -73,12 +75,16 @@ class ShellHandler:
 class SQLHandler:
 
     def __init__(self, parameter_handler):
+        self.para = parameter_handler
         oracle.init_oracle_client(parameter_handler.get_parameter('db_oracle_lib_dir'))
         self.db_uri = parameter_handler.get_parameter('db_uri')
         self.db_username = parameter_handler.get_parameter('db_username')
         self.db_password = parameter_handler.get_parameter('db_password')
         self.db_conn = oracle.connect(self.db_username, self.db_password, self.db_uri)
-        print("connect to Oracle success: " + self.db_conn.version)
+        logger.debug("connect to Oracle success: " + self.db_conn.version)
+
+    def __after_run(self, case, results):
+        self.para.verify_parameter_in_sql_result(case['ExpectedDQLData'], results)
 
     def run(self, case):
         db_conn = self.db_conn
@@ -87,13 +93,12 @@ class SQLHandler:
         # sql = "SELECT PARAM_VALUE FROM BASE_PARAM WHERE ID='TRADE_DATE'"
         db_cur.execute(sql)
         results = db_cur.fetchall()
-        # print(results)
-        print("Execute SQL: " + case['DQL'])
-        print("SQL results:")
+        logger.info("Execute SQL: " + case['DQL'])
+        logger.info("SQL results:")
+        # logger.debug(results)
         for row in results:
-            print(row)
+            logger.info(row[0])
+            self.__after_run(case, row[0])
 
         # db_cur.close()
         # db_conn.close()
-
-
