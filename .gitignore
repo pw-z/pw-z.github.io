@@ -6,3 +6,4 @@ venv/
 *.exe
 *.gch
 __pycache__/
+python_lesson/

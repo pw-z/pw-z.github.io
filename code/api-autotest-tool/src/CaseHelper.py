@@ -11,16 +11,16 @@ sheets = ['test']
 logger = logging.getLogger()
 
 
-def get_column_index(sheet, column_name):
-    column_index = None
-    for i in range(sheet.ncols):
-        if sheet.cell_value(0, i) == column_name:
-            column_index = i
-            break
-    return column_index
-
-
 def read_excel(file_path, sheet_name):
+
+    def get_column_index(sheet, column_name):
+        column_index = None
+        for i in range(sheet.ncols):
+            if sheet.cell_value(0, i) == column_name:
+                column_index = i
+                break
+        return column_index
+
     case_list_dic = []
     try:
         book = xlrd.open_workbook(file_path)
