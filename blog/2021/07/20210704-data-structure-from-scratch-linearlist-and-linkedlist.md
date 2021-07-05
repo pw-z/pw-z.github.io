@@ -35,7 +35,7 @@
       - [3.2.4 Result Analysis](#324-result-analysis)
 
 
-In order to review the data structure konwledge, I am going to implement the basic data structure from scratch using c++ or python, including linear & linked list, stack & queue, tree & binary tree, maybe something else. This is the first post, List.
+To review the data structure konwledge, I am going to implement the basic data structure from scratch using c++ or python, including linear & linked list, stack & queue, tree & binary tree, maybe something else. This is the first post, List.
 
 ## 1 List in C++
 
@@ -1395,7 +1395,7 @@ Process finished with exit code 0
 
 ### 3.1 LinearList vs LinkedList
 
-The essential distinction between linearlist and linkedlist is that linearlists store elements in contiguous memory locations which make its nodes can be easily access with a specific index number, linkedlists store things in random locations(in normal conditions) and use additional tags in its nodes to make every node linked.
+The essential distinction between linearlist and linkedlist is that linearlists store elements in contiguous memory locations which make its nodes can be easily access with a specific index, while linkedlists store things in random locations(in normal conditions) and use additional tags in its nodes to make every node linked.
 
 
 ### 3.2 Performance Test
