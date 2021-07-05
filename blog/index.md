@@ -1,6 +1,8 @@
 ## [P.W. Z](https://www.pwz.wiki) / [BLOG](https://www.pwz.wiki/blog)
 
 * 2021
+    - 07
+        - 070501 [Data Structure from Scratch: LinearList & Linkedlist][2021070501]
     - 06
         + 062301 [Import Testcases From Excel to Testlink][2021062301]
     - 05
@@ -36,8 +38,9 @@
 [commit]:url-filed-below--->>>
 
 [commit]:2021
+[2021070501]:./2021/07/20210704-data-structure-from-scratch-linearlist-and-linkedlist "2021070501 Data Structure from Scratch: LinearList & Linkedlist"
 [2021062301]:./2021/06/20210623-import-testcases-from-excel-to-testlink "2021062301 Import Testcases From Excel to Testlink"
-[2021053101]:./2021/05/2021053101-collect-test-status-of-jira-and-testlink-then-send-msg-to-dingtalkchatbot "获取Jira与Testlink测试概况并推送消息到钉钉机器人"
+[2021053101]:./2021/05/2021053101-collect-test-status-of-jira-and-testlink-then-send-msg-to-dingtalkchatbot "2021053101 获取Jira与Testlink测试概况并推送消息到钉钉机器人"
 [2021050501]:./2021/05/2021050501-ruanyf-weekly-compilation-1-155-with-the-process-code "2021050501 ~~阮一峰科技爱好者周刊1~155期合集及~~处理脚本"
 [2021051601]:./2021/05/2021051601-tail-f-logs-with-syntax-highlighting-through-perl-regex-replace "2021051601 使用Perl正则替换优化tail-f命令查看日志的显示效果"
 

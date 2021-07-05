@@ -1,7 +1,10 @@
 # Data Structure from Scratch: LinearList & Linkedlist
 
+*Posted on 2021.07.05 by [Pengwei Zhang](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)* 
+
+
 - [Data Structure from Scratch: LinearList & Linkedlist](#data-structure-from-scratch-linearlist--linkedlist)
-  - [1 List from Scratch C++](#1-list-from-scratch-c)
+  - [1 List in C++](#1-list-in-c)
     - [1.1 Basic LinearList](#11-basic-linearlist)
       - [1.1.1 Header](#111-header)
       - [1.1.2 Implement](#112-implement)
@@ -24,8 +27,17 @@
     - [2.1 Implement](#21-implement)
     - [2.2 Test](#22-test)
   - [3 Performance](#3-performance)
+    - [3.1 LinearList vs LinkedList](#31-linearlist-vs-linkedlist)
+    - [3.2 Performance Test](#32-performance-test)
+      - [3.2.1 LINEARLIST_H_](#321-linearlist_h_)
+      - [3.2.2 LINKEDLIST_H_](#322-linkedlist_h_)
+      - [3.2.3 Test Code and Result](#323-test-code-and-result)
+      - [3.2.4 Result Analysis](#324-result-analysis)
 
-## 1 List from Scratch C++
+
+In order to review the data structure konwledge, I am going to implement the basic data structure from scratch using c++ or python, including linear & linked list, stack & queue, tree & binary tree, maybe something else. This is the first post, List.
+
+## 1 List in C++
 
 ### 1.1 Basic LinearList
 
@@ -1381,3 +1393,358 @@ Process finished with exit code 0
 
 ## 3 Performance
 
+### 3.1 LinearList vs LinkedList
+
+The essential distinction between linearlist and linkedlist is that linearlists store elements in contiguous memory locations which make its nodes can be easily access with a specific index number, linkedlists store things in random locations(in normal conditions) and use additional tags in its nodes to make every node linked.
+
+
+### 3.2 Performance Test
+
+Here I use the `insert` operation to test my previous implementation of linearlist and linkedlist.
+
+#### 3.2.1 LINEARLIST_H_
+```c++
+// linearlist.h
+
+#ifndef LINEARLIST_H_
+#define LINEARLIST_H_
+
+
+#include <cstring>
+#include <iostream>
+
+namespace linear {
+
+static int LIST_INIT_SIZE = 100000;
+static int LIST_EXPAND_SIZE = 100000;
+
+// typedef int Item;
+template<class Item>
+class List {
+   private:
+    Item* p_items_;
+    int capacity_;
+    int length_;
+    bool expand() {
+        Item* temp;
+        try {
+            temp = new Item[capacity_ + LIST_EXPAND_SIZE];
+            memcpy(temp, p_items_, length_ * sizeof(Item));
+        } catch (std::bad_alloc e) {
+            std::cout << "Error: allocate new memory failed.\n";
+            std::cout << e.what();
+            return false;
+        }
+        delete[] p_items_;
+        p_items_ = temp;
+        capacity_ += LIST_EXPAND_SIZE;
+        // std::cout << "expanded from " << capacity_-LIST_EXPAND_SIZE << " to " << capacity_ << "\n";
+        return true;
+    };
+
+   public:
+    List();
+    ~List();  // new for `delete`
+    bool insert(int i, Item e);
+    bool remove(int i);
+    bool replace(int i, Item e);
+    bool get(int i, Item& e);  // little change
+    int find(Item e);
+    void printlist() const;
+    // void destroylist();
+    int length();
+    bool isempty() const;
+    bool isfull() const;
+};
+
+
+template<class Item>
+List<Item>::List() {
+    p_items_ = new Item[LIST_INIT_SIZE];
+    capacity_ = LIST_INIT_SIZE;
+    length_ = 0;
+}
+
+template<class Item>
+List<Item>::~List() {
+    delete[] p_items_;
+}
+
+template<class Item>
+bool List<Item>::insert(int i, Item e) {  // updated
+    if (isfull()) {
+        if (!expand())
+            return false;
+    }
+    for (int index = length_; index >= i; --index) {
+        p_items_[index] = p_items_[index - 1];
+    }
+    p_items_[i - 1] = e;
+    ++length_;
+    return true;
+}
+
+template<class Item>
+int List<Item>::length() {
+    return length_;
+}
+
+template<class Item>
+bool List<Item>::isempty() const {
+    if (length_ == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+template<class Item>
+bool List<Item>::isfull() const {
+    if (length_ == capacity_) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+}  // namespace
+
+#endif
+```
+
+
+#### 3.2.2 LINKEDLIST_H_ 
+
+```c++
+// linkedlist.h
+#ifndef LINKEDLIST_H_
+#define LINKEDLIST_H_
+
+#include <cstring>
+#include <iostream>
+
+namespace linked {
+
+template <class Item>
+class Node {
+   public:
+    Item item;
+    Node* next;
+};
+
+template <class Item>
+class List {
+   private:
+    Node<Item>* head;
+    int length_;
+
+   public:
+    List();
+    ~List();
+    bool insert(int i, Item e);
+    bool remove(int i);
+    bool replace(int i, Item e);
+    bool get(int i, Item& e);
+    int find(Item e);
+    void printlist() const;
+    // void destroylist();
+    int length();
+    bool isempty() const;
+    // bool isfull() const;
+};
+
+template <class Item>
+List<Item>::List() {
+    head = new Node<Item>;
+    head->next = NULL;
+    // std::cout<<"head location: " << head << "\n";
+    length_ = 0;
+}
+
+template <class Item>
+List<Item>::~List() {
+    // for item in length, delete node->next
+    Node<Item>* p = head->next;
+    while (p != NULL) {
+        Node<Item>* q = p;
+        p = p->next;
+        delete q;
+    }
+    delete head;
+}
+
+template <class Item>
+bool List<Item>::insert(int i, Item e) {
+    if (i < 1 || i > length_ + 1)
+        return false;
+
+    Node<Item>* p = head;
+    while (--i) {
+        p = p->next;
+    }
+
+    Node<Item> * node = new Node<Item>();
+    node->item = e;
+    node->next = p->next;
+    p->next = node;
+
+    ++length_;
+    return true;
+}
+
+}  // namespace
+
+#endif
+```
+
+#### 3.2.3 Test Code and Result
+
+```c++
+// performance_test.cpp
+#include <ctime>
+#include <iostream>
+#include "linearlist.h"
+#include "linkedlist.h"
+
+void test_linearlist_insert_time_best_situation(int amount) {
+    using namespace linear;
+    List<int> mylist = List<int>();
+    clock_t start, end;
+    start = clock();
+    for (int i = 0; i < amount; i++) {
+        mylist.insert(i+1, i);
+    }
+    // mylist.printlist();
+    end = clock();
+    std::cout<<"linearlist insert "<< amount << " items best  situation cost time: " << end - start << std::endl;
+}
+
+void test_linearlist_insert_time_worst_situation(int amount) {
+    using namespace linear;
+    List<int> mylist = List<int>();
+    clock_t start, end;
+    start = clock();
+    for (int i = 0; i < amount; i++) {
+        mylist.insert(1, i);
+    }
+    // mylist.printlist();
+    end = clock();
+    std::cout<<"linearlist insert "<< amount << " items worst situation cost time: " << end - start << std::endl;
+}
+
+void test_linkedlist_insert_time_best_situation(int amount){
+    using namespace linked;
+    List<int> mylist = List<int>();
+    clock_t start, end;
+    start = clock();
+    for (int i = 0; i < amount; i++) {
+        mylist.insert(1, i);
+    }
+    end = clock();
+    std::cout<<"linkedlist insert "<< amount << " items best  situation cost time: " << end - start << std::endl;
+}
+
+void test_linkedlist_insert_time_worst_situation(int amount){
+    using namespace linked;
+    List<int> mylist = List<int>();
+    clock_t start, end;
+    start = clock();
+    for (int i = 0; i < amount; i++) {
+        mylist.insert(i+1, i);
+    }
+    end = clock();
+    std::cout<<"linkedlist insert "<< amount << " items worst situation cost time: " << end - start << std::endl;
+}
+
+
+
+int main(int argc, char const* argv[]) {
+
+    test_linearlist_insert_time_best_situation(100000);
+    test_linkedlist_insert_time_best_situation(100000);
+    test_linearlist_insert_time_worst_situation(100000);
+    test_linkedlist_insert_time_worst_situation(100000);
+   
+    test_linearlist_insert_time_best_situation(1000000);
+    test_linkedlist_insert_time_best_situation(1000000);
+    test_linearlist_insert_time_worst_situation(1000000);
+    test_linkedlist_insert_time_worst_situation(1000000);
+
+
+    return 0;
+}
+
+/*
+linearlist insert 100000 items best  situation cost time: 1
+linkedlist insert 100000 items best  situation cost time: 223
+linearlist insert 100000 items worst situation cost time: 9013
+linkedlist insert 100000 items worst situation cost time: 20656
+linearlist insert 1000000 items best  situation cost time: 10
+linkedlist insert 1000000 items best  situation cost time: 2456
+linearlist insert 1000000 items worst situation cost time: 902397
+linkedlist insert 1000000 items worst situation cost time: 2873597
+*/
+
+```
+
+#### 3.2.4 Result Analysis
+
+For the `insert` operation, the linkedlist should theoretically be more efficient then the linearlist, because the linkedlist only need to change the links within three nodes, while the linearlist need to move all nodes after the inserted node.Considering that in the linkedlist, the `lookup` operation takes as much time as moving nodes in the linearlist, insertion time should be basically the same. 
+
+However, the test result is not not very consistent with the theory. Review the most relevant codes:
+
+```c++
+// LinearList
+static int LIST_INIT_SIZE = 100000;
+static int LIST_EXPAND_SIZE = 100000;
+
+LinearList::expand() {
+        Item* temp;
+        try {
+            temp = new Item[capacity_ + LIST_EXPAND_SIZE];
+            memcpy(temp, p_items_, length_ * sizeof(Item));
+        } catch (std::bad_alloc e) {
+            return false;
+        }
+        delete[] p_items_;
+        p_items_ = temp;
+        capacity_ += LIST_EXPAND_SIZE;
+        return true;
+};
+
+LinearList::insert(int i, Item e) {
+    if (isfull()) {
+        if (!expand())
+            return false;
+    }
+    for (int index = length_; index >= i; --index) {
+        p_items_[index] = p_items_[index - 1];
+    }
+    p_items_[i - 1] = e;
+    ++length_;
+    return true;
+}
+```
+
+```c++
+// LinkedList
+LinkedList::insert(int i, Item e) {
+    if (i < 1 || i > length_ + 1)
+        return false;
+
+    Node<Item>* p = head;
+    while (--i) {
+        p = p->next;
+    }
+
+    Node<Item> * node = new Node<Item>();
+    node->item = e;
+    node->next = p->next;
+    p->next = node;
+
+    ++length_;
+    return true;
+}
+```
+
+Well, seems there are much more atomic operations in the linkedlist code then in the linearlist code. 
