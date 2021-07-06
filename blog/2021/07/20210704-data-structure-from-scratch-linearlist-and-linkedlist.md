@@ -35,7 +35,7 @@
       - [3.2.4 Result Analysis](#324-result-analysis)
 
 
-To review the data structure konwledge, I am going to implement the basic data structure from scratch using c++ or python, including linear & linked list, stack & queue, tree & binary tree, maybe something else. This is the first post, List.
+In order to review the data structure konwledge, I am going to implement the basic data structure from scratch using c++ or python, including linear & linked list, stack & queue, tree & binary tree, maybe something else. This is the first post, List.
 
 ## 1 List in C++
 
@@ -1691,7 +1691,7 @@ linkedlist insert 1000000 items worst situation cost time: 2873597
 
 For the `insert` operation, the linkedlist should theoretically be more efficient then the linearlist, because the linkedlist only need to change the links within three nodes, while the linearlist need to move all nodes after the inserted node.Considering that in the linkedlist, the `lookup` operation takes as much time as moving nodes in the linearlist, insertion time should be basically the same. 
 
-However, the test result is not not very consistent with the theory. Review the most relevant codes:
+However, the test result is not very consistent with the theory. Review the most relevant codes:
 
 ```c++
 // LinearList
@@ -1747,4 +1747,4 @@ LinkedList::insert(int i, Item e) {
 }
 ```
 
-Well, seems there are much more atomic operations in the linkedlist code then in the linearlist code. 
+Seems there are much more atomic operations in the linkedlist code then in the linearlist code. 
