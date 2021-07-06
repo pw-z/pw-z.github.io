@@ -2,12 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import xlrd
-import logging
+from helper.Log import *
 
-
-filepath = r"../case/case.xlsx"
-sheets = ['clear']
-logger = logging.getLogger()
+logger = init_logger(__name__)
 
 
 def get_column_index(sheet, column_name):

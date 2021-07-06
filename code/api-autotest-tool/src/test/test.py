@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# created by pwz.wiki 2021.07.02
 
-
-if __name__ == '__main__':
-
+def test1():
     dic = {
         "11": 1,
         "22": 2,
@@ -13,3 +10,17 @@ if __name__ == '__main__':
     print(dic)
     for key in dic:
         print(key + "  " + str(dic[key]))
+
+def test2():
+    import time
+    import datetime
+    now = datetime.datetime.now()
+    print(now)
+    time.sleep(1)
+    end = datetime.datetime.now()
+    print(end)
+    print(end - now)
+
+
+if __name__ == '__main__':
+    test2()

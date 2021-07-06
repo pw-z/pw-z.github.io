@@ -4,7 +4,7 @@
 import requests  # CaseHandler
 import paramiko  # ShellHandler
 import cx_Oracle as oracle  # SQLHandler
-from Log import *
+from helper.Log import *
 
 logger = init_logger(__name__)
 
@@ -15,7 +15,6 @@ class CaseHandler:
         self.para = parameter_handler
 
     def __before_run(self, body):
-
         new_body = self.para.flush_body_parameter(body)
         return new_body
 
@@ -23,7 +22,8 @@ class CaseHandler:
         # 1. flush the parameter pool
         self.para.flush_parameter_pool(case['ResponseParameter'], response.text)
         # 2. verify the wanted response values
-        self.para.verify_parameter_in_response(case['ExpectedData'], response.text)
+        flag = self.para.verify_parameter_in_response(case['ExpectedData'], response.text)
+        return flag
 
     def run(self, case):
         # __uri = (case['URI']!='') ? case['URI'] : para.get_parameter('uri')
@@ -40,6 +40,7 @@ class CaseHandler:
         # TODO: PARAMETER REPLACE
         body = case['Body']
         body = self.__before_run(body)
+        logger.info('Request body:\n' + body)
 
         try:
             res = requests.post(url, headers=header, data=body.encode('utf-8'))
@@ -48,7 +49,7 @@ class CaseHandler:
         except Exception as e:
             logger.error(e)
         else:
-            self.__after_run(case, res)
+            return self.__after_run(case, res)
 
 
 class ShellHandler:
@@ -63,13 +64,14 @@ class ShellHandler:
     def run(self, case):
         self.ssh.connect(hostname=self.ssh_hostname, port=22, username=self.ssh_username, password=self.ssh_password)
         sh = case['ShellScript']
-        logger.info("Execute command: " + sh)
+        logger.info("Execute command:\n" + sh)
         stdin, stdout, stderr = self.ssh.exec_command(sh)
         res, err = stdout.read(), stderr.read()
         result = res if res else err
         logger.info("Command result:\n " + result.decode())
 
         self.ssh.close()
+        return True
 
 
 class SQLHandler:
@@ -84,7 +86,8 @@ class SQLHandler:
         logger.debug("connect to Oracle success: " + self.db_conn.version)
 
     def __after_run(self, case, results):
-        self.para.verify_parameter_in_sql_result(case['ExpectedDQLData'], results)
+        flag = self.para.verify_parameter_in_sql_result(case['ExpectedDQLData'], results)
+        return flag
 
     def run(self, case):
         db_conn = self.db_conn
@@ -98,7 +101,7 @@ class SQLHandler:
         # logger.debug(results)
         for row in results:
             logger.info(row[0])
-            self.__after_run(case, row[0])
+            return self.__after_run(case, row[0])
 
         # db_cur.close()
         # db_conn.close()

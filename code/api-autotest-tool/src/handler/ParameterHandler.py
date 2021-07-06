@@ -3,7 +3,7 @@
 
 import configparser
 import re
-from Log import *
+from helper.Log import *
 
 logger = init_logger(__name__)
 
@@ -24,6 +24,10 @@ class Parameter:
         ssh_username = cnf.get('shell', 'ssh_username')
         ssh_password = cnf.get('shell', 'ssh_password')
 
+        excel_path = cnf.get('case', 'excel_path')
+        sheet_list = cnf.get('case', 'sheet_list')
+
+
         db_uri = cnf.get('database', 'db_uri')
         db_username = cnf.get('database', 'db_username')
         db_password = cnf.get('database', 'db_password')
@@ -32,9 +36,14 @@ class Parameter:
         self.__global_configs['uri'] = uri
         self.__global_configs['port'] = port
         self.__global_configs['content_type'] = content_type
+
         self.__global_configs['ssh_hostname'] = ssh_hostname
         self.__global_configs['ssh_username'] = ssh_username
         self.__global_configs['ssh_password'] = ssh_password
+
+        self.__global_configs['excel_path'] = excel_path
+        self.__global_configs['sheet_list'] = sheet_list.split(',')
+
         self.__global_configs['db_uri'] = db_uri
         self.__global_configs['db_username'] = db_username
         self.__global_configs['db_password'] = db_password
@@ -153,15 +162,20 @@ class Parameter:
                         logger.info("wanted value of [{0}] is [{1}], correct!".format(key, paras_dict[key]))
                     else:
                         logger.error("wanted value of [{0}] is [{1}] but found [{2}]".format(key, paras_dict[key], para_value))
+                        return False
             else:
                 logger.error("could not find the parameter [{0}] in response".format(key))
+                return False
+            return True
 
     def verify_parameter_in_sql_result(self, paras, result):
         logger.info("verify_parameter_in_sql_result... ")
         if paras == result:
             logger.info("wanted value of SQL is [{1}], correct!".format(paras, result))
+            return True
         else:
             logger.error("wanted value of SQL is [{0}] but found [{1}]".format(paras, result))
+            return False
 
 
 

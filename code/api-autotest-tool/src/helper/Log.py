@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import time
 
 
 def init_logger(__name__):
@@ -9,7 +10,11 @@ def init_logger(__name__):
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
 
-    fh = logging.FileHandler('test.log', encoding='utf-8')
+    today = time.strftime('%Y-%m-%d')
+    log_name = today + '.log'
+    log_path = 'log/' + log_name
+
+    fh = logging.FileHandler(log_path, encoding='utf-8')
     ch = logging.StreamHandler()
 
     formatter = logging.Formatter('%(levelname)s [%(asctime)s] %(message)s')

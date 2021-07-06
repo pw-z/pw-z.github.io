@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import configparser
-from ParameterHandler import Parameter
+from handler.ParameterHandler import Parameter
 
 
 def test_configparser():
