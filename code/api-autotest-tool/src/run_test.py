@@ -43,19 +43,35 @@ if __name__ == '__main__':
 
     for sheet in sheets:
         cases = read_excel(excel_path, sheet)
-        # print(cases)
+        print(cases)
 
-        case_run_result = False
         for case in cases:
-            if case['Run?'][0] == '1':
-                case_run_result = shellhandler.run(case)
-            if case['Run?'][1] == '1':
-                case_run_result = casehandler.run(case)
-            if case['Run?'][2] == '1':
-                case_run_result = sqlhandler.run(case)
-            temp_dict = {'case_name': case['CaseStep'],
-                         'run_result': str(case_run_result)}
-            test_result_detail.append(temp_dict)
+            case_run_result = True
+            steps_run_detail = []
+            for step in case['CaseSteps']:
+                r1 = False
+                r2 = False
+                r3 = False
+                if step['Run?'][0] == '1':
+                    r1 = shellhandler.run(step)
+                if step['Run?'][1] == '1':
+                    r2 = casehandler.run(step)
+                if step['Run?'][2] == '1':
+                    r3 = sqlhandler.run(step)
+                step_run_result = r1 and r2 and r3
+                if step_run_result is False:
+                    case_run_result = False
+
+                temp_dict = {'step_name': step['CaseStep'],
+                             'run_result': step_run_result}
+                steps_run_detail.append(temp_dict)
+
+            case_temp_dict = {
+                'case_name': case['CaseName'],
+                'run_result': case_run_result,
+                'step_detail': steps_run_detail
+            }
+            test_result_detail.append(case_temp_dict)
 
             if case_run_result:
                 count_success_cases += 1
@@ -68,5 +84,10 @@ if __name__ == '__main__':
     test_result_summary['count_all_cases'] = count_all_cases
     test_result_summary['count_success_cases'] = count_success_cases
     test_result_summary['count_fail_cases'] = count_fail_cases
+
+    print(test_result_summary)
+    print("#"*100 + "\n\n" + "#"*100)
+    for case in test_result_detail:
+        print(case)
 
     r.generate_report(test_result_summary, test_result_detail)

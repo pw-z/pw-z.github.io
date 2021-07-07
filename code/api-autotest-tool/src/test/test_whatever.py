@@ -22,5 +22,15 @@ def test2():
     print(end - now)
 
 
+def test3():
+    r1 = False
+    r2 = False
+    r3 = False
+
+    result = r1 and r2 and r3
+    print(result)
+
+
 if __name__ == '__main__':
-    test2()
+    # test2()
+    test3()

@@ -48,6 +48,7 @@ class CaseHandler:
             logger.debug(res.text)
         except Exception as e:
             logger.error(e)
+            return False
         else:
             return self.__after_run(case, res)
 

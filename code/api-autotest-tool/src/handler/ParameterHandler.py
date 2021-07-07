@@ -149,6 +149,7 @@ class Parameter:
     #             logger.error("could not find the parameter [{0}] in response".format(key))
 
     def verify_parameter_in_response(self, paras_dict, response):
+        flag = True
         for key in paras_dict:
             logger.debug("verify_parameter_in_response: " + key + " ?= " + paras_dict[key])
             if key in response:
@@ -162,11 +163,11 @@ class Parameter:
                         logger.info("wanted value of [{0}] is [{1}], correct!".format(key, paras_dict[key]))
                     else:
                         logger.error("wanted value of [{0}] is [{1}] but found [{2}]".format(key, paras_dict[key], para_value))
-                        return False
+                        flag = False
             else:
                 logger.error("could not find the parameter [{0}] in response".format(key))
-                return False
-            return True
+                flag = False
+        return flag
 
     def verify_parameter_in_sql_result(self, paras, result):
         logger.info("verify_parameter_in_sql_result... ")
