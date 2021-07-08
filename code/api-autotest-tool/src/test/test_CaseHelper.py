@@ -16,7 +16,7 @@ def test1():
     for sheet in sheets:
         cases = read_excel(excel_path, sheet)
         for case in cases:
-            print(case)
+            # print(case)
             for step in case['CaseSteps']:
                 print(step)
                 print()

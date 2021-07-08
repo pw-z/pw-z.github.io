@@ -61,6 +61,17 @@ h2 {
     background-color: #d55858;
 }
 
+.pass_step {
+    font-size: 14px;
+}
+.fail_step {
+    font-size: 14px;
+    color: crimson;
+}
+.error_step {
+    font-size: 14px;
+}
+
 
 
 table{
@@ -70,7 +81,6 @@ table{
 }
 tr{
     border: 1px solid #ffffff;
-
 }
 td{
     text-align: right;

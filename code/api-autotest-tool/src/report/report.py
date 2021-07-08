@@ -42,10 +42,18 @@ BODY_SUMMARY_TEMPLATE = """
 </div>
 """
 
+
+"""
+{0} = run_result (pass_case, fail_case)
+{1} = case_name
+{2} = count_all_steps
+{3} = count_success_steps
+{4} = count_fail_steps
+"""
 CASE_TR_TEMPLATE = """
         <tr class="{0}">
             <td>{1}</td>
-            <td>4/4/0</td>
+            <td>{2}/{3}/{4}</td>
             <td><a href="">detail</a> </td>
         </tr>
 """
@@ -178,7 +186,10 @@ def generate_html_body(test_summary_dict, case_detail_list):
     for case_detail in case_detail_list:
         # print(case_detail)
         if case_detail['run_result'] is True:
-            body_detail += CASE_TR_TEMPLATE.format('pass_case', case_detail['case_name'])
+            body_detail += CASE_TR_TEMPLATE.format('pass_case', case_detail['case_name'],
+                                                   case_detail['count_all_steps'],
+                                                   case_detail['count_success_steps'],
+                                                   case_detail['count_fail_steps'])
 
             for step_detail in case_detail['step_detail']:
                 if step_detail['run_result']:
@@ -186,7 +197,10 @@ def generate_html_body(test_summary_dict, case_detail_list):
                 else:
                     body_detail += STEP_TR_TEMPLATE.format('fail_step', step_detail['step_name'])
         else:
-            body_detail += CASE_TR_TEMPLATE.format('fail_case', case_detail['case_name'])
+            body_detail += CASE_TR_TEMPLATE.format('fail_case', case_detail['case_name'],
+                                                   case_detail['count_all_steps'],
+                                                   case_detail['count_success_steps'],
+                                                   case_detail['count_fail_steps'])
 
             for step_detail in case_detail['step_detail']:
                 if step_detail['run_result']:

@@ -31,7 +31,8 @@ def get_case_step(sheet_object, row_number):
         # 'Run?': str(sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Run?')])[:-2],   # 111.0
         'Run?': str(sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Run?')]),  # '111
         'DQL': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'DQL')],
-        'ExpectedDQLData': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ExpectedDQLData')]
+        'ExpectedDQLData': str(
+            sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ExpectedDQLData')]).upper().splitlines()
     }
     case_step['ResponseParameter'] = str(case_step['ResponseParameter']).splitlines()
 
@@ -78,8 +79,7 @@ def read_excel(file_path, sheet_name):
 
                 case_step = get_case_step(sheet, i)
                 case_step_list.append(case_step)
-
-            if i == rows-1:  # deal with the last row
+            if i == rows - 1:
                 case_dict = {
                     'CaseName': last_case_name,
                     'CaseSteps': case_step_list

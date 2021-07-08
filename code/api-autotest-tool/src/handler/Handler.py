@@ -37,7 +37,7 @@ class CaseHandler:
         else:
             return False
 
-        # TODO: PARAMETER REPLACE
+        # TODO: PARAMETER REPLACE ..done.
         body = case['Body']
         body = self.__before_run(body)
         logger.info('Request body:\n' + body)
@@ -45,7 +45,7 @@ class CaseHandler:
         try:
             res = requests.post(url, headers=header, data=body.encode('utf-8'))
             # print(res.json())
-            logger.debug(res.text)
+            logger.info(res.text)
         except Exception as e:
             logger.error(e)
             return False
@@ -86,8 +86,8 @@ class SQLHandler:
         self.db_conn = oracle.connect(self.db_username, self.db_password, self.db_uri)
         logger.debug("connect to Oracle success: " + self.db_conn.version)
 
-    def __after_run(self, case, results):
-        flag = self.para.verify_parameter_in_sql_result(case['ExpectedDQLData'], results)
+    def __after_run(self, case, results, db_col):
+        flag = self.para.verify_parameter_in_sql_result(case['ExpectedDQLData'], results, db_col)
         return flag
 
     def run(self, case):
@@ -96,13 +96,15 @@ class SQLHandler:
         sql = case['DQL']
         # sql = "SELECT PARAM_VALUE FROM BASE_PARAM WHERE ID='TRADE_DATE'"
         db_cur.execute(sql)
+        db_col = db_cur.description
         results = db_cur.fetchall()
         logger.info("Execute SQL: " + case['DQL'])
         logger.info("SQL results:")
-        # logger.debug(results)
-        for row in results:
-            logger.info(row[0])
-            return self.__after_run(case, row[0])
+        logger.info(results)
+        # for row in results:  # make sure your SQL only return ONE result @v1.0
+            # TODO handle multiple SQL results
+            # logger.info(row)
+        return self.__after_run(case, results, db_col)
 
         # db_cur.close()
         # db_conn.close()

@@ -27,7 +27,6 @@ class Parameter:
         excel_path = cnf.get('case', 'excel_path')
         sheet_list = cnf.get('case', 'sheet_list')
 
-
         db_uri = cnf.get('database', 'db_uri')
         db_username = cnf.get('database', 'db_username')
         db_password = cnf.get('database', 'db_password')
@@ -75,10 +74,11 @@ class Parameter:
                 if ':' not in p:
                     logger.debug('flush_parameter_pool: ' + p)
                     if p in response:
-                        finds = re.finditer(r'\"{0}\" *: *\"\w*\"'.format(p), response)
+                        re_string = '({0} *: *.*?)'.format(p) + '[,|)|}]'
+                        finds = re.finditer(re_string, response)
                         for _p in finds:
                             # print('find: ' + _p.group())
-                            s = _p.group().split(':')
+                            s = _p.group(1).split(':')
                             s = s[1]
                             # print(s)
                             # print(s[1:-1])
@@ -90,13 +90,14 @@ class Parameter:
                 else:
                     # rename parameter with string after ':'
                     p_origin = p[:p.find(':')]
-                    p_rename = p[p.find(':')+1:]
+                    p_rename = p[p.find(':') + 1:]
                     logger.debug('flush_parameter_pool: ' + p_origin)
                     if p_origin in response:
-                        finds = re.finditer(r'\"{0}\" *: *\"\w*\"'.format(p_origin), response)
+                        re_string = '({0} *: *.*?)'.format(p_origin) + '[,|)|}]'
+                        finds = re.finditer(re_string, response)
                         for _p in finds:
                             # print('find: ' + _p.group())
-                            s = _p.group().split(':')
+                            s = _p.group(1).split(':')
                             s = s[1]
                             # print(s)
                             # print(s[1:-1])
@@ -105,7 +106,6 @@ class Parameter:
                     else:
                         fail_count += 1
                         logger.error("fail to get parameter in response -> {0}".format(p_origin))
-
 
     def flush_body_parameter(self, body):
         """
@@ -149,37 +149,79 @@ class Parameter:
     #             logger.error("could not find the parameter [{0}] in response".format(key))
 
     def verify_parameter_in_response(self, paras_dict, response):
+        # paras_dict = { 'expected_name1': 'expected_value1', 'expected_name2': 'expected_value2', ... }
         flag = True
         for key in paras_dict:
-            logger.debug("verify_parameter_in_response: " + key + " ?= " + paras_dict[key])
+            logger.info("verify_parameter_in_response: " + key + " ?= " + paras_dict[key])
             if key in response:
-                finds = re.finditer(r'\"{0}\" *: *\"\w*\"'.format(key), response)
+                # re_string = r'{0} *: *\".*?\"'.format(key)  # outdated
+                re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'
+                finds = re.finditer(re_string, response)
                 for _p in finds:
-                    s = _p.group().split(':')
-                    para_value = s[1]
+                    logger.debug("find {} in response".format(_p.group()))
+                    s = _p.group(1).split(':')
+                    _p_name = s[0]
+                    _p_value = s[1]
                     print(s)
                     # print(s[1:-1])
-                    if paras_dict[key] == para_value:
+                    if paras_dict[key] == _p_value:
                         logger.info("wanted value of [{0}] is [{1}], correct!".format(key, paras_dict[key]))
                     else:
-                        logger.error("wanted value of [{0}] is [{1}] but found [{2}]".format(key, paras_dict[key], para_value))
+                        logger.error(
+                            "wanted value of [{0}] is [{1}] but found [{2}]".format(key, paras_dict[key], _p_value))
                         flag = False
             else:
                 logger.error("could not find the parameter [{0}] in response".format(key))
                 flag = False
         return flag
 
-    def verify_parameter_in_sql_result(self, paras, result):
+    def verify_parameter_in_sql_result(self, paras, results, db_col):
         logger.info("verify_parameter_in_sql_result... ")
-        if paras == result:
-            logger.info("wanted value of SQL is [{1}], correct!".format(paras, result))
-            return True
-        else:
-            logger.error("wanted value of SQL is [{0}] but found [{1}]".format(paras, result))
-            return False
 
+        def verify_method1():
+            if para == str(results):
+                # TODO maybe we should consider more if para=='32' but result==32,
+                # TODO not just str(result) then conclude that para==result
+                logger.info("wanted value of SQL is [{1}], correct!".format(paras, results))
+                return True
+            else:
+                logger.warning("wanted value of SQL is [{0}] but found [{1}]".format(paras, results))
+                return False
 
+        def verify_method2():
+            colon_index = para.index(':')
+            para_name = para[:colon_index]
+            para_value = para[colon_index + 1:]
+            para_col_number = -1
+            for col in db_col:
+                col_description = list(col)
+                if para_name in col_description:
+                    # print(db_col.index(col))
+                    para_col_number = db_col.index(col)
+                    break
+            if para_col_number != -1:
+                for row in results:
+                    # if results contains more then one row, every row needs to meet the para_name:para_value
+                    row_list = list(row)
+                    if para_value == str(row_list[para_col_number]):
+                        # TODO maybe we should consider more if para=='32' but result==32,
+                        # TODO not just str(result) then conclude that para==result
+                        logger.info('#' * 30 + 'The wanted parameter {0} is {1}, correct!'.format(para_name, para_value))
+                        return True
+                    else:
+                        logger.warning('*' * 30 + 'Bad Value! The wanted parameter {0} is {1} BUT found {2}!'.format(para_name, para_value, row_list[para_col_number]))
+                        return False
+            else:
+                logger.error('Bad Parameter! No column named {0}'.format(para_name))
+                return False
 
-
-
+        flag = True
+        for para in paras:  # paras = ['only_one_string_without_colon'] or ['expected_name:expected_value', 'n2:v2',...]
+            if ':' in para:
+                r = verify_method2()
+            else:
+                r = verify_method1()
+            if not r:
+                flag = False
+        return flag
 
