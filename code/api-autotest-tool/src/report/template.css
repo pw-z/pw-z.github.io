@@ -6,6 +6,8 @@
     font-size: 16px;
     line-height: 1.0;
     word-wrap: break-word;
+    white-space: pre-line;
+    word-break: break-all;
 }
 
 h1 {
@@ -63,6 +65,7 @@ h2 {
 
 .pass_step {
     font-size: 14px;
+    /* display: none; */
 }
 .fail_step {
     font-size: 14px;
@@ -80,10 +83,10 @@ table{
     border-collapse: collapse;
 }
 tr{
-    border: 1px solid #ffffff;
+    border: 12px solid #ffffff;
 }
 td{
-    text-align: right;
+    text-align: left;
     margin: 2px;
 }
 td:first-child{

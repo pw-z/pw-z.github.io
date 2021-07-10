@@ -5,9 +5,9 @@ import cx_Oracle as oracle
 
 
 def test1():
-    db_uri = '/'
-    db_username = ''
-    db_password = ''
+    db_uri = '10.243.141.118:1521/cmbirs2'
+    db_username = 'cmbirs'
+    db_password = 'cmbirs'
     oracle.init_oracle_client('C:\oracle\instantclient_19_11')
     conn = oracle.connect(db_username, db_password, db_uri)
     print("connect to Oracle success, Oracle version is" + conn.version)
@@ -30,9 +30,9 @@ def test1():
 
 
 def test2():
-    db_uri = ''
-    db_username = ''
-    db_password = ''
+    db_uri = '10.243.141.118:1521/cmbirs2'
+    db_username = 'cmbirs'
+    db_password = 'cmbirs'
     oracle.init_oracle_client('C:\oracle\instantclient_19_11')
     conn = oracle.connect(db_username, db_password, db_uri)
     print("connect to Oracle success, Oracle version is" + conn.version)
@@ -41,7 +41,7 @@ def test2():
     sql = r"SELECT * FROM BASE_PARAM"
     cur.execute(sql)  # here return a tuple
 
-    WANTED_PARA = 'PARAM_NAME:'
+    WANTED_PARA = 'PARAM_NAME:上清所代理保证金户'
     PARA_COL_NUMBER = -1
 
     # for col in cur.description:

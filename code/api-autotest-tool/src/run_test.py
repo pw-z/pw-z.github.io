@@ -46,7 +46,7 @@ if __name__ == '__main__':
         # print(cases)
 
         for case in cases:
-            logger.info('\n' + '='*50 + '\n Run Case # ' + case['CaseName'] + '\n' + '='*50)
+            logger.info('\n' + '='*100 + '\n Run Case # ' + case['CaseName'] + '\n' + '='*100)
 
             case_run_result = True
             steps_run_detail = []
@@ -54,7 +54,9 @@ if __name__ == '__main__':
             count_success_steps = 0
             count_fail_steps = 0
             for step in case['CaseSteps']:
-                if step['Run?']:
+                if step['Run?'] == 'y':
+                    init_sio()  # clear the string io cathe, start recording step run info
+                    logger.info('\n' + '=' * 50 + '\n Run Step # ' + step['CaseStep'] + '\n' + '=' * 50)
                     r1 = True
                     r2 = True
                     r3 = True
@@ -69,8 +71,10 @@ if __name__ == '__main__':
                     if step_run_result is False:
                         case_run_result = False
 
+                    step_run_log = get_sio().getvalue()
                     temp_dict = {'step_name': step['CaseStep'],
-                                 'run_result': step_run_result}
+                                 'run_result': step_run_result,
+                                 'run_log': step_run_log}
                     steps_run_detail.append(temp_dict)
                     if step_run_result:
                         count_success_steps += 1

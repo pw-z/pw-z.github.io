@@ -62,6 +62,7 @@ STEP_TR_TEMPLATE = """
                 <tr class="{0}">
                     <td>{1}</td>
                     <td><a href="">detail</a> </td>
+                    <td>{2}</td>
                 </tr>
 """
 
@@ -193,9 +194,9 @@ def generate_html_body(test_summary_dict, case_detail_list):
 
             for step_detail in case_detail['step_detail']:
                 if step_detail['run_result']:
-                    body_detail += STEP_TR_TEMPLATE.format('pass_step', step_detail['step_name'])
+                    body_detail += STEP_TR_TEMPLATE.format('pass_step', step_detail['step_name'], step_detail['run_log'])
                 else:
-                    body_detail += STEP_TR_TEMPLATE.format('fail_step', step_detail['step_name'])
+                    body_detail += STEP_TR_TEMPLATE.format('fail_step', step_detail['step_name'], step_detail['run_log'])
         else:
             body_detail += CASE_TR_TEMPLATE.format('fail_case', case_detail['case_name'],
                                                    case_detail['count_all_steps'],
@@ -204,9 +205,9 @@ def generate_html_body(test_summary_dict, case_detail_list):
 
             for step_detail in case_detail['step_detail']:
                 if step_detail['run_result']:
-                    body_detail += STEP_TR_TEMPLATE.format('pass_step', step_detail['step_name'])
+                    body_detail += STEP_TR_TEMPLATE.format('pass_step', step_detail['step_name'], step_detail['run_log'])
                 else:
-                    body_detail += STEP_TR_TEMPLATE.format('fail_step', step_detail['step_name'])
+                    body_detail += STEP_TR_TEMPLATE.format('fail_step', step_detail['step_name'], step_detail['run_log'])
 
     return body_summary, body_detail
 

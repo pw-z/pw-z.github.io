@@ -40,7 +40,32 @@ def test1():
     for p in finds:
         print(p.group(1))
 
+def test2():
+    res = """{"result":[{"ACC_ID":"000501","PRODUCT":"IRS","CUSTOMER_ID":"1120870002","LOCALSYS_ID":"00000284",
+    "CUSTOMER_NAME_CH":"小小测试002","CUST_TRADECODE":"2087002","ACCOUNT_NO":"112220870002","ACCOUNT_NAME":"小小测试002",
+    "MARGIN_NO":"220088770002","MARGIN_NAME":"小小测试002","CUSTOMER_TYPE":"legal","CERTIFICATE_TYPE":"C35",
+    "CERTIFICATE_NO":"11230000-9","PROTOCOL_ID":"10101","PROTOCOL_NAME":"协议编号01","CONTACTS1":"cjh",
+    "CONTACTS_PHONE1":"18800208064","CONTACTS2":"","CONTACTS_PHONE2":"","CONTACTS3":"","CONTACTS_PHONE3":"",
+    "MANAGER1":"","MANAGER_PHONE1":"","MANAGER2":"","MANAGER_PHONE2":"","MANAGER3":"","MANAGER_PHONE3":"",
+    "SIGN_STATUS":"0","MARGIN_STATUS":"1","RATE_STATUS":"1","CUSTOMER_STATUS":"0","CREATE_TIME":"2021-03-20 
+    16:30:37","MODIFY_TIME":"2021-03-20 16:30:37","RN":"1"}],"total":1,"pageCount":1,"CODE":"200","code":"200",
+    "SYS_REAL_DATETIME":"2021-03-22 15:14:39"} """
+
+    p_origin = 'ACCOUNT_NO'
+    r = r'("{0}" *: *.*?)'.format(p_origin) + '[,|)|}]'
+    finds = re.finditer(r, res)
+    for p in finds:
+        print(p.group(1))
+        s = p.group(1).split(':')
+        find_value = s[1]
+        print(find_value)
+        if '"' in find_value:
+            final_value = find_value[1:-1]  # deal with "key":"value"
+        else:
+            final_value = find_value  # deal with "key":value
+        print(final_value)
+
 
 if __name__ == '__main__':
-    test1()
-
+    # test1()
+    test2()

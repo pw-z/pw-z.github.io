@@ -48,7 +48,7 @@ class Parameter:
         self.__global_configs['db_password'] = db_password
         self.__global_configs['db_oracle_lib_dir'] = db_oracle_lib_dir
 
-        logger.debug("config object initialize success # " + str(self.__global_configs))
+        logger.debug("parameter handler initialize success # " + str(self.__global_configs))
 
     def get_parameter(self, p_name):
         if p_name in self.__global_configs:
@@ -65,25 +65,25 @@ class Parameter:
     def flush_parameter_pool(self, parameters, response):
         fail_count = 0
         # print(parameters)
-        # print(len(parameters))
         # print(response)
         if len(parameters) == 0:
             return True
         else:
             for p in parameters:
                 if ':' not in p:
-                    logger.debug('flush_parameter_pool: ' + p)
+                    logger.info('flush_parameter_pool: ' + p)
                     if p in response:
-                        re_string = '({0} *: *.*?)'.format(p) + '[,|)|}]'
+                        re_string = r'("{0}" *: *.*?)'.format(p) + '[,|)|}]'
                         finds = re.finditer(re_string, response)
-                        for _p in finds:
-                            # print('find: ' + _p.group())
-                            s = _p.group(1).split(':')
-                            s = s[1]
-                            # print(s)
-                            # print(s[1:-1])
-                            self.__parameter_pool[p] = s[1:-1]  # TODO
-                            return True
+                        for find in finds:
+                            s = find.group(1).split(':')
+                            find_value = s[1]
+                            if '"' in find_value:
+                                # self.__parameter_pool[p] = find_value[1:-1]
+                                self.add_parameter(p, find_value[1:-1])  # deal with "key":"value"
+                            else:
+                                # self.__parameter_pool[p] = find_value  # deal with "key":value
+                                self.add_parameter(p, find_value)
                     else:
                         fail_count += 1
                         logger.error("fail to get parameter in response -> {0}".format(p))
@@ -91,21 +91,23 @@ class Parameter:
                     # rename parameter with string after ':'
                     p_origin = p[:p.find(':')]
                     p_rename = p[p.find(':') + 1:]
-                    logger.debug('flush_parameter_pool: ' + p_origin)
+                    logger.info('flush_parameter_pool: ' + p_origin)
                     if p_origin in response:
-                        re_string = '({0} *: *.*?)'.format(p_origin) + '[,|)|}]'
+                        re_string = r'("{0}" *: *.*?)'.format(p_origin) + '[,|)|}]'
                         finds = re.finditer(re_string, response)
                         for _p in finds:
-                            # print('find: ' + _p.group())
                             s = _p.group(1).split(':')
-                            s = s[1]
-                            # print(s)
-                            # print(s[1:-1])
-                            self.__parameter_pool[p_rename] = s[1:-1]  # TODO
-                            return True
+                            find_value = s[1]
+                            if '"' in find_value:
+                                # self.__parameter_pool[p_rename] = find_value[1:-1]  # deal with "key":"value"
+                                self.add_parameter(p_rename, find_value[1:-1])  # deal with "key":"value"
+                            else:
+                                # self.__parameter_pool[p_rename] = find_value  # deal with "key":value
+                                self.add_parameter(p_rename, find_value)
                     else:
                         fail_count += 1
                         logger.error("fail to get parameter in response -> {0}".format(p_origin))
+            return True if fail_count == 0 else False
 
     def flush_body_parameter(self, body):
         """
@@ -118,7 +120,7 @@ class Parameter:
 
         for p in paras:
             # re.sub(r'\$\{\w*\}', self.get_parameter(p.group()[2:-1]), request_body)
-            # print(p.group())
+            print(p.group())
             _p = self.get_parameter(p.group()[2:-1])
             if _p:
                 body = body.replace(p.group(), _p)
@@ -130,23 +132,6 @@ class Parameter:
         # if fail_count:
         #     self.logger.error("fail to replace parameter * {0}".format(fail_count))
         return body
-
-    # def verify_parameter_in_response(self, paras_dict, response):
-    #     for key in paras_dict:
-    #         logger.debug("verify_parameter_in_response: " + key + " ?= " + paras_dict[key])
-    #         if key in response:
-    #             finds = re.finditer(r'\"{0}\" *: *\"\w*\"'.format(key), response)
-    #             for _p in finds:
-    #                 s = _p.group().split(':')
-    #                 s = s[1]
-    #                 # print(s)
-    #                 # print(s[1:-1])
-    #                 if paras_dict[key] == s[1:-1]:
-    #                     logger.info("wanted value of [{0}] is [{1}], correct!".format(key, paras_dict[key]))
-    #                 else:
-    #                     logger.error("wanted value of [{0}] is [{1}] but found [{2}]".format(key, paras_dict[key], s[1:-1]))
-    #         else:
-    #             logger.error("could not find the parameter [{0}] in response".format(key))
 
     def verify_parameter_in_response(self, paras_dict, response):
         # paras_dict = { 'expected_name1': 'expected_value1', 'expected_name2': 'expected_value2', ... }
@@ -180,7 +165,7 @@ class Parameter:
 
         def verify_method1():
             if para == str(results):
-                # TODO maybe we should consider more if para=='32' but result==32,
+                # TODO maybe we should consider more when para=='32' but result==32,
                 # TODO not just str(result) then conclude that para==result
                 logger.info("wanted value of SQL is [{1}], correct!".format(paras, results))
                 return True
@@ -204,12 +189,17 @@ class Parameter:
                     # if results contains more then one row, every row needs to meet the para_name:para_value
                     row_list = list(row)
                     if para_value == str(row_list[para_col_number]):
-                        # TODO maybe we should consider more if para=='32' but result==32,
+                        # TODO maybe we should consider more when para=='32' but result==32,
                         # TODO not just str(result) then conclude that para==result
-                        logger.info('#' * 30 + 'The wanted parameter {0} is {1}, correct!'.format(para_name, para_value))
+                        logger.info(
+                            '#' * 30 + 'The wanted parameter {0} is {1}, correct!'.format(para_name, para_value))
                         return True
                     else:
-                        logger.warning('*' * 30 + 'Bad Value! The wanted parameter {0} is {1} BUT found {2}!'.format(para_name, para_value, row_list[para_col_number]))
+                        logger.warning(
+                            '*' * 30 + 'Bad Value! The wanted parameter {0} is {1} BUT found {2}!'.format(para_name,
+                                                                                                          para_value,
+                                                                                                          row_list[
+                                                                                                              para_col_number]))
                         return False
             else:
                 logger.error('Bad Parameter! No column named {0}'.format(para_name))
@@ -224,4 +214,3 @@ class Parameter:
             if not r:
                 flag = False
         return flag
-
