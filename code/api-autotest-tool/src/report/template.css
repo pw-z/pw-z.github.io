@@ -1,10 +1,11 @@
+/* --------------------------- basic setting --------------------------- */
 .report_body {
     max-width: 900px;
     margin-right: auto;
     margin-left: auto;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 16px;
-    line-height: 1.0;
+    line-height: 1.2;
     /* word-wrap: break-word; */
     /* white-space: pre-line; */
     /* word-break: break-all; */
@@ -19,28 +20,31 @@ h2 {
     padding-bottom: 3px;
     border-bottom: 1px solid #f5f3f3;
 }
+/* --------------------------- basic setting --------------------------- */
 
-
-/* --------------------------- report summary --------------------------- */
-
+/* --------------------------- report summary -------------------------- */
 .report_summary {
     width: 98%;
     margin: 20px auto;
-    height: 350px;
+    height: 300px;
 }
 
-.report_summary .summary_text {
+.summary_text {
     width: 98%;
-    float: left;
-    width: 50%;
-    height: 280px;
+    /* float: left; */
+    text-align: center;
+    /* width: 50%; */
+    height: 100%;
+    /* background-color: aquamarine; */
 }
 
-.report_summary .summary_chart {
-    float: right;
-    /*background-color: #eaecef;*/
-    width: 50%;
-    height: 280px;
+.summary_chart {
+    /* float: right; */
+    /* text-align: left; */
+
+    /* background-color: #456494; */
+    /* width: 50%; */
+    height: 50%;
 }
 
 #pie_chart {
@@ -49,13 +53,10 @@ h2 {
     display: block;
     margin: auto;
 }
+/* --------------------------- report summary -------------------------- */
 
 
-/* --------------------------- report summary --------------------------- */
-
-
-/* --------------------------- report detail ---------------------------- */
-
+/* --------------------------- report detail --------------------------- */
 .report_detail {
     width: 98%;
     margin: 40px auto;
@@ -65,10 +66,33 @@ h2 {
 /* .case_info .name {
     text-align: left;
 } */
-
+.case_info,
+.step_info{
+    padding: 3px;
+    border: 2px solid #ffffff;
+}
+.case_info:hover,
+.step_info:hover{
+    border-bottom: 2px solid #e88c5f;
+    cursor: pointer;
+}
 .case_info .status {
     float: right;
 }
+
+.pass_case,
+.fail_case,
+.error_case {
+    border: 2px;
+    padding: 3px;
+    margin: 8px;
+}
+
+.pass_case { background-color: #fdfdfd; }
+
+.fail_case { background-color: #e88c5f; }
+
+.error_case { background-color: #d55858; }
 
 .step_list {
     display: none;
@@ -76,53 +100,35 @@ h2 {
     margin: auto;
 }
 
-.pass_case,
-.fail_case,
-.error_case {
+.pass_step,
+.fail_step,
+.error_step {
     padding: 3px;
     margin: 8px;
-}
-
-.pass_case {
-    background-color: #f3f3f3;
-}
-
-.fail_case {
-    background-color: #e88c5f;
-}
-
-.error_case {
-    background-color: #d55858;
-}
-
-.pass_step, .fail_step, .error_step {
-    padding: 3px;
-    margin: 8px;
-    background-color: #fd1b1b;
 }
 
 .pass_step {
     font-size: 14px;
-    display: none;
+    /* color: #e88c5f; */
+    /* display: none; */
 }
 
 .fail_step {
     font-size: 14px;
-    color: crimson;
-    display: none;
+    /* color: crimson; */
+    /* display: none; */
 }
 
 .error_step {
     font-size: 14px;
-    display: none;
+    /* display: none; */
 }
 
 .step_detail {
-    font-size: smaller;
+    font-size: 10px;
+    line-height: 1.2;
     white-space: pre-line;
     word-wrap: break-word;
     word-break: break-all;
 }
-
-
-/* --------------------------- report detail ---------------------------- */
+/* --------------------------- report detail --------------------------- */
