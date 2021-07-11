@@ -5,9 +5,9 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 16px;
     line-height: 1.0;
-    word-wrap: break-word;
-    white-space: pre-line;
-    word-break: break-all;
+    /* word-wrap: break-word; */
+    /* white-space: pre-line; */
+    /* word-break: break-all; */
 }
 
 h1 {
@@ -20,19 +20,23 @@ h2 {
     border-bottom: 1px solid #f5f3f3;
 }
 
+
+/* --------------------------- report summary --------------------------- */
+
 .report_summary {
     width: 98%;
     margin: 20px auto;
     height: 350px;
 }
 
-.summary_text {
+.report_summary .summary_text {
+    width: 98%;
     float: left;
     width: 50%;
     height: 280px;
 }
 
-.summary_chart {
+.report_summary .summary_chart {
     float: right;
     /*background-color: #eaecef;*/
     width: 50%;
@@ -46,70 +50,79 @@ h2 {
     margin: auto;
 }
 
+
+/* --------------------------- report summary --------------------------- */
+
+
+/* --------------------------- report detail ---------------------------- */
+
 .report_detail {
     width: 98%;
     margin: 40px auto;
-
 }
 
+
+/* .case_info .name {
+    text-align: left;
+} */
+
+.case_info .status {
+    float: right;
+}
+
+.step_list {
+    display: none;
+    width: 95%;
+    margin: auto;
+}
+
+.pass_case,
+.fail_case,
+.error_case {
+    padding: 3px;
+    margin: 8px;
+}
 
 .pass_case {
     background-color: #f3f3f3;
 }
+
 .fail_case {
     background-color: #e88c5f;
 }
+
 .error_case {
     background-color: #d55858;
 }
 
+.pass_step, .fail_step, .error_step {
+    padding: 3px;
+    margin: 8px;
+    background-color: #fd1b1b;
+}
+
 .pass_step {
     font-size: 14px;
-    /* display: none; */
+    display: none;
 }
+
 .fail_step {
     font-size: 14px;
     color: crimson;
+    display: none;
 }
+
 .error_step {
     font-size: 14px;
+    display: none;
+}
+
+.step_detail {
+    font-size: smaller;
+    white-space: pre-line;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 
-
-table{
-    width: 100%;
-    /*max-width: 800px;*/
-    border-collapse: collapse;
-}
-tr{
-    border: 12px solid #ffffff;
-}
-td{
-    text-align: left;
-    margin: 2px;
-}
-td:first-child{
-    text-align: left;
-    margin: 2px;
-}
-
-
-
-/*.pie {*/
-/*    width: 100px;*/
-/*    height: 100px;*/
-/*    border-radius: 50%; !*四个角圆角率均取0.5则为圆形*!*/
-/*    background: yellowgreen;*/
-/*    background-image: linear-gradient(to right, transparent 50%, #655 0);*/
-/*}*/
-/*.pie::before {*/
-/*    content: '';*/
-/*    display: block;*/
-/*    margin-left: 50%;*/
-/*    height: 100%;*/
-/*    border-radius: 0 100% 100% 0/50%;*/
-/*    background-color: inherit;*/
-/*    transform-origin: left;*/
-/*    transform: rotate(0.3turn);*/
-/*}*/
+/* --------------------------- report detail ---------------------------- */
