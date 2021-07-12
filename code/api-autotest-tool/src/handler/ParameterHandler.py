@@ -48,6 +48,9 @@ class Parameter:
         self.__global_configs['db_password'] = db_password
         self.__global_configs['db_oracle_lib_dir'] = db_oracle_lib_dir
 
+        test_report_title = cnf.get('other', 'test_report_title')
+        self.__global_configs['test_report_title'] = test_report_title
+
         logger.debug("parameter handler initialize success # " + str(self.__global_configs))
 
     def get_parameter(self, p_name):
@@ -147,7 +150,7 @@ class Parameter:
                     s = _p.group(1).split(':')
                     _p_name = s[0]
                     _p_value = s[1]
-                    print(s)
+                    # print(s)
                     # print(s[1:-1])
                     if paras_dict[key] == _p_value:
                         logger.info("wanted value of [{0}] is [{1}], correct!".format(key, paras_dict[key]))

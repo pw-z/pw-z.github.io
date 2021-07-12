@@ -34,7 +34,8 @@ if __name__ == '__main__':
         count_success_cases=0,
         count_fail_cases=0,
         test_start_time=datetime.datetime.now(),
-        test_end_time=''
+        test_end_time='',
+        test_report_title=para.get_parameter('test_report_title')
     )
 
     count_all_cases = 0
@@ -54,7 +55,9 @@ if __name__ == '__main__':
             count_success_steps = 0
             count_fail_steps = 0
             for step in case['CaseSteps']:
-                if step['Run?'] == 'y':
+                if step['Run?'] != 'y':
+                    continue
+                else:
                     init_sio()  # clear the string io cathe, start recording step run info
                     logger.info('\n' + '=' * 50 + '\n Run Step # ' + step['CaseStep'] + '\n' + '=' * 50)
                     r1 = True
@@ -81,6 +84,9 @@ if __name__ == '__main__':
                     else:
                         count_fail_steps += 1
                     count_all_steps += 1
+
+            if count_all_steps == 0:  # no step run in this case
+                continue
 
             case_temp_dict = {
                 'case_name': case['CaseName'],

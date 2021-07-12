@@ -31,6 +31,13 @@ def test3():
     print(result)
 
 
+def test4():
+    import time
+    t = 'API AutoTest Report ' + time.strftime('%Y.%m.%d')
+    print(t)
+
+
 if __name__ == '__main__':
     # test2()
-    test3()
+    # test3()
+    test4()

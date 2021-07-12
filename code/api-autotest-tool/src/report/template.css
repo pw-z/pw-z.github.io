@@ -14,11 +14,13 @@
 h1 {
     padding-bottom: 2px;
     border-bottom: 3px solid #eaecef;
+    background-color: #ffffff;
 }
 
 h2 {
     padding-bottom: 3px;
     border-bottom: 1px solid #f5f3f3;
+    background-color: #ffffff;
 }
 /* --------------------------- basic setting --------------------------- */
 
@@ -26,7 +28,7 @@ h2 {
 .report_summary {
     width: 98%;
     margin: 20px auto;
-    height: 300px;
+    height: 400px;
 }
 
 .summary_text {
@@ -44,7 +46,7 @@ h2 {
 
     /* background-color: #456494; */
     /* width: 50%; */
-    height: 50%;
+    height: 60%;
 }
 
 #pie_chart {
@@ -88,11 +90,11 @@ h2 {
     margin: 8px;
 }
 
-.pass_case { background-color: #fdfdfd; }
+.pass_case .case_info { background-color: #fdfdfd; }
 
-.fail_case { background-color: #e88c5f; }
+.fail_case .case_info { background-color: #e88c5f; }
 
-.error_case { background-color: #d55858; }
+.error_case .case_info { background-color: #d55858; }
 
 .step_list {
     display: none;
@@ -105,28 +107,31 @@ h2 {
 .error_step {
     padding: 3px;
     margin: 8px;
+    font-size: 16px;
 }
 
 .pass_step {
-    font-size: 14px;
     /* color: #e88c5f; */
     /* display: none; */
 }
 
-.fail_step {
-    font-size: 14px;
-    /* color: crimson; */
+.fail_step .step_info {
+     color: #ff0032;
     /* display: none; */
 }
 
-.error_step {
-    font-size: 14px;
+.error_step .step_info {
+    color: #cc0000;
     /* display: none; */
 }
 
 .step_detail {
-    font-size: 10px;
+    font-size: 14px;
     line-height: 1.2;
+    width: 98%;
+    margin: 4px auto;
+    padding: 4px;
+    border: 1px solid rgba(138, 176, 187, 0.25);
     white-space: pre-line;
     word-wrap: break-word;
     word-break: break-all;

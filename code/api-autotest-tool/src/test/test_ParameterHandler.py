@@ -42,6 +42,8 @@ if __name__ == '__main__':
     # s = 'hello-${token}-7894654'
     # print(s.replace('${token}', para.get_parameter('token')))
 
-    s = para.flush_body_parameter('hello-${token}-7894${X}65${Y}4')
-    print(s)
+    # s = para.flush_body_parameter('hello-${token}-7894${X}65${Y}4')
+    # print(s)
+    title = para.get_parameter('test_report_title')
+    print(title)
 

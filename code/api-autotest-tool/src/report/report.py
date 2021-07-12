@@ -19,11 +19,48 @@ REPORT_TEMPLATE = r"""
         %(body_summary)s
         <div class="report_detail">
             <h2>Detail</h2>
-            <table>
             %(body_detail)s
-            </table>
         </div>
     </div>
+<!--script----------------------------------------------------------------------->
+<script>
+    function show_or_close_case_detail(that) {
+        // console.log(that.parentNode);
+        // console.log(that.parentNode.lastElementChild);
+        var current_display_mode = that.parentNode.lastElementChild.style.display;
+        // console.log(current_display_mode);
+        // var div_step_list = that.parentNode.lastElementChild;
+        // console.log(div_step_list)
+        // var div_step_list_children = div_step_list.children;
+        // console.log(div_step_list_children);
+        var div_step_detail = that.parentNode.lastElementChild.getElementsByClassName('step_detail');
+        // console.log(div_step_detail[0])
+        if (current_display_mode != 'none') {
+            that.parentNode.lastElementChild.style.display = 'none';
+            for (let index = 0; index < div_step_detail.length; index++) {
+                div_step_detail[index].style.display = 'none';
+            }
+            // that.parentNode.lastElementChild.div.class('step_detail').style.display='none';
+        } else {
+            that.parentNode.lastElementChild.style.display = 'block';
+            for (let index = 0; index < div_step_detail.length; index++) {
+                div_step_detail[index].style.display = 'none';
+            }
+        }
+    }
+
+    function show_or_close_step_detail(that) {
+        // console.log(that.parentNode.lastElementChild);
+        var current_display_mode = that.parentNode.lastElementChild.style.display;
+        // console.log(current_display_mode);
+        if (current_display_mode != 'none') {
+            that.parentNode.lastElementChild.style.display = 'None';
+        } else {
+            that.parentNode.lastElementChild.style.display = 'block';
+        }
+    }
+</script>
+<!--script---------------------------------------------------------------end----->
 </body>
 
 </html>
@@ -33,15 +70,24 @@ BODY_SUMMARY_TEMPLATE = """
 <div class="report_summary">
         <h2>Summary</h2>
         <div class="summary_text">
-            <p>Start Time: %(test_start_time)s<br/>End Time: %(test_end_time)s<br/>Duration: %(test_duration)s</p>
-            <p>Total: %(count_all_cases)s<br/>Success: %(count_success_cases)s<br/>Fail: %(count_fail_cases)s</p>
-        </div>
-        <div class="summary_chart">
-            <img id="pie_chart" alt="" src="data:image/png;base64,%(pie_chart)s"/>
+            <p>
+                <span>Start: %(test_start_time)s</span><br/>
+                <span>End:  %(test_end_time)s</span><br/>
+                <span>Duration: %(test_duration)s</span><br/>
+            </p>
+            
+            <div class="summary_chart">
+                <img id="pie_chart" alt="" src="data:image/png;base64,%(pie_chart)s"/>
+            </div>
+            
+            <p>
+                <span>Total: %(count_all_cases)s</span>
+                <span>Success: %(count_success_cases)s</span>
+                <span>Fail: %(count_fail_cases)s</span>
+            </p>
         </div>
 </div>
 """
-
 
 """
 {0} = run_result (pass_case, fail_case)
@@ -49,29 +95,38 @@ BODY_SUMMARY_TEMPLATE = """
 {2} = count_all_steps
 {3} = count_success_steps
 {4} = count_fail_steps
+{5} = step_detail
 """
-CASE_TR_TEMPLATE = """
-        <tr class="{0}">
-            <td>{1}</td>
-            <td>{2}/{3}/{4}</td>
-            <td><a href="">detail</a> </td>
-        </tr>
-"""
-
-STEP_TR_TEMPLATE = """
-                <tr class="{0}">
-                    <td>{1}</td>
-                    <td><a href="">detail</a> </td>
-                    <td>{2}</td>
-                </tr>
+CASE_TEMPLATE = """
+        <div class="{0}">
+            <div class="case_info" onclick="show_or_close_case_detail(this)">
+                <span class="name">{1}</span>
+                <span class="status">{2}/{3}/{4}</span>
+            </div>
+            <div class="step_list" style="display: none;">
+            {5}
+            </div>
+        </div>
 """
 
+"""
+{0} = run_result
+{1} = step name
+{2} = step run log
+"""
+STEP_TEMPLATE = """
+                <div class="{0}">
+                    <div class="step_info" onclick="show_or_close_step_detail(this)">{1}</div>
+                    <div class="step_detail">
+                    {2}
+                    </div>
+                </div>
+"""
 
 logger = init_logger(__name__)
 
 
 def generate_report(test_summary_dict, case_detail_list):
-
     logger.info("=" * 70)
     logger.info("=" * 24 + " Generate Test Report " + "=" * 24)
     logger.info("=" * 70)
@@ -79,7 +134,12 @@ def generate_report(test_summary_dict, case_detail_list):
     logger.debug(test_summary_dict)
     logger.debug(case_detail_list)
 
-    title = 'Test Test Report Title'
+    title = '' + time.strftime('%Y%m%d')
+    title = test_summary_dict['test_report_title']
+    if title == '':
+        title = 'API AutoTest Report ' + time.strftime('%Y.%m.%d')
+    else:
+        title = title + ' ' + time.strftime('%Y.%m.%d')
     style = generate_html_style()
     body_summary, body_detail = generate_html_body(test_summary_dict, case_detail_list)
 
@@ -162,55 +222,63 @@ def generate_html_body(test_summary_dict, case_detail_list):
             'case_name': case['CaseName'],
             'run_result': case_run_result,
             'step_detail': [
-
                 step_detail_dict1 = {
                     'step_name': step['CaseStep'],
-                    'run_result': step_run_result
+                    'run_result': step_run_result,
+                    'run_log': step_run_log
                 },
                 step_detail_dict2 = {
                     'step_name': step['CaseStep'],
-                    'run_result': step_run_result
+                    'run_result': step_run_result,
+                    'run_log': step_run_log
                 }
             ]
-
         }
     ]
-
-
     :param test_summary_dict:
     :param case_detail_list:
     :return:
     """
+
+    def get_step_list(steps):
+        """
+        steps = [
+                step_detail_dict1 = {
+                    'step_name': step['CaseStep'],
+                    'run_result': step_run_result,
+                    'run_log': step_run_log
+                },
+                step_detail_dict2 = {
+                    'step_name': step['CaseStep'],
+                    'run_result': step_run_result,
+                    'run_log': step_run_log
+                }
+            ]
+        """
+        _step_list = ''
+        for step in steps:
+            if step['run_result']:  # pass step
+                _step_list += STEP_TEMPLATE.format('pass_step', step['step_name'], step['run_log'])
+            else:  # fail step
+                _step_list += STEP_TEMPLATE.format('fail_step', step['step_name'], step['run_log'])
+        return _step_list
+
     body_summary = generate_html_summary(test_summary_dict)
 
     body_detail = ''
     for case_detail in case_detail_list:
         # print(case_detail)
+        step_list = get_step_list(case_detail['step_detail'])
         if case_detail['run_result'] is True:
-            body_detail += CASE_TR_TEMPLATE.format('pass_case', case_detail['case_name'],
-                                                   case_detail['count_all_steps'],
-                                                   case_detail['count_success_steps'],
-                                                   case_detail['count_fail_steps'])
-
-            for step_detail in case_detail['step_detail']:
-                if step_detail['run_result']:
-                    body_detail += STEP_TR_TEMPLATE.format('pass_step', step_detail['step_name'], step_detail['run_log'])
-                else:
-                    body_detail += STEP_TR_TEMPLATE.format('fail_step', step_detail['step_name'], step_detail['run_log'])
+            body_detail += CASE_TEMPLATE.format('pass_case', case_detail['case_name'],
+                                                case_detail['count_all_steps'],
+                                                case_detail['count_success_steps'],
+                                                case_detail['count_fail_steps'],
+                                                step_list)
         else:
-            body_detail += CASE_TR_TEMPLATE.format('fail_case', case_detail['case_name'],
-                                                   case_detail['count_all_steps'],
-                                                   case_detail['count_success_steps'],
-                                                   case_detail['count_fail_steps'])
-
-            for step_detail in case_detail['step_detail']:
-                if step_detail['run_result']:
-                    body_detail += STEP_TR_TEMPLATE.format('pass_step', step_detail['step_name'], step_detail['run_log'])
-                else:
-                    body_detail += STEP_TR_TEMPLATE.format('fail_step', step_detail['step_name'], step_detail['run_log'])
-
+            body_detail += CASE_TEMPLATE.format('fail_case', case_detail['case_name'],
+                                                case_detail['count_all_steps'],
+                                                case_detail['count_success_steps'],
+                                                case_detail['count_fail_steps'],
+                                                step_list)
     return body_summary, body_detail
-
-
-if __name__ == '__main__':
-    generate_report('1', '1')
