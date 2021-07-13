@@ -111,14 +111,22 @@ CASE_TEMPLATE = """
 
 """
 {0} = run_result
-{1} = step name
-{2} = step run log
+{1} = %(name)s
+{2} = %(start)s
+{3} = %(end)s
+{4} = %(duration)s
+{5} = step run log
 """
 STEP_TEMPLATE = """
                 <div class="{0}">
-                    <div class="step_info" onclick="show_or_close_step_detail(this)">{1}</div>
+                    <div class="step_info" onclick="show_or_close_step_detail(this)">
+                        <span class="step_name">{1}</span>
+                        <span class="step_duration">Dur: {4}</span>
+                        <span class="step_end_time">End: {3}</span>
+                        <span class="step_start_time">Start: {2}</span>
+                    </div>
                     <div class="step_detail">
-                    {2}
+                    {5}
                     </div>
                 </div>
 """
@@ -258,9 +266,9 @@ def generate_html_body(test_summary_dict, case_detail_list):
         _step_list = ''
         for step in steps:
             if step['run_result']:  # pass step
-                _step_list += STEP_TEMPLATE.format('pass_step', step['step_name'], step['run_log'])
+                _step_list += STEP_TEMPLATE.format('pass_step', step['step_name'], step['start_time'], step['end_time'], step['duration'], step['run_log'])
             else:  # fail step
-                _step_list += STEP_TEMPLATE.format('fail_step', step['step_name'], step['run_log'])
+                _step_list += STEP_TEMPLATE.format('fail_step', step['step_name'], step['start_time'], step['end_time'], step['duration'], step['run_log'])
         return _step_list
 
     body_summary = generate_html_summary(test_summary_dict)

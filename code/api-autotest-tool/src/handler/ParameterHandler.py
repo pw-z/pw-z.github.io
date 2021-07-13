@@ -123,7 +123,7 @@ class Parameter:
 
         for p in paras:
             # re.sub(r'\$\{\w*\}', self.get_parameter(p.group()[2:-1]), request_body)
-            print(p.group())
+            # print(p.group())
             _p = self.get_parameter(p.group()[2:-1])
             if _p:
                 body = body.replace(p.group(), _p)

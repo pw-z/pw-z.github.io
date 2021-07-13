@@ -61,9 +61,10 @@ class ShellHandler:
         self.ssh_password = parameter_handler.get_parameter('ssh_password')
         self.ssh = paramiko.SSHClient()
         self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        self.ssh.connect(hostname=self.ssh_hostname, port=22, username=self.ssh_username, password=self.ssh_password)
 
     def run(self, case):
-        self.ssh.connect(hostname=self.ssh_hostname, port=22, username=self.ssh_username, password=self.ssh_password)
+
         sh = case['ShellScript']
         logger.info("Execute command:\n" + sh)
         stdin, stdout, stderr = self.ssh.exec_command(sh)
@@ -71,8 +72,10 @@ class ShellHandler:
         result = res if res else err
         logger.info("Command result:\n " + result.decode())
 
-        self.ssh.close()
         return True
+
+    def close(self):
+        self.ssh.close()
 
 
 class SQLHandler:
@@ -84,6 +87,7 @@ class SQLHandler:
         self.db_username = parameter_handler.get_parameter('db_username')
         self.db_password = parameter_handler.get_parameter('db_password')
         self.db_conn = oracle.connect(self.db_username, self.db_password, self.db_uri)
+        self.db_cur = self.db_conn.cursor()
         logger.debug("connect to Oracle success: " + self.db_conn.version)
 
     def __after_run(self, case, results, db_col):
@@ -91,8 +95,7 @@ class SQLHandler:
         return flag
 
     def run(self, case):
-        db_conn = self.db_conn
-        db_cur = db_conn.cursor()
+        db_cur = self.db_cur
         sql = case['DQL']
         # sql = "SELECT PARAM_VALUE FROM BASE_PARAM WHERE ID='TRADE_DATE'"
         db_cur.execute(sql)
@@ -106,5 +109,6 @@ class SQLHandler:
             # logger.info(row)
         return self.__after_run(case, results, db_col)
 
-        # db_cur.close()
-        # db_conn.close()
+    def close(self):
+        self.db_cur.close()
+        self.db_conn.close()

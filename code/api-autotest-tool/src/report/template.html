@@ -54,7 +54,12 @@
             </div>
             <div class="step_list" style="display: none;">
                 <div class="pass_step">
-                    <div class="step_info" onclick="show_or_close_step_detail(this)">step name 1</div>
+                    <div class="step_info" onclick="show_or_close_step_detail(this)">
+                        <span class="step_name">%(name)s</span>
+                        <span class="step_start_time">%(start)s</span>
+                        <span class="step_end_time">%(end)s</span>
+                        <span class="step_duration">%(duration)s</span>
+                    </div>
                     <div class="step_detail">
                         INFO [2021-07-10 16:04:13,148]
                         ==================================================

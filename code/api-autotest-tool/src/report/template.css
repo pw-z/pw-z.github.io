@@ -110,9 +110,10 @@ h2 {
     font-size: 16px;
 }
 
-.pass_step {
+.pass_step .step_info{
     /* color: #e88c5f; */
     /* display: none; */
+    /*color: #8aff80;*/
 }
 
 .fail_step .step_info {
@@ -123,6 +124,15 @@ h2 {
 .error_step .step_info {
     color: #cc0000;
     /* display: none; */
+}
+
+.step_start_time,
+.step_end_time,
+.step_duration{
+    float: right;
+    /*padding: 6px;*/
+    margin:auto;
+    font-size: 14px;
 }
 
 .step_detail {

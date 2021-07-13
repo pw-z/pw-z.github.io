@@ -18,11 +18,11 @@ if __name__ == '__main__':
     # print(para.get_parameter('excel_path'))
     # print(para.get_parameter('sheet_list'))
     excel_path = para.get_parameter('excel_path')
-    print(excel_path)
+    # print(excel_path)
     sheets = para.get_parameter('sheet_list')
 
     logger = init_logger(__name__)
-    print(logger.level)
+    # print(logger.level)
 
     casehandler = CaseHandler(para)
     shellhandler = ShellHandler(para)
@@ -47,6 +47,7 @@ if __name__ == '__main__':
         # print(cases)
 
         for case in cases:
+            case_start_time = datetime.datetime.now()
             logger.info('\n' + '='*100 + '\n Run Case # ' + case['CaseName'] + '\n' + '='*100)
 
             case_run_result = True
@@ -56,9 +57,11 @@ if __name__ == '__main__':
             count_fail_steps = 0
             for step in case['CaseSteps']:
                 if step['Run?'] != 'y':
+                    # logger.info('SKIP CASE')
                     continue
                 else:
-                    init_sio()  # clear the string io cathe, start recording step run info
+                    init_sio()  # clear the string io cache, start recording step run info
+                    step_start_time = datetime.datetime.now()
                     logger.info('\n' + '=' * 50 + '\n Run Step # ' + step['CaseStep'] + '\n' + '=' * 50)
                     r1 = True
                     r2 = True
@@ -75,7 +78,12 @@ if __name__ == '__main__':
                         case_run_result = False
 
                     step_run_log = get_sio().getvalue()
+                    step_end_time = datetime.datetime.now()
+                    step_duration = step_end_time - step_start_time
                     temp_dict = {'step_name': step['CaseStep'],
+                                 'start_time': step_start_time,
+                                 'end_time': step_end_time,
+                                 'duration': step_duration,
                                  'run_result': step_run_result,
                                  'run_log': step_run_log}
                     steps_run_detail.append(temp_dict)
@@ -86,10 +94,16 @@ if __name__ == '__main__':
                     count_all_steps += 1
 
             if count_all_steps == 0:  # no step run in this case
+                logger.info('SKIP CASE')
                 continue
 
+            case_end_time = datetime.datetime.now()
+            case_duration = case_start_time - case_end_time
             case_temp_dict = {
                 'case_name': case['CaseName'],
+                'start_time': case_start_time,
+                'end_time': case_end_time,
+                'duration': case_duration,
                 'run_result': case_run_result,
                 'count_all_steps': count_all_steps,
                 'count_success_steps': count_success_steps,
@@ -114,5 +128,8 @@ if __name__ == '__main__':
     # print("#"*100 + "\n\n" + "#"*100)
     # for case in test_result_detail:
     #     print(case)
+
+    shellhandler.close()
+    sqlhandler.close()
 
     r.generate_report(test_result_summary, test_result_detail)

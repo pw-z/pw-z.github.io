@@ -24,8 +24,8 @@ def init_logger(__name__):
 
     today = time.strftime('%Y-%m-%d')
     log_name = today + '.log'
-    # log_path = 'log/' + log_name
-    log_path = log_name
+    log_path = 'log/' + log_name
+    # log_path = log_name
 
     formatter = logging.Formatter('%(levelname)s [%(asctime)s] %(message)s')
 
