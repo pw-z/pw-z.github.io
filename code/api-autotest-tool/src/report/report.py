@@ -135,14 +135,13 @@ logger = init_logger(__name__)
 
 
 def generate_report(test_summary_dict, case_detail_list):
-    logger.info("=" * 70)
-    logger.info("=" * 24 + " Generate Test Report " + "=" * 24)
-    logger.info("=" * 70)
+    logger.info("=" * 100)
+    logger.info("=" * 39 + " Generate Test Report " + "=" * 39)
+    logger.info("=" * 100)
 
-    logger.debug(test_summary_dict)
-    logger.debug(case_detail_list)
+    # logger.debug("test_summary_dict is: \n\n" + test_summary_dict + "\n\n")
+    # logger.debug("case_detail_list is: \n\n" + case_detail_list + "\n\n")
 
-    title = '' + time.strftime('%Y%m%d')
     title = test_summary_dict['test_report_title']
     if title == '':
         title = 'API AutoTest Report ' + time.strftime('%Y.%m.%d')
@@ -163,6 +162,8 @@ def generate_report(test_summary_dict, case_detail_list):
     with open(report_name, 'w', encoding='utf8') as f:
         report_html = REPORT_TEMPLATE % html_dict
         f.write(report_html)
+
+    logger.info('The test is done, please check the report --> ' + report_name)
 
 
 def generate_html_summary(test_summary_dict):

@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from handler.ParameterHandler import Parameter
-from handler.Handler import CaseHandler
-from handler.Handler import ShellHandler
-from handler.Handler import SQLHandler
+from handler import CaseHandler
+from handler import ShellHandler
+from handler import SQLHandler
 from helper.CaseHelper import *
 from helper.Log import *
 import datetime
@@ -62,7 +62,7 @@ if __name__ == '__main__':
                 else:
                     init_sio()  # clear the string io cache, start recording step run info
                     step_start_time = datetime.datetime.now()
-                    logger.info('\n' + '=' * 50 + '\n Run Step # ' + step['CaseStep'] + '\n' + '=' * 50)
+                    logger.info('\n' + '*' * 70 + '\n Run Step # ' + step['CaseStep'] + '\n' + '*' * 70)
                     r1 = True
                     r2 = True
                     r3 = True
@@ -94,7 +94,7 @@ if __name__ == '__main__':
                     count_all_steps += 1
 
             if count_all_steps == 0:  # no step run in this case
-                logger.info('SKIP CASE')
+                logger.info('SKIP CASE\n')
                 continue
 
             case_end_time = datetime.datetime.now()
@@ -133,3 +133,4 @@ if __name__ == '__main__':
     sqlhandler.close()
 
     r.generate_report(test_result_summary, test_result_detail)
+

@@ -34,6 +34,8 @@ class CaseHandler:
         if __uri != '' and __port != '' and case['Address'] != '' and __header != '':
             url = __uri + ":" + __port + case['Address']
             header = {'content-type': __header}
+            logger.info('Request url: ' + url)
+            logger.info('Content type: ' + __header)
         else:
             return False
 
@@ -45,7 +47,7 @@ class CaseHandler:
         try:
             res = requests.post(url, headers=header, data=body.encode('utf-8'))
             # print(res.json())
-            logger.info(res.text)
+            logger.info('Response:\n' + res.text)
         except Exception as e:
             logger.error(e)
             return False
@@ -102,7 +104,7 @@ class SQLHandler:
         db_col = db_cur.description
         results = db_cur.fetchall()
         logger.info("Execute SQL: " + case['DQL'])
-        logger.info("SQL results:")
+        logger.info("SQL results: ")
         logger.info(results)
         # for row in results:  # make sure your SQL only return ONE result @v1.0
             # TODO handle multiple SQL results
