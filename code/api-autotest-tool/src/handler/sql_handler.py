@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+import cx_Oracle as oracle  # SQLHandler
+from helper.log_helper import *
+logger = init_logger(__name__)
+
+
+class SQLHandler:
+
+    def __init__(self, parameter_handler):
+        self.para = parameter_handler
+        oracle.init_oracle_client(parameter_handler.get_parameter('db_oracle_lib_dir'))
+        self.db_uri = parameter_handler.get_parameter('db_uri')
+        self.db_username = parameter_handler.get_parameter('db_username')
+        self.db_password = parameter_handler.get_parameter('db_password')
+        self.db_conn = oracle.connect(self.db_username, self.db_password, self.db_uri)
+        self.db_cur = self.db_conn.cursor()
+        logger.debug("connect to Oracle success: " + self.db_conn.version)
+
+    def __after_run(self, case, results, db_col):
+        flag = self.para.verify_parameter_in_sql_result(case['ExpectedDQLData'], results, db_col)
+        return flag
+
+    def run(self, case):
+        db_cur = self.db_cur
+        sql = case['DQL']
+        # sql = "SELECT PARAM_VALUE FROM BASE_PARAM WHERE ID='TRADE_DATE'"
+        db_cur.execute(sql)
+        db_col = db_cur.description
+        results = db_cur.fetchall()
+        logger.info("Execute SQL: " + case['DQL'])
+        logger.info("SQL results: ")
+        logger.info(results)
+        # for row in results:  # make sure your SQL only return ONE result @v1.0
+            # TODO handle multiple SQL results
+            # logger.info(row)
+        return self.__after_run(case, results, db_col)
+
+    def close(self):
+        self.db_cur.close()
+        self.db_conn.close()

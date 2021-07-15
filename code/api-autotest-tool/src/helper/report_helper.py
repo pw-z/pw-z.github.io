@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import time
-from helper.Log import *
+from helper.log_helper import *
 
 REPORT_TEMPLATE = r"""
 <!DOCTYPE html>
@@ -10,7 +10,9 @@ REPORT_TEMPLATE = r"""
 <head>
 <meta charset="utf-8"> 
 <title>%(title)s</title>
-<link rel="stylesheet" type="text/css" href="template.css">
+<style>
+    %(style)s
+</style>
 </head>
 
 <body>
@@ -131,39 +133,160 @@ STEP_TEMPLATE = """
                 </div>
 """
 
+CSS_TEMPLATE = """
+/* --------------------------- basic setting --------------------------- */
+.report_body {
+    max-width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.2;
+    /* word-wrap: break-word; */
+    /* white-space: pre-line; */
+    /* word-break: break-all; */
+}
+
+h1 {
+    padding-bottom: 2px;
+    border-bottom: 3px solid #eaecef;
+    background-color: #ffffff;
+}
+
+h2 {
+    padding-bottom: 3px;
+    border-bottom: 1px solid #f5f3f3;
+    background-color: #ffffff;
+}
+/* --------------------------- basic setting --------------------------- */
+
+/* --------------------------- report summary -------------------------- */
+.report_summary {
+    width: 98%;
+    margin: 20px auto;
+    height: 400px;
+}
+
+.summary_text {
+    width: 98%;
+    /* float: left; */
+    text-align: center;
+    /* width: 50%; */
+    height: 100%;
+    /* background-color: aquamarine; */
+}
+
+.summary_chart {
+    /* float: right; */
+    /* text-align: left; */
+
+    /* background-color: #456494; */
+    /* width: 50%; */
+    height: 60%;
+}
+
+#pie_chart {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+}
+/* --------------------------- report summary -------------------------- */
+
+
+/* --------------------------- report detail --------------------------- */
+.report_detail {
+    width: 98%;
+    margin: 40px auto;
+}
+
+
+/* .case_info .name {
+    text-align: left;
+} */
+.case_info,
+.step_info{
+    padding: 3px;
+    border: 2px solid #ffffff;
+}
+.case_info:hover,
+.step_info:hover{
+    border-bottom: 2px solid #e88c5f;
+    cursor: pointer;
+}
+.case_info .status {
+    float: right;
+}
+
+.pass_case,
+.fail_case,
+.error_case {
+    border: 2px;
+    padding: 3px;
+    margin: 8px;
+}
+
+.pass_case .case_info { background-color: #fdfdfd; }
+
+.fail_case .case_info { background-color: #e88c5f; }
+
+.error_case .case_info { background-color: #d55858; }
+
+.step_list {
+    display: none;
+    width: 95%;
+    margin: auto;
+}
+
+.pass_step,
+.fail_step,
+.error_step {
+    padding: 3px;
+    margin: 8px;
+    font-size: 16px;
+}
+
+.pass_step .step_info{
+    /* color: #e88c5f; */
+    /* display: none; */
+    /*color: #8aff80;*/
+}
+
+.fail_step .step_info {
+     color: #ff0032;
+    /* display: none; */
+}
+
+.error_step .step_info {
+    color: #cc0000;
+    /* display: none; */
+}
+
+.step_start_time,
+.step_end_time,
+.step_duration{
+    float: right;
+    /*padding: 6px;*/
+    margin:auto;
+    font-size: 14px;
+}
+
+.step_detail {
+    font-size: 14px;
+    line-height: 1.2;
+    width: 98%;
+    margin: 4px auto;
+    padding: 4px;
+    border: 1px solid rgba(138, 176, 187, 0.25);
+    white-space: pre-line;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+/* --------------------------- report detail --------------------------- */
+"""
+
+
 logger = init_logger(__name__)
-
-
-def generate_report(test_summary_dict, case_detail_list):
-    logger.info("=" * 100)
-    logger.info("=" * 39 + " Generate Test Report " + "=" * 39)
-    logger.info("=" * 100)
-
-    # logger.debug("test_summary_dict is: \n\n" + test_summary_dict + "\n\n")
-    # logger.debug("case_detail_list is: \n\n" + case_detail_list + "\n\n")
-
-    title = test_summary_dict['test_report_title']
-    if title == '':
-        title = 'API AutoTest Report ' + time.strftime('%Y.%m.%d')
-    else:
-        title = title + ' ' + time.strftime('%Y.%m.%d')
-    style = generate_html_style()
-    body_summary, body_detail = generate_html_body(test_summary_dict, case_detail_list)
-
-    html_dict = dict(
-        title=title,
-        style=style,
-        body_summary=body_summary,
-        body_detail=body_detail
-    )
-
-    date = time.strftime('%Y%m%d-%H%M%S')
-    report_name = 'report/TestReport-{0}.html'.format(date)
-    with open(report_name, 'w', encoding='utf8') as f:
-        report_html = REPORT_TEMPLATE % html_dict
-        f.write(report_html)
-
-    logger.info('The test is done, please check the report --> ' + report_name)
 
 
 def generate_html_summary(test_summary_dict):
@@ -216,7 +339,7 @@ def generate_html_summary(test_summary_dict):
 
 
 def generate_html_style():
-    return ' '
+    return CSS_TEMPLATE
 
 
 def generate_html_body(test_summary_dict, case_detail_list):
@@ -291,3 +414,35 @@ def generate_html_body(test_summary_dict, case_detail_list):
                                                 case_detail['count_fail_steps'],
                                                 step_list)
     return body_summary, body_detail
+
+
+def generate_report(test_summary_dict, case_detail_list):
+    logger.info("=" * 100)
+    logger.info("=" * 39 + " Generate Test Report " + "=" * 39)
+    logger.info("=" * 100)
+
+    # logger.debug("test_summary_dict is: \n\n" + test_summary_dict + "\n\n")
+    # logger.debug("case_detail_list is: \n\n" + case_detail_list + "\n\n")
+
+    title = test_summary_dict['test_report_title']
+    if title == '':
+        title = 'API AutoTest Report ' + time.strftime('%Y.%m.%d')
+    else:
+        title = title + ' ' + time.strftime('%Y.%m.%d')
+    style = generate_html_style()
+    body_summary, body_detail = generate_html_body(test_summary_dict, case_detail_list)
+
+    html_dict = dict(
+        title=title,
+        style=style,
+        body_summary=body_summary,
+        body_detail=body_detail
+    )
+
+    date = time.strftime('%Y%m%d-%H%M%S')
+    report_name = 'report/TestReport-{0}.html'.format(date)
+    with open(report_name, 'w', encoding='utf8') as f:
+        report_html = REPORT_TEMPLATE % html_dict
+        f.write(report_html)
+
+    logger.info('The test is done, please check the report --> ' + report_name)

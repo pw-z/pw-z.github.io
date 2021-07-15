@@ -3,7 +3,7 @@
 
 import configparser
 import re
-from helper.Log import *
+from helper.log_helper import *
 
 logger = init_logger(__name__)
 

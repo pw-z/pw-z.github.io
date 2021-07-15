@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from handler.ParameterHandler import Parameter
-from handler import CaseHandler
-from handler import ShellHandler
-from handler import SQLHandler
-from helper.CaseHelper import *
-from helper.Log import *
+from handler.parameter_handler import Parameter
+from handler.case_handler import CaseHandler
+from handler.shell_handler import ShellHandler
+from handler.sql_handler import SQLHandler
+from helper.case_helper import *
+from helper.log_helper import *
 import datetime
-import report.report as r
+import helper.report_helper as r
 
 if __name__ == '__main__':
 
@@ -62,7 +62,7 @@ if __name__ == '__main__':
                 else:
                     init_sio()  # clear the string io cache, start recording step run info
                     step_start_time = datetime.datetime.now()
-                    logger.info('\n' + '*' * 70 + '\n Run Step # ' + step['CaseStep'] + '\n' + '*' * 70)
+                    logger.info('\n' + '-' * 70 + '\n Run Step # ' + step['CaseStep'] + '\n' + '-' * 70)
                     r1 = True
                     r2 = True
                     r3 = True
@@ -94,7 +94,7 @@ if __name__ == '__main__':
                     count_all_steps += 1
 
             if count_all_steps == 0:  # no step run in this case
-                logger.info('SKIP CASE\n')
+                logger.info('SKIP\n')
                 continue
 
             case_end_time = datetime.datetime.now()
