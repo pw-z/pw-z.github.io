@@ -7,11 +7,13 @@
       - [2.1.1 Case Template](#211-case-template)
       - [2.1.2 Read Cases from Excel](#212-read-cases-from-excel)
     - [2.2 Handle Basic Parameters with Configparser](#22-handle-basic-parameters-with-configparser)
+      - [2.2.1 Config File Template](#221-config-file-template)
+      - [2.2.2 Read Conifg File](#222-read-conifg-file)
     - [2.3 Handle Shell Commands with Paramiko](#23-handle-shell-commands-with-paramiko)
     - [2.4 Handle Post Request with Requests](#24-handle-post-request-with-requests)
     - [2.5 Handle DQL with cx_Oracle](#25-handle-dql-with-cx_oracle)
-    - [2.6 The Main Method Script](#26-the-main-method-script)
-    - [2.7 Handle Log with Logging](#27-handle-log-with-logging)
+    - [2.6 Handle Log with Logging](#26-handle-log-with-logging)
+    - [2.7 The Main Method Script](#27-the-main-method-script)
     - [2.8 *Generate Test Report](#28-generate-test-report)
   - [3 Todo List](#3-todo-list)
 
@@ -235,7 +237,7 @@ A `case_list_dic` sample:
 
 With the help of `configparser`, it's easy to handle a `config.ini` out of the code. Pay attention to the comments in `[database]` section, about 'oracle instant client'.
 
-### 2.2.1 Config File Template
+#### 2.2.1 Config File Template
 
 ```python
 [http]
@@ -272,7 +274,7 @@ db_password=
 test_report_title= TEST API AUTOTEST
 ```
 
-### 2.2.2 Read Conifg
+#### 2.2.2 Read Conifg File
 
 Basically there is no differences between common parameters and the configs in `config.ini`, so all config info will be set into a parameter pool in class `Parameter` at the init time.
 
@@ -372,6 +374,7 @@ The method name is clear enough, let's review it in detail later.
 ### 2.3 Handle Shell Commands with [Paramiko][Paramiko]
 
 ```python
+# handler/shell_handler.py
 import paramiko  # ShellHandler
 from helper.log_helper import *
 logger = init_logger(__name__)
@@ -405,6 +408,7 @@ class ShellHandler:
 ### 2.4 Handle Post Request with [Requests][Requests]
 
 ```python
+# handler/case_handler.py
 import requests
 from helper.log_helper import *
 logger = init_logger(__name__)
@@ -456,7 +460,131 @@ class CaseHandler:
             return self.__after_run(case, res)
 ```
 
-Here we meet the `` and ``,
+Here we meet `para.flush_body_parameter(body)`, `para.flush_parameter_pool(case['ResponseParameter'], response.text)` and `para.verify_parameter_in_response(case['ExpectedData'], response.text)`
+
+See the code first.
+
+```python
+# handler/parameter_handler.py
+import re
+from helper.log_helper import *
+
+logger = init_logger(__name__)
+
+
+class Parameter:
+    def flush_parameter_pool(self, parameters, response):
+        fail_count = 0
+        # print(parameters)
+        # print(response)
+        if len(parameters) == 0:
+            return True
+        else:
+            for p in parameters:
+                if ':' not in p:
+                    logger.info('Flush parameter: ' + p)
+                    if p in response:
+                        re_string = r'("{0}" *: *.*?)'.format(p) + '[,|)|}]'
+                        finds = re.finditer(re_string, response)
+                        for find in finds:
+                            s = find.group(1).split(':')
+                            find_value = s[1]
+                            if '"' in find_value:
+                                # self.__parameter_pool[p] = find_value[1:-1]
+                                logger.info('  ' + p + '-->' + find_value[1:-1])
+                                self.add_parameter(p, find_value[1:-1])  # deal with "key":"value"
+                            else:
+                                # self.__parameter_pool[p] = find_value  # deal with "key":value
+                                logger.info('  ' + p + '-->' + find_value)
+                                self.add_parameter(p, find_value)
+                    else:
+                        fail_count += 1
+                        logger.warning("No parameter in response -> {0}".format(p))
+                else:
+                    # rename parameter with string after ':'
+                    p_origin = p[:p.find(':')]
+                    p_rename = p[p.find(':') + 1:]
+                    logger.info('Flush parameter: ' + p_origin)
+                    if p_origin in response:
+                        re_string = r'("{0}" *: *.*?)'.format(p_origin) + '[,|)|}]'
+                        finds = re.finditer(re_string, response)
+                        for _p in finds:
+                            s = _p.group(1).split(':')
+                            find_value = s[1]
+                            if '"' in find_value:
+                                # self.__parameter_pool[p_rename] = find_value[1:-1]  # deal with "key":"value"
+                                logger.info('  ' + p + '-->' + find_value[1:-1])
+                                self.add_parameter(p_rename, find_value[1:-1])  # deal with "key":"value"
+                            else:
+                                # self.__parameter_pool[p_rename] = find_value  # deal with "key":value
+                                logger.info('  ' + p + '-->' + find_value)
+                                self.add_parameter(p_rename, find_value)
+                    else:
+                        fail_count += 1
+                        logger.error("No parameter in response -> {0}".format(p_origin))
+            return True if fail_count == 0 else False
+
+
+    def flush_body_parameter(self, body):
+        """
+        replace '${A}' with 'A' in __parameter_pool
+        :param body:
+        :return: 
+        """
+        paras = re.finditer(r'\$\{\w*\}', body)
+        fail_count = 0
+        for p in paras:
+            # re.sub(r'\$\{\w*\}', self.get_parameter(p.group()[2:-1]), request_body)
+            # print(p.group())
+            _p = self.get_parameter(p.group()[2:-1])
+            if _p:
+                body = body.replace(p.group(), _p)
+                logger.info('Replace parameter: {0} --> {1}'.format(p.group(), _p))
+            else:
+                fail_count += 1
+                logger.error("Fail to replace parameter -> {0}".format(p.group()[2:-1]))
+                pass
+
+        # if fail_count:
+        #     self.logger.error("fail to replace parameter * {0}".format(fail_count))
+        return body
+
+    def verify_parameter_in_response(self, paras_dict, response):
+        # paras_dict = { 'expected_name1': 'expected_value1', 'expected_name2': 'expected_value2', ... }
+        flag = True
+        if len(paras_dict) == 0:
+            pass
+        else:
+            logger.info('Verify parameters in response...')
+            for key in paras_dict:
+                logger.info(" does " + key + " == " + paras_dict[key] + " ?")
+                if key in response:
+                    # re_string = r'{0} *: *\".*?\"'.format(key)  # outdated
+                    re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'
+                    finds = re.finditer(re_string, response)
+                    for _p in finds:
+                        logger.debug("find {} in response".format(_p.group()))
+                        s = _p.group(1).split(':')
+                        _p_name = s[0]
+                        _p_value = s[1]
+                        # print(s)
+                        # print(s[1:-1])
+                        if paras_dict[key] == _p_value:
+                            logger.info("Correct! Expected value of {0} is {1}, found {2}.".format(key, paras_dict[key], _p_value))
+                        else:
+                            logger.error(
+                                "Bad Value! Expected value of {0} is {1} but found {2}".format(key, paras_dict[key], _p_value))
+                            flag = False
+                else:
+                    logger.error("Bad Parameter! No parameter named --> {0}".format(key))
+                    flag = False
+        return flag
+```
+
+As a digression, I would like to talk about why this is a tool **WITHOUT** using `pytest` or `utittest`, that's because, I didn't know anything about them at all when I was writing this tool! I am learning! Knowing very little about python's powerful libraries.
+
+Considering the requirements about handling the parameters, first thing coming up in my mind is `regular expression`, so I go search for the re lib in python then the code like `re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'` or `paras = re.finditer(r'\$\{\w*\}', body)` is written down, that's awful code with many bugs, can not deal with all the situations. Notice that the `response` is in `json` format! All re stuff can be replace with `import json` and some more clean code. However, I didn't konw the `json` lib at that time.
+
 
 ### 2.5 Handle DQL with [cx_Oracle][cx_Oracle]
 
