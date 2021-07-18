@@ -1747,4 +1747,4 @@ LinkedList::insert(int i, Item e) {
 }
 ```
 
-Seems there are much more atomic operations in the linkedlist code then in the linearlist code. 
+Seems there are much more atomic operations in the linkedlist code then in the linearlist, well, the proformance depends on the implementation.
