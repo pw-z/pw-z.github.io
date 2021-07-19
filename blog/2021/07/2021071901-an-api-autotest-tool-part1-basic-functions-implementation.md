@@ -1049,7 +1049,7 @@ if __name__ == '__main__':
 
 ### 2.8 *Generate Test Report
 
-Generate test report from scratch is not that easy, took almost half of my time on this project. See here --> [][]
+Generate test report from scratch is not that easy, took almost half of my time on this project. See this post for more info --> [An API Autotest Tool Part2: Generate Test Report from Scratch][part2]
 
 ## 3 Todo List
 
@@ -1072,3 +1072,5 @@ Generate test report from scratch is not that easy, took almost half of my time 
 [cx_Oracle]:https://oracle.github.io/python-cx_Oracle/ "https://oracle.github.io/python-cx_Oracle/"
 [Logging]:https://docs.python.org/3.8/library/logging.html "https://docs.python.org/3.8/library/logging.html"
 [Allure]:http://allure.qatools.ru/ "http://allure.qatools.ru/"
+
+[part2]:2021071902-an-api-autotest-tool-part2-generate-test-report-from-scratch "2021071902 An API Autotest Tool Part2: Generate Test Report from Scratch"
