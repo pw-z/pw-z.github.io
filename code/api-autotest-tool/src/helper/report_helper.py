@@ -3,7 +3,7 @@
 import time
 from helper.log_helper import *
 
-REPORT_TEMPLATE = r"""
+REPORT_TEMPLATE = """
 <!DOCTYPE html>
 <html>
 
