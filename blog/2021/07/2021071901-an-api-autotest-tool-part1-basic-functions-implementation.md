@@ -21,7 +21,7 @@
 
 ## 1 Introduction
 
-This is a simlpe data-driven api autotest tool(or so-called testing framework), implemented **WITHOUT** using `unittest` or `pytest`. The main procedure for a complete api test using this tool is:
+This is a simlpe api autotest tool(or so-called testing framework), implemented **WITHOUT** using `unittest` or `pytest`. The main procedure for a complete api test using this tool is:
 
 1. write test cases in a `.xlsx` file, every case mainly includes the following contents: 
    * api address like `http://127.0.0.1:8089/test`
