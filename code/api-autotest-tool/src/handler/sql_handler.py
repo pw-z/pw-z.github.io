@@ -31,11 +31,9 @@ class SQLHandler:
         db_col = db_cur.description
         results = db_cur.fetchall()
         logger.info("Execute SQL: " + case['DQL'])
-        logger.info("SQL results: ")
+        logger.info("SQL results: ")  # here may return too much stuff, take control of your SQL conditions
         logger.info(results)
-        # for row in results:  # make sure your SQL only return ONE result @v1.0
-            # TODO handle multiple SQL results
-            # logger.info(row)
+        # TODO handle multiple SQL results  ...done.
         return self.__after_run(case, results, db_col)
 
     def close(self):

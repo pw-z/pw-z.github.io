@@ -38,7 +38,7 @@
 [commit]:url-filed-below--->>>
 
 [commit]:2021
-[2021070501]:./2021/07/20210704-data-structure-from-scratch-linearlist-and-linkedlist "2021070501 Data Structure from Scratch: LinearList & Linkedlist"
+[2021070501]:./2021/07/2021070501-data-structure-from-scratch-linearlist-and-linkedlist "2021070501 Data Structure from Scratch: LinearList & Linkedlist"
 [2021062301]:./2021/06/20210623-import-testcases-from-excel-to-testlink "2021062301 Import Testcases From Excel to Testlink"
 [2021053101]:./2021/05/2021053101-collect-test-status-of-jira-and-testlink-then-send-msg-to-dingtalkchatbot "2021053101 获取Jira与Testlink测试概况并推送消息到钉钉机器人"
 [2021050501]:./2021/05/2021050501-ruanyf-weekly-compilation-1-155-with-the-process-code "2021050501 ~~阮一峰科技爱好者周刊1~155期合集及~~处理脚本"

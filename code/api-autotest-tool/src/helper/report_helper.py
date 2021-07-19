@@ -16,6 +16,7 @@ REPORT_TEMPLATE = r"""
 </head>
 
 <body>
+
     <div class="report_body">
         <h1 class="report_title">%(title)s</h1>
         %(body_summary)s
@@ -24,45 +25,35 @@ REPORT_TEMPLATE = r"""
             %(body_detail)s
         </div>
     </div>
-<!--script----------------------------------------------------------------------->
-<script>
-    function show_or_close_case_detail(that) {
-        // console.log(that.parentNode);
-        // console.log(that.parentNode.lastElementChild);
-        var current_display_mode = that.parentNode.lastElementChild.style.display;
-        // console.log(current_display_mode);
-        // var div_step_list = that.parentNode.lastElementChild;
-        // console.log(div_step_list)
-        // var div_step_list_children = div_step_list.children;
-        // console.log(div_step_list_children);
-        var div_step_detail = that.parentNode.lastElementChild.getElementsByClassName('step_detail');
-        // console.log(div_step_detail[0])
-        if (current_display_mode != 'none') {
-            that.parentNode.lastElementChild.style.display = 'none';
-            for (let index = 0; index < div_step_detail.length; index++) {
-                div_step_detail[index].style.display = 'none';
-            }
-            // that.parentNode.lastElementChild.div.class('step_detail').style.display='none';
-        } else {
-            that.parentNode.lastElementChild.style.display = 'block';
-            for (let index = 0; index < div_step_detail.length; index++) {
-                div_step_detail[index].style.display = 'none';
-            }
-        }
-    }
 
-    function show_or_close_step_detail(that) {
-        // console.log(that.parentNode.lastElementChild);
-        var current_display_mode = that.parentNode.lastElementChild.style.display;
-        // console.log(current_display_mode);
-        if (current_display_mode != 'none') {
-            that.parentNode.lastElementChild.style.display = 'None';
-        } else {
-            that.parentNode.lastElementChild.style.display = 'block';
+    <!--script----------------------------------------------------------------------->
+    <script>
+        function show_or_close_case_detail(that) {
+            var current_display_mode = that.parentNode.lastElementChild.style.display;
+            var div_step_detail = that.parentNode.lastElementChild.getElementsByClassName('step_detail');
+            if (current_display_mode != 'none') {
+                that.parentNode.lastElementChild.style.display = 'none';
+                for (let index = 0; index < div_step_detail.length; index++) {
+                    div_step_detail[index].style.display = 'none';
+                }
+            } else {
+                that.parentNode.lastElementChild.style.display = 'block';
+                for (let index = 0; index < div_step_detail.length; index++) {
+                    div_step_detail[index].style.display = 'none';
+                }
+            }
         }
-    }
-</script>
-<!--script---------------------------------------------------------------end----->
+        function show_or_close_step_detail(that) {
+            var current_display_mode = that.parentNode.lastElementChild.style.display;
+            if (current_display_mode != 'none') {
+                that.parentNode.lastElementChild.style.display = 'None';
+            } else {
+                that.parentNode.lastElementChild.style.display = 'block';
+            }
+        }
+    </script>
+    <!--script---------------------------------------------------------------end----->
+
 </body>
 
 </html>
@@ -142,9 +133,6 @@ CSS_TEMPLATE = """
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 16px;
     line-height: 1.2;
-    /* word-wrap: break-word; */
-    /* white-space: pre-line; */
-    /* word-break: break-all; */
 }
 
 h1 {
@@ -169,19 +157,11 @@ h2 {
 
 .summary_text {
     width: 98%;
-    /* float: left; */
     text-align: center;
-    /* width: 50%; */
     height: 100%;
-    /* background-color: aquamarine; */
 }
 
 .summary_chart {
-    /* float: right; */
-    /* text-align: left; */
-
-    /* background-color: #456494; */
-    /* width: 50%; */
     height: 60%;
 }
 
@@ -200,10 +180,6 @@ h2 {
     margin: 40px auto;
 }
 
-
-/* .case_info .name {
-    text-align: left;
-} */
 .case_info,
 .step_info{
     padding: 3px;
@@ -211,7 +187,7 @@ h2 {
 }
 .case_info:hover,
 .step_info:hover{
-    border-bottom: 2px solid #e88c5f;
+    border-bottom: 1px solid #6d6d6d;
     cursor: pointer;
 }
 .case_info .status {
@@ -226,9 +202,9 @@ h2 {
     margin: 8px;
 }
 
-.pass_case .case_info { background-color: #fdfdfd; }
+.pass_case .case_info { background-color: #f7f7f7; }
 
-.fail_case .case_info { background-color: #e88c5f; }
+.fail_case .case_info { background-color: #f7f7f7; color: red;}
 
 .error_case .case_info { background-color: #d55858; }
 
@@ -246,27 +222,18 @@ h2 {
     font-size: 16px;
 }
 
-.pass_step .step_info{
-    /* color: #e88c5f; */
-    /* display: none; */
-    /*color: #8aff80;*/
-}
-
 .fail_step .step_info {
      color: #ff0032;
-    /* display: none; */
 }
 
 .error_step .step_info {
     color: #cc0000;
-    /* display: none; */
 }
 
 .step_start_time,
 .step_end_time,
 .step_duration{
     float: right;
-    /*padding: 6px;*/
     margin:auto;
     font-size: 14px;
 }
@@ -288,6 +255,9 @@ h2 {
 
 logger = init_logger(__name__)
 
+def generate_html_style():
+    return CSS_TEMPLATE
+
 
 def generate_html_summary(test_summary_dict):
     import matplotlib.pyplot as plt
@@ -302,27 +272,19 @@ def generate_html_summary(test_summary_dict):
     explode = [0.01, 0]
     colors = ['#8CD790', 'coral']
 
-    # plt.rcParams['figure.figsize'] = [3, 3]
     plt.axes(aspect='equal')
     plt.xlim(0, 4)
     plt.ylim(0, 4)
-    # 绘图数据
-    plt.pie(x,  # 绘图数据
-            explode=explode,  # 突出显示大专人群
-            autopct='%1.1f%%',  # 设置百分比的格式，这里保留一位小数
-            # pctdistance=0.6,  # 设置百分比标签与圆心的距离
-            # labeldistance=1.2,  # 设置教育水平标签与圆心的距离
-            startangle=70,  # 设置饼图的初始角度
-            radius=1,  # 设置饼图的半径
+    plt.pie(x,
+            explode=explode,
+            autopct='%1.1f%%',
+            startangle=70,
+            radius=1,
             counterclock=False,
-            # wedgeprops={'linewidth': 1, 'edgecolor': 'green'},  # 饼图内外边界的属性值
-            textprops={'fontsize': 14, 'color': 'k'},  # 设置文本标签的属性值
-            # center=(2, 2),  # 设置饼图的原点
-            # frame=1,  # 是否显示饼图的图框，这里设置显示
-            labels=labels,  # 添加教育水平标签
-            colors=colors  # 设置饼图的自定义填充色
+            textprops={'fontsize': 14, 'color': 'k'},
+            labels=labels,
+            colors=colors
             )
-    # 删除x轴和y轴的刻度
     plt.xticks(())
     plt.yticks(())
     png_buffer = BytesIO()
@@ -331,15 +293,8 @@ def generate_html_summary(test_summary_dict):
     png_base64_str_utf8 = str(png_base64, 'utf-8')
     test_summary_dict['pie_chart'] = png_base64_str_utf8
 
-    # print("#"*100)
-    # print(test_summary_dict)
-
     summary = BODY_SUMMARY_TEMPLATE % test_summary_dict
     return summary
-
-
-def generate_html_style():
-    return CSS_TEMPLATE
 
 
 def generate_html_body(test_summary_dict, case_detail_list):

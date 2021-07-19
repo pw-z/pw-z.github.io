@@ -6,9 +6,6 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 16px;
     line-height: 1.2;
-    /* word-wrap: break-word; */
-    /* white-space: pre-line; */
-    /* word-break: break-all; */
 }
 
 h1 {
@@ -33,19 +30,11 @@ h2 {
 
 .summary_text {
     width: 98%;
-    /* float: left; */
     text-align: center;
-    /* width: 50%; */
     height: 100%;
-    /* background-color: aquamarine; */
 }
 
 .summary_chart {
-    /* float: right; */
-    /* text-align: left; */
-
-    /* background-color: #456494; */
-    /* width: 50%; */
     height: 60%;
 }
 
@@ -64,10 +53,6 @@ h2 {
     margin: 40px auto;
 }
 
-
-/* .case_info .name {
-    text-align: left;
-} */
 .case_info,
 .step_info{
     padding: 3px;
@@ -75,7 +60,7 @@ h2 {
 }
 .case_info:hover,
 .step_info:hover{
-    border-bottom: 2px solid #e88c5f;
+    border-bottom: 1px solid #6d6d6d;
     cursor: pointer;
 }
 .case_info .status {
@@ -90,9 +75,9 @@ h2 {
     margin: 8px;
 }
 
-.pass_case .case_info { background-color: #fdfdfd; }
+.pass_case .case_info { background-color: #f7f7f7; }
 
-.fail_case .case_info { background-color: #e88c5f; }
+.fail_case .case_info { background-color: #f7f7f7; color: red;}
 
 .error_case .case_info { background-color: #d55858; }
 
@@ -110,27 +95,18 @@ h2 {
     font-size: 16px;
 }
 
-.pass_step .step_info{
-    /* color: #e88c5f; */
-    /* display: none; */
-    /*color: #8aff80;*/
-}
-
 .fail_step .step_info {
      color: #ff0032;
-    /* display: none; */
 }
 
 .error_step .step_info {
     color: #cc0000;
-    /* display: none; */
 }
 
 .step_start_time,
 .step_end_time,
 .step_duration{
     float: right;
-    /*padding: 6px;*/
     margin:auto;
     font-size: 14px;
 }

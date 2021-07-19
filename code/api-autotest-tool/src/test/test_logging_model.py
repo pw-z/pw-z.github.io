@@ -35,7 +35,7 @@ def test1():
     print(r3)
 
 
-from helper.Log import *
+from helper.log_helper import *
 def test2():
     logger = init_logger(__name__)
 

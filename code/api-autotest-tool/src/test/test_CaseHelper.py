@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from handler.ParameterHandler import Parameter
-from helper.CaseHelper import *
+from helper.case_helper import *
 
 
 def test1():

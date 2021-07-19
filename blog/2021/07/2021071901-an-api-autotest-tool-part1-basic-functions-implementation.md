@@ -1,5 +1,7 @@
 # An API Autotest Tool Part1: Basic Functions Implementation
 
+*Posted on 2021.07.19 by [Pengwei Zhang](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)* 
+
 - [An API Autotest Tool Part1: Basic Functions Implementation](#an-api-autotest-tool-part1-basic-functions-implementation)
   - [1 Introduction](#1-introduction)
   - [2 Code Review](#2-code-review)
