@@ -4,18 +4,34 @@
 
 *Strongly inspired by the [HTMLTestRunner](http://tungwaiyip.info/software/HTMLTestRunner.html)*
 
+
+The basic idea of ​​generating a test report is：
+1. Make some templates and set variables what we need in the templates
+2. Collect relevant information during the test
+3. Replace variables with relevant information
+4. Join all the templates together to get the final test report
+
+Additional works includes:
+1. Some CSS code 
+2. Some JS code 
+
 ## Code Summary
 
 ```python
 REPORT_TEMPLATE = """
+    template
 """
 SUMMARY_TEMPLATE = """
+    template
 """
 CASE_TEMPLATE = """
+    template
 """
 STEP_TEMPLATE = """
+    template
 """
 CSS_TEMPLATE = """
+    template
 """
 
 def generate_html_style():
