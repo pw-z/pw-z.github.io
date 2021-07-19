@@ -41,6 +41,8 @@ All code in this blog will be archived in `./my_site_root/code/some_sub_path/api
 
 ## 2 Code Review
 
+File tree:
+
 ```powershell
 PS C:\pw-z.github.io\code\api-autotest-tool> tree /F
 Folder PATH listing for volume Pomelo
@@ -584,7 +586,7 @@ def verify_parameter_in_sql_result(self, paras, results, db_col):
   pass
 ```
 
-The method name is clear enough, let's review it in detail later.
+The method names are clear enough, let's review them in detail later.
 
 
 ### 2.4 Handle Shell Commands with [Paramiko][Paramiko]
