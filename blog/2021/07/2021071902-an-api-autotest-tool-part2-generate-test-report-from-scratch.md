@@ -12,8 +12,13 @@ The basic idea of ​​generating a test report is：
 4. Join all the templates together to get the final test report
 
 Additional works includes:
-1. Some CSS code 
-2. Some JS code 
+1. css code
+2. js code to control the view
+3. draw a pie chat in summary part of the report
+
+## How it looks?
+
+[test-report-template.html](./2021071902-test-report-template.html)
 
 ## Code Summary
 
