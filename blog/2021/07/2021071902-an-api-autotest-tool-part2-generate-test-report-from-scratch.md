@@ -15,26 +15,30 @@
     - [Step Template](#step-template)
     - [CSS Template](#css-template)
   - [The JS Function](#the-js-function)
-
-
-## How it looks
-
-Here is an example page --> [test-report-template.html](./2021071902-test-report-template.html)
-
-![](./2021071902-report-screenshot.png)
-
-## Code Summary
+  - [Generate Report](#generate-report)
+    - [Paratemeters (test_summary_dict & case_detail_list) from run_test.py](#paratemeters-test_summary_dict--case_detail_list-from-run_testpy)
+    - [Main Method: generate_report(test_summary_dict, case_detail_list)](#main-method-generate_reporttest_summary_dict-case_detail_list)
+    - [Sub Method 1: generate_html_body(test_summary_dict, case_detail_list)](#sub-method-1-generate_html_bodytest_summary_dict-case_detail_list)
+    - [Sub Method 2: generate_html_summary(test_summary_dict)](#sub-method-2-generate_html_summarytest_summary_dict)
 
 The basic idea of ​​generating a test report is：
-1. Make some templates and set variables what we need in the templates
+1. Make some templates and set variables there
 2. Collect relevant information during the test
-3. Replace variables with relevant information
-4. Join all the templates together to get the final test report
+3. Replace the variables with information from step 2
+4. Put all the templates together to get the final test report
 
 Additional works includes:
 1. css code
 2. js code to control the view
 3. draw a pie chat in summary part of the report
+
+## How it looks
+
+![](./2021071902-report-screenshot.png)
+
+An example page --> [test-report-template.html](./2021071902-test-report-template.html)
+
+## Code Summary
 
 ```python
 REPORT_TEMPLATE = """
@@ -317,7 +321,9 @@ h2 {
 
 ## The JS Function
 
+Considering all we have in the detail part of the report are cases, steps with a bunch of running logs, there are only two things to do, show or hide the steps of a case when click it, show or hide the log details of a step when click it. In addition, the logs should be hidden if the step is hidden.
 
+Here is the js code. 
 
 ```javascript
 function show_or_close_case_detail(that) {
@@ -344,3 +350,222 @@ function show_or_close_step_detail(that) {
     }
 }
 ```
+
+These functions will be called when you click on the `case_info` or `step_info` div element.
+
+```html
+<div class="case_info" onclick="show_or_close_case_detail(this)">
+<div class="step_info" onclick="show_or_close_step_detail(this)">
+```
+
+I wanted to change the css code directly, not every `display` attribute in div elements, however I'm not familiar with javascript, no proper solution. This works anyway.
+
+## Generate Report
+
+### Paratemeters (test_summary_dict & case_detail_list) from run_test.py
+
+The `run_test.py` collected all stuff we need and sent parameters to the `report_helper.py`. The report has two parts, the summary and the detail, so does the parameters.
+
+The `test_summary_dict` is a dictionary, includes timestamps of the test and counts info about case running result, passed, failed, etc. The `case_detail_list` is a list of course, includes every case running result and its steps running results in detail.
+
+```python
+# test_summary_dict & case_detail_list examples
+
+test_summary_dict = {
+    count_all_cases = count_all_cases,
+    count_success_cases = count_success_cases,
+    count_fail_cases = count_fail_cases,
+    test_start_time = datetime.datetime,
+    test_end_time = datetime.datetime,
+    test_duration = test_end_time - test_start_time
+    test_report_title = para.get_parameter('test_report_title')
+}
+
+case_detail_list = [
+    {
+        'case_name': case['CaseName'],
+        'start_time': case_start_time,
+        'end_time': case_end_time,
+        'duration': case_duration,
+        'run_result': case_run_result,
+        'count_all_steps': count_all_steps,
+        'count_success_steps': count_success_steps,
+        'count_fail_steps': count_fail_steps,
+        'step_detail': steps_run_detail
+    },
+    {
+        'case_name': case['CaseName'],
+        'start_time': case_start_time,
+        'end_time': case_end_time,
+        'duration': case_duration,
+        'run_result': case_run_result,
+        'count_all_steps': count_all_steps,
+        'count_success_steps': count_success_steps,
+        'count_fail_steps': count_fail_steps,
+        'step_detail': [
+                {
+                    'step_name': step['CaseStep'],
+                    'start_time': step_start_time,
+                    'end_time': step_end_time,
+                    'duration': step_duration,
+                    'run_result': step_run_result,
+                    'run_log': step_run_log
+                },
+                {
+                    'step_name': step['CaseStep'],
+                    'start_time': step_start_time,
+                    'end_time': step_end_time,
+                    'duration': step_duration,
+                    'run_result': step_run_result,
+                    'run_log': step_run_log
+                }
+            ]
+    }
+]
+```
+
+### Main Method: generate_report(test_summary_dict, case_detail_list)
+
+As you see in the `Report Template`, basicaly, the `report_html = title + css + test_summary + case_detail`, the `title` will be filled with a default value in format `API AutoTest Report $Year.$month.$day` if you didn't set it in `config.ini`, and css part is just the `CSS_TEMPLATE` we wrote before. `test_summary` and `case_detail` will be handled by another method `generate_html_body(test_summary_dict, case_detail_list)`, check it in next section.
+
+```python
+def generate_report(test_summary_dict, case_detail_list):
+    logger.info("=" * 100)
+    logger.info("=" * 39 + " Generate Test Report " + "=" * 39)
+    logger.info("=" * 100)
+
+    # logger.debug("test_summary_dict is: \n\n" + test_summary_dict + "\n\n")
+    # logger.debug("case_detail_list is: \n\n" + case_detail_list + "\n\n")
+
+    title = test_summary_dict['test_report_title']
+    if title == '':
+        title = 'API AutoTest Report ' + time.strftime('%Y.%m.%d')
+    else:
+        title = title + ' ' + time.strftime('%Y.%m.%d')
+    style = generate_html_style()  # this method just return `CSS_TEMPLATE`
+    body_summary, body_detail = generate_html_body(test_summary_dict, case_detail_list)
+
+    html_dict = dict(
+        title=title,
+        style=style,
+        body_summary=body_summary,
+        body_detail=body_detail
+    )
+
+    date = time.strftime('%Y%m%d-%H%M%S')
+    report_name = 'report/TestReport-{0}.html'.format(date)
+    with open(report_name, 'w', encoding='utf8') as f:
+        report_html = REPORT_TEMPLATE % html_dict
+        f.write(report_html)
+
+    logger.info('The test is done, please check the report --> ' + report_name)
+
+def generate_html_style():
+    return CSS_TEMPLATE
+```
+
+### Sub Method 1: generate_html_body(test_summary_dict, case_detail_list)
+
+```python
+
+def generate_html_body(test_summary_dict, case_detail_list):
+
+    def get_step_list(steps):
+        """
+        'steps': [
+            {
+                'step_name': step['CaseStep'],
+                'start_time': step_start_time,
+                'end_time': step_end_time,
+                'duration': step_duration,
+                'run_result': step_run_result,
+                'run_log': step_run_log
+            },
+            {
+                'step_name': step['CaseStep'],
+                'start_time': step_start_time,
+                'end_time': step_end_time,
+                'duration': step_duration,
+                'run_result': step_run_result,
+                'run_log': step_run_log
+            }
+        ]
+        """
+        _step_list = ''
+        for step in steps:
+            if step['run_result']:  # pass step
+                _step_list += STEP_TEMPLATE.format('pass_step', step['step_name'], step['start_time'], step['end_time'], step['duration'], step['run_log'])
+            else:  # fail step
+                _step_list += STEP_TEMPLATE.format('fail_step', step['step_name'], step['start_time'], step['end_time'], step['duration'], step['run_log'])
+        return _step_list
+
+    body_summary = generate_html_summary(test_summary_dict)
+
+    body_detail = ''
+    for case_detail in case_detail_list:
+        # print(case_detail)
+        step_list = get_step_list(case_detail['step_detail'])
+        if case_detail['run_result'] is True:
+            body_detail += CASE_TEMPLATE.format('pass_case', case_detail['case_name'],
+                                                case_detail['count_all_steps'],
+                                                case_detail['count_success_steps'],
+                                                case_detail['count_fail_steps'],
+                                                step_list)
+        else:
+            body_detail += CASE_TEMPLATE.format('fail_case', case_detail['case_name'],
+                                                case_detail['count_all_steps'],
+                                                case_detail['count_success_steps'],
+                                                case_detail['count_fail_steps'],
+                                                step_list)
+    return body_summary, body_detail
+
+```
+
+
+### Sub Method 2: generate_html_summary(test_summary_dict)
+
+Using JS code to draw pie chart is fine, which is much more time-saving then using `matplotlib.pyplot`(isn't it?), however, I would like to try pyplot here.
+
+An all-in-one report includes html, css, js but with an extra picture is unacceptable. `BytesIO` and `base64` help us save the pie chart image into html tag directly.
+
+```python
+def generate_html_summary(test_summary_dict):
+    import matplotlib.pyplot as plt
+    from io import BytesIO
+    import base64
+
+    # total = test_summary_dict['count_all_cases']
+    success = test_summary_dict['count_success_cases']
+    fail = test_summary_dict['count_fail_cases']
+    x = [success, fail]
+    labels = ['Success = {0}'.format(success), 'Fail = {0}'.format(fail)]
+    explode = [0.01, 0]
+    colors = ['#8CD790', 'coral']
+
+    plt.axes(aspect='equal')
+    plt.xlim(0, 4)
+    plt.ylim(0, 4)
+    plt.pie(x,
+            explode=explode,
+            autopct='%1.1f%%',
+            startangle=70,
+            radius=1,
+            counterclock=False,
+            textprops={'fontsize': 14, 'color': 'k'},
+            labels=labels,
+            colors=colors
+            )
+    plt.xticks(())
+    plt.yticks(())
+    png_buffer = BytesIO()
+    plt.savefig(png_buffer, transparent=True, format='png')
+    png_base64 = base64.b64encode(png_buffer.getvalue())
+    png_base64_str_utf8 = str(png_base64, 'utf-8')
+    test_summary_dict['pie_chart'] = png_base64_str_utf8
+
+    summary = BODY_SUMMARY_TEMPLATE % test_summary_dict
+    return summary
+```
+
+
+
