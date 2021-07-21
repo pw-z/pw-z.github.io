@@ -6,7 +6,6 @@
     - [2.1 Handle Test Cases with Excel](#21-handle-test-cases-with-excel)
       - [2.1.1 Case Template](#211-case-template)
       - [2.1.2 Read Cases from Excel](#212-read-cases-from-excel)
-<<<<<<< HEAD
     - [2.2 Handle Log with Logging](#22-handle-log-with-logging)
     - [2.3 Handle Basic Parameters with Configparser](#23-handle-basic-parameters-with-configparser)
       - [2.3.1 Config File Template](#231-config-file-template)
@@ -15,16 +14,6 @@
     - [2.5 Handle Post Request with Requests](#25-handle-post-request-with-requests)
     - [2.6 Handle SQL with cx_Oracle](#26-handle-sql-with-cx_oracle)
     - [2.7 The Main Script](#27-the-main-script)
-=======
-    - [2.2 Handle Basic Parameters with Configparser](#22-handle-basic-parameters-with-configparser)
-      - [2.2.1 Config File Template](#221-config-file-template)
-      - [2.2.2 Read Conifg File](#222-read-conifg-file)
-    - [2.3 Handle Shell Commands with Paramiko](#23-handle-shell-commands-with-paramiko)
-    - [2.4 Handle Post Request with Requests](#24-handle-post-request-with-requests)
-    - [2.5 Handle DQL with cx_Oracle](#25-handle-dql-with-cx_oracle)
-    - [2.6 Handle Log with Logging](#26-handle-log-with-logging)
-    - [2.7 The Main Method Script](#27-the-main-method-script)
->>>>>>> e20548277862dca650faf9ceb690b242803ace77
     - [2.8 *Generate Test Report](#28-generate-test-report)
   - [3 Todo List](#3-todo-list)
 
@@ -292,11 +281,7 @@ The `log_helper.py` creates three handlers:
 
 `fh` and `ch` are easy to understand, one prints logs to the log file and the other to the console.
 
-<<<<<<< HEAD
 `sh` is a `StreamHandler` initialized with an `io.StringIO`, it's used to record step running logs. The logs in `sh` will be cleared before running a new step and stored in `step_run_log` after the step is completed.
-=======
-#### 2.2.1 Config File Template
->>>>>>> e20548277862dca650faf9ceb690b242803ace77
 
 ```python
 # helper/log_helper.py
@@ -503,11 +488,7 @@ db_password=
 test_report_title= TEST API AUTOTEST
 ```
 
-<<<<<<< HEAD
 #### 2.3.2 Read Conifg File
-=======
-#### 2.2.2 Read Conifg File
->>>>>>> e20548277862dca650faf9ceb690b242803ace77
 
 Basically there is no differences between common parameters and the configs in `config.ini`, so all config info will be set into a parameter pool in class `Parameter` at the init time.
 
@@ -693,11 +674,7 @@ class CaseHandler:
             return self.__after_run(case, res)
 ```
 
-<<<<<<< HEAD
 Here we meet `para.flush_body_parameter(body)`, `para.flush_parameter_pool(case['ResponseParameter'], response.text)` and `para.verify_parameter_in_response(case['ExpectedData'], response.text)`.
-=======
-Here we meet `para.flush_body_parameter(body)`, `para.flush_parameter_pool(case['ResponseParameter'], response.text)` and `para.verify_parameter_in_response(case['ExpectedData'], response.text)`
->>>>>>> e20548277862dca650faf9ceb690b242803ace77
 
 See the code first.
 
@@ -761,10 +738,6 @@ class Parameter:
                         logger.error("No parameter in response -> {0}".format(p_origin))
             return True if fail_count == 0 else False
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e20548277862dca650faf9ceb690b242803ace77
     def flush_body_parameter(self, body):
         """
         replace '${A}' with 'A' in __parameter_pool
@@ -821,14 +794,7 @@ class Parameter:
         return flag
 ```
 
-<<<<<<< HEAD
 As a digression, I'd like to talk about why this is a tool **WITHOUT** using `pytest` or `utittest`? That's because, I didn't know them when I was writing this tool! I am still learning, knowing not enough about those python's powerful libraries :). The code like `re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'` or `paras = re.finditer(r'\$\{\w*\}', body)` is awful, can not deal with all the situations. Notice that the `response` is in `json` format! All re stuff can be replace with `import json` and some more clean code. Nevermind, I'll put that in the long-todo-list.
-=======
-As a digression, I would like to talk about why this is a tool **WITHOUT** using `pytest` or `utittest`, that's because, I didn't know anything about them at all when I was writing this tool! I am learning! Knowing very little about python's powerful libraries.
-
-Considering the requirements about handling the parameters, first thing coming up in my mind is `regular expression`, so I go search for the re lib in python then the code like `re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'` or `paras = re.finditer(r'\$\{\w*\}', body)` is written down, that's awful code with many bugs, can not deal with all the situations. Notice that the `response` is in `json` format! All re stuff can be replace with `import json` and some more clean code. However, I didn't konw the `json` lib at that time.
-
->>>>>>> e20548277862dca650faf9ceb690b242803ace77
 
 
 ### 2.6 Handle SQL with [cx_Oracle][cx_Oracle]
@@ -1079,7 +1045,7 @@ if __name__ == '__main__':
 
 ### 2.8 *Generate Test Report
 
-Generate test report from scratch is not that easy, took almost half of my time on this project. See here --> [][]
+Generate test report from scratch is not that easy, took almost half of my time on this project. See this post for more info --> [An API Autotest Tool Part2: Generate Test Report from Scratch][part2]
 
 ## 3 Todo List
 
@@ -1102,3 +1068,5 @@ Generate test report from scratch is not that easy, took almost half of my time 
 [cx_Oracle]:https://oracle.github.io/python-cx_Oracle/ "https://oracle.github.io/python-cx_Oracle/"
 [Logging]:https://docs.python.org/3.8/library/logging.html "https://docs.python.org/3.8/library/logging.html"
 [Allure]:http://allure.qatools.ru/ "http://allure.qatools.ru/"
+
+[part2]:2021071902-an-api-autotest-tool-part2-generate-test-report-from-scratch "2021071902 An API Autotest Tool Part2: Generate Test Report from Scratch"

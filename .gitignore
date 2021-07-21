@@ -7,3 +7,6 @@ venv/
 *.gch
 __pycache__/
 python_lesson/
+
+allure-report/
+allure-results/
