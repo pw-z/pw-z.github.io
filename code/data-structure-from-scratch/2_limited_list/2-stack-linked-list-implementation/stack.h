@@ -11,6 +11,7 @@ public:
     Node* next;
 };
 
+
 template<class Item>
 class Stack{
 private:
@@ -26,13 +27,81 @@ public:
     bool suicide();
     bool clear();
     bool isempty();
-    bool isfull();
+    // bool isfull();
     int length();
 };
 
 template<class Item>
 Stack<Item>::Stack(){
+    
+    Node<Item>* p_base_ = new Node<Item>;
+    Node<Item>* p_top_;
+    p_top_->next = p_base_;
     length_ = 0;
+}
+
+template<class Item>
+Stack<Item>::~Stack(){
+    while (length_ != 0)
+    {
+        pop();
+    }
+    delete p_base_;
+}
+
+template<class Item>
+bool Stack<Item>::suicide(){
+    while (length_ != 0)
+    {
+        pop();
+    }
+    delete p_base_;
+    return true;
+}
+
+template<class Item>
+bool Stack<Item>::clear(){
+    while (length_ != 0)
+    {
+        pop();
+    }
+    return true;
+}
+
+template<class Item>
+bool Stack<Item>::isempty(){
+    if(length_ == 0)
+        return true;
+    else
+        return false;
+}
+
+template<class Item>
+bool Stack<Item>::push(Item e){
+    Node<Item>* new_node = new Node<Item>;
+    new_node->data = e;
+    new_node->next = p_top_;
+    p_top_ = new_node;
+    ++length_;
+    return true;
+}
+
+template<class Item>
+Item Stack<Item>::pop(){
+    if(length_ == 0){
+        return 0;
+    }
+    Item e = p_top_->data;
+    Node<Item>* temp = p_top_;
+    p_top_ = p_top_->next;
+    delete temp;
+    --length_;
+    return e;
+}
+
+template<class Item>
+int Stack<Item>::length(){
+    return length_;
 }
 
 #endif
