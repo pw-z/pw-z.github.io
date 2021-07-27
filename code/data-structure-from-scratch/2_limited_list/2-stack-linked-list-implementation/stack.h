@@ -39,11 +39,11 @@ template<class Item>
 Stack<Item>::Stack(){
     
     p_base_ = new Node<Item>;
-    cout<<"p_base_ address is: "<<p_base_<<endl;
-    cout<<"p_top_ address is: "<<p_top_<<endl;
+    cout<<"p_base_ = "<<p_base_<<endl;
+    cout<<"p_top_ = "<<p_top_<<endl;
     p_base_->next = p_base_;
     p_top_ = p_base_;
-    cout<<"p_top_->next is: "<<p_top_->next<<endl;
+    cout<<"p_top_->next = "<<p_top_->next<<endl;
     length_ = 0;
 }
 
@@ -85,17 +85,19 @@ bool Stack<Item>::isempty(){
 
 template<class Item>
 bool Stack<Item>::push(Item e){
-    cout<<"p_base_ address is: "<<p_base_<<endl;
+    cout<<"before push, p_top_ = "<<p_top_<<"  p_top_->next = "<<p_top_->next<<endl;
     Node<Item>* new_node = new Node<Item>;
     new_node->data = e;
     new_node->next = p_top_;
     p_top_ = new_node;
     ++length_;
+    cout<<"after  push, p_top_ = "<<p_top_<<"  p_top_->next = "<<p_top_->next<<endl;
     return true;
 }
 
 template<class Item>
 Item Stack<Item>::pop(){
+    cout<<"before pop, p_top_ = "<<p_top_<<"  p_top_->next = "<<p_top_->next<<endl;
     if(length_ == 0){
         return 0;
     }
@@ -104,6 +106,7 @@ Item Stack<Item>::pop(){
     p_top_ = p_top_->next;
     delete temp;
     --length_;
+    cout<<"after  pop, p_top_ = "<<p_top_<<"  p_top_->next = "<<p_top_->next<<endl;
     return e;
 }
 
