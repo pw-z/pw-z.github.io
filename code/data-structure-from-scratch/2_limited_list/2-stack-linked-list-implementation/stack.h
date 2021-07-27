@@ -99,6 +99,7 @@ template<class Item>
 Item Stack<Item>::pop(){
     cout<<"before pop, p_top_ = "<<p_top_<<"  p_top_->next = "<<p_top_->next<<endl;
     if(length_ == 0){
+        std::cout<<"!pop failed: an empty stack"<<std::endl;
         return 0;
     }
     Item e = p_top_->data;
