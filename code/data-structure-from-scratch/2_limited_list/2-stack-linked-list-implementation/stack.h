@@ -1,6 +1,10 @@
 #ifndef STACK_H_
 #define STACK_H_
 
+#include <iostream>
+using std::cout;
+using std::endl;
+
 static const int INIT_SIZE = 100;
 static const int EXPAND_SIZE = 100;
 
@@ -34,9 +38,12 @@ public:
 template<class Item>
 Stack<Item>::Stack(){
     
-    Node<Item>* p_base_ = new Node<Item>;
-    Node<Item>* p_top_;
-    p_top_->next = p_base_;
+    p_base_ = new Node<Item>;
+    cout<<"p_base_ address is: "<<p_base_<<endl;
+    cout<<"p_top_ address is: "<<p_top_<<endl;
+    p_base_->next = p_base_;
+    p_top_ = p_base_;
+    cout<<"p_top_->next is: "<<p_top_->next<<endl;
     length_ = 0;
 }
 
@@ -78,6 +85,7 @@ bool Stack<Item>::isempty(){
 
 template<class Item>
 bool Stack<Item>::push(Item e){
+    cout<<"p_base_ address is: "<<p_base_<<endl;
     Node<Item>* new_node = new Node<Item>;
     new_node->data = e;
     new_node->next = p_top_;
