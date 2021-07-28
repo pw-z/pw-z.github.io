@@ -24,7 +24,7 @@ private:
             std::cerr << e.what() << '\n';
             return false;
         }
-        free(p_stack_);
+        delete [] p_stack_;
         p_stack_ = temp;
         capacity_ += EXPAND_SIZE;
         std::cout << "expanded from " << capacity_ - EXPAND_SIZE << " to " << capacity_ << "\n";
@@ -53,7 +53,7 @@ Stack<Item>::Stack(){
 
 template<class Item>
 Stack<Item>::~Stack(){
-    free(p_stack_);
+    delete [] p_stack_;
 }
 
 template<class Item>
@@ -83,7 +83,7 @@ Item Stack<Item>::pop(){
 
 template<class Item>
 bool Stack<Item>::suicide(){
-    free(p_stack_);
+    delete [] p_stack_;
     return true;
 }
 
