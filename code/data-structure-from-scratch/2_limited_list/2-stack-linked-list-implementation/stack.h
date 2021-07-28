@@ -5,8 +5,6 @@
 using std::cout;
 using std::endl;
 
-static const int INIT_SIZE = 100;
-static const int EXPAND_SIZE = 100;
 
 template<class Item>
 class Node{
