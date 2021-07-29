@@ -19,3 +19,12 @@ int main(int argc, char const *argv[])
     
     return 0;
 }
+
+/*
+0
+100
+0
+1
+expanded from 100 to 200
+101
+*/
