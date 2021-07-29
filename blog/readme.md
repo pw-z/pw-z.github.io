@@ -2,6 +2,7 @@
 
 * 2021
     - 07
+        - 072901 [Data Structure from Scratch: Stack & Queue][2021072901]
         - 071902 [An API Autotest Tool Part2: Generate Test Report from Scratch][2021071902]
         - 071901 [An API Autotest Tool Part1: Basic Functions Implementation][2021071901]
         - 070501 [Data Structure from Scratch: LinearList & Linkedlist][2021070501]
@@ -40,6 +41,7 @@
 [commit]:url-filed-below--->>>
 
 [commit]:2021
+[2021072901]:./2021/07/2021072901-data-structure-from-scratch-stack-and-queue "2021072901 Data Structure from Scratch: Stack & Queue"
 [2021071902]:./2021/07/2021071902-an-api-autotest-tool-part2-generate-test-report-from-scratch "2021071902 An API Autotest Tool Part2: Generate Test Report from Scratch"
 [2021071901]:./2021/07/2021071901-an-api-autotest-tool-part1-basic-functions-implementation "2021071901 An API Autotest Tool Part1: Basic Functions Implementation"
 [2021070501]:./2021/07/2021070501-data-structure-from-scratch-linearlist-and-linkedlist "2021070501 Data Structure from Scratch: LinearList & Linkedlist"
