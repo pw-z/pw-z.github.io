@@ -45,6 +45,7 @@ Queue<Item>::Queue(/* args */)
     capacity_ = INIT_SIZE;
     length_ = 0;
     head_ = 0;
+    tail_ = 0;
 }
 
 template<class Item>
@@ -71,7 +72,7 @@ bool Queue<Item>::enqueue(Item e)
             }
         }
     }
-    p_queue_[length_] = e;
+    p_queue_[tail_] = e;
     length_++;
     tail_++;
     return true;
