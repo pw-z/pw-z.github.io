@@ -11,109 +11,69 @@ from log_helper import *
 import datetime
 
 import pytest
-import pytest_assume
 import allure
 
 
-# @pytest.fixture(scope="class")
+# @pytest.fixture()
 def init_testcase_data():
+    print("*"*100 + "init_testcase_data()")
     configpath = './config.ini'
     para = Parameter(configpath)
-
-    # print(para.get_parameter('excel_path'))
-    # print(para.get_parameter('sheet_list'))
     excel_path = para.get_parameter('excel_path')
-    # print(excel_path)
     sheets = para.get_parameter('sheet_list')
-
-    logger = init_logger(__name__)
-    # print(logger.level)
-
-    casehandler = CaseHandler(para)
-    shellhandler = ShellHandler(para)
-    sqlhandler = SQLHandler(para)
 
     test_data = []
 
     for sheet in sheets:
         cases = read_excel(excel_path, sheet)
         # print(cases)
-
         for case in cases:
             # print(case)
-
             for step in case['CaseSteps']:
                 step["CaseName"] = case['CaseName']
-                # print(step)
-                # step = (step,)
-                # print(type(step[0]))
                 test_data.append(step)
     return test_data
 
 
+test_data = init_testcase_data()
+
+
 class Test:
+    # test_data = init_testcase_data()
 
-    # data = init_testcase_data()
-    # print(data)
+    def setup_class(self):
+        print("*"*100 + "setup_class()")
+        configpath = './config.ini'
+        para = Parameter(configpath)
 
-    configpath = './config.ini'
-    para = Parameter(configpath)
-
-    # print(para.get_parameter('excel_path'))
-    # print(para.get_parameter('sheet_list'))
-    excel_path = para.get_parameter('excel_path')
-    # print(excel_path)
-    sheets = para.get_parameter('sheet_list')
-
-    logger = init_logger(__name__)
-    # print(logger.level)
-
-    casehandler = CaseHandler(para)
-    shellhandler = ShellHandler(para)
-    # sqlhandler = SQLHandler(para)
-
-    test_data = []
-
-    for sheet in sheets:
-        cases = read_excel(excel_path, sheet)
-        # print(cases)
-
-        for case in cases:
-            # print(case)
-
-            for step in case['CaseSteps']:
-                step["CaseName"] = case['CaseName']
-                # print(step)
-                # step = (step,)
-                # print(type(step[0]))
-                test_data.append(step)
+        self.logger = init_logger(__name__)
+        self.casehandler = CaseHandler(para)
+        self.shellhandler = ShellHandler(para)
+        self.sqlhandler = SQLHandler(para)
 
     @pytest.mark.parametrize("step", test_data)
     def test_case(self, step):
         allure.dynamic.story(step['CaseName'])
         allure.dynamic.title(step['CaseStep'])
-        # assert step['CaseName'] == '参数获取1'
-
-
 
         if step['Run?'] != 'y':
-            # logger.info('SKIP CASE')
+            logger.info('SKIP CASE')
             pytest.mark.skip()
         else:
             if step['ShellScript'] != '':
                 self.shellhandler.run(step)
-
             if step['Body'] != '':
                 self.casehandler.run(step)
-                pytest.assume(1 == 2)
-                pytest.assume(3 == 2)
-            # if step['DQL'] != '':
-                # self.sqlhandler.run(step)
+            if step['DQL'] != '':
+                self.sqlhandler.run(step)
 
-    # shellhandler.close()
-    # sqlhandler.close()
+    def teardown_class(self):
+        print("*"*100 + "teardown_class")
+        self.shellhandler.close()
+        self.sqlhandler.close()
 
 
 if __name__ == '__main__':
-    pytest.main(["-sq", "--alluredir=allure-results"])
+    pytest.main(["-sq", "--alluredir=allure-results", "run_test.py"])
     os.system(r"allure generate allure-results -o allure-report --clean")
+

@@ -3,7 +3,7 @@
 
 
 import cx_Oracle as oracle  # SQLHandler
-from helper.log_helper import *
+from log_helper import *
 logger = init_logger(__name__)
 
 
@@ -18,6 +18,7 @@ class SQLHandler:
         self.db_conn = oracle.connect(self.db_username, self.db_password, self.db_uri)
         self.db_cur = self.db_conn.cursor()
         logger.debug("connect to Oracle success: " + self.db_conn.version)
+        print("sqlhandler init suc")
 
     def __after_run(self, case, results, db_col):
         flag = self.para.verify_parameter_in_sql_result(case['ExpectedDQLData'], results, db_col)
@@ -39,3 +40,4 @@ class SQLHandler:
     def close(self):
         self.db_cur.close()
         self.db_conn.close()
+        print("sqlhandler close suc")

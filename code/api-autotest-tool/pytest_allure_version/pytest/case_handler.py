@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import requests
-from helper.log_helper import *
+from log_helper import *
 logger = init_logger(__name__)
 
 

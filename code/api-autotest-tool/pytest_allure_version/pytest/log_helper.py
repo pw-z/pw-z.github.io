@@ -39,7 +39,7 @@ def init_logger(__name__):
     sh.setFormatter(formatter)
 
     fh.setLevel(logging.DEBUG)
-    ch.setLevel(logging.INFO)
+    ch.setLevel(logging.ERROR)
     sh.setLevel(logging.INFO)
 
     logger.addHandler(fh)

@@ -160,6 +160,7 @@ class Parameter:
                         _p_value = s[1]
                         # print(s)
                         # print(s[1:-1])
+                        assert paras_dict[key] == _p_value
                         if paras_dict[key] == _p_value:
                             logger.info("Correct! Expected value of {0} is {1}, found {2}.".format(key, paras_dict[key], _p_value))
                         else:
@@ -175,6 +176,7 @@ class Parameter:
         logger.info("Verify parameters in sql result... ")
 
         def verify_method1():
+            assert para == str(results)
             if para == str(results):
                 # TODO maybe we should consider more when para=='32' but result==32,
                 # TODO not just str(result) then conclude that para==result
@@ -200,6 +202,7 @@ class Parameter:
                     # if results contains more then one row, every row needs to meet the para_name:para_value
                     row_list = list(row)
                     _found_value = str(row_list[para_col_number])
+                    assert para_value == _found_value
                     if para_value == _found_value:
                         # TODO maybe we should consider more when para=='32' but result==32,
                         # TODO not just str(result) then conclude that para==result
