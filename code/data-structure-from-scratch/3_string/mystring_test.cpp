@@ -23,16 +23,24 @@ void test1(){
     std::cout<<s1.length()<<std::endl;
 }
 /*
+expanded from 5 to 10. 
+expanded from 10 to 15.
 
 test string 1
 
 1
 1
+expanded from 5 to 10.
+expanded from 10 to 15.
+expanded from 15 to 20.
+expanded from 20 to 25.
+expanded from 25 to 30.
 test string 1test string 1
 26
  string 1test string 1
 22
 0
+
 */
 
 void test2(){
@@ -42,21 +50,35 @@ void test2(){
     mystring::MyString s2 = mystring::MyString(ss2);
     s1.print();
     s2.print();
-    // bool result = mystring::compare(s1, s2);
-    // std::cout<< result << std::endl;
+    bool result = mystring::compare(s1, s2);
+    std::cout<< result << std::endl;
     char* s3 = mystring::substring(s2, 0, 1);
     std::cout<< s3<<"\n";
+    delete [] s3;
+    char* s4 = mystring::concat(s1, s2);
+    std::cout<< s4<<"\n";
+    delete [] s4;
+
 }
 
 void test3(){
-    char ss[] = "jfkdlskdjflsadf";
-    mystring::MyString s1 = mystring::MyString();
-    mystring::MyString s2 = mystring::MyString(ss);
+    char ss1[] = "2088_2087_abcd";
+    char ss2[] = "2087";
+    mystring::MyString s1 = mystring::MyString(ss1);
+    mystring::MyString s2 = mystring::MyString(ss2);
     s1.print();
     s2.print();
-    s1 = s2;
-    s1.print();
+    int i = mystring::index_plain(s1, s2);
+    std::cout<< i<<"\n";
+    i = mystring::index_KMP(s1, s2);
+    std::cout<< i<<"\n";
 }
+/*
+2088_2087_abcd
+2087
+5
+5
+*/
 
 int main(int argc, char const *argv[])
 {

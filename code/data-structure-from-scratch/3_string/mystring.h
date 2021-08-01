@@ -14,8 +14,8 @@ int mystrlen(char* s){
     return count;
 }
 
-static const int INIT_SIZE = 256;
-static const int EXPAND_SIZE = 256;
+static const int INIT_SIZE = 2560000;
+static const int EXPAND_SIZE = 2560000;
 
 class MyString
 {
@@ -161,11 +161,57 @@ char* substring(MyString &s, int start, int end){
     return temp;
 }
 
-MyString concat(MyString &s1, MyString &s2){
-    
+char* concat(MyString &s1, MyString &s2){
+    int s1_len = s1.length();
+    int s2_len = s2.length();
+    int size = s1_len + s2_len;
+    char* temp = new char[size];
+    for (int i = 0; i < s1_len; i++)
+    {
+        temp[i] = s1.get(i);
+    }
+    for (int i = 0; i < s2_len; i++)
+    {
+        temp[s1_len + i] = s2.get(i);
+    }
+    return temp;
 }
-int index_plain(MyString &s1, MyString &s2){}
-int index_KMP(MyString &s1, MyString &s2){} 
+
+int index_plain(MyString &string, MyString &pattern){
+    for (int i = 0; i <= string.length()-pattern.length(); i++)
+    {
+        bool flag = true;
+        for (int j = 0; j < pattern.length(); j++)
+        {
+            if(string.get(i + j) == pattern.get(j)){
+                continue;
+            }else{
+                flag = false;
+                break;
+            }
+        }
+        if(flag == true)return i;
+    }
+    return -1;
+}
+int index_KMP(MyString &string, MyString &pattern){
+    for (int i = 0; i <= string.length()-pattern.length(); i++)
+    {
+        bool flag = true;
+        for (int j = 0; j < pattern.length(); j++)
+        {
+            if(string.get(i + j) == pattern.get(j)){
+                continue;
+            }else{
+                flag = false;
+                i += j;  //! KMP
+                break;
+            }
+        }
+        if(flag == true)return i;
+    }
+    return -1;
+} 
 /*************not class method**************/
 
 
