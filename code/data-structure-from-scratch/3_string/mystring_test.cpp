@@ -58,8 +58,14 @@ void test2(){
     char* s4 = mystring::concat(s1, s2);
     std::cout<< s4<<"\n";
     delete [] s4;
-
 }
+/*
+test string 1
+test string 2
+0
+te
+test string 1test string 2
+*/
 
 void test3(){
     char ss1[] = "2088_2087_abcd";
@@ -83,7 +89,7 @@ void test3(){
 int main(int argc, char const *argv[])
 {
     // test1();
-    // test2();
-    test3();
+    test2();
+    // test3();
     return 0;
 }
