@@ -1,6 +1,8 @@
 ## [P.W. Z](https://www.pwz.wiki) / [BLOG](https://www.pwz.wiki/blog)
 
 * 2021
+    * 08
+        * 080101 [Data Structure from Scratch: String][2021080101]
     - 07
         - 072901 [Data Structure from Scratch: Stack & Queue][2021072901]
         - 071902 [An API Autotest Tool Part2: Generate Test Report from Scratch][2021071902]
@@ -41,6 +43,7 @@
 [commit]:url-filed-below--->>>
 
 [commit]:2021
+[2021080101]:./2021/08/2021080101-data-structure-from-scratch-string "2021080101 Data Structure from Scratch: String"
 [2021072901]:./2021/07/2021072901-data-structure-from-scratch-stack-and-queue "2021072901 Data Structure from Scratch: Stack & Queue"
 [2021071902]:./2021/07/2021071902-an-api-autotest-tool-part2-generate-test-report-from-scratch "2021071902 An API Autotest Tool Part2: Generate Test Report from Scratch"
 [2021071901]:./2021/07/2021071901-an-api-autotest-tool-part1-basic-functions-implementation "2021071901 An API Autotest Tool Part1: Basic Functions Implementation"
