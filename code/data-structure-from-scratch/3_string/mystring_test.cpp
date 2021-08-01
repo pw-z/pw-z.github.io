@@ -48,10 +48,20 @@ void test2(){
     std::cout<< s3<<"\n";
 }
 
+void test3(){
+    char ss[] = "jfkdlskdjflsadf";
+    mystring::MyString s1 = mystring::MyString();
+    mystring::MyString s2 = mystring::MyString(ss);
+    s1.print();
+    s2.print();
+    s1 = s2;
+    s1.print();
+}
 
 int main(int argc, char const *argv[])
 {
     // test1();
-    test2();
+    // test2();
+    test3();
     return 0;
 }
