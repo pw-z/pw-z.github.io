@@ -5,9 +5,9 @@
 
 namespace mystring {
 
+
 static const int INIT_SIZE = 256;
 static const int EXPAND_SIZE = 256;
-
 
 class MyString
 {
@@ -54,7 +54,7 @@ MyString::~MyString()
 }
 
 bool MyString::append(char* s){
-    int string_size = mystring::strlen(s);
+    int string_size = strlen(s);
     while(length_ + string_size > capacity_){
         expand();
     }
@@ -100,9 +100,15 @@ bool MyString::clear(){
     mystring_ = new char[capacity_];
 }
 
+void MyString::print(){
+    for (int i = 0; i < length_; i++)
+    {
+        std::cout<<mystring_[i];
+    }
+    std::cout<<"\n";
+}
 
 /*************not class method**************/
-
 int strlen(char* s){
     int count = 0;
     while (s[count] != '\0')
@@ -113,13 +119,13 @@ int strlen(char* s){
 }
 
 bool compare(MyString s1, MyString s2){}
-
 bool substring(MyString s, int start, int end){}
-
 MyString concat(MyString s1, MyString s2){}
-
 int index_plain(MyString s1, MyString s2){}
 int index_KMP(MyString s1, MyString s2){} 
+/*************not class method**************/
+
+
 
 }//namespace mystring
 
