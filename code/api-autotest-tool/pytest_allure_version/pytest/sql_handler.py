@@ -18,6 +18,7 @@ class SQLHandler:
         self.db_conn = oracle.connect(self.db_username, self.db_password, self.db_uri)
         self.db_cur = self.db_conn.cursor()
         logger.debug("connect to Oracle success: " + self.db_conn.version)
+        print("sqlhandler init suc")
 
     def __after_run(self, case, results, db_col):
         if case['ExpectedDQLData'] != "":

@@ -20,35 +20,36 @@ class SQLHandler:
         logger.debug("connect to Oracle success: " + self.db_conn.version)
 
     def __after_run(self, case, results, db_col):
-        if case['ExpectedDQLData'] != "":
-            flag = self.para.verify_parameter_in_sql_result(case['ExpectedDQLData'], results, db_col)
+        if case['ExpectedSQLData'] != "":
+            flag = self.para.verify_parameter_in_sql_result(case['ExpectedSQLData'], results, db_col)
         else:
+            # a DQL without expected result maybe useless, pay attention to that
             flag = True
         return flag
 
     def run(self, case):
         db_cur = self.db_cur
-        sql = case['DQL']
+        sql = case['SQL']
         # sql = "SELECT PARAM_VALUE FROM BASE_PARAM WHERE ID='TRADE_DATE'"
-        if sql[0:6] == 'SELECT' and sql[0:6] == 'select':
+        if sql[0:6] == 'SELECT' and sql[0:6] == 'select':  # meet DQL
             if sql[-1] == ';':
                 sql = sql[0:-1]  # remove ';'
             db_cur.execute(sql)
-            db_col = db_cur.description
+            db_col = db_cur.description  # get database table columns
             results = db_cur.fetchall()
-            logger.info("Execute SQL: " + case['DQL'])
+            logger.info("Execute SQL: " + case['SQL'])
             logger.info("SQL results: ")  # here may return too much stuff, take control of your SQL conditions
             logger.info(results)
             # TODO handle multiple SQL results  ...done.
             return self.__after_run(case, results, db_col)
-        else:
+        else:  # meet DML,  insert into, update, delete, etc.
             sqls = str(sql).splitlines()
             for sql in sqls:
                 if sql[-1] == ';':
                     sql = sql[0:-1]  # remove ';'
                 db_cur.execute(sql)
             self.db_conn.commit()
-            logger.info("Execute SQL: " + case['DQL'])
+            logger.info("Execute SQL: " + case['SQL'])
             return True
 
     def close(self):

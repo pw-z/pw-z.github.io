@@ -203,9 +203,7 @@ h2 {
 }
 
 .pass_case .case_info { background-color: #f7f7f7; }
-
 .fail_case .case_info { background-color: #f7f7f7; color: red;}
-
 .error_case .case_info { background-color: #d55858; }
 
 .step_list {

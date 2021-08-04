@@ -19,7 +19,7 @@
 
 ## 1 Introduction
 
-This is a simlpe data-driven api autotest tool(or so-called testing framework), implemented **WITHOUT** using `unittest` or `pytest`. The main procedure for a complete api test using this tool is:
+This is a simlpe data-driven api autotest tool(or so-called testing framework), implemented **without** using `unittest` or `pytest`. The main procedure for a complete api test using this tool is:
 
 1. write test cases in a `.xlsx` file, every case mainly includes the following contents: 
    * api address like `http://127.0.0.1:8089/test`
@@ -794,7 +794,7 @@ class Parameter:
         return flag
 ```
 
-As a digression, I'd like to talk about why this is a tool **WITHOUT** using `pytest` or `utittest`? That's because, I didn't know them when I was writing this tool! I am still learning, knowing not enough about those python's powerful libraries :). The code like `re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'` or `paras = re.finditer(r'\$\{\w*\}', body)` is awful, can not deal with all the situations. Notice that the `response` is in `json` format! All re stuff can be replace with `import json` and some more clean code. Nevermind, I'll put that in the long-todo-list.
+As a digression, I'd like to talk about why this is a tool without using `pytest` or `utittest`. That's because, I didn't know them when I was writing this tool. I am still learning :). The code like `re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'` or `paras = re.finditer(r'\$\{\w*\}', body)` is awful, can not handle all the situations. As the `response` is in `json` format. Maybe all re stuff can be replaced with `import some_json_package` and some more clean code. Nevermind, I'll put that in the long-todo-list.
 
 
 ### 2.6 Handle SQL with [cx_Oracle][cx_Oracle]
@@ -1050,12 +1050,10 @@ Generate test report from scratch is not that easy, took almost half of my time 
 ## 3 Todo List
 
 * [x] add readme file
-* [ ] replace `re` with `json`
 * [ ] support `get` method
 * [ ] support `DML`
 * [ ] add more code annotation
 * [ ] format testing log
-* [ ] replace `xlrd` with `pandas`
 * [ ] refactor the code in `case_helper.py`
 * [ ] ! try `pytest` or `unittest`
 * [ ] ! generate test report with [Allure][Allure]

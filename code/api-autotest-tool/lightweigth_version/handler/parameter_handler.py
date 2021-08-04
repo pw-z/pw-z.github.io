@@ -148,7 +148,7 @@ class Parameter:
         else:
             logger.info('Verify parameters in response...')
             for key in paras_dict:
-                logger.info(" does " + key + " == " + paras_dict[key] + " ?")
+                logger.info(">>>  " + key + " == " + paras_dict[key] + " ?")
                 if key in response:
                     # re_string = r'{0} *: *\".*?\"'.format(key)  # outdated
                     re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'

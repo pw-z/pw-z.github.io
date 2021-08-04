@@ -30,9 +30,9 @@ def get_case_step(sheet_object, row_number):
         'ShellScript': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ShellScript')],
         # 'Run?': str(sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Run?')])[:-2],   # 111.0
         'Run?': str(sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Run?')]),  # '111
-        'DQL': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'DQL')],
-        'ExpectedDQLData': str(
-            sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ExpectedDQLData')]).upper().splitlines()
+        'SQL': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'SQL')],
+        'ExpectedSQLData': str(
+            sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ExpectedSQLData')]).upper().splitlines()
     }
     case_step['ResponseParameter'] = str(case_step['ResponseParameter']).splitlines()
 
@@ -50,13 +50,13 @@ def read_excel(file_path, sheet_name):
     case_list_dic = []
     case_step_list = []
     try:
-        book = xlrd.open_workbook(file_path)  # 打开excel
+        book = xlrd.open_workbook(file_path)
     except Exception as error:
         logger.error(r'can not open the excel file  ' + str(error))
         return error
     else:
         sheet = book.sheet_by_name(sheet_name)
-        rows = sheet.nrows  # 取这个sheet页的所有行数
+        rows = sheet.nrows
 
         case_name = sheet.row_values(1)[get_column_index(sheet, 'CaseName')]  # when i==1, case name must exist
         case_step = get_case_step(sheet, 1)
@@ -79,7 +79,7 @@ def read_excel(file_path, sheet_name):
 
                 case_step = get_case_step(sheet, i)
                 case_step_list.append(case_step)
-            if i == rows - 1:
+            if i == rows - 1:  # if the last row, no more case or step, append the case_dict to the case_list_dic
                 case_dict = {
                     'CaseName': last_case_name,
                     'CaseSteps': case_step_list

@@ -2,6 +2,12 @@
 
 ## 版本信息
 
+    v0.4
+    pytest + allure support
+    DML support
+    add more annotation
+    optimize testing log
+
     
     v0.3
     generate clean test log

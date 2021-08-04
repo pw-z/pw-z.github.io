@@ -31,7 +31,6 @@ def init_logger(__name__):
 
     fh = logging.FileHandler(log_path, encoding='utf-8')
     ch = logging.StreamHandler()
-
     sh = logging.StreamHandler(__sio)
 
     fh.setFormatter(formatter)
@@ -40,7 +39,7 @@ def init_logger(__name__):
 
     fh.setLevel(logging.DEBUG)
     ch.setLevel(logging.INFO)
-    sh.setLevel(logging.INFO)
+    sh.setLevel(logging.DEBUG)
 
     logger.addHandler(fh)
     logger.addHandler(ch)

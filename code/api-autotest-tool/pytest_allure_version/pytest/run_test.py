@@ -16,7 +16,7 @@ import allure
 
 # @pytest.fixture()
 def init_testcase_data():
-    print("*"*100 + "init_testcase_data()")
+    # print("*"*100 + "init_testcase_data()")
     configpath = './config.ini'
     para = Parameter(configpath)
     excel_path = para.get_parameter('excel_path')

@@ -48,7 +48,9 @@ if __name__ == '__main__':
 
         for case in cases:
             case_start_time = datetime.datetime.now()
-            logger.info('\n' + '='*100 + '\n Run Case # ' + case['CaseName'] + '\n' + '='*100)
+            logger.info('='*100)
+            logger.info('Run Case # ' + case['CaseName'])
+            logger.info('='*100)
 
             case_run_result = True
             steps_run_detail = []
@@ -60,9 +62,11 @@ if __name__ == '__main__':
                     # logger.info('SKIP CASE')
                     continue
                 else:
-                    init_sio()  # clear the string io cache, start recording step run info
+                    init_sio()  # clear the string io cache, start recording step running log
                     step_start_time = datetime.datetime.now()
-                    logger.info('\n' + '-' * 70 + '\n Run Step # ' + step['CaseStep'] + '\n' + '-' * 70)
+                    logger.info('-' * 50)
+                    logger.info('Run Step # ' + step['CaseStep'])
+                    logger.info('-' * 50)
                     r1 = True
                     r2 = True
                     r3 = True
@@ -71,13 +75,14 @@ if __name__ == '__main__':
                         r1 = shellhandler.run(step)
                     if step['Body'] != '':
                         r2 = casehandler.run(step)
-                    if step['DQL'] != '':
+                    if step['SQL'] != '':
                         r3 = sqlhandler.run(step)
+                    # it will be confusing if the shell,body,sql are all empty, don't do that
                     step_run_result = r1 and r2 and r3
                     if step_run_result is False:
                         case_run_result = False
 
-                    step_run_log = get_sio().getvalue()
+                    step_run_log = get_sio().getvalue()  # get step running log
                     step_end_time = datetime.datetime.now()
                     step_duration = step_end_time - step_start_time
                     temp_dict = {'step_name': step['CaseStep'],
