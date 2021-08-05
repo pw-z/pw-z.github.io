@@ -195,17 +195,18 @@ int index_plain(MyString &string, MyString &pattern){
     return -1;
 }
 
-int next_j(){
-
-}
 
 int index_KMP(MyString &string, MyString &pattern){
-    for (int i,j = 0; i < string.length(), j< pattern.length();)
+
+    int* next = new int[pattern.length()];
+    
+
+    for (int i,j = 0; i < string.length();)
     {
         if(string.get(i) == pattern.get(j)){
             ++i;
             ++j;
-            if(j == pattern.length()){
+            if(j == pattern.length()){  // matched!
                 return i-j;
             }
         }else{
@@ -214,7 +215,6 @@ int index_KMP(MyString &string, MyString &pattern){
             }
             j = next[j];
         }
-        
     }
     return -1;
 } 
