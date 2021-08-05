@@ -194,21 +194,27 @@ int index_plain(MyString &string, MyString &pattern){
     }
     return -1;
 }
+
+int next_j(){
+
+}
+
 int index_KMP(MyString &string, MyString &pattern){
-    for (int i = 0; i <= string.length()-pattern.length(); i++)
+    for (int i,j = 0; i < string.length(), j< pattern.length();)
     {
-        bool flag = true;
-        for (int j = 0; j < pattern.length(); j++)
-        {
-            if(string.get(i + j) == pattern.get(j)){
-                continue;
-            }else{
-                flag = false;
-                i += j;  //! KMP
-                break;
+        if(string.get(i) == pattern.get(j)){
+            ++i;
+            ++j;
+            if(j == pattern.length()){
+                return i-j;
             }
+        }else{
+            if(j == 0){
+                ++i;
+            }
+            j = next[j];
         }
-        if(flag == true)return i;
+        
     }
     return -1;
 } 
