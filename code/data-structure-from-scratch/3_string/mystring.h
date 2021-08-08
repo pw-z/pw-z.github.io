@@ -199,6 +199,12 @@ int index_plain(MyString &string, MyString &pattern){
 int index_KMP(MyString &string, MyString &pattern){
 
     int* next = new int[pattern.length()];
+    {
+        int i=1,j=0;
+        next[0]=0;
+        
+
+    }
     
 
     for (int i,j = 0; i < string.length();)
