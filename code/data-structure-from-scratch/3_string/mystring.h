@@ -200,28 +200,40 @@ int index_KMP(MyString &string, MyString &pattern){
 
     int* next = new int[pattern.length()];
     {
-        int i=1,j=0;
-        next[0]=0;
-        
-
+        int i=0,j=-1;
+        next[0]=-1;
+        while (i < pattern.length()){
+            if (j == -1 || pattern.get(i) == pattern.get(j)){
+                ++i;
+                ++j;
+                next[i] = j;
+            } else	j = next[j];
+        }
     }
     
-
-    for (int i,j = 0; i < string.length();)
+    std::cout<<"next[] = ";
+    for (int i = 0; i < pattern.length(); i++)
     {
-        if(string.get(i) == pattern.get(j)){
+        std::cout<<next[i];
+    }
+    std::cout<<"\n";
+    
+    
+
+    for (int i=0,j = 0; i < string.length();)
+    {
+        if(j == -1 || string.get(i) == pattern.get(j)){
             ++i;
             ++j;
             if(j == pattern.length()){  // matched!
+                // delete [] next;
                 return i-j;
             }
         }else{
-            if(j == 0){
-                ++i;
-            }
             j = next[j];
         }
     }
+    // delete [] next;
     return -1;
 } 
 /*************not class method**************/

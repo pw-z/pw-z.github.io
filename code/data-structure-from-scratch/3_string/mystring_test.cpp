@@ -68,16 +68,16 @@ test string 1test string 2
 */
 
 void test3(){
-    char ss1[] = "2088_2087_abcd";
-    char ss2[] = "2087";
+    char ss1[] = "2088_208724352_208720873_abcd";
+    char ss2[] = "20872087";
     mystring::MyString s1 = mystring::MyString(ss1);
     mystring::MyString s2 = mystring::MyString(ss2);
     s1.print();
     s2.print();
     int i = mystring::index_plain(s1, s2);
     std::cout<< i<<"\n";
-    i = mystring::index_KMP(s1, s2);
-    std::cout<< i<<"\n";
+    int j = mystring::index_KMP(s1, s2);
+    std::cout<< j<<"\n";
 }
 /*
 2088_2087_abcd
@@ -89,7 +89,7 @@ void test3(){
 int main(int argc, char const *argv[])
 {
     // test1();
-    test2();
-    // test3();
+    // test2();
+    test3();
     return 0;
 }
