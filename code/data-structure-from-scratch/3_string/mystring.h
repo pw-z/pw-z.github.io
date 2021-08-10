@@ -226,14 +226,14 @@ int index_KMP(MyString &string, MyString &pattern){
             ++i;
             ++j;
             if(j == pattern.length()){  // matched!
-                // delete [] next;
+                delete [] next;
                 return i-j;
             }
         }else{
             j = next[j];
         }
     }
-    // delete [] next;
+    delete [] next;
     return -1;
 } 
 /*************not class method**************/
