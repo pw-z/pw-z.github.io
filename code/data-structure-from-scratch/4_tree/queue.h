@@ -78,8 +78,6 @@ bool Queue<Item>::clear(){
         delete temp;
         length_--;
     }
-    cout<<"head = " << head << "\n";
-    cout<<"tail = " << tail << "\n";
     return true;
 }
 

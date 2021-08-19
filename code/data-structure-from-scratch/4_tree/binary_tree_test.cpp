@@ -50,6 +50,9 @@ int main(int argc, char const *argv[])
     post_order_traverse(&a);
     cout<<endl;
 
+    level_order_traverse(&a);
+    cout<<endl;
+
 
     return 0;
 }

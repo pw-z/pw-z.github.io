@@ -88,8 +88,16 @@ void post_order_traverse_non_recursive(BiTNode<Type> *root){
 
 template <class Type>
 void level_order_traverse(BiTNode<Type> *root){
-    Queue<BiTNode<Type>> queue;
-
+    Queue<BiTNode<Type>*> queue;
+    BiTNode<Type>* p = root;
+    queue.enqueue(p);
+    while (!queue.isempty())
+    {
+        p = queue.dequeue();
+        std::cout<<p->data<<" ";
+        if(p->lchild)queue.enqueue(p->lchild);
+        if(p->rchild)queue.enqueue(p->rchild);
+    }
 }
 
 
