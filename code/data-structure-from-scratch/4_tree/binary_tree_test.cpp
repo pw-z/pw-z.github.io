@@ -1,4 +1,4 @@
-#include "binary_tree_1.h"
+#include "binary_tree.h"
 #include <iostream>
 
 using namespace std;
@@ -15,7 +15,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    Node a,b,c,d,e,f,g;
+    BiTNode<int> a,b,c,d,e,f,g;
     a.data = 1;
     b.data = 2;
     c.data = 3;
@@ -41,7 +41,11 @@ int main(int argc, char const *argv[])
 
     pre_order_traverse(&a);
     cout<<endl;
+    pre_order_traverse_non_recursive(&a);
+    cout<<endl;
     in_order_traverse(&a);
+    cout<<endl;
+    in_order_traverse_non_recursive(&a);
     cout<<endl;
     post_order_traverse(&a);
     cout<<endl;

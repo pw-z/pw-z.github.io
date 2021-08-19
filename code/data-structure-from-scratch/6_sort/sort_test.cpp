@@ -3,6 +3,23 @@
 
 int main(int argc, char const *argv[])
 {
+    int data[10] = {2, 3, 4, 5, 1, 7, 6, 8, 0, 9};
+    pwz::print(data, 10);
+
+    // pwz::bubble_sort(data, 10);
+    // pwz::print(data, 10);
+    pwz::selection_sort(data, 10);
+    pwz::print(data, 10);
+    return 0;
+}
+
+
+
+
+
+
+int test1(int argc, char const *argv[])
+{
     int data[5] = {2, 3, 4, 5,1};
     std::cout<<sizeof(data)<<"\n";
     std::cout<<sizeof(data[0])<<"\n";

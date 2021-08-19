@@ -5,6 +5,49 @@
 
 namespace pwz {
 
+void print(int *data, int length){
+    for (int i = 0; i < length; i++)
+    {
+        std::cout<<data[i]<<" ";
+    }
+    std::cout<<"\n";
+}
+
+void bubble_sort(int *data, int length){
+    int temp;
+    for (int i = length-1; i > 1; i--)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (data[j] > data[j+1])
+            {
+                temp = data[j+1];
+                data[j+1] = data[j];
+                data[j] = temp;
+            }
+        }
+    }
+}
+
+void selection_sort(int *data, int length){
+    int temp, p_min;
+    for (int i = 0; i < length-1; i++)
+    {   
+        p_min = i;
+        for (int j = i+1; j < length; j++)
+        {
+            if (data[j] < data[p_min])
+            {
+                p_min = j;
+            }
+        }
+        temp = data[i];
+        data[i] = data[p_min];
+        data[p_min] = temp;
+    }
+}
+
+
 void test_sort(int *data){
     //数组作为函数参数传递后，退化为指针
     std::cout<<sizeof(data)<<"\n";
