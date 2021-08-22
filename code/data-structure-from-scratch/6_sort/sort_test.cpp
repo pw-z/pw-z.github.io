@@ -8,7 +8,11 @@ int main(int argc, char const *argv[])
 
     // pwz::bubble_sort(data, 10);
     // pwz::print(data, 10);
-    pwz::selection_sort(data, 10);
+    // pwz::selection_sort(data, 10);
+    // pwz::print(data, 10);
+    // pwz::insertion_sort(data, 10);
+    // pwz::print(data, 10);
+    pwz::shell_sort(data, 10);
     pwz::print(data, 10);
     return 0;
 }
@@ -17,7 +21,7 @@ int main(int argc, char const *argv[])
 
 
 
-
+/**
 int test1(int argc, char const *argv[])
 {
     int data[5] = {2, 3, 4, 5,1};
@@ -37,3 +41,4 @@ int test1(int argc, char const *argv[])
 
     return 0;
 }
+*/

@@ -47,6 +47,45 @@ void selection_sort(int *data, int length){
     }
 }
 
+void insertion_sort(int *data, int length){
+    for (int i = 0; i < length; i++)
+    {
+        for (int j = i; j > 0; j--)
+        {
+            if (data[j] <= data[j-1]){
+                int temp = data[j];
+                data[j] = data[j-1];
+                data[j-1] = temp;
+            }else{
+                break;
+            }
+        }
+    }
+}
+
+void shell_sort(int* data, int length){
+    for (int g = length/2; g > 0; g/=2)
+    {
+        for (int i = g; i < length; i++)
+        {
+            for (int j = i; j > 0; j-=g)
+            {
+                if (data[j] < data[j-g])
+                {
+                    int temp = data[j];
+                    data[j] = data[j-g];
+                    data[j-g] = temp;
+                }else{
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+
+
 
 void test_sort(int *data){
     //数组作为函数参数传递后，退化为指针
