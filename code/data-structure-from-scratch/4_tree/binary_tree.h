@@ -80,10 +80,19 @@ template <class Type>
 void post_order_traverse_non_recursive(BiTNode<Type> *root){
     Stack<BiTNode<Type>*> stack;
     BiTNode<Type> *p = root;
-    while (p || !stack.isempty())
-    {
-
-    }
+    do{
+        if(p->lchild != nullptr){
+            stack.push(p->lchild);
+            p = p->lchild;
+        }else if (p->rchild != nullptr)
+        {
+            stack.push(p->rchild);
+            p = p->rchild;
+        }else{
+            
+        }
+        
+    }while (!stack.isempty())
 }
 
 template <class Type>

@@ -12,7 +12,9 @@ int main(int argc, char const *argv[])
     // pwz::print(data, 10);
     // pwz::insertion_sort(data, 10);
     // pwz::print(data, 10);
-    pwz::shell_sort(data, 10);
+    // pwz::shell_sort(data, 10);
+    // pwz::print(data, 10);
+    pwz::counting_sort(data, 10);
     pwz::print(data, 10);
     return 0;
 }

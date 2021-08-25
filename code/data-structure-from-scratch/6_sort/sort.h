@@ -84,9 +84,51 @@ void shell_sort(int* data, int length){
 }
 
 
+// merge sort
+void merge_sort__sort(){
+
+}
+void merge_sort__merge(){
+
+}
+void merge_sort(int* data, int length){
+    int temp[length];
+    
+}
 
 
+// counting_sort
+int counting_sort__findmax(int* data, int length){
+    int max;
+    for (int i = 0; i < length; i++)
+    {
+        if (data[i] > max)
+        {
+            max = data[i];
+        }    
+    }
+    return max;
+}
+void counting_sort(int* data, int length){
+    int max = counting_sort__findmax(data, length);
+    int count[max] = {0};
+    for (int i = 0; i < length; i++)
+    {
+        count[data[i]]++;
+    }
+    for (int i = 0,j = 0; i < max; i++)
+    {
+        while (count[i] != 0)
+        {
+            data[j] = i;
+            count[i]--;
+            j++;
+        }
+    }   
+}
 
+
+/*
 void test_sort(int *data){
     //数组作为函数参数传递后，退化为指针
     std::cout<<sizeof(data)<<"\n";
@@ -95,7 +137,7 @@ void test_sort(int *data){
     int size = sizeof(data) / sizeof(data[0]);
     std::cout<<"length = "<<size<<"\n";
 }
-
+*/
 
 }
 
