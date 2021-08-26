@@ -13,7 +13,7 @@ using namespace std;
        └─g=7
  */
 
-int main(int argc, char const *argv[])
+int traverse_test()
 {
     BiTNode<int> a,b,c,d,e,f,g;
     a.data = 1;
@@ -49,10 +49,30 @@ int main(int argc, char const *argv[])
     cout<<endl;
     post_order_traverse(&a);
     cout<<endl;
+    post_order_traverse_non_recursive(&a);
+    cout<<endl;
 
     level_order_traverse(&a);
     cout<<endl;
 
-
     return 0;
 }
+/*
+1 2 4 5 3 6 7 
+1 2 4 5 3 6 7
+4 2 5 1 6 3 7
+4 2 5 1 6 3 7
+4 5 2 6 7 3 1
+4 5 2 6 7 3 1
+1 2 3 4 5 6 7
+*/
+
+
+int main(int argc, char const *argv[])
+{
+  // traverse_test();
+  create_tree_in_level_order();
+
+  return 0;
+}
+
