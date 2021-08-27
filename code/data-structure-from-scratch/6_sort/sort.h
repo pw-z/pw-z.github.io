@@ -85,15 +85,53 @@ void shell_sort(int* data, int length){
 
 
 // merge sort
-void merge_sort__sort(){
+void merge_sort__merge(int* data, int left, int right, int* temp){
+    int middle = (left + right)/2;
+    std::cout<<"merging...\n";
+    std::cout<<left<<" "<<middle<<" "<<right<<"\n";
+    int i=left, j=middle+1;
+    int cur = 0;
+    while (i<=middle, j<=right)
+    {
+        if (data[i] < data[j])
+        {
+            temp[cur++] = data[i++];
+        }else{
+            temp[cur++] = data[j++];
+        }
 
+        while (i<=middle)
+        {
+            temp[cur++] = data[i++];
+        }
+        while (j<=right)
+        {
+            temp[cur++] = data[j++];
+        }
+
+        cur = 0;
+        while (left<=right)
+        {
+            data[left++] = temp[cur++];
+        }
+        
+        
+    }
+    
 }
-void merge_sort__merge(){
-
+void merge_sort__sort(int* data, int left, int right, int* temp){
+    if (left < right)
+    {
+        int middle = (left + right)/2;
+        std::cout<<left<<" "<<middle<<" "<<right<<"\n";
+        merge_sort__sort(data, left, middle, temp);
+        merge_sort__sort(data, middle+1, right, temp);
+        merge_sort__merge(data, left, right, temp);
+    }
 }
 void merge_sort(int* data, int length){
     int temp[length];
-    
+    merge_sort__sort(data, 0, length-1, temp);
 }
 
 
