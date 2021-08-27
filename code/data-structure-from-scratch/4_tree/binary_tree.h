@@ -152,6 +152,9 @@ bool create_tree_in_level_order(){
     int last_pos = 0;
     for (int i = 0; i < input.length(); i++)
     {
+        if(input[i] == '#'){
+            
+        }
         if(input[i] == ' '){
             std::string temp = input.substr(last_pos, i-last_pos);
             // std::cout<<temp<<"\n";
@@ -160,7 +163,7 @@ bool create_tree_in_level_order(){
             last_pos = i+1;
         }
     }
-    // for (int i = 0; i < cur; i++){std::cout<<node[i]<<" ";}
+    for (int i = 0; i < cur; i++){std::cout<<node[i]<<" ";}
     
     for (int i = 0; i < cur; i++)
     {
