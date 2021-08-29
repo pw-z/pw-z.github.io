@@ -68,11 +68,46 @@ int traverse_test()
 */
 
 
-int main(int argc, char const *argv[])
+int level_order_creation_test()
 {
   // traverse_test();
-  create_tree_in_level_order();
+  BiTNode<int>* root = create_tree_in_level_order();
+  pre_order_traverse(root);
+  cout<<endl;
+  in_order_traverse(root);
+  cout<<endl;
+  post_order_traverse(root);
+  cout<<endl;
+  level_order_traverse(root);
+  cout<<endl;
 
   return 0;
 }
+/*
+input node in level order to create a binary tree.
+only integers and '#' allowed, max node amount = 100
+'#' means null node.
+for instance:
+ ─a=1
+   ├─b=2
+   │  ├─d=null
+   │  └─e=5
+   └─c=3
+      ├─f=6
+      └─g=7
+you should input '1 2 3 # 5 6 7'
+please input node sequence in one line:
+1 2 3 4 5 6 7
+1$$$$$$$$
+2$$$$$$$$
+4$$$$$$$$
+5$$$$$$$$
+3$$$$$$$$
+6$$$$$$$$
+7$$$$$$$$
+1 2 4 5 3 6 7 
+4 2 5 1 6 3 7
+4 5 2 6 7 3 1
+1 2 3 4 5 6 7 
+*/
 

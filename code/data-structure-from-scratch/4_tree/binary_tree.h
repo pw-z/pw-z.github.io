@@ -132,21 +132,21 @@ void level_order_traverse(BiTNode<Type> *root){
 
 BiTNode<int>* bitree_generator(std::string* seq, int length, int loc){
     if(loc <= length && seq[loc-1] != "#"){
-        BiTNode<int> root;
-        root.data = atoi(seq[loc-1].c_str());
-        std::cout<<root.data<<"$$$$$$$$\n";
-        root.lchild = bitree_generator(seq, length, loc*2);
-        root.rchild = bitree_generator(seq, length, loc*2+1);
-        return &root;
+        BiTNode<int>* root = new BiTNode<int>();
+        root->data = atoi(seq[loc-1].c_str());
+        // std::cout<<root->data<<"$$$$$$$$\n";
+        root->lchild = bitree_generator(seq, length, loc*2);
+        root->rchild = bitree_generator(seq, length, loc*2+1);
+        return root;
     }else{
         return nullptr;
     }
 }
-bool create_tree_in_level_order(){
+BiTNode<int>* create_tree_in_level_order(){
     const int MAX_NODE_AMOUNT = 100;
     std::cout<<"input node in level order to create a binary tree.\n";
     std::cout<<"only integers and '#' allowed, max node amount = " << MAX_NODE_AMOUNT << "\n";
-    std::cout<<"# means null node.";
+    std::cout<<"'#' means null node.\n";
     std::cout<<"for instance:\n";
     std::cout<<" ─a=1\n";
     std::cout<<"   ├─b=2\n";
@@ -178,10 +178,10 @@ bool create_tree_in_level_order(){
     }
     // for (int i = 0; i < cur; i++){std::cout<<node[i]<<" ";}
     
-    BiTNode<int>* root = bitree_generator(nodes, 5, 1);
-
-    level_order_traverse(root);
-    return true;
+    BiTNode<int>* the_tree = bitree_generator(nodes, cur, 1);
+    // every node in this tree is created by 'new' operator
+    // GC operation is necessary
+    return the_tree;
 }
 
 #endif
