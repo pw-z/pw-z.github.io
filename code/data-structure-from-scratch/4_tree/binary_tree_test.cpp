@@ -111,3 +111,8 @@ please input node sequence in one line:
 1 2 3 4 5 6 7 
 */
 
+int main(int argc, char const *argv[])
+{
+  level_order_creation_test();
+  return 0;
+}

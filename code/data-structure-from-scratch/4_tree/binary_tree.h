@@ -127,9 +127,6 @@ void level_order_traverse(BiTNode<Type> *root){
 }
 
 
-
-
-
 BiTNode<int>* bitree_generator(std::string* seq, int length, int loc){
     if(loc <= length && seq[loc-1] != "#"){
         BiTNode<int>* root = new BiTNode<int>();
@@ -183,5 +180,12 @@ BiTNode<int>* create_tree_in_level_order(){
     // GC operation is necessary
     return the_tree;
 }
+
+template<class Type>
+void tree_print(BiTNode<Type>* root)
+{
+    
+}
+
 
 #endif
