@@ -126,7 +126,22 @@ void level_order_traverse(BiTNode<Type> *root){
     }
 }
 
-// template <class Type>
+
+
+
+
+BiTNode<int>* bitree_generator(std::string* seq, int length, int loc){
+    if(loc <= length && seq[loc-1] != "#"){
+        BiTNode<int> root;
+        root.data = atoi(seq[loc-1].c_str());
+        std::cout<<root.data<<"$$$$$$$$\n";
+        root.lchild = bitree_generator(seq, length, loc*2);
+        root.rchild = bitree_generator(seq, length, loc*2+1);
+        return &root;
+    }else{
+        return nullptr;
+    }
+}
 bool create_tree_in_level_order(){
     const int MAX_NODE_AMOUNT = 100;
     std::cout<<"input node in level order to create a binary tree.\n";
@@ -147,31 +162,25 @@ bool create_tree_in_level_order(){
     std::getline(std::cin, input);
     input.append(" ");
     // std::cout<<input<<"\n";
-    int node[MAX_NODE_AMOUNT];
+    std::string nodes[MAX_NODE_AMOUNT];
     int cur = 0;
     int last_pos = 0;
     for (int i = 0; i < input.length(); i++)
     {
-        if(input[i] == '#'){
-            
-        }
         if(input[i] == ' '){
             std::string temp = input.substr(last_pos, i-last_pos);
             // std::cout<<temp<<"\n";
-            node[cur++] = atoi(temp.c_str());
+            // node[cur++] = atoi(temp.c_str());
+            nodes[cur++] = temp;
             // std::cout<<node[cur -1]<<"\n";
             last_pos = i+1;
         }
     }
-    for (int i = 0; i < cur; i++){std::cout<<node[i]<<" ";}
+    // for (int i = 0; i < cur; i++){std::cout<<node[i]<<" ";}
     
-    for (int i = 0; i < cur; i++)
-    {
-        
-    }
-    
-    
+    BiTNode<int>* root = bitree_generator(nodes, 5, 1);
 
+    level_order_traverse(root);
     return true;
 }
 
