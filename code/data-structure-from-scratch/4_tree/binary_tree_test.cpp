@@ -111,8 +111,15 @@ please input node sequence in one line:
 1 2 3 4 5 6 7 
 */
 
+
+void tree_printer_test(){
+    BiTNode<int>* root = create_tree_in_level_order();
+    tree_print(root);
+}
+
 int main(int argc, char const *argv[])
 {
-  level_order_creation_test();
-  return 0;
+    // level_order_creation_test();
+    tree_printer_test();
+    return 0;
 }

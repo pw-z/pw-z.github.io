@@ -127,6 +127,7 @@ void level_order_traverse(BiTNode<Type> *root){
 }
 
 
+// create_tree_in_level_order
 BiTNode<int>* bitree_generator(std::string* seq, int length, int loc){
     if(loc <= length && seq[loc-1] != "#"){
         BiTNode<int>* root = new BiTNode<int>();
@@ -181,10 +182,34 @@ BiTNode<int>* create_tree_in_level_order(){
     return the_tree;
 }
 
+
+// tree printer
+template <class Type>
+void pre_order_traverse_for_tree_printer(BiTNode<Type> *root, std::string padding, std::string turning, bool has_right_sibling){
+    if(root != nullptr){  // c++::nullptr ~~ c::null/NULL
+        std::cout<<padding;
+        std::cout<<turning;
+        std::cout<<root->data<<"\n";
+
+        // padding += root->rchild != nullptr ?  "│  " : "   ";
+        if (has_right_sibling){
+            padding += "│  ";
+        }else{
+            padding += "   ";
+        }
+        
+        std::string to_left = (root->rchild != nullptr) ? "├──" : "└──";
+        pre_order_traverse_for_tree_printer(root->lchild, padding, to_left, root->rchild != nullptr);
+        pre_order_traverse_for_tree_printer(root->rchild, padding, "└──", false);
+    }
+}
 template<class Type>
 void tree_print(BiTNode<Type>* root)
-{
-    
+{   
+    std::cout<<root->data<<"\n";
+    std::string to_left = (root->rchild != nullptr) ? "├──" : "└──";
+    pre_order_traverse_for_tree_printer(root->lchild, "", to_left, root->rchild != nullptr);
+    pre_order_traverse_for_tree_printer(root->rchild, "", "└──", false);
 }
 
 
