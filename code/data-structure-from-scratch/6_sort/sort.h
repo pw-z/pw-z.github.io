@@ -177,7 +177,31 @@ void test_sort(int *data){
 }
 */
 
+
+
+int quick_sort__partition(int* data, int low, int high){
+    int pivot = data[low];
+    while (low < high)
+    {
+        
+    }
+    
+    return 0;
 }
+void quick_sort__sort(int* data, int left, int right){
+    if (left < right)
+    {
+        int pivot = quick_sort__partition(data, left, right);
+        quick_sort__sort(data, left, pivot-1);
+        quick_sort__sort(data, pivot+1, right);
+    }
+}
+void quick_sort(int* data, int length){
+    quick_sort__sort(data, 0, length);
+}
+
+
+} // namespace pwz
 
 
 
