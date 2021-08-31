@@ -2,6 +2,7 @@
 
 * 2021
     * 08
+        * 083101 [Data Structure from Scratch: Binary Tree][2021083101]
         * 080101 [Data Structure from Scratch: String][2021080101]
     - 07
         - 072901 [Data Structure from Scratch: Stack & Queue][2021072901]
@@ -43,6 +44,7 @@
 [commit]:url-filed-below--->>>
 
 [commit]:2021
+[2021083101]:./2021/08/2021083101-data-structure-from-scratch-tree "2021083101 Data Structure from Scratch: Binary Tree"
 [2021080101]:./2021/08/2021080101-data-structure-from-scratch-string "2021080101 Data Structure from Scratch: String"
 [2021072901]:./2021/07/2021072901-data-structure-from-scratch-stack-and-queue "2021072901 Data Structure from Scratch: Stack & Queue"
 [2021071902]:./2021/07/2021071902-an-api-autotest-tool-part2-generate-test-report-from-scratch "2021071902 An API Autotest Tool Part2: Generate Test Report from Scratch"
