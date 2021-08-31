@@ -10,7 +10,12 @@ Pudong, Shanghai.
 If necessary, email me at vilaseaka_outlook.com.
 
 
-[BLOG](./blog/)  
-[GALLERY](./gallery/)  
-[GITHUB](https://github.com/pw-z)
+[BLOG][BLOG]  | [CODE][CODE]  
+[GALLERY][GALLERY]  | [PERFERENCE][PERFERENCE]  
+[GITHUB][GITHUB]
 
+[BLOG]:./blog/ "notes and essays, objective statements only, no views."
+[CODE]:./code/ "tiny tools, big projects, whatever, just code."
+[GALLERY]:./gallery/ "photos and paintings, art creation related content."
+[PERFERENCE]:./perference/ "all the things I prefer, dotfiles, software, online tools, books and articles, etc."
+[GITHUB]:https://github.com/pw-z "when will I create the second repo?"
