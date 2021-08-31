@@ -114,8 +114,34 @@ please input node sequence in one line:
 
 void tree_printer_test(){
     BiTNode<int>* root = create_tree_in_level_order();
-    tree_print(root);
+    tree_horizontal_printer(root);
 }
+/*
+input node in level order to create a binary tree.
+only integers and '#' allowed, max node amount = 100
+'#' means null node.
+for instance:
+ ─a=1
+   ├─b=2
+   │  ├─d=null
+   │  └─e=5
+   └─c=3
+      ├─f=6
+      └─g=7
+you should input '1 2 3 # 5 6 7'
+please input node sequence in one line:
+0 1 2 3 4 5 6 7 # # # # # # # 8 9
+0
+├──1
+│  ├──3      
+│  │  └──7   
+│  │     ├──8
+│  │     └──9
+│  └──4      
+└──2
+   ├──5      
+   └──6 
+*/
 
 int main(int argc, char const *argv[])
 {

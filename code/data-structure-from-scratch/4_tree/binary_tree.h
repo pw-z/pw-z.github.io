@@ -207,6 +207,13 @@ void pre_order_traverse_for_tree_printer(BiTNode<Type> *root, std::string paddin
         // what if removing the `has_right_sibling` parameter and
         // replace the `recursive` block with the code below in `note_code`?
         // 
+        // `padding` in current recursive layer needs to append a "|  " or "   ",
+        // which one depends on whether its parents layer has the right sibling, 
+        // that can be known at its parents' parents node, so this info needs to 
+        // be sent in grandparents layers as we don't store parents info in the 
+        // BiTNode, code in `note_code` will go wrong because `padding` is shared
+        // in current layer and will be changed twice and what's more importent,
+        // it's just pass the parents info to its children, not its grandchildren.
         /****************note********************/
 
         /****************note_code***************/
@@ -217,8 +224,8 @@ void pre_order_traverse_for_tree_printer(BiTNode<Type> *root, std::string paddin
     }
 }
 template<class Type>
-void tree_print(BiTNode<Type>* root)
-{   
+void tree_horizontal_printer(BiTNode<Type>* root){
+    // this printer can't 
     std::cout<<root->data<<"\n";
     std::string to_left = (root->rchild != nullptr) ? "├──" : "└──";
     pre_order_traverse_for_tree_printer(root->lchild, "", to_left, root->rchild != nullptr);
