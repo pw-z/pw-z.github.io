@@ -191,16 +191,29 @@ void pre_order_traverse_for_tree_printer(BiTNode<Type> *root, std::string paddin
         std::cout<<turning;
         std::cout<<root->data<<"\n";
 
-        // padding += root->rchild != nullptr ?  "│  " : "   ";
+        /****************recursive***************/
         if (has_right_sibling){
             padding += "│  ";
         }else{
             padding += "   ";
         }
-        
         std::string to_left = (root->rchild != nullptr) ? "├──" : "└──";
         pre_order_traverse_for_tree_printer(root->lchild, padding, to_left, root->rchild != nullptr);
         pre_order_traverse_for_tree_printer(root->rchild, padding, "└──", false);
+        /****************recursive***************/
+
+
+        /****************note********************/
+        // what if removing the `has_right_sibling` parameter and
+        // replace the `recursive` block with the code below in `note_code`?
+        // 
+        /****************note********************/
+
+        /****************note_code***************/
+        // std::string to_left = (root->rchild != nullptr) ? "├──" : "└──";
+        // pre_order_traverse_for_tree_printer(root->lchild, (root->rchild != nullptr ? padding+="│  ":"   "), to_left);
+        // pre_order_traverse_for_tree_printer(root->rchild, padding+="   ", "└──");
+        /****************note_code***************/
     }
 }
 template<class Type>
