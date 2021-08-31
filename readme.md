@@ -3,16 +3,13 @@
 
 Hi, this is Pengwei.
 
-I'm a photographer, programmer and guitarist currently living in
-
-Pudong, Shanghai.
+I'm a photographer, programmer and guitarist currently living in Pudong, Shanghai.
 
 If necessary, email me at vilaseaka_outlook.com.
 
 
-[BLOG][BLOG]  | [CODE][CODE]  
-[GALLERY][GALLERY]  | [PERFERENCE][PERFERENCE]  
-[GITHUB][GITHUB]
+[Blog][BLOG] · [Code][CODE] · [Gallery][GALLERY] · [Perference][PERFERENCE] · [Github][GITHUB]
+
 
 [BLOG]:./blog/ "notes and essays, objective statements only, no views."
 [CODE]:./code/ "tiny tools, big projects, whatever, just code."
