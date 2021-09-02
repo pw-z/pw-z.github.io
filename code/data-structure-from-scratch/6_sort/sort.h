@@ -231,6 +231,46 @@ void heap_sort(int* data, int length){
     }
 }
 
+// bucket sort
+int BUCKET_NUM = 5;
+int BUCKET_SIZE = 10;
+void print_buckets(int** bucket, int* bucket_count){
+    for (int i = 0; i < BUCKET_NUM; i++)
+    {
+        std::cout<<"bucket "<<i+1<<" : ";
+        for (int j = 0; j < bucket_count[i]; j++)
+        {
+            std::cout<<*((int*)bucket + i*BUCKET_SIZE + j)<<" ";
+        }
+        std::cout<<"\n";
+    }
+}
+void bucket_sort(int* data, int length){
+    int bucket[BUCKET_NUM][BUCKET_SIZE];
+    int bucket_count[BUCKET_NUM] = {0,};
+
+    // B1-B5 : 20-, 21-40, 41-60, 61-80, 81+
+    for (int  i = 0; i < length; i++)
+    {
+        if(data[i]<21){
+            bucket[0][bucket_count[0]++] = data[i];
+        }else if (data[i] < 41){
+            bucket[1][bucket_count[1]++] = data[i];
+        }else if (data[i] < 61){
+            bucket[2][bucket_count[2]++] = data[i];
+        }else if (data[i] < 81){
+            bucket[3][bucket_count[3]++] = data[i];
+        }else{
+            bucket[4][bucket_count[4]++] = data[i];
+        }
+    }
+    print_buckets((int**)bucket, bucket_count);
+    
+}
+
+
+// radix_sort
+
 } // namespace pwz
 
 
