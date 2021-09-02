@@ -83,7 +83,6 @@ void shell_sort(int* data, int length){
     }
 }
 
-
 // merge sort
 void merge_sort__merge(int* data, int left, int right, int* temp){
     int middle = (left + right)/2;
@@ -134,8 +133,7 @@ void merge_sort(int* data, int length){
     merge_sort__sort(data, 0, length-1, temp);
 }
 
-
-// counting_sort
+// counting sort
 int counting_sort__findmax(int* data, int length){
     int max;
     for (int i = 0; i < length; i++)
@@ -165,7 +163,7 @@ void counting_sort(int* data, int length){
     }   
 }
 
-
+// quick sort
 int quick_sort__partition(int* data, int length, int low, int high){
     pwz::print(data, length);
     std::cout<<"init  >> low = "<< low<<"  high = "<< high<<"\n";
@@ -199,7 +197,39 @@ void quick_sort(int* data, int length){
     quick_sort__sort(data, length, 0, length-1);
 }
 
-
+// heap sort
+void heap_sort__heapify(int* data, int start, int end){
+    int current_top = data[start];
+    for(int cur = start*2+1; cur <= end; cur=cur*2 +1){
+        // print(data, end);
+        if (cur < end && data[cur] < data[cur+1]) cur++;
+        if (current_top > data[cur]) break;
+        data[start] = data[cur];
+        start = cur;
+    }
+    data[start] = current_top;
+    // print(data, end);
+}
+void heap_sort(int* data, int length){
+    // std::cout<<"before heap sort: ";
+    // print(data, length);
+    for(int i = length/2-1; i>=0; --i){  // first node index is 0, not 1
+        heap_sort__heapify(data, i, length-1);
+    }
+    // std::cout<<"heapified: ";
+    // print(data, length);
+    for(int i=length-1; i>0; --i){
+        int temp = data[i];
+        data[i] = data[0];
+        data[0] = temp;
+        // std::cout<<"start sorting, i = "<< i<<"\n";
+        // print(data, length);
+        // std::cout<<"reheapifing... i = "<< i<<"\n";
+        heap_sort__heapify(data, 0, i-1);
+        // std::cout<<"heapified... : ";
+        // print(data, length);
+    }
+}
 
 } // namespace pwz
 

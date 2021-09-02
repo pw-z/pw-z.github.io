@@ -21,7 +21,10 @@ int main(int argc, char const *argv[])
     // pwz::merge_sort(data, 10);
     // pwz::quick_sort(data, 10);
     // pwz::print(data, 10);
-    pwz::quick_sort(data1, 6);
+    // pwz::quick_sort(data1, 6);
+    pwz::heap_sort(data, 10);
+    pwz::print(data, 10);
+    pwz::heap_sort(data1, 6);
     pwz::print(data1, 6);
     return 0;
 }
