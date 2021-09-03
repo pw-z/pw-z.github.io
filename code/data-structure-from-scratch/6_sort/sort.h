@@ -229,7 +229,7 @@ void heap_sort(int* data, int length){
 }
 
 // bucket sort
-void bucket_sortprint_buckets(int** bucket, int* bucket_count, int BUCKET_NUM, int BUCKET_SIZE){
+void bucket_sort__print_buckets(int** bucket, int* bucket_count, int BUCKET_NUM, int BUCKET_SIZE){
     for (int i = 0; i < BUCKET_NUM; i++)
     {
         std::cout<<"bucket "<<i+1<<" : ";
@@ -262,7 +262,7 @@ void bucket_sort_implementation_my_first_try(int* data, int length){
         }
     }
 
-    // bucket_sortprint_buckets((int**)bucket, bucket_count, BUCKET_NUM, BUCKET_SIZE);
+    // bucket_sort__print_buckets((int**)bucket, bucket_count, BUCKET_NUM, BUCKET_SIZE);
     int cur = 0;
     for (int i = 0; i < BUCKET_NUM; i++)
     {
@@ -275,7 +275,7 @@ void bucket_sort_implementation_my_first_try(int* data, int length){
             data[cur++] = bucket[i][j];
         }
     }
-    // bucket_sortprint_buckets((int**)bucket, bucket_count, BUCKET_NUM, BUCKET_SIZE);
+    // bucket_sort__print_buckets((int**)bucket, bucket_count, BUCKET_NUM, BUCKET_SIZE);
 }
 // int bucket_sort__floor(double x){
 //     if (x < 0)
@@ -323,7 +323,7 @@ void bucket_sort(int* data, int length){
     }
 
     std::cout<<"befor sorting, buckets:\n";
-    bucket_sortprint_buckets((int**)bucket, bucket_count, BUCKET_NUM, bucket_capacity);
+    bucket_sort__print_buckets((int**)bucket, bucket_count, BUCKET_NUM, bucket_capacity);
     
     int cur = 0;
     for (int i = 0; i < BUCKET_NUM; i++)
@@ -338,7 +338,7 @@ void bucket_sort(int* data, int length){
         }
     }
     std::cout<<"after sorting, buckets:\n";
-    bucket_sortprint_buckets((int**)bucket, bucket_count, BUCKET_NUM, bucket_capacity);
+    bucket_sort__print_buckets((int**)bucket, bucket_count, BUCKET_NUM, bucket_capacity);
     
 }
 
