@@ -113,10 +113,7 @@ void merge_sort__merge(int* data, int left, int right, int* temp){
         {
             data[left++] = temp[cur++];
         }
-        
-        
     }
-    
 }
 void merge_sort__sort(int* data, int left, int right, int* temp){
     if (left < right)
@@ -165,24 +162,24 @@ void counting_sort(int* data, int length){
 
 // quick sort
 int quick_sort__partition(int* data, int length, int low, int high){
-    pwz::print(data, length);
-    std::cout<<"init  >> low = "<< low<<"  high = "<< high<<"\n";
+    // pwz::print(data, length);
+    // std::cout<<"init  >> low = "<< low<<"  high = "<< high<<"\n";
     int pivot = data[low];
     while (low < high)
     {
         while(low < high && data[high] >= pivot){
             high--;
-            std::cout<<"high-->> low = "<< low<<"  high = "<< high<<"\n";
+            // std::cout<<"high-->> low = "<< low<<"  high = "<< high<<"\n";
         }
         data[low] = data[high];
         while (low < high && data[low] <= pivot){
             low++;
-            std::cout<<"low++ >> low = "<< low<<"  high = "<< high<<"\n";
+            // std::cout<<"low++ >> low = "<< low<<"  high = "<< high<<"\n";
         }
         data[high] = data[low];
     }
     data[low] = pivot;
-    std::cout<<"pivot = "<<low<<"\n";
+    // std::cout<<"pivot = "<<low<<"\n";
     return low;
 }
 void quick_sort__sort(int* data, int length, int left, int right){
@@ -263,6 +260,16 @@ void bucket_sort(int* data, int length){
         }else{
             bucket[4][bucket_count[4]++] = data[i];
         }
+    }
+    print_buckets((int**)bucket, bucket_count);
+    for (int i = 0; i < BUCKET_NUM; i++)
+    {
+        quick_sort(&bucket[i][0], bucket_count[i]);
+        for (int j = 0; j < bucket_count[i]; j++)
+        {
+            data[] = bucket[i][j];
+        }
+        
     }
     print_buckets((int**)bucket, bucket_count);
     
