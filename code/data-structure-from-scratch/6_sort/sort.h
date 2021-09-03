@@ -113,10 +113,7 @@ void merge_sort__merge(int* data, int left, int right, int* temp){
         {
             data[left++] = temp[cur++];
         }
-        
-        
     }
-    
 }
 void merge_sort__sort(int* data, int left, int right, int* temp){
     if (left < right)
@@ -165,24 +162,24 @@ void counting_sort(int* data, int length){
 
 // quick sort
 int quick_sort__partition(int* data, int length, int low, int high){
-    pwz::print(data, length);
-    std::cout<<"init  >> low = "<< low<<"  high = "<< high<<"\n";
+    // pwz::print(data, length);
+    // std::cout<<"init  >> low = "<< low<<"  high = "<< high<<"\n";
     int pivot = data[low];
     while (low < high)
     {
         while(low < high && data[high] >= pivot){
             high--;
-            std::cout<<"high-->> low = "<< low<<"  high = "<< high<<"\n";
+            // std::cout<<"high-->> low = "<< low<<"  high = "<< high<<"\n";
         }
         data[low] = data[high];
         while (low < high && data[low] <= pivot){
             low++;
-            std::cout<<"low++ >> low = "<< low<<"  high = "<< high<<"\n";
+            // std::cout<<"low++ >> low = "<< low<<"  high = "<< high<<"\n";
         }
         data[high] = data[low];
     }
     data[low] = pivot;
-    std::cout<<"pivot = "<<low<<"\n";
+    // std::cout<<"pivot = "<<low<<"\n";
     return low;
 }
 void quick_sort__sort(int* data, int length, int left, int right){
@@ -232,9 +229,7 @@ void heap_sort(int* data, int length){
 }
 
 // bucket sort
-int BUCKET_NUM = 5;
-int BUCKET_SIZE = 10;
-void print_buckets(int** bucket, int* bucket_count){
+void bucket_sortprint_buckets(int** bucket, int* bucket_count, int BUCKET_NUM, int BUCKET_SIZE){
     for (int i = 0; i < BUCKET_NUM; i++)
     {
         std::cout<<"bucket "<<i+1<<" : ";
@@ -245,7 +240,9 @@ void print_buckets(int** bucket, int* bucket_count){
         std::cout<<"\n";
     }
 }
-void bucket_sort(int* data, int length){
+void bucket_sort_implementation_my_first_try(int* data, int length){
+    int BUCKET_NUM = 5;
+    int BUCKET_SIZE = 10;
     int bucket[BUCKET_NUM][BUCKET_SIZE];
     int bucket_count[BUCKET_NUM] = {0,};
 
@@ -264,12 +261,90 @@ void bucket_sort(int* data, int length){
             bucket[4][bucket_count[4]++] = data[i];
         }
     }
-    print_buckets((int**)bucket, bucket_count);
+
+    // bucket_sortprint_buckets((int**)bucket, bucket_count, BUCKET_NUM, BUCKET_SIZE);
+    int cur = 0;
+    for (int i = 0; i < BUCKET_NUM; i++)
+    {
+        // choice another sort algorithm
+        // or keep using bucket_sort
+        quick_sort(&bucket[i][0], bucket_count[i]);
+
+        for (int j = 0; j < bucket_count[i]; j++)
+        {
+            data[cur++] = bucket[i][j];
+        }
+    }
+    // bucket_sortprint_buckets((int**)bucket, bucket_count, BUCKET_NUM, BUCKET_SIZE);
+}
+// int bucket_sort__floor(double x){
+//     if (x < 0)
+//         return int(x)-1;
+//     else
+//         return int(x);
+// }
+void bucket_sort(int* data, int length){
+    int BUCKET_NUM = 5;
+    int bucket_capacity = length;
+    // bucket_capacity is how many numbers one bucket can take,
+    // make bucket_capacity = length is a lazy choice for the
+    // worst situation that most of the numbers in the data[] are close or the same.
+    std::cout<<"bucket capacity is "<<bucket_capacity<<"\n";
+
+    int max=data[0], min=data[0];
+    for (int i = 0; i < length; i++)
+    {
+        if (data[i] > max){
+            max = data[i];
+        }else if (data[i] < min){
+            min = data[i];
+        }
+    }
+    std::cout<<"the max = "<<max<<" and the min = "<<min<<"\n";
+
+    int bucket_range = (max - min + 1)/BUCKET_NUM;
+    if (bucket_range < BUCKET_NUM)
+    {
+        bucket_range = BUCKET_NUM;  // then every item will be put into bucket[0]
+    }
+    
+    std::cout<<"bucket range = "<<bucket_range<<"\n";
+    int bucket[BUCKET_NUM][bucket_capacity];
+    int bucket_count[BUCKET_NUM] = {0,};
+    // bucket_sortprint_buckets((int**)bucket, bucket_count, BUCKET_NUM, bucket_capacity);
+
+    std::cout<<"start putting numbers into buckets:\n";
+    int index;
+    for (int i = 0; i < length; i++)
+    {
+        index = (data[i] - min)/bucket_range;
+        std::cout<<"i = "<< i <<", number[i] = "<<data[i]<<", index = "<<index<<"\n";
+        bucket[index][bucket_count[index]++] = data[i];
+    }
+
+    std::cout<<"befor sorting, buckets:\n";
+    bucket_sortprint_buckets((int**)bucket, bucket_count, BUCKET_NUM, bucket_capacity);
+    
+    int cur = 0;
+    for (int i = 0; i < BUCKET_NUM; i++)
+    {
+        // choice another sort algorithm
+        // or keep using bucket_sort
+        quick_sort(&bucket[i][0], bucket_count[i]);
+
+        for (int j = 0; j < bucket_count[i]; j++)
+        {
+            data[cur++] = bucket[i][j];
+        }
+    }
+    std::cout<<"after sorting, buckets:\n";
+    bucket_sortprint_buckets((int**)bucket, bucket_count, BUCKET_NUM, bucket_capacity);
     
 }
 
 
 // radix_sort
+
 
 } // namespace pwz
 
