@@ -119,8 +119,168 @@ void heap_sort_test()
     pwz::print(data1, 6);
 }
 
+void radix_sort_test(){
+    int data[20] = {0,11,22,33,44,55,66,77,88,98,2,12,23,34,45,56,69,72,81,99};
+    std::cout<<"test data1[]:";
+    pwz::print(data, 20);
+    pwz::radix_sort(data, 20);
+    std::cout<<"final result:";
+    pwz::print(data, 20);
+
+
+    int data2[30] = {9876, 777, 66, 456, 456, 123, 234, 111, 666, 2,
+                     -91, -82, -73, -64, -55, -46, -37, -28, -19, 0,
+                     1, 2, 4, 6, 51, 34, 657, 23, 1111, 10   };
+    std::cout<<"\n------------\ntest data2[]:";
+    pwz::print(data2, 30);
+    pwz::radix_sort(data2, 30);
+    std::cout<<"final result:";
+    pwz::print(data2, 30);
+}
+/*
+test data1[]:0 11 22 33 44 55 66 77 88 98 2 12 23 34 45 56 69 72 81 99 
+max: 99
+width: 2
+start sorting...
+buckets status 1:
+bucket 1 :
+bucket 2 :
+bucket 3 :
+bucket 4 :
+bucket 5 :
+bucket 6 :
+bucket 7 :
+bucket 8 :
+bucket 9 :
+bucket 10 : 0
+bucket 11 : 11 81
+bucket 12 : 22 2 12 72
+bucket 13 : 33 23
+bucket 14 : 44 34
+bucket 15 : 55 45
+bucket 16 : 66 56
+bucket 17 : 77
+bucket 18 : 88 98
+bucket 19 : 69 99
+data status 1:0 11 81 22 2 12 72 33 23 44 34 55 45 66 56 77 88 98 69 99
+buckets status 2:
+bucket 1 :
+bucket 2 :
+bucket 3 :
+bucket 4 :
+bucket 5 :
+bucket 6 :
+bucket 7 :
+bucket 8 :
+bucket 9 :
+bucket 10 : 0 2
+bucket 11 : 11 12
+bucket 12 : 22 23
+bucket 13 : 33 34 
+bucket 14 : 44 45
+bucket 15 : 55 56
+bucket 16 : 66 69
+bucket 17 : 72 77
+bucket 18 : 81 88
+bucket 19 : 98 99
+data status 2:0 2 11 12 22 23 33 34 44 45 55 56 66 69 72 77 81 88 98 99
+final result:0 2 11 12 22 23 33 34 44 45 55 56 66 69 72 77 81 88 98 99
+
+------------
+test data2[]:9876 777 66 456 456 123 234 111 666 2 -91 -82 -73 -64 -55 -46 -37 -28 -19 0 1 2 4 6 51 34 657 23 1111 10
+max: 9876
+width: 4
+start sorting...
+buckets status 1:
+bucket 1 : -19
+bucket 2 : -28
+bucket 3 : -37
+bucket 4 : -46
+bucket 5 : -55
+bucket 6 : -64
+bucket 7 : -73
+bucket 8 : -82
+bucket 9 : -91
+bucket 10 : 0 10
+bucket 11 : 111 1 51 1111
+bucket 12 : 2 2
+bucket 13 : 123 23
+bucket 14 : 234 4 34 
+bucket 15 :
+bucket 16 : 9876 66 456 456 666 6
+bucket 17 : 777 657
+bucket 18 :
+bucket 19 :
+data status 1:-19 -28 -37 -46 -55 -64 -73 -82 -91 0 10 111 1 51 1111 2 2 123 23 234 4 34 9876 66 456 456 666 6 777 657
+buckets status 2:
+bucket 1 : -91
+bucket 2 : -82
+bucket 3 : -73
+bucket 4 : -64
+bucket 5 : -55
+bucket 6 : -46
+bucket 7 : -37
+bucket 8 : -28
+bucket 9 : -19
+bucket 10 : 0 1 2 2 4 6
+bucket 11 : 10 111 1111
+bucket 12 : 123 23
+bucket 13 : 234 34
+bucket 14 :
+bucket 15 : 51 456 456 657
+bucket 16 : 66 666
+bucket 17 : 9876 777
+bucket 18 :
+bucket 19 :
+data status 2:-91 -82 -73 -64 -55 -46 -37 -28 -19 0 1 2 2 4 6 10 111 1111 123 23 234 34 51 456 456 657 66 666 9876 777 
+buckets status 3:
+bucket 1 :
+bucket 2 :
+bucket 3 :
+bucket 4 :
+bucket 5 :
+bucket 6 :
+bucket 7 :
+bucket 8 :
+bucket 9 :
+bucket 10 : -91 -82 -73 -64 -55 -46 -37 -28 -19 0 1 2 2 4 6 10 23 34 51 66
+bucket 11 : 111 1111 123
+bucket 12 : 234
+bucket 13 :
+bucket 14 : 456 456
+bucket 15 :
+bucket 16 : 657 666
+bucket 17 : 777
+bucket 18 : 9876
+bucket 19 :
+data status 3:-91 -82 -73 -64 -55 -46 -37 -28 -19 0 1 2 2 4 6 10 23 34 51 66 111 1111 123 234 456 456 657 666 777 9876
+buckets status 4:
+bucket 1 :
+bucket 2 :
+bucket 3 :
+bucket 4 :
+bucket 5 :
+bucket 6 :
+bucket 7 :
+bucket 8 : 
+bucket 9 :
+bucket 10 : -91 -82 -73 -64 -55 -46 -37 -28 -19 0 1 2 2 4 6 10 23 34 51 66 111 123 234 456 456 657 666 777
+bucket 11 : 1111
+bucket 12 :
+bucket 13 :
+bucket 14 :
+bucket 15 :
+bucket 16 :
+bucket 17 :
+bucket 18 :
+bucket 19 : 9876
+data status 4:-91 -82 -73 -64 -55 -46 -37 -28 -19 0 1 2 2 4 6 10 23 34 51 66 111 123 234 456 456 657 666 777 1111 9876
+final result:-91 -82 -73 -64 -55 -46 -37 -28 -19 0 1 2 2 4 6 10 23 34 51 66 111 123 234 456 456 657 666 777 1111 9876
+*/
+
 int main(int argc, char const *argv[])
 {
-    bucket_sort_test();
+    // bucket_sort_test();
+    radix_sort_test();
     return 0;
 }

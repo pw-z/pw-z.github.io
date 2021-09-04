@@ -157,7 +157,7 @@ void counting_sort(int* data, int length){
             count[i]--;
             j++;
         }
-    }   
+    }
 }
 
 // quick sort
@@ -344,7 +344,60 @@ void bucket_sort(int* data, int length){
 
 
 // radix_sort
+void radix_sort(int* data, int length){
 
+    // find the max
+    int max = data[0];
+    for (int i = 0; i < length; i++){
+        if (data[i] > max){
+            max = data[i];
+        }
+    }
+    std::cout<<"max: "<< max << "\n";
+
+    // caculate the bit width
+    int width = 1;
+    while (max >= 10)
+    {
+        ++width;
+        max /= 10;
+    }
+    std::cout<<"width: "<< width << "\n";
+    std::cout<<"start sorting...\n";
+
+    // start sorting
+    // 19 buckets for both negative and positive numbers
+    // number -9 -8 -7 -6 -5 -4 -3 -2 -1  0 1  2  3  4  5  6  7  8  9
+    // bucket 0  1  2  3  4  5  6  7  8   9 10 11 12 13 14 15 16 17 18
+    int bucket[19][length];
+    for (int i=0, base=1; i < width; i++, base*=10){
+        int bucket_count[20] = {0};
+
+        // put the datas into buckets
+        for (int j = 0; j < length; j++){
+            int index = (data[j]/base) % 10 + 9;  // data[j] belongs to bucket[index]
+            // std::cout<<data[j]<<" belongs to bucket "<< index<<"\n";
+            bucket[index][bucket_count[index]++] = data[j];
+        }
+        std::cout<<"buckets status "<< i+1 <<":\n";
+        bucket_sort__print_buckets((int**)bucket, bucket_count, 19, length);
+
+        // put the datas back
+        // j for bucket[j][]
+        // k for data[k], k should be 'length' finally.
+        // count for bucket[][count] & FIFO.
+        for (int j=0, k=0; j < 19; j++){
+            int count = 0;
+            while (count < bucket_count[j])
+            {
+                data[k] = bucket[j][count++];
+                k++;
+            }
+        }
+        std::cout<<"data status "<< i+1 <<":";
+        print(data, length);
+    }
+}
 
 } // namespace pwz
 
