@@ -131,8 +131,9 @@ void merge_sort(int* data, int length){
 }
 
 // counting sort
+// only positive numbers supported
 int counting_sort__findmax(int* data, int length){
-    int max;
+    int max = data[0];
     for (int i = 0; i < length; i++)
     {
         if (data[i] > max)
@@ -144,12 +145,13 @@ int counting_sort__findmax(int* data, int length){
 }
 void counting_sort(int* data, int length){
     int max = counting_sort__findmax(data, length);
-    int count[max] = {0};
+    // std::cout<<"the max: "<<max<<"\n";
+    int count[max+1] = {0};
     for (int i = 0; i < length; i++)
     {
         count[data[i]]++;
     }
-    for (int i = 0,j = 0; i < max; i++)
+    for (int i = 0,j = 0; i <= max; i++)
     {
         while (count[i] != 0)
         {

@@ -1,6 +1,197 @@
 #include "sort.h"
 #include <iostream>
 
+void bubble_sort_test(){
+    std::cout<<"bubble sort test:\n";
+    int data[20] = {2, -7, 4, -9, 1, 7, 6, 8, 0, 9,
+    23, 34, 123, 567, 123, 666, 34, -232, -56, 186};
+    std::cout<<"test data:   ";
+    pwz::print(data, 20);
+    std::cout<<"sort result: ";
+    pwz::bubble_sort(data, 20);
+    pwz::print(data, 20);
+}
+/*
+bubble sort test:
+test data:   2 -7 4 -9 1 7 6 8 0 9 23 34 123 567 123 666 34 -232 -56 186 
+sort result: -232 -56 -9 -7 0 1 2 4 6 7 8 9 23 34 34 123 123 186 567 666
+*/
+
+void selection_sort_test(){
+    std::cout<<"selection sort test:\n";
+    int data[20] = {2, -7, 4, -9, 1, 7, 6, 8, 0, 9,
+    23, 34, 123, 567, 123, 666, 34, -232, -56, 186};
+    std::cout<<"test data:   ";
+    pwz::print(data, 20);
+    std::cout<<"sort result: ";
+    pwz::selection_sort(data, 20);
+    pwz::print(data, 20);
+}
+/*
+selection sort test:
+test data:   2 -7 4 -9 1 7 6 8 0 9 23 34 123 567 123 666 34 -232 -56 186
+sort result: -232 -56 -9 -7 0 1 2 4 6 7 8 9 23 34 34 123 123 186 567 666
+*/
+
+
+void insertion_sort_test(){
+    std::cout<<"insertion sort test:\n";
+    int data[20] = {2, -7, 4, -9, 1, 7, 6, 8, 0, 9,
+    23, 34, 123, 567, 123, 666, 34, -232, -56, 186};
+    std::cout<<"test data:   ";
+    pwz::print(data, 20);
+    pwz::insertion_sort(data, 20);
+    std::cout<<"sort result: ";
+    pwz::print(data, 20);
+}
+/*
+insertion sort test:
+test data:   2 -7 4 -9 1 7 6 8 0 9 23 34 123 567 123 666 34 -232 -56 186
+sort result: -232 -56 -9 -7 0 1 2 4 6 7 8 9 23 34 34 123 123 186 567 666
+*/
+
+// shell sort test
+// bug tag
+void shell_sort_test(){
+    std::cout<<"shell sort test:\n";
+    int data[20] = {2, -7, 4, -9, 1, 7, 6, 8, 0, 9,
+    23, 34, 123, 567, 123, 666, 34, -232, -56, 186};
+    std::cout<<"test data:   ";
+    pwz::print(data, 20);
+    pwz::shell_sort(data, 20);
+    std::cout<<"sort result: ";
+    pwz::print(data, 20);
+}
+/*
+shell sort test:
+test data: 2 -7 4 -9 1 7 6 8 0 9 23 34 123 567 123 666 34 -232 -56 186 
+sort result: -7 0 0 0 1 2 4 6 7 8 8 9 23 34 34 123 123 186 567 666 
+*/
+
+void counting_sort_test(){
+    std::cout<<"counting sort test:\n";
+    int data[20] = {2, 7, 4, 9, 1, 7, 6, 8, 0, 9,
+    23, 34, 123, 567, 123, 666, 34, 232, 56, 186};
+    std::cout<<"test data:   ";
+    pwz::print(data, 20);
+    pwz::counting_sort(data, 20);
+    std::cout<<"sort result: ";
+    pwz::print(data, 20);
+}
+/*
+counting sort test:
+test data:   2 7 4 9 1 7 6 8 0 9 23 34 123 567 123 666 34 232 56 186
+sort result: 0 1 2 4 6 7 7 8 9 9 23 34 34 56 123 123 186 232 567 666
+*/
+
+// merge sort test
+// bug tag
+void merge_sort_test(){
+    std::cout<<"merge sort test:\n";
+    int data[20] = {2, -7, 4, -9, 1, 7, 6, 8, 0, 9,
+    23, 34, 123, 567, 123, 666, 34, -232, -56, 186};
+    std::cout<<"test data: ";
+    pwz::print(data, 20);
+    pwz::merge_sort(data, 20);
+    std::cout<<"sort result: ";
+    pwz::print(data, 20);
+}
+/*
+merge sort test:
+test data: 2 -7 4 -9 1 7 6 8 0 9 23 34 123 567 123 666 34 -232 -56 186    
+0 9 19
+0 4 9
+0 2 4
+0 1 2
+0 0 1
+merging...
+0 0 1
+merging...
+0 1 2
+3 3 4
+merging...
+3 3 4
+merging...
+0 2 4
+5 7 9
+5 6 7
+5 5 6
+merging...
+5 5 6
+merging...
+5 6 7
+8 8 9
+merging...
+8 8 9
+merging...
+5 7 9
+merging...
+0 4 9
+10 14 19
+10 12 14
+10 11 12
+10 10 11
+merging...
+10 10 11
+merging...
+10 11 12
+13 13 14
+merging...
+13 13 14
+merging...
+10 12 14
+15 17 19
+15 16 17
+15 15 16
+merging...
+15 15 16
+merging...
+15 16 17
+18 18 19
+merging...
+18 18 19
+merging...
+15 17 19
+merging...
+10 14 19
+merging...
+0 9 19
+sort result: -232 -9 -7 2 4 1 0 6 7 8 9 23 34 123 123 567 34 666 -56 186
+*/
+
+void quick_sort_test(){
+    std::cout<<"quick sort test:\n";
+    int data[20] = {2, -7, 4, -9, 1, 7, 6, 8, 0, 9,
+    23, 34, 123, 567, 123, 666, 34, -232, -56, 186};
+    std::cout<<"test data:   ";
+    pwz::print(data, 20);
+    pwz::quick_sort(data, 20);
+    std::cout<<"sort result: ";
+    pwz::print(data, 20);
+}
+/*
+quick sort test:
+test data:   2 -7 4 -9 1 7 6 8 0 9 23 34 123 567 123 666 34 -232 -56 186
+sort result: -232 -56 -9 -7 0 1 2 4 6 7 8 9 23 34 34 123 123 186 567 666
+*/
+
+
+
+void heap_sort_test()
+{
+    int data[20] = {2, -7, 4, -9, 1, 7, 6, 8, 0, 9,
+    23, 34, 123, 567, 123, 666, 34, -232, -56, 186};
+    int data1[8] = {0,5,5,3,6,7};
+    pwz::heap_sort(data, 20);
+    pwz::print(data, 20);
+    pwz::heap_sort(data1, 6);
+    pwz::print(data1, 6);
+}
+/*
+-232 -56 -9 -7 0 1 2 4 6 7 8 9 23 34 34 123 123 186 567 666
+0 3 5 5 6 7
+*/
+
 
 void bucket_sort_test(){
     int data1[20] = {0,11,21,31,41,51,61,71,81,91,2,12,22,32,42,52,62,72,82,99};
@@ -92,32 +283,6 @@ bucket 5 :
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 */
 
-void heap_sort_test()
-{
-    int data[10] = {2, 3, 4, 5, 1, 7, 6, 8, 0, 9};
-    // pwz::print(data, 10);
-
-    // pwz::bubble_sort(data, 10);
-    // pwz::print(data, 10);
-    // pwz::selection_sort(data, 10);
-    // pwz::print(data, 10);
-    // pwz::insertion_sort(data, 10);
-    // pwz::print(data, 10);
-    // pwz::shell_sort(data, 10);
-    // pwz::print(data, 10);
-    // pwz::counting_sort(data, 10);
-    // pwz::print(data, 10);
-    int data1[8] = {0,5,5,3,6,7};
-    // pwz::print(data1, 8);
-    // pwz::merge_sort(data, 10);
-    // pwz::quick_sort(data, 10);
-    // pwz::print(data, 10);
-    // pwz::quick_sort(data1, 6);
-    pwz::heap_sort(data, 10);
-    pwz::print(data, 10);
-    pwz::heap_sort(data1, 6);
-    pwz::print(data1, 6);
-}
 
 void radix_sort_test(){
     int data[20] = {0,11,22,33,44,55,66,77,88,98,2,12,23,34,45,56,69,72,81,99};
@@ -280,7 +445,19 @@ final result:-91 -82 -73 -64 -55 -46 -37 -28 -19 0 1 2 2 4 6 10 23 34 51 66 111 
 
 int main(int argc, char const *argv[])
 {
+    // bubble_sort_test();
+    // selection_sort_test();
+    insertion_sort_test();
+
+    shell_sort_test();
+
+    // counting_sort_test();
+    
+    // merge_sort_test();
+
+    // quick_sort_test();
+    // heap_sort_test();
     // bucket_sort_test();
-    radix_sort_test();
+    // radix_sort_test();
     return 0;
 }
