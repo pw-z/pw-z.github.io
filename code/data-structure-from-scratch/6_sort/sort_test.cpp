@@ -50,8 +50,7 @@ test data:   2 -7 4 -9 1 7 6 8 0 9 23 34 123 567 123 666 34 -232 -56 186
 sort result: -232 -56 -9 -7 0 1 2 4 6 7 8 9 23 34 34 123 123 186 567 666
 */
 
-// shell sort test
-// bug tag
+
 void shell_sort_test(){
     std::cout<<"shell sort test:\n";
     int data[20] = {2, -7, 4, -9, 1, 7, 6, 8, 0, 9,
@@ -84,8 +83,7 @@ test data:   2 7 4 9 1 7 6 8 0 9 23 34 123 567 123 666 34 232 56 186
 sort result: 0 1 2 4 6 7 7 8 9 9 23 34 34 56 123 123 186 232 567 666
 */
 
-// merge sort test
-// bug tag
+
 void merge_sort_test(){
     std::cout<<"merge sort test:\n";
     int data[20] = {2, -7, 4, -9, 1, 7, 6, 8, 0, 9,
@@ -464,19 +462,15 @@ final result:-91 -82 -73 -64 -55 -46 -37 -28 -19 0 1 2 2 4 6 10 23 34 51 66 111 
 
 int main(int argc, char const *argv[])
 {
-    // bubble_sort_test();
-    // selection_sort_test();
+    bubble_sort_test();
+    selection_sort_test();
     insertion_sort_test();
-
-    // shell_sort_test();
-
-    // counting_sort_test();
-    
+    shell_sort_test();
+    counting_sort_test();
     merge_sort_test();
-
-    // quick_sort_test();
-    // heap_sort_test();
-    // bucket_sort_test();
-    // radix_sort_test();
+    quick_sort_test();
+    heap_sort_test();
+    bucket_sort_test();
+    radix_sort_test();
     return 0;
 }
