@@ -1121,15 +1121,15 @@ final result:-91 -82 -73 -64 -55 -46 -37 -28 -19 0 1 2 2 4 6 10 23 34 51 66 111 
 
 ## 4. References & Reviews
 
-* **https://en.wikipedia.org/wiki/Sorting_algorithm**
-* **https://www.programiz.com/dsa/sorting-algorithm**
-* https://www.runoob.com/w3cnote/ten-sorting-algorithm.html
-* https://www.cnblogs.com/onepixel/articles/7674659.html
-* https://www.cnblogs.com/chengxiao/p/6194356.html
-* https://zhuanlan.zhihu.com/p/137703433
-* http://www.nowamagic.net/librarys/veda/detail/1194
-* **https://www.tutorialspoint.com/data_structures_algorithms/quick_sort_algorithm.htm**
-* **https://blog.csdn.net/qq_41765114/article/details/86435110**
-* https://www.cnblogs.com/nullzx/p/5880191.html
-* https://www.cnblogs.com/mengdd/archive/2012/11/30/2796845.html
-* https://www.geeksforgeeks.org/shellsort/
+* [**https://en.wikipedia.org/wiki/Sorting_algorithm**](https://en.wikipedia.org/wiki/Sorting_algorithm)
+* [**https://www.programiz.com/dsa/sorting-algorithm**](https://www.programiz.com/dsa/sorting-algorithm)
+* [https://www.runoob.com/w3cnote/ten-sorting-algorithm.html](https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)
+* [https://www.cnblogs.com/onepixel/articles/7674659.html](https://www.cnblogs.com/onepixel/articles/7674659.html)
+* [https://www.cnblogs.com/chengxiao/p/6194356.html](https://www.cnblogs.com/chengxiao/p/6194356.html)
+* [https://zhuanlan.zhihu.com/p/137703433](https://zhuanlan.zhihu.com/p/137703433)
+* [http://www.nowamagic.net/librarys/veda/detail/1194](http://www.nowamagic.net/librarys/veda/detail/1194)
+* [**https://www.tutorialspoint.com/data_structures_algorithms/quick_sort_algorithm.htm**](https://www.tutorialspoint.com/data_structures_algorithms/quick_sort_algorithm.htm)
+* [**https://blog.csdn.net/qq_41765114/article/details/86435110**](https://blog.csdn.net/qq_41765114/article/details/86435110)
+* [https://www.cnblogs.com/nullzx/p/5880191.html](https://www.cnblogs.com/nullzx/p/5880191.html)
+* [https://www.cnblogs.com/mengdd/archive/2012/11/30/2796845.html](https://www.cnblogs.com/mengdd/archive/2012/11/30/2796845.html)
+* [https://www.geeksforgeeks.org/shellsort/](https://www.geeksforgeeks.org/shellsort/)
