@@ -68,9 +68,10 @@ void shell_sort(int* data, int length){
     {
         for (int i = g; i < length; i++)
         {
-            for (int j = i; j > 0; j-=g)
+            // !notice the boundary is j>=g, not j>0
+            for (int j = i; j >= g; j-=g)
             {
-                if (data[j] < data[j-g])
+                if (data[j] <= data[j-g])
                 {
                     int temp = data[j];
                     data[j] = data[j-g];
@@ -90,7 +91,7 @@ void merge_sort__merge(int* data, int left, int right, int* temp){
     std::cout<<left<<" "<<middle<<" "<<right<<"\n";
     int i=left, j=middle+1;
     int cur = 0;
-    while (i<=middle, j<=right)
+    while (i<=middle && j<=right)
     {
         if (data[i] < data[j])
         {
@@ -99,21 +100,22 @@ void merge_sort__merge(int* data, int left, int right, int* temp){
             temp[cur++] = data[j++];
         }
 
-        while (i<=middle)
-        {
-            temp[cur++] = data[i++];
-        }
-        while (j<=right)
-        {
-            temp[cur++] = data[j++];
-        }
-
-        cur = 0;
-        while (left<=right)
-        {
-            data[left++] = temp[cur++];
-        }
     }
+    while (i<=middle)
+    {
+        temp[cur++] = data[i++];
+    }
+    while (j<=right)
+    {
+        temp[cur++] = data[j++];
+    }
+
+    cur = 0;
+    while (left<=right)
+    {
+        data[left++] = temp[cur++];
+    }
+    print(data, 20);
 }
 void merge_sort__sort(int* data, int left, int right, int* temp){
     if (left < right)
