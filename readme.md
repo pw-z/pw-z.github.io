@@ -11,7 +11,7 @@ If necessary, email me at vilaseaka_outlook.com.
 [Blog][BLOG] · [Code][CODE] · [Gallery][GALLERY] · [Github][GITHUB]
 
 
-[BLOG]:./blog/ "notes and essays, objective statements only, no views."
-[CODE]:./code/ "tiny tools, big projects, whatever, just code."
-[GALLERY]:./gallery/ "photos and paintings, art creation related content."
-[GITHUB]:https://github.com/pw-z "when will I create the second repo?"
+[BLOG]:./blog/ "notes, essays..."
+[CODE]:./code/ "tiny tools, projects..."
+[GALLERY]:./gallery/ "photos, paintings..."
+[GITHUB]:https://github.com/pw-z
