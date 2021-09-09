@@ -4,7 +4,6 @@
 
 import time
 
-
 operator = ['+', '-', '*', '/', '%', '(', ')']
 
 
@@ -22,15 +21,37 @@ def generate_formula(operator, path_to_file):
                                     f.write(formula + '\n')
 
 
-def random_formula(length):
+def random_formula(length=3):
     for i in range(length):
-        # TODO:根据长度生成一定格式的随机公式
         pass
 
+
+# 运算符非法连续
+def consecutive_operators():
+    ops = ['+', '-', '*', '/', '%']
+    _result = []
+    for op1 in ops:
+        if op1 != '%':
+            for op2 in ops:
+                print('11 ' + op1 + op2 + ' 22')
+                _result.append('11 ' + op1 + op2 + ' 22')
+        else:
+            print('11 %%  22')
+            _result.append('11 %% 22')
+    return _result
+
+
+# 百分号前面不为数字
+def not_number_befort_per():
+    ops = ['+', '-', '*', '/', '%', '(', ')', '.']
+    _result = []
+    for op in ops:
+        print(op + '%')
+        _result.append(op + '%')
+    return _result
+
+
 if __name__ == '__main__':
-    start_time = time.time()*1000  # s
-    generate_formula(operator, 'test.text')
-    end_time = time.time()*1000
-    duration = end_time - start_time
-    print(duration)
+    # result = consecutive_operators()
+    not_number_befort_per()
 

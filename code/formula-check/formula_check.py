@@ -15,17 +15,20 @@ def formula_check(formula_string):
         # basic errors
         "contains_illegal_characters": r"[^a-zA-Z0-9\+\-\*\/\%\(\)\._]",
         "empty_bracket": r"\(\)",
-        "literal_divided_by_zero": r"\/0(?!\.)",
-        "consecutive_operators": r"[\+\-\*\/\%]{2,}",
+        "literal_divided_by_zero": r"\/0(?!\.)|\/0\.0+(?![1-9])",
+        "consecutive_operators": r"[\+\-\*\/]{2,}|[\+\-×÷%]+?%",
         "non_number_with_percentage_symbol": "[^0-9%]%",
         # bracket related
-        "left_bracket_with_wrong_operators": r"\([\*\/\+\%]{2,}",
-        "wrong_operators_with_right_bracket": r"[\+\-\*\/]\)",
-        "right_bracket_with_wrong_stuff": r"\)[^\)\+\-\*\/]",
-        "wrong_stuff_with_left_bracket": r"[^\(\+\-\*\/]\(",
+        "wrong_operators_after_left_bracket": r"\([\*\/\+\%]",
+        "wrong_operators_before_right_bracket": r"[\+\-\*\/]\)",
+        "wrong_character_after_right_bracket": r"\)[^\)\+\-\*\/]",
+        "wrong_operators_before_left_bracket": r"[^\(\+\-\*\/]\(",
         # others
-        # "end_with_wrong_stuff": r"[+\-\*\/].?",  # 需要用march配合
-        # "start_with_wrong_stuff": r"[\+\*\/].?",  # 需要用march配合
+        "start_with_wrong_character": r"^[\+\*\/]",
+        "end_with_wrong_character": r"[+\-\*\/]$",
+        "extra_prefix_0": r"[^0-9\.]0+[0-9]+",
+        "illegal_floating_point_number": r"(?<!\d)\.[\d]+|[\d]+\.[^\d]*(?!\d)|(?<!\d)[^\d]*\.[^\d]*(?!\d)",
+        "too_many_decimal_points": r"[\d]+\.[\d]+\.[\d]+"
     }
     test_result = ""
     for pattern_key in pattern_dict.keys():
@@ -56,14 +59,14 @@ def formula_check(formula_string):
         test_result += "Error: brackets_mismatch\n"
 
     # 头尾字符校验
-    start_with_wrong_stuff = r"[\+\*\/].?"
-    end_with_wrong_stuff = r"[+\-\*\/].?"
-    if re.match(start_with_wrong_stuff, f):
-        # print("start_with_wrong_stuff")
-        test_result += "Error: start_with_wrong_stuff\n"
-    if re.match(end_with_wrong_stuff, f[::-1]):
-        # print("end_with_wrong_stuff")
-        test_result += "Error: end_with_wrong_stuff\n"
+    # start_with_wrong_stuff = r"[\+\*\/].?"
+    # end_with_wrong_stuff = r"[+\-\*\/].?"
+    # if re.match(start_with_wrong_stuff, f):
+    #     # print("start_with_wrong_stuff")
+    #     test_result += "Error: start_with_wrong_stuff\n"
+    # if re.match(end_with_wrong_stuff, f[::-1]):
+    #     # print("end_with_wrong_stuff")
+    #     test_result += "Error: end_with_wrong_stuff\n"
 
     # TODO 特殊校验
 
@@ -76,13 +79,12 @@ def formula_check(formula_string):
 
 
 def run_formula_check():
-    
     while True:
         formula = input()
         if formula != "bey":
             # print("your input: " + formula)
             result = formula_check(formula)
-            print("="*51 + "\n" + "FORMULA TESTING RESULT:\n" + "- "*26)
+            print("=" * 51 + "\n" + "FORMULA TESTING RESULT:\n" + "- " * 26)
             print(result)
             print("=" * 51 + "\n")
         else:
@@ -99,7 +101,6 @@ def unit_test():
         "",
         "",
 
-
         # 反例
 
     ]
@@ -107,4 +108,3 @@ def unit_test():
 
 if __name__ == '__main__':
     run_formula_check()
-
