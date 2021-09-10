@@ -1,0 +1,284 @@
+合法运算式_空运算式 
+PASS, NO ERROR FOUND
+合法运算式_简单加法1+2+3
+PASS, NO ERROR FOUND
+合法运算式_简单减法10-1-999
+PASS, NO ERROR FOUND
+合法运算式_简单乘法2*5*10
+PASS, NO ERROR FOUND
+合法运算式_简单除法及精度校验100/10/3
+PASS, NO ERROR FOUND
+合法运算式_简单四则混合2*2-3/3+1
+PASS, NO ERROR FOUND
+合法运算式_括号引入2*((2-3)/3+1)
+PASS, NO ERROR FOUND
+合法运算式_括号多层嵌套((((((1+1)+1)+1)+1)+1)+(1+1))+(0)
+PASS, NO ERROR FOUND
+合法运算式_括号后接负数(-3+(-4))-7
+PASS, NO ERROR FOUND
+合法运算式_除以小数10/0.025
+PASS, NO ERROR FOUND
+合法运算式_除以带百分号的数字10/2.5%
+PASS, NO ERROR FOUND
+合法运算式_合法百分号位置覆盖2%*((2%-3%)/3%+1%/2%)-0.01%
+PASS, NO ERROR FOUND
+合法运算式_运算式以负号开始-23+(34-123)
+PASS, NO ERROR FOUND
+非法运算式_空括号1+()+32
+Error: empty_bracket
+()
+非法运算式_显式除零12/0
+Error: literal_divided_by_zero
+/0
+非法运算式_除以小数零12/0.00
+Error: literal_divided_by_zero
+/0.00
+非法运算式_运算符连续111 ++ 22
+Error: consecutive_operators
+++
+非法运算式_运算符连续211 +- 22
+Error: consecutive_operators
++-
+非法运算式_运算符连续311 +* 22
+Error: consecutive_operators
++*
+非法运算式_运算符连续411 +/ 22
+Error: consecutive_operators
++/
+非法运算式_运算符连续511 +% 22
+Error: consecutive_operators
++%
+Error: non_number_with_percentage_symbol
++%
+非法运算式_运算符连续611 -+ 22
+Error: consecutive_operators
+-+
+非法运算式_运算符连续711 -- 22
+Error: consecutive_operators
+--
+非法运算式_运算符连续811 -* 22
+Error: consecutive_operators
+-*
+非法运算式_运算符连续911 -/ 22
+Error: consecutive_operators
+-/
+非法运算式_运算符连续1011 -% 22
+Error: consecutive_operators
+-%
+Error: non_number_with_percentage_symbol
+-%
+非法运算式_运算符连续1111 *+ 22
+Error: consecutive_operators
+*+
+非法运算式_运算符连续1211 *- 22
+Error: consecutive_operators
+*-
+非法运算式_运算符连续1311 ** 22
+Error: consecutive_operators
+**
+非法运算式_运算符连续1411 */ 22
+Error: consecutive_operators
+*/
+非法运算式_运算符连续1511 *% 22
+Error: non_number_with_percentage_symbol
+*%
+非法运算式_运算符连续1611 /+ 22
+Error: consecutive_operators
+/+
+非法运算式_运算符连续1711 /- 22
+Error: consecutive_operators
+/-
+非法运算式_运算符连续1811 /* 22
+Error: consecutive_operators
+/*
+非法运算式_运算符连续1911 // 22
+Error: consecutive_operators
+//
+非法运算式_运算符连续2011 /% 22
+Error: non_number_with_percentage_symbol
+/%
+非法运算式_运算符连续2111 %%  22
+Error: consecutive_operators
+%%
+非法运算式_百分号前面不为数字1+%
+Error: consecutive_operators
++%
+Error: non_number_with_percentage_symbol
++%
+Error: start_with_wrong_character
++
+非法运算式_百分号前面不为数字2-%
+Error: consecutive_operators
+-%
+Error: non_number_with_percentage_symbol
+-%
+非法运算式_百分号前面不为数字3*%
+Error: non_number_with_percentage_symbol
+*%
+Error: start_with_wrong_character
+*
+非法运算式_百分号前面不为数字4/%
+Error: non_number_with_percentage_symbol
+/%
+Error: start_with_wrong_character
+/
+非法运算式_百分号前面不为数字5%%
+Error: consecutive_operators
+%%
+非法运算式_百分号前面不为数字6(%)
+Error: non_number_with_percentage_symbol
+(%
+Error: wrong_operators_after_left_bracket
+(%
+非法运算式_百分号前面不为数字7(1+1)%
+Error: non_number_with_percentage_symbol
+)%
+Error: wrong_character_after_right_bracket
+)%
+非法运算式_百分号前面不为数字8.%
+Error: non_number_with_percentage_symbol
+.%
+Error: illegal_floating_point_number
+.%
+非法运算式_左括号与乘除加及百分号连续11+(*2)
+Error: wrong_operators_after_left_bracket
+(*
+非法运算式_左括号与乘除加及百分号连续21+(/2)
+Error: wrong_operators_after_left_bracket
+(/
+非法运算式_左括号与乘除加及百分号连续31+(+2)
+Error: wrong_operators_after_left_bracket
+(+
+非法运算式_左括号与乘除加及百分号连续41+(%2)
+Error: non_number_with_percentage_symbol
+(%
+Error: wrong_operators_after_left_bracket
+(%
+非法运算式_加减乘除与右括号连续1(1+)
+Error: wrong_operators_before_right_bracket
++)
+非法运算式_加减乘除与右括号连续2(1-)
+Error: wrong_operators_before_right_bracket
+-)
+非法运算式_加减乘除与右括号连续3(1*)
+Error: wrong_operators_before_right_bracket
+*)
+非法运算式_加减乘除与右括号连续4(1/)
+Error: wrong_operators_before_right_bracket
+/)
+非法运算式_右括号之后不为运算符或右括号1(1+2)3
+Error: wrong_character_after_right_bracket
+)3
+非法运算式_右括号之后不为运算符或右括号2(1+2)0.3
+Error: wrong_character_after_right_bracket
+)0
+非法运算式_右括号之后不为运算符或右括号3(1+2)(1-2)
+Error: wrong_character_after_right_bracket
+)(
+Error: wrong_operators_before_left_bracket
+)(
+非法运算式_右括号之后不为运算符或右括号4(1+2)%
+Error: non_number_with_percentage_symbol
+)%
+Error: wrong_character_after_right_bracket
+)%
+非法运算式_左括号之前不为运算符或左括号15(1+2)
+Error: wrong_operators_before_left_bracket
+5(
+非法运算式_左括号之前不为运算符或左括号20.3(1-2)
+Error: wrong_operators_before_left_bracket
+3(
+非法运算式_左括号之前不为运算符或左括号3(-2)(-2)
+Error: wrong_character_after_right_bracket
+)(
+Error: wrong_operators_before_left_bracket
+)(
+非法运算式_左括号之前不为运算符或左括号412%(-1)
+Error: wrong_operators_before_left_bracket
+%(
+非法运算式_运算式以运算符开始1+(1+1)
+Error: start_with_wrong_character
++
+非法运算式_运算式以运算符开始2*(1+1)
+Error: start_with_wrong_character
+*
+非法运算式_运算式以运算符开始3/(1+1)
+Error: start_with_wrong_character
+/
+非法运算式_运算式以运算符结束1(1+1)+
+Error: end_with_wrong_character
++
+非法运算式_运算式以运算符结束2(1+1)-
+Error: end_with_wrong_character
+-
+非法运算式_运算式以运算符结束3(1+1)*
+Error: end_with_wrong_character
+*
+非法运算式_运算式以运算符结束4(1+1)/
+Error: end_with_wrong_character
+/
+非法运算式_非法小数格式11+3.
+Error: illegal_floating_point_number
+3.
+非法运算式_非法小数格式21+.3
+Error: illegal_floating_point_number
+.3
+非法运算式_非法小数格式31-.3
+Error: illegal_floating_point_number
+.3
+非法运算式_非法小数格式41+0..3
+Error: illegal_floating_point_number
+0.
+.3
+非法运算式_非法小数格式5.
+Error: illegal_floating_point_number
+.
+非法运算式_非法小数格式6..
+Error: illegal_floating_point_number
+..
+非法运算式_非法小数格式71-0.5 .1
+Error: too_many_decimal_points
+0.5.1
+非法运算式_非法小数格式81+3.3.3
+Error: too_many_decimal_points
+3.3.3
+非法运算式_数字含多余前缀零11+01
+Error: extra_prefix_0
++01
+非法运算式_数字含多余前缀零21/001
+Error: literal_divided_by_zero
+/0
+Error: extra_prefix_0
+/001
+非法运算式_数字含多余前缀零31/000.1
+Error: literal_divided_by_zero
+/0
+Error: extra_prefix_0
+/000
+非法运算式_运算式含非法字符~`!@#$^&_=[]{}\|:;"'<,>.?
+Error: contains_illegal_characters
+~
+`
+!
+@
+#
+$
+^
+&
+=
+[
+]
+{
+}
+\
+|
+:
+;
+"
+'
+<
+,
+>
+?
+Error: illegal_floating_point_number
+~`!@#$^&_=[]{}\|:;"'<,>.?
