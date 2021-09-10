@@ -5,15 +5,15 @@
 import re
 
 
-def formula_check(formula_string):
-    f = formula_string
+def expression_check(expression_string):
+    f = expression_string
     f = f.replace(" ", "")
-    # print("formula_test::print_formula: " + f)
+    # print("expression_test::print_expression: " + f)
 
     # 基本正则校验
     pattern_dict = {
         # basic errors
-        "contains_illegal_characters": r"[^a-zA-Z0-9\+\-\*\/\%\(\)\._]",
+        "contains_illegal_characters": r"[^0-9\+\-\*\/\%\(\)\.]",
         "empty_bracket": r"\(\)",
         "literal_divided_by_zero": r"\/0(?!\.)|\/0\.0+(?![1-9])",
         "consecutive_operators": r"[\+\-\*\/]{2,}|[\+\-×÷%]+?%",
@@ -35,7 +35,7 @@ def formula_check(formula_string):
         pattern = pattern_dict[pattern_key]
         re_results = re.findall(pattern, f)
         if re_results:
-            test_result += "Error: " + pattern_key
+            test_result += "ERROR: " + pattern_key
             # print(re_results.groups())
             for re_result in re_results:
                 # print(re_result)
@@ -78,13 +78,13 @@ def formula_check(formula_string):
     return test_result
 
 
-def run_formula_check():
+def run_expression_check():
     while True:
-        formula = input()
-        if formula != "bey":
-            # print("your input: " + formula)
-            result = formula_check(formula)
-            print("=" * 51 + "\n" + "FORMULA TESTING RESULT:\n" + "- " * 26)
+        expression = input()
+        if expression != "bey":
+            # print("your input: " + expression)
+            result = expression_check(expression)
+            print("=" * 51 + "\n" + "EXPRESSION TESTING RESULT:\n" + "- " * 26)
             print(result)
             print("=" * 51 + "\n")
         else:
@@ -92,19 +92,5 @@ def run_formula_check():
             break
 
 
-def unit_test():
-    formula_test_data = [
-        # 正例
-        "1*3+(4-5%)/6",  # 全符号覆盖
-        "(45)",  # 运算符仅括号
-        "-4.3/(-0.1)",  # 负数
-        "",
-        "",
-
-        # 反例
-
-    ]
-
-
 if __name__ == '__main__':
-    run_formula_check()
+    run_expression_check()
