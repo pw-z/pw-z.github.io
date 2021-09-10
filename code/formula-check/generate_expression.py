@@ -7,7 +7,7 @@ import time
 operator = ['+', '-', '*', '/', '%', '(', ')']
 
 
-def generate_formula(operator, path_to_file):
+def generate_expression(operator, path_to_file):
     with open(path_to_file, 'w', encoding='utf8') as f:
         for op1 in operator:
             for op2 in operator:
@@ -16,12 +16,12 @@ def generate_formula(operator, path_to_file):
                         for op5 in operator:
                             for op6 in operator:
                                 for op7 in operator:
-                                    formula = op1 + op2 + op3 + op4 + op5 + op6 + op7
-                                    # print(formula)
-                                    f.write(formula + '\n')
+                                    expression = op1 + op2 + op3 + op4 + op5 + op6 + op7
+                                    # print(expression)
+                                    f.write(expression + '\n')
 
 
-def random_formula(length=3):
+def random_expression(length=3):
     for i in range(length):
         pass
 
