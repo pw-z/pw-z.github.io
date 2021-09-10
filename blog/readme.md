@@ -2,6 +2,7 @@
 
 * 2021
     + 09
+        + 09.10 - [用Python和正则表达式校验数学运算式的合法性][2021090801]
         + 09.05 - [Data Structure from Scratch: Sorting Algorithm][2021090501]
     + 08
         + 08.31 - [Data Structure from Scratch: Binary Tree][2021083101]
@@ -46,6 +47,7 @@
 [commit]:url-filed-below--->>>
 
 [commit]:2021
+[2021090801]:./2021/09/20210908-check-the-validity-of-mathematical-expressions-with-python-and-regular-expression "2021090801 Check the Validity of Mathematical Expressions with Python and Regular Expression"
 [2021090501]:./2021/09/20210905-data-structure-from-scratch-sort "2021090501 Data Structure from Scratch: Sort"
 [2021083101]:./2021/08/2021083101-data-structure-from-scratch-tree "2021083101 Data Structure from Scratch: Binary Tree"
 [2021080101]:./2021/08/2021080101-data-structure-from-scratch-string "2021080101 Data Structure from Scratch: String"
