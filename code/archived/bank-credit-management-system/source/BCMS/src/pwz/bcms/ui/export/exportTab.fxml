@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pwz.bcms.ui.export.ExportTabController">
+   <children>
+      <AnchorPane prefHeight="770.0" prefWidth="1200.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="687.0" layoutX="68.0" layoutY="49.0" stroke="#00000031" strokeType="INSIDE" width="1067.0" />
+            <Label layoutX="175.0" layoutY="83.0" prefHeight="27.0" prefWidth="60.0" text="报表导出：" />
+            <Label layoutX="400.0" layoutY="183.0" prefHeight="27.0" prefWidth="91.0" text="选取报表种类：" />
+            <ChoiceBox fx:id="exportFileType" layoutX="434.0" layoutY="220.0" prefHeight="23.0" prefWidth="313.0" />
+            <Label layoutX="400.0" layoutY="281.0" prefHeight="27.0" prefWidth="91.0" text="选取时间区间：" />
+            <DatePicker fx:id="dataStart" layoutX="434.0" layoutY="324.0" prefHeight="23.0" prefWidth="133.0" />
+            <Label contentDisplay="CENTER" layoutX="581.0" layoutY="322.0" prefHeight="27.0" prefWidth="20.0" text="至" textAlignment="CENTER" />
+            <DatePicker fx:id="dataEnd" layoutX="614.0" layoutY="324.0" prefHeight="23.0" prefWidth="133.0" />
+            <Label layoutX="400.0" layoutY="381.0" prefHeight="23.0" prefWidth="91.0" text="选取导出格式：" />
+            <ChoiceBox fx:id="exportFileFormat" layoutX="434.0" layoutY="425.0" prefHeight="23.0" prefWidth="313.0" />
+            <Label layoutX="400.0" layoutY="490.0" prefHeight="23.0" prefWidth="91.0" text="选取导出路径：" />
+            <TextField fx:id="savePath" layoutX="434.0" layoutY="533.0" prefHeight="23.0" prefWidth="313.0" />
+            <Button fx:id="chooseFolderButton" layoutX="747.0" layoutY="533.0" mnemonicParsing="false" onAction="#chooseFolder" prefHeight="23.0" prefWidth="66.0" text="选择路径" />
+            <Button fx:id="exportButton" layoutX="878.0" layoutY="627.0" mnemonicParsing="false" onAction="#exportFile" prefHeight="33.0" prefWidth="79.0" text="导出" />
+            <Label fx:id="warning" alignment="CENTER" layoutX="416.0" layoutY="603.0" prefHeight="48.0" prefWidth="349.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pwz.bcms.ui.about.AboutTabController">
+   <children>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="800.0" prefWidth="1200.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="687.0" layoutX="67.0" layoutY="57.0" stroke="#00000031" strokeType="INSIDE" width="1067.0" />
+            <Label layoutX="392.0" layoutY="455.0" prefHeight="34.0" prefWidth="59.0" text="机器码" />
+            <TextField fx:id="cpuCode" layoutX="479.0" layoutY="461.0" prefHeight="23.0" prefWidth="324.0" />
+            <Button fx:id="inputLicenseButton" layoutX="820.0" layoutY="592.0" mnemonicParsing="false" onAction="#inputLicense" prefHeight="34.0" prefWidth="85.0" text="注册" />
+            <Button fx:id="chooseFileButton" layoutX="803.0" layoutY="519.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="23.0" prefWidth="59.0" text="选择" />
+            <TextField fx:id="filePath" editable="false" layoutX="479.0" layoutY="519.0" prefHeight="23.0" prefWidth="324.0" />
+            <Label layoutX="392.0" layoutY="519.0" prefHeight="23.0" prefWidth="75.0" text="选择许可证" />
+            <Button fx:id="getCPUCodeButton" disable="true" layoutX="797.0" layoutY="512.0" mnemonicParsing="false" onAction="#getCPUCode" prefHeight="23.0" prefWidth="59.0" text="获取" visible="false" />
+            <Label fx:id="warning" alignment="CENTER" layoutX="473.0" layoutY="609.0" prefHeight="34.0" prefWidth="324.0" />
+            <Label layoutX="395.0" layoutY="263.0" prefHeight="23.0" prefWidth="66.0" text="注册信息" />
+            <TextArea fx:id="licenseInfo" editable="false" layoutX="482.0" layoutY="292.0" prefHeight="77.0" prefWidth="324.0" wrapText="true" />
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

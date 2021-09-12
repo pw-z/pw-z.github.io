@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="450.0" prefWidth="560.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pwz.bcmslg.main.MainController">
+   <children>
+      <Label layoutX="67.0" layoutY="91.0" prefHeight="32.0" prefWidth="62.0" text="机器码：" />
+      <TextField fx:id="cpuCode" layoutX="129.0" layoutY="96.0" prefHeight="23.0" prefWidth="345.0" />
+      <TextArea fx:id="licenseCode" layoutX="129.0" layoutY="172.0" prefHeight="76.0" prefWidth="345.0" wrapText="true" />
+      <Label layoutX="67.0" layoutY="172.0" prefHeight="23.0" prefWidth="62.0" text="密文：" />
+      <Button fx:id="generateButton" layoutX="372.0" layoutY="364.0" mnemonicParsing="false" onAction="#generateLicenseCode" prefHeight="45.0" prefWidth="151.0" text="生成" />
+      <DatePicker fx:id="tlimit" layoutX="129.0" layoutY="131.0" prefHeight="23.0" prefWidth="182.0" />
+      <Label layoutX="67.0" layoutY="127.0" prefHeight="32.0" prefWidth="62.0" text="截止日期：" />
+      <Label fx:id="warning" layoutX="67.0" layoutY="333.0" prefHeight="23.0" prefWidth="317.0" />
+      <Button fx:id="chooseFolderButton" layoutX="414.0" layoutY="302.0" mnemonicParsing="false" onAction="#chooseFolder" prefHeight="23.0" prefWidth="66.0" text="选择路径" />
+      <TextField fx:id="savePath" editable="false" layoutX="69.0" layoutY="302.0" prefHeight="23.0" prefWidth="345.0" />
+      <Label layoutX="67.0" layoutY="273.0" prefHeight="23.0" prefWidth="91.0" text="选取导出路径：" />
+   </children>
+</AnchorPane>

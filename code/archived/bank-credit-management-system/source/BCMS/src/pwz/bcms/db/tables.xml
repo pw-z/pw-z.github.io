@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tables>
+    <table-entry name="CSR"
+                 col-data="
+                 id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)primary key,
+                 name varchar(200) NOT NULL,
+                 gender varchar(20) NOT NULL,
+                 card_number varchar(100) NOT NULL unique,
+                 phone varchar(100) NOT NULL,
+                 company varchar(100),
+                 homelocation varchar(100),
+                 note varchar(100)"/>
+    <table-entry name="GIFT"
+                 col-data="
+                 id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)primary key,
+                 name varchar(200) NOT NULL unique,
+                 type varchar(100) NOT NULL,
+                 value varchar(100) NOT NULL,
+                 flag varchar(100) NOT NULL,
+                 note varchar(200)"/>
+    <table-entry name="PRODUCT"
+                 col-data="
+                 id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)primary key,
+                 name varchar(200) NOT NULL unique,
+                 points varchar(100) NOT NULL,
+                 tlimit varchar(100) NOT NULL,
+                 flag varchar(100) NOT NULL,
+                 note varchar(200)"/>
+    <table-entry name="RECORD"
+                 col-data="
+                 id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)primary key,
+                 csr_name varchar(200) NOT NULL,
+                 card_number varchar(100) NOT NULL,
+                 account varchar(100) NOT NULL,
+                 product_name varchar(100) NOT NULL,
+                 product_points INTEGER NOT NULL,
+                 value varchar(200) NOT NULL,
+                 date DATE NOT NULL,
+                 type varchar(100) NOT NULL,
+                 points INTEGER NOT NULL,
+                 intro_cardnumber varchar(100),
+                 intro_name varchar(100),
+                 intro_flag varchar(100),
+                 intro_pointsType varchar(200),
+                 note varchar(100)"/>
+    <table-entry name="GIFTRECORD"
+                 col-data="
+                 id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)primary key,
+                 name varchar(200) NOT NULL,
+                 date DATE NOT NULL,
+                 number INTEGER NOT NULL"/>
+</tables>

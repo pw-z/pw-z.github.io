@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="653.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pwz.bcms.ui.pointsmanage.ManageRecord">
+
+    <children>
+      <Group fx:id="input_group1" disable="true" layoutY="1.0">
+         <children>
+              <Label layoutX="99.0" layoutY="59.0" prefHeight="28.0" prefWidth="88.0" text="客户身份证号" />
+              <TextField fx:id="card_number" layoutX="229.0" layoutY="62.0" prefHeight="23.0" prefWidth="164.0" />
+            <Label disable="true" layoutX="99.0" layoutY="87.0" prefHeight="28.0" prefWidth="88.0" text="客户姓名" />
+            <TextField fx:id="csr_name" disable="true" editable="false" layoutX="228.0" layoutY="90.0" prefHeight="23.0" prefWidth="164.0" />
+              <Label fx:id="accountLabel" layoutX="99.0" layoutY="115.0" prefHeight="28.0" prefWidth="88.0" text="账号" />
+              <TextField fx:id="account" layoutX="228.0" layoutY="118.0" prefHeight="23.0" prefWidth="164.0" />
+         </children>
+      </Group>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bababad3" height="1.0" layoutX="100.0" layoutY="152.0" stroke="#00000031" strokeType="INSIDE" width="371.0" />
+      <Group fx:id="input_group2" layoutX="5.0" layoutY="-1.0">
+         <children>
+              <Label disable="true" layoutX="94.0" layoutY="161.0" prefHeight="28.0" prefWidth="64.0" text="产品名称" />
+            <TextField fx:id="product_name" disable="true" editable="false" layoutX="223.0" layoutY="164.0" prefHeight="23.0" prefWidth="164.0" />
+            <Label disable="true" layoutX="94.0" layoutY="195.0" prefHeight="23.0" prefWidth="88.0" text="单位产品积分数" />
+            <TextField fx:id="product_points" disable="true" editable="false" layoutX="223.0" layoutY="196.0" prefHeight="23.0" prefWidth="164.0" />
+            <Label disable="true" layoutX="94.0" layoutY="222.0" prefHeight="28.0" prefWidth="64.0" text="金额(万元)*" />
+            <TextField fx:id="value" disable="true" layoutX="223.0" layoutY="225.0" prefHeight="23.0" prefWidth="164.0" />
+            <Label disable="true" layoutX="94.0" layoutY="251.0" prefHeight="28.0" prefWidth="64.0" text="交易渠道：" />
+            <Label disable="true" layoutX="94.0" layoutY="281.0" prefHeight="28.0" prefWidth="88.0" text="积分数" />
+            <TextField fx:id="points" disable="true" editable="false" layoutX="223.0" layoutY="284.0" prefHeight="23.0" prefWidth="164.0" />
+            <Label disable="true" layoutX="94.0" layoutY="313.0" prefHeight="28.0" prefWidth="124.0" text="是否有转介绍人" />
+            <TextField fx:id="type" disable="true" editable="false" layoutX="223.0" layoutY="254.0" prefHeight="23.0" prefWidth="164.0" />
+            <TextField fx:id="is_intro_exist" disable="true" editable="false" layoutX="223.0" layoutY="316.0" prefHeight="23.0" prefWidth="164.0" />
+         </children>
+      </Group>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bababad3" height="1.0" layoutX="100.0" layoutY="355.0" stroke="#00000031" strokeType="INSIDE" width="371.0" />
+      <Group fx:id="input_group3" disable="true" layoutX="15.0" layoutY="9.0">
+         <children>
+              <Label layoutX="85.0" layoutY="360.0" prefHeight="28.0" prefWidth="117.0" text="转介绍人(身份证号)" />
+              <TextField fx:id="intro_cardnumber" layoutX="212.0" layoutY="363.0" prefHeight="23.0" prefWidth="164.0" />
+            <Label layoutX="85.0" layoutY="388.0" prefHeight="28.0" prefWidth="121.0" text="转介绍人姓名" />
+            <TextField fx:id="intro_name" editable="false" layoutX="212.0" layoutY="391.0" prefHeight="23.0" prefWidth="163.0" />
+            <Label layoutX="85.0" layoutY="419.0" prefHeight="28.0" prefWidth="124.0" text="积分计算方式" />
+            <TextField fx:id="intro_pointsType" editable="false" layoutX="213.0" layoutY="422.0" prefHeight="23.0" prefWidth="163.0" />
+         </children>
+      </Group>
+      <Label fx:id="warning" alignment="CENTER" layoutX="101.0" layoutY="540.0" prefHeight="42.0" prefWidth="372.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bababad3" height="1.0" layoutX="100.0" layoutY="475.0" stroke="#00000031" strokeType="INSIDE" width="371.0" />
+        <Label disable="true" layoutX="100.0" layoutY="501.0" prefHeight="28.0" prefWidth="110.0" text="转介绍积分标识" visible="false" />
+        <TextField fx:id="intro_flag" disable="true" editable="false" layoutX="229.0" layoutY="503.0" prefHeight="19.0" prefWidth="98.0" visible="false" />
+      <Button fx:id="deleteButton" layoutX="429.0" layoutY="582.0" mnemonicParsing="false" onAction="#deleteRecord" prefHeight="35.0" prefWidth="88.0" text="删除" />
+      <Label layoutX="100.0" layoutY="489.0" prefHeight="28.0" prefWidth="372.0" text="！删除会同时处理对应转介绍人的积分记录" textFill="#f51313" />
+      <Label disable="true" layoutX="99.0" layoutY="33.0" prefHeight="15.0" prefWidth="77.0" text="记录编号" />
+      <Label fx:id="recordID" layoutX="229.0" layoutY="29.0" prefHeight="23.0" prefWidth="164.0" />
+    </children>
+
+</AnchorPane>

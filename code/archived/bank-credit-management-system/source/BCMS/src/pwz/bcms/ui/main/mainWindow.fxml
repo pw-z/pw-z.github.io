@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pwz.bcms.ui.main.MainController">
+  <tabs>
+      <Tab fx:id="welcomeTab" text="首页">
+         <content>
+            <VBox alignment="CENTER" />
+         </content>
+      </Tab>
+    <Tab fx:id="csrManageTab" text="客户管理">
+      <content>
+            <VBox alignment="CENTER" />
+      </content>
+    </Tab>
+    <Tab fx:id="pointsManageTab" text="客户积分管理">
+      <content>
+            <VBox alignment="CENTER" />
+      </content>
+    </Tab>
+      <Tab fx:id="productsManageTab" text="积分产品管理">
+         <content>
+            <VBox alignment="CENTER" />
+         </content>
+      </Tab>
+      <Tab fx:id="giftsManageTab" text="礼品管理">
+         <content>
+            <VBox alignment="CENTER" />
+         </content>
+      </Tab>
+      <Tab fx:id="exportTab" text="报表导出">
+         <content>
+            <VBox alignment="CENTER" />
+         </content>
+      </Tab>
+      <Tab fx:id="settingTab" text="设置">
+         <content>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
+         </content>
+      </Tab>
+      <Tab fx:id="aboutTap" text="关于">
+         <content>
+            <VBox alignment="CENTER" />
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
