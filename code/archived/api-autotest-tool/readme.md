@@ -1,5 +1,7 @@
 # 接口自动化测试工具
 
+详细文档参见下级目录[readme.md](./lightweigth_version/readme.md)
+
 ## 版本信息
 
     v0.4
