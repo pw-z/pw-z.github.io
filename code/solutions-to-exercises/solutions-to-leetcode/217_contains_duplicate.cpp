@@ -7,19 +7,19 @@ using std::cout;
 using std::sort;
 
 // time:O(n^2)  too slow
-bool containsDuplicate_1(vector<int>& nums) {
-    for (int i = 0; i < nums.size(); i++)
-    {
-        for (int j = i+1; j < nums.size(); j++)
-        {
-            if (nums[i] == nums[j])
-            {
-                return true;
-            }
-        }
-    }
-    return false;
-}
+// bool containsDuplicate(vector<int>& nums) {
+//     for (int i = 0; i < nums.size(); i++)
+//     {
+//         for (int j = i+1; j < nums.size(); j++)
+//         {
+//             if (nums[i] == nums[j])
+//             {
+//                 return true;
+//             }
+//         }
+//     }
+//     return false;
+// }
 
 // ~ n log n
 bool containsDuplicate(vector<int>& nums) {
@@ -33,6 +33,13 @@ bool containsDuplicate(vector<int>& nums) {
     }
     return false;
 }
+// 哈哈，发现这跟官方题解方法1一毛一样。
+
+
+// 这就是python吗?:
+// class Solution:
+//     def containsDuplicate(self, nums: List[int]) -> bool:
+//         return len(nums) != len(set(nums))
 
 
 void test1(){
