@@ -35,15 +35,21 @@ public:
     }
     
     void remove(int key) {
-        
         if(bucket[hash(key)] != nullptr){
             Node* cur = bucket[hash(key)];
-            bucket[hash(key)] = nullptr;
-            Node* temp;
+            Node* temp = cur;
             while(cur != nullptr){
-                temp = cur;
+                if(cur->val == key){
+                    if(cur == bucket[hash(key)]){
+                        bucket[hash(key)] = cur->next;
+                    }else{
+                        cur = cur->next;
+                    }
+                    // delete temp;
+                    return;
+                }
                 cur = cur->next;
-                delete temp;
+                temp = cur;
             }
         }
     }
@@ -73,16 +79,22 @@ public:
  */
 
 
-
-// int main(int argc, char const *argv[])
-// {
-//     MyHashSet* obj = new MyHashSet();
-//     obj->add(1234);
-//     bool res = obj->contains(1234);
-//     cout<<res<<"\n";
-//     obj->remove(1234);
-//     bool res2 = obj->contains(1234);
-//     cout<<res2<<"\n";
-//     obj->remove(12344);
-//     return 0;
-// }
+/*
+int main(int argc, char const *argv[])
+{
+    MyHashSet* obj = new MyHashSet();
+    obj->add(1);
+    obj->add(2);
+    bool res = obj->contains(1);
+    cout<<res<<"\n";
+    res = obj->contains(3);
+    cout<<res<<"\n";
+    obj->add(2);
+    res = obj->contains(2);
+    cout<<res<<"\n";
+    obj->remove(2);
+    res = obj->contains(2);
+    cout<<res<<"\n";
+    return 0;
+}
+*/

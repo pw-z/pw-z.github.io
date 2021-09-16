@@ -1,8 +1,6 @@
 #include "705_design_hashset.h"
-
-int main(int argc, char const *argv[])
-{
-    MyHashSet* obj = new MyHashSet();
+int main(int argc, char const *argv[]){
+MyHashSet* obj = new MyHashSet();
 obj->add(33003);
 obj->contains(33003);
 obj->add(43907);
