@@ -36,20 +36,24 @@ public:
     
     void remove(int key) {
         if(bucket[hash(key)] != nullptr){
+            // cur指向当前判断的节点，pre指向cur的上一节点
+            // pre指针初始无值，第一遍while循环中才初始化
+            // 若cur命中，则pre.next = cur.next, delete cur
+            // 循环内加判断处理bucket[hash(key)]直接命中的情况
             Node* cur = bucket[hash(key)];
-            Node* temp = cur;
+            Node* pre;
             while(cur != nullptr){
                 if(cur->val == key){
-                    if(cur == bucket[hash(key)]){
+                    if(cur == bucket[hash(key)]){ //bucket[hash(key)]直接命中
                         bucket[hash(key)] = cur->next;
                     }else{
-                        cur = cur->next;
+                        pre->next = cur->next;
                     }
-                    // delete temp;
+                    delete cur;
                     return;
                 }
+                pre = cur;
                 cur = cur->next;
-                temp = cur;
             }
         }
     }
