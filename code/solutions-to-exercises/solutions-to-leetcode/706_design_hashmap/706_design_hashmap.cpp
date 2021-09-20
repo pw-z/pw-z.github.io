@@ -10,7 +10,7 @@ class MyHashMap {
          Node* next;
      };
      vector<Node*> bucket;
-     int BUCKET_SIZE = 1013;
+     int BUCKET_SIZE = 3;
      int hash(int key){
          return key%BUCKET_SIZE;
      }
@@ -22,13 +22,10 @@ public:
 
     bool contains(int key){
         int loc = hash(key);
-        if(bucket[loc] == nullptr) return false;
-        else{
+        if(bucket[loc] != nullptr){
             Node* cur = bucket[loc];
-            while (cur != nullptr)
-            {
-                if (cur->key == key )
-                {
+            while (cur != nullptr){
+                if (cur->key == key ){
                     return true;
                 }
                 cur = cur->next;
@@ -40,10 +37,8 @@ public:
     Node* locate(int key){
         int loc = hash(key);
         Node* cur = bucket[loc];
-        while (cur != nullptr)
-        {
-            if (cur->key == key)
-            {
+        while (cur != nullptr){
+            if (cur->key == key){
                 return cur;
             }
             cur = cur->next;
@@ -59,10 +54,8 @@ public:
         if(bucket[loc]->key == key){
             return nullptr;
         }
-        while (cur->next != nullptr)
-        {
-            if (cur->next->key == key)
-            {
+        while (cur->next != nullptr){
+            if (cur->next->key == key){
                 return cur;
             }
             cur = cur->next;
@@ -78,6 +71,7 @@ public:
         Node* newnode = new Node;
         newnode->key = key;
         newnode->val = value;
+        newnode->next = nullptr;  // !!!
         if (bucket[loc] == nullptr)
         {
             bucket[loc] = newnode;
@@ -110,14 +104,21 @@ public:
     void remove(int key) {
         if (contains(key))
         {
-            Node* cur = locate_parent(key);
-            if (cur != nullptr){
-                cur->next = cur->next->next;
-                delete cur;
-            }else{
-                int loc = hash(key);
+            // Node* cur = locate_parent(key);
+            int loc = hash(key);
+            Node* cur = bucket[loc];
+            if(bucket[loc]->key == key){
                 delete bucket[loc];
                 bucket[loc] = nullptr;
+            }else{
+                while (cur->next != nullptr){
+                    if (cur->next->key == key){
+                        cur->next = cur->next->next;
+                        delete cur->next;
+                        break;
+                    }
+                    cur = cur->next;
+                }
             }
         }
     }
@@ -134,11 +135,19 @@ public:
 int main(int argc, char const *argv[])
 {
     MyHashMap* obj = new MyHashMap();
+    obj->remove(1);
     obj->put(1,299);
+    obj->remove(1);
     int param_2 = obj->get(1);
-    cout<<param_2<<"\n";
     obj->remove(1);
     param_2 = obj->get(1);
-    cout<<param_2<<"\n";
+    obj->remove(1);
+    obj->remove(1);
+    obj->put(1,399);
+    obj->put(1,299);
+    obj->put(1,499);
+    param_2 = obj->get(1);
+    obj->remove(1);
+    
     return 0;
 }
