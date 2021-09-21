@@ -20,9 +20,70 @@ Output: false
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 */
 
+#include<vector>
+#include<unordered_set>
+#include<iostream>
+using std::vector;
+using std::unordered_set;
+using std::cout;
+
+void process(int n, int d){
+    int temp = n;
+    int result = 0;
+    int depth = d;
+
+    cout<<temp%10<<"^2";
+    result += (temp%10)*(temp%10);
+    temp /= 10;
+    while (temp >= 1)
+    {
+        cout<<" + "<<temp%10<<"^2";
+        result += (temp%10)*(temp%10);
+        temp /= 10;
+    }
+    cout<<" = "<<result<<"\n";
+    if (result != 1 && depth < 20)
+    {
+        process(result, ++depth);
+    }
+}
+
 class Solution {
 public:
     bool isHappy(int n) {
+        unordered_set<int> hashset;
+        while (n != 1)
+        {
+            int result = 0;
+            while(n >= 1){
+                result += (n%10)*(n%10);
+                n /= 10;
+            }
 
+            if(hashset.count(result) > 0){
+                return false;
+            }else{
+                n = result;
+                hashset.insert(n);
+            }
+        }
+        return true;
     }
 };
+
+int main(int argc, char const *argv[])
+{
+    Solution* obj = new Solution();
+
+    int order = 0;
+    std::cin>>order;
+    while (order != -1)
+    {
+        // process(order, 1);
+        bool res = obj->isHappy(order);
+        std::cout<<res<<"\n";
+        std::cin>>order;
+    }
+    
+    return 0;
+}
