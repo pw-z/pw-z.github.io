@@ -33,13 +33,24 @@ bool containsDuplicate(vector<int>& nums) {
     }
     return false;
 }
-// 哈哈，发现这跟官方题解方法1一毛一样。
+// 发现这跟官方题解方法1一毛一样。
 
 
-// 这就是python吗?:
+// python style:
 // class Solution:
 //     def containsDuplicate(self, nums: List[int]) -> bool:
 //         return len(nums) != len(set(nums))
+
+
+// 使用哈希表解决：
+// bool containsDuplicate(vector<int>& nums) {
+//         unordered_set<int> hashset;
+//         for(int num : nums){
+//             if(hashset.count(num) > 0)return true;
+//             hashset.insert(num);
+//         }
+//         return false;
+// }
 
 
 void test1(){
