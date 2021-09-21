@@ -69,6 +69,33 @@ public:
         }
         return true;
     }
+
+    int get_next(int n){
+        int sum = 0;
+        while (n > 0)
+        {
+            sum += (n%10) * (n%10);
+            n /= 10;
+        }
+        return sum;
+    }
+    
+    bool isHappy2(int n){
+        int p_slow = n;
+        int p_fast = get_next(n);
+        while (p_fast != 1)
+        {
+            if (p_fast == p_slow)
+            {
+                return false;
+            }
+            
+            p_slow = get_next(p_slow);
+            p_fast = get_next(get_next(p_fast));
+            
+        }
+        return true;
+    }
 };
 
 int main(int argc, char const *argv[])
@@ -80,7 +107,7 @@ int main(int argc, char const *argv[])
     while (order != -1)
     {
         // process(order, 1);
-        bool res = obj->isHappy(order);
+        bool res = obj->isHappy2(order);
         std::cout<<res<<"\n";
         std::cin>>order;
     }
