@@ -1,4 +1,6 @@
 #include<unordered_map>
+#include<vector>
+using std::vector;
 using std::unordered_map;
 
 class Solution {
