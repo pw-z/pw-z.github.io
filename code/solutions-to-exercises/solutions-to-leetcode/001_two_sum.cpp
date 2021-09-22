@@ -23,6 +23,19 @@ vector<int> twoSum(vector<int>& nums, int target){
 }
 
 // time:O(N)  space:O(N)  --hashmap
+vector<int> twoSum_hashmap(vector<int>& nums, int target) {
+        unordered_map<int,int> hashmap;
+        vector<int> result;
+        for(int i = 0; i < nums.size() ; ++i){
+            if(hashmap.count(target - nums[i])){
+                result.push_back(hashmap[target-nums[i]]);
+                result.push_back(i);
+                break;
+            }
+            hashmap.insert(make_pair(nums[i], i));
+        }
+        return result;
+}
 
 int main(int argc, char const *argv[])
 {
