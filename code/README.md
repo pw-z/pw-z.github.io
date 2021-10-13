@@ -11,8 +11,8 @@
 |[BankCreditMS][BCMS]|银行积分管理系统。使⽤`Java + JavaFX + Derby(嵌⼊式数据库)`构建的⼀套C/S架构的信息管理系统，包含了系统本身（`./source/BCMS`*）以及系统外单独构建的证书生成小程序（`./source/BCMSLicenseGenerator`）。功能方面，除了些许界面涉及到一点稍复杂的业务逻辑，主要是增删改查。功能之外，在这个小项目里首次接触了`Java的GUI开发`、`嵌入式数据库`、`软件注册机制`等新鲜的东西。|
 
 
-[API_Autotest_Tool]:./archived/api-autotest-tool/readme.md
-[BCMS]:./ARCHIVED/bank-credit-management-system/readme.md
-[Datastructure_021]:./archived/data-structure-from-scratch/readme.md
-[TestlinkImporter]:./archived/excel-to-testlink/README.md
-[TestStatusReporter]:./archived/jira-testlink-dingtalk/README.md
+[API_Autotest_Tool]:./archived/api-autotest-tool/
+[BCMS]:./archived/bank-credit-management-system/
+[Datastructure_021]:./archived/data-structure-from-scratch/
+[TestlinkImporter]:./archived/excel-to-testlink/
+[TestStatusReporter]:./archived/jira-testlink-dingtalk/
