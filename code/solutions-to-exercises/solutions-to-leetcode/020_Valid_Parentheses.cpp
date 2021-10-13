@@ -1,4 +1,6 @@
 #include<string>
+#include<iostream>
+using std::cout;
 using std::string;
 class Solution {
 public:
@@ -30,3 +32,14 @@ public:
         return cur==0? true: false;
     }
 };
+
+int main(int argc, char const *argv[])
+{
+    cout<<int('(')<<"\n";
+    cout<<int(')')<<"\n";
+    cout<<int('{')<<"\n";
+    cout<<int('}')<<"\n";
+    cout<<int('[')<<"\n";
+    cout<<int(']')<<"\n";
+    return 0;
+}
