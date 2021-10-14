@@ -15,7 +15,7 @@ class MinHeap{
 public:
     void replace_top_with(mypair* p){
         heap[0] = p;
-        heapfiy(0);
+        heapify(0);
     }
 
     mypair* top(){
@@ -39,12 +39,12 @@ public:
         // 每个叶节点自成一堆，从第一个有叶节点的节点开始进行堆化
         // cout<<heap.size();
         for(int i=heap.size()/2-1; i>=0; --i){
-            heapfiy(i);
+            heapify(i);
         }
     }
 
     // 对某个左右子节点均已成堆的节点（序号i）进行堆化操作
-    void heapfiy(int i){
+    void heapify(int i){
         // 获取左右子节点位置
         int l = 2*i+1;
         int r = l+1;
@@ -58,7 +58,7 @@ public:
         heap[i] = heap[min];
         heap[min] = temp;
         // 被交换下来的节点继续堆化操作
-        heapfiy(min);
+        heapify(min);
     }
 
 };
@@ -161,7 +161,7 @@ int main1(){
  */
 class Solution {
 public:
-    void heapfiy(vector<mypair*>& heap, int i){
+    void heapify(vector<mypair*>& heap, int i){
         // 获取左右子节点位置
         int l = 2*i+1;
         int r = l+1;
@@ -175,7 +175,7 @@ public:
         heap[i] = heap[min];
         heap[min] = temp;
         // 被交换下来的节点继续堆化操作
-        heapfiy(heap, min);
+        heapify(heap, min);
     }
 
     vector<int> topKFrequent(vector<int>& nums, int k) {
@@ -202,7 +202,7 @@ public:
         }
         // 每个叶节点自成一堆，从第一个有叶节点的节点开始进行堆化
         for(int x=heap.size()/2-1; x>=0; --x){
-            heapfiy(heap, x);
+            heapify(heap, x);
         }
 
         // 对第K个之后的元素进行处理，看是否需要入堆
@@ -214,7 +214,7 @@ public:
                 p->number = it.first;
                 if(p->counts > heap[0]->counts){
                     heap[0] = p;
-                    heapfiy(heap, 0);
+                    heapify(heap, 0);
                 }
             }
             ++j;
