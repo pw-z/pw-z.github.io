@@ -159,15 +159,8 @@ public:
         heapify_down();
     }
 
-};//namespace
+};//class min_heap
 
-
-
-
-
-
-}
-
-
+}//namespace
 
 #endif
