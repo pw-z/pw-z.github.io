@@ -49,7 +49,7 @@
 [commit]:url-filed-below--->>>
 
 [commit]:2021
-[2021101701]:./2021/10/20211017-heap-implementation-and-related-situations-suitable-for-it.md "20211017 堆的实现及相关应用场景总结"
+[2021101701]:./2021/10/20211017-heap-implementation-and-related-situations-suitable-for-it "20211017 堆的实现及相关应用场景总结"
 [2021090801]:./2021/09/20210908-check-the-validity-of-mathematical-expressions-with-python-and-regular-expression "2021090801 Check the Validity of Mathematical Expressions with Python and Regular Expression"
 [2021090501]:./2021/09/20210905-data-structure-from-scratch-sort "2021090501 Data Structure from Scratch: Sort"
 [2021083101]:./2021/08/2021083101-data-structure-from-scratch-tree "2021083101 Data Structure from Scratch: Binary Tree"
