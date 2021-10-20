@@ -1,6 +1,7 @@
 #include<iostream>
 #include<unordered_map>
 #include<vector>
+#include<unordered_map>
 using namespace std;
 
 
@@ -44,7 +45,6 @@ public:
         }
         heap[root] = val;
     }
-
     vector<int> topKFrequent(vector<int>& nums, int k) {
         vector<int> ans;
         vector<vector<int>> heap;
@@ -84,10 +84,19 @@ public:
 
 int main(int argc, char const *argv[])
 {
-    vector<int> nums = {5,3,1,2,2,3};
-
+    vector<int> nums = {5,3,1,1,1,3,5,73,1};
     Solution * s = new Solution();
     vector<int> ans = s->topKFrequent(nums, 2);
     for(int n:ans)cout<<n<<" ";
     return 0;
 }
+/*
+执行用时：12 ms, 在所有 C++ 提交中击败了83.70% 的用户
+内存消耗：14 MB, 在所有 C++ 提交中击败了5.02% 的用户
+
+时间复杂度分析：
+遍历原数据花费O(n)
+中间若干遍历操作均小于等于O(n)
+堆初始化及后续替换堆顶重新初始化都是O(logk)
+整体下来时间复杂度为O(nlogk)
+*/
