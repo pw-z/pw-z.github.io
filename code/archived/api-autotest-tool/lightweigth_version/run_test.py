@@ -12,27 +12,21 @@ import helper.report_helper as r
 
 if __name__ == '__main__':
 
+    # 参数配置初始化
     configpath = './config.ini'
     para = Parameter(configpath)
-
-    # print(para.get_parameter('excel_path'))
-    # print(para.get_parameter('sheet_list'))
     excel_path = para.get_parameter('excel_path')
-    # print(excel_path)
     sheets = para.get_parameter('sheet_list')
-
     logger = init_logger(__name__)
-    # print(logger.level)
-
     allow_ssh = para.get_parameter('allow_ssh') == 'True'
     allow_SQL = para.get_parameter('allow_SQL') == 'True'
-
     casehandler = CaseHandler(para)
     if allow_ssh:
         shellhandler = ShellHandler(para)
     if allow_SQL:
         sqlhandler = SQLHandler(para)
 
+    # 统计信息初始化
     test_result_detail = []
     test_result_summary = dict(
         count_all_cases=0,
@@ -42,11 +36,11 @@ if __name__ == '__main__':
         test_end_time='',
         test_report_title=para.get_parameter('test_report_title')
     )
-
     count_all_cases = 0
     count_success_cases = 0
     count_fail_cases = 0
 
+    # 循环处理config.ini配置的每一个sheet页中的每一个case
     for sheet in sheets:
         cases = read_excel(excel_path, sheet)
         # print(cases)
@@ -67,40 +61,47 @@ if __name__ == '__main__':
                     # logger.info('SKIP CASE')
                     continue
                 else:
-                    init_sio()  # clear the string io cache, start recording step running log
-                    step_start_time = datetime.datetime.now()
-                    logger.info('-' * 50)
-                    logger.info('Run Step # ' + step['CaseStep'])
-                    logger.info('-' * 50)
-                    r1 = True
-                    r2 = True
-                    r3 = True
+                    try:
+                        init_sio()  # clear the string io cache, start recording step running log
+                        step_start_time = datetime.datetime.now()
+                        logger.info('-' * 50)
+                        logger.info('Run Step # ' + step['CaseStep'])
+                        logger.info('-' * 50)
+                        r1 = True
+                        r2 = True
+                        r3 = True
 
-                    if allow_ssh and step['ShellScript'] != '':
-                        r1 = shellhandler.run(step)
-                    r2 = casehandler.run(step)
-                    if allow_SQL and step['SQL'] != '':
-                        r3 = sqlhandler.run(step)
-                    # it will be confusing if the shell,body,sql are all empty, don't do that
-                    step_run_result = r1 and r2 and r3
-                    if step_run_result is False:
-                        case_run_result = False
+                        if step['HandleParameter'] != '':
+                            for p in step['HandleParameter']:
+                                idx = p.find(':')
+                                para.add_parameter(p[:idx], p[idx+1:])
+                        if allow_ssh and step['ShellScript'] != '':
+                            r1 = shellhandler.run(step)
+                        r2 = casehandler.run(step)
+                        if allow_SQL and step['SQL'] != '':
+                            r3 = sqlhandler.run(step)
+                        # it will be confusing if the shell,body,sql are all empty, don't do that
+                        step_run_result = r1 and r2 and r3
+                        if step_run_result is False:
+                            case_run_result = False
 
-                    step_run_log = get_sio().getvalue()  # get step running log
-                    step_end_time = datetime.datetime.now()
-                    step_duration = step_end_time - step_start_time
-                    temp_dict = {'step_name': step['CaseStep'],
-                                 'start_time': step_start_time,
-                                 'end_time': step_end_time,
-                                 'duration': step_duration,
-                                 'run_result': step_run_result,
-                                 'run_log': step_run_log}
-                    steps_run_detail.append(temp_dict)
-                    if step_run_result:
-                        count_success_steps += 1
-                    else:
-                        count_fail_steps += 1
-                    count_all_steps += 1
+                        step_run_log = get_sio().getvalue()  # get step running log
+                        step_end_time = datetime.datetime.now()
+                        step_duration = step_end_time - step_start_time
+                        temp_dict = {'step_name': step['CaseStep'],
+                                     'start_time': step_start_time,
+                                     'end_time': step_end_time,
+                                     'duration': step_duration,
+                                     'run_result': step_run_result,
+                                     'run_log': step_run_log}
+                        steps_run_detail.append(temp_dict)
+                        if step_run_result:
+                            count_success_steps += 1
+                        else:
+                            count_fail_steps += 1
+                        count_all_steps += 1
+                    except Exception as e:
+                        logger.error(e)
 
             if count_all_steps == 0:  # no step run in this case
                 logger.info('SKIP\n')
@@ -127,21 +128,23 @@ if __name__ == '__main__':
                 count_fail_cases += 1
             count_all_cases += 1
 
+    # 统计信息收尾
     test_result_summary['test_end_time'] = datetime.datetime.now()
     test_result_summary['test_duration'] = test_result_summary['test_end_time'] - test_result_summary['test_start_time']
     test_result_summary['count_all_cases'] = count_all_cases
     test_result_summary['count_success_cases'] = count_success_cases
     test_result_summary['count_fail_cases'] = count_fail_cases
 
-    # print(test_result_summary)
-    # print("#"*100 + "\n\n" + "#"*100)
-    # for case in test_result_detail:
-    #     print(case)
-
+    # 关闭SSH及数据库连接
     if allow_ssh:
         shellhandler.close()
     if allow_SQL:
         sqlhandler.close()
 
-    r.generate_report(test_result_summary, test_result_detail)
+    # 依据上面的统计信息生成测试报告
+    try:
+        r.generate_report(test_result_summary, test_result_detail)
+    except Exception as e:
+        logger.error('Generate report failed.')
+        logger.error(e)
 
