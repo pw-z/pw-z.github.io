@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import time
-from helper.log_helper import *
+from helper.log_helper import init_logger
 
 REPORT_TEMPLATE = """
 <!DOCTYPE html>
@@ -250,8 +250,8 @@ h2 {
 /* --------------------------- report detail --------------------------- */
 """
 
-
 logger = init_logger(__name__)
+
 
 def generate_html_style():
     return CSS_TEMPLATE
@@ -343,9 +343,19 @@ def generate_html_body(test_summary_dict, case_detail_list):
         _step_list = ''
         for step in steps:
             if step['run_result']:  # pass step
-                _step_list += STEP_TEMPLATE.format('pass_step', step['step_name'], step['start_time'], step['end_time'], step['duration'], step['run_log'])
+                _step_list += STEP_TEMPLATE.format('pass_step',
+                                                   step['step_name'],
+                                                   step['start_time'],
+                                                   step['end_time'],
+                                                   step['duration'],
+                                                   step['run_log'])
             else:  # fail step
-                _step_list += STEP_TEMPLATE.format('fail_step', step['step_name'], step['start_time'], step['end_time'], step['duration'], step['run_log'])
+                _step_list += STEP_TEMPLATE.format('fail_step',
+                                                   step['step_name'],
+                                                   step['start_time'],
+                                                   step['end_time'],
+                                                   step['duration'],
+                                                   step['run_log'])
         return _step_list
 
     body_summary = generate_html_summary(test_summary_dict)
@@ -355,15 +365,19 @@ def generate_html_body(test_summary_dict, case_detail_list):
         # print(case_detail)
         step_list = get_step_list(case_detail['step_detail'])
         if case_detail['run_result'] is True:
-            body_detail += CASE_TEMPLATE.format('pass_case', case_detail['case_name'],
+            body_detail += CASE_TEMPLATE.format('pass_case',
+                                                case_detail['case_name'],
                                                 case_detail['count_all_steps'],
-                                                case_detail['count_success_steps'],
+                                                case_detail[
+                                                    'count_success_steps'],
                                                 case_detail['count_fail_steps'],
                                                 step_list)
         else:
-            body_detail += CASE_TEMPLATE.format('fail_case', case_detail['case_name'],
+            body_detail += CASE_TEMPLATE.format('fail_case',
+                                                case_detail['case_name'],
                                                 case_detail['count_all_steps'],
-                                                case_detail['count_success_steps'],
+                                                case_detail[
+                                                    'count_success_steps'],
                                                 case_detail['count_fail_steps'],
                                                 step_list)
     return body_summary, body_detail
@@ -383,7 +397,8 @@ def generate_report(test_summary_dict, case_detail_list):
     else:
         title = title + ' ' + time.strftime('%Y.%m.%d')
     style = generate_html_style()
-    body_summary, body_detail = generate_html_body(test_summary_dict, case_detail_list)
+    body_summary, body_detail = generate_html_body(test_summary_dict,
+                                                   case_detail_list)
 
     html_dict = dict(
         title=title,

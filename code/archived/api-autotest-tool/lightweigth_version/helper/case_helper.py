@@ -32,10 +32,12 @@ def get_case_step(sheet_object, row_number):
         'Run?': str(sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Run?')]),  # '111
         'SQL': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'SQL')],
         'ExpectedSQLData': str(
-            sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ExpectedSQLData')]).upper().splitlines()
+            sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ExpectedSQLData')]).upper().splitlines(),
+        'HandleParameter': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'HandleParameter')]
     }
     case_step['ResponseParameter'] = str(case_step['ResponseParameter']).splitlines()
     case_step['ExpectedData'] = str(case_step['ExpectedData']).splitlines()
+    case_step['HandleParameter'] = str(case_step['HandleParameter']).splitlines()
 
     header_paras = {}
     lines = str(case_step['Header']).splitlines()
@@ -64,6 +66,7 @@ def read_excel(file_path, sheet_name):
         case_step_list.append(case_step)
         last_case_name = case_name
         for i in range(2, rows):  # ignore table header
+
             case_name = sheet.row_values(i)[get_column_index(sheet, 'CaseName')]
             if case_name == '':  # the same case
                 case_step = get_case_step(sheet, i)
@@ -86,5 +89,13 @@ def read_excel(file_path, sheet_name):
                     'CaseSteps': case_step_list
                 }
                 case_list_dic.append(case_dict)
+
+        # 特殊处理：只有一行用例的情况下不会进入上面的for循环导致没有录入
+        if rows == 2:
+            case_dict = {
+                'CaseName': last_case_name,
+                'CaseSteps': case_step_list
+            }
+            case_list_dic.append(case_dict)
 
     return case_list_dic

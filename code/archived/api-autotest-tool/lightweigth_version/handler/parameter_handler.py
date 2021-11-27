@@ -66,54 +66,123 @@ class Parameter:
         return True
 
     def flush_parameter_pool(self, parameters, response):
-        fail_count = 0
-        # print(parameters)
-        # print(response)
+        """
+        刷新参数池，根据用例的ResponseParameter字段从响应中获取参数存放到参数池中
+        :param parameters:测试用例的ResponseParameter字段，按行拆分成的list
+        :param response:接口的响应结果
+        :return:
+        """
+
+        def flush_by_re(_fail_count, _pattern):
+            _response = response.text
+            if ':' not in _pattern:
+                logger.info('Flush parameter: ' + _pattern)
+                if _pattern in _response:
+                    re_string = r'("{0}" *: *.*?)'.format(_pattern) + '[,|)|}]'
+                    finds = re.finditer(re_string, _response)
+                    for find in finds:
+                        s = find.group(1).split(':')
+                        find_value = s[1]
+                        if '"' in find_value:
+                            logger.info('  ' + _pattern + '-->' + find_value[1:-1])
+                            self.add_parameter(_pattern, find_value[
+                                                  1:-1])  # deal with "key":"value"
+                        else:
+                            logger.info('  ' + _pattern + '-->' + find_value)
+                            self.add_parameter(_pattern, find_value)
+                else:
+                    _fail_count[0] += 1
+                    logger.warning("No parameter in response -> {0}".format(_pattern))
+            else:
+                # rename parameter with string after ':'
+                p_origin = _pattern[:_pattern.find(':')]
+                p_rename = _pattern[_pattern.find(':') + 1:]
+                logger.info('Flush parameter: ' + p_origin)
+                if p_origin in _response:
+                    re_string = r'("{0}" *: *.*?)'.format(p_origin) + '[,|)|}]'
+                    finds = re.finditer(re_string, _response)
+                    for _p in finds:
+                        s = _p.group(1).split(':')
+                        find_value = s[1]
+                        if '"' in find_value:
+                            logger.info('  ' + _pattern + '-->' + find_value[1:-1])
+                            self.add_parameter(p_rename, find_value[
+                                                         1:-1])  # deal with "key":"value"
+                        else:
+                            logger.info('  ' + _pattern + '-->' + find_value)
+                            self.add_parameter(p_rename, find_value)
+                else:
+                    _fail_count[0] += 1
+                    logger.error(
+                        "No parameter in response -> {0}".format(p_origin))
+
+        def flush_by_json_dict(_fail_count, _pattern):
+            # 先将response转换成json格式
+            try:
+                logger.info('>> transforming response into json format..')
+                _response = response.json()
+            except Exception as e:
+                logger.error(
+                    '>> transform failed, please check the content-type of the response.')
+                logger.error(e)
+                _fail_count[0] += 1
+                return
+
+            # 层层递进按照路径获取json中的节点
+            path = str(_pattern[2:]).split('::')
+            key = path
+            for idx in range(len(path) - 1):
+                try:
+                    key = path[idx]
+                    if key.startswith('#'):
+                        key = int(key[1:])
+                    _response = _response[key]
+                except Exception as e:
+                    logger.error(
+                        '>> can\'t deal with {} in response.json()'.format(key))
+                    logger.error(e)
+                    _fail_count[0] += 1
+                    return
+
+            # 准备获取最后一个节点（目标节点，不一定是叶子节点）的值，但需要处理参数重命名
+            final = path[-1]
+            if ':' in final:
+                try:
+                    p_origin = final[:final.find(':')]
+                    p_rename = final[final.find(':') + 1:]
+                    if p_origin.startswith('#'):
+                        p_origin = int(p_origin[1:])
+                    p_value = _response[p_origin]
+                except Exception as e:
+                    logger.error('>> can\'t deal with {} in response.json()'.format(final))
+                    logger.error(e)
+                    _fail_count[0] += 1
+                    return
+                else:
+                    logger.info('  ' + _pattern + '-->' + p_value)
+                    self.add_parameter(p_rename, p_value)
+            else:
+                # 不需要处理重命名，同时也不支持数字（及#开头）
+                try:
+                    p_value = _response[final]
+                except Exception as e:
+                    logger.error('>> can\'t deal with {} in response.json()'.format(final))
+                    logger.error(e)
+                    _fail_count[0] += 1
+                    return
+                else:
+                    logger.info('  ' + _pattern + '-->' + p_value)
+                    self.add_parameter(final, p_value)
+
+        fail_count = [0]  # 使用可变类型，让子函数处理的时候可以改变该值
         if len(parameters) == 0:
             return True
         else:
             for p in parameters:
-                if ':' not in p:
-                    logger.info('Flush parameter: ' + p)
-                    if p in response:
-                        re_string = r'("{0}" *: *.*?)'.format(p) + '[,|)|}]'
-                        finds = re.finditer(re_string, response)
-                        for find in finds:
-                            s = find.group(1).split(':')
-                            find_value = s[1]
-                            if '"' in find_value:
-                                # self.__parameter_pool[p] = find_value[1:-1]
-                                logger.info('  ' + p + '-->' + find_value[1:-1])
-                                self.add_parameter(p, find_value[1:-1])  # deal with "key":"value"
-                            else:
-                                # self.__parameter_pool[p] = find_value  # deal with "key":value
-                                logger.info('  ' + p + '-->' + find_value)
-                                self.add_parameter(p, find_value)
-                    else:
-                        fail_count += 1
-                        logger.warning("No parameter in response -> {0}".format(p))
+                if str(p).startswith('::'):
+                    flush_by_json_dict(fail_count, p)
                 else:
-                    # rename parameter with string after ':'
-                    p_origin = p[:p.find(':')]
-                    p_rename = p[p.find(':') + 1:]
-                    logger.info('Flush parameter: ' + p_origin)
-                    if p_origin in response:
-                        re_string = r'("{0}" *: *.*?)'.format(p_origin) + '[,|)|}]'
-                        finds = re.finditer(re_string, response)
-                        for _p in finds:
-                            s = _p.group(1).split(':')
-                            find_value = s[1]
-                            if '"' in find_value:
-                                # self.__parameter_pool[p_rename] = find_value[1:-1]  # deal with "key":"value"
-                                logger.info('  ' + p + '-->' + find_value[1:-1])
-                                self.add_parameter(p_rename, find_value[1:-1])  # deal with "key":"value"
-                            else:
-                                # self.__parameter_pool[p_rename] = find_value  # deal with "key":value
-                                logger.info('  ' + p + '-->' + find_value)
-                                self.add_parameter(p_rename, find_value)
-                    else:
-                        fail_count += 1
-                        logger.error("No parameter in response -> {0}".format(p_origin))
+                    flush_by_re(fail_count, p)
             return True if fail_count == 0 else False
 
     def flush_body_parameter(self, body):
@@ -140,39 +209,7 @@ class Parameter:
         #     self.logger.error("fail to replace parameter * {0}".format(fail_count))
         return body
 
-    def verify_parameter_in_response(self, paras_dict, response):
-        # paras_dict = { 'expected_name1': 'expected_value1', 'expected_name2': 'expected_value2', ... }
-        response = response.text
-        flag = True
-        if len(paras_dict) == 0:
-            pass
-        else:
-            logger.info('Verify parameters in response...')
-            for key in paras_dict:
-                logger.info(">>>  " + key + " == " + paras_dict[key] + " ?")
-                if key in response:
-                    # re_string = r'{0} *: *\".*?\"'.format(key)  # outdated
-                    re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'
-                    finds = re.finditer(re_string, response)
-                    for _p in finds:
-                        logger.debug("find {} in response".format(_p.group()))
-                        s = _p.group(1).split(':')
-                        _p_name = s[0]
-                        _p_value = s[1]
-                        # print(s)
-                        # print(s[1:-1])
-                        if paras_dict[key] == _p_value:
-                            logger.info("Correct! Expected value of {0} is {1}, found {2}.".format(key, paras_dict[key], _p_value))
-                        else:
-                            logger.error(
-                                "Bad Value! Expected value of {0} is {1} but found {2}".format(key, paras_dict[key], _p_value))
-                            flag = False
-                else:
-                    logger.error("Bad Parameter! No parameter named --> {0}".format(key))
-                    flag = False
-        return flag
-
-    def verify_parameter_in_response_more_method(self, paras_list, response):
+    def verify_parameter_in_response(self, paras_list, response):
         """
         新的响应结果校验函数@2021年11月24日
         :param paras_list: 按行划分的期望结果list，每行校验一项内容，三种形式，简单键值对、路径键值对、字符串包含
@@ -221,6 +258,7 @@ class Parameter:
 
             logger.info('>> verifying...')
             path = str(_verification[2:]).split('::')
+            key = path  # 此处给key一个初始值以防后续循环内key初始化失败
             for idx in range(len(path) - 1):
                 try:
                     key = path[idx]
@@ -243,7 +281,6 @@ class Parameter:
                 logger.error('Bad Value! Expected value of {0} is {1}({2}) but found {3}({4})'
                              .format(_verification, target, type(target), _response, type(_response)))
                 return False
-
 
         def verify_3_string_contain(_verification):
             logger.info('> handle verification --> ' + _verification)

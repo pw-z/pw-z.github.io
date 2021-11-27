@@ -17,9 +17,9 @@ class CaseHandler:
 
     def __after_run(self, case, response):
         # 1. flush the parameter pool
-        self.para.flush_parameter_pool(case['ResponseParameter'], response.text)
+        self.para.flush_parameter_pool(case['ResponseParameter'], response)
         # 2. verify the wanted response values
-        flag = self.para.verify_parameter_in_response_more_method(case['ExpectedData'], response)
+        flag = self.para.verify_parameter_in_response(case['ExpectedData'], response)
         return flag
 
     def run(self, case):
