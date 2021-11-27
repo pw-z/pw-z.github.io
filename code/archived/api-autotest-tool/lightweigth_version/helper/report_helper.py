@@ -36,7 +36,7 @@ REPORT_TEMPLATE = """
                 for (let index = 0; index < div_step_detail.length; index++) {
                     div_step_detail[index].style.display = 'none';
                 }
-            } else {
+            } else {1
                 that.parentNode.lastElementChild.style.display = 'block';
                 for (let index = 0; index < div_step_detail.length; index++) {
                     div_step_detail[index].style.display = 'none';

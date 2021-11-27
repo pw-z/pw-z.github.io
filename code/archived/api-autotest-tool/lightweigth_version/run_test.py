@@ -24,9 +24,14 @@ if __name__ == '__main__':
     logger = init_logger(__name__)
     # print(logger.level)
 
+    allow_ssh = para.get_parameter('allow_ssh') == 'True'
+    allow_SQL = para.get_parameter('allow_SQL') == 'True'
+
     casehandler = CaseHandler(para)
-    shellhandler = ShellHandler(para)
-    sqlhandler = SQLHandler(para)
+    if allow_ssh:
+        shellhandler = ShellHandler(para)
+    if allow_SQL:
+        sqlhandler = SQLHandler(para)
 
     test_result_detail = []
     test_result_summary = dict(
@@ -71,11 +76,10 @@ if __name__ == '__main__':
                     r2 = True
                     r3 = True
 
-                    if step['ShellScript'] != '':
+                    if allow_ssh and step['ShellScript'] != '':
                         r1 = shellhandler.run(step)
-                    if step['Body'] != '':
-                        r2 = casehandler.run(step)
-                    if step['SQL'] != '':
+                    r2 = casehandler.run(step)
+                    if allow_SQL and step['SQL'] != '':
                         r3 = sqlhandler.run(step)
                     # it will be confusing if the shell,body,sql are all empty, don't do that
                     step_run_result = r1 and r2 and r3
@@ -134,8 +138,10 @@ if __name__ == '__main__':
     # for case in test_result_detail:
     #     print(case)
 
-    shellhandler.close()
-    sqlhandler.close()
+    if allow_ssh:
+        shellhandler.close()
+    if allow_SQL:
+        sqlhandler.close()
 
     r.generate_report(test_result_summary, test_result_detail)
 

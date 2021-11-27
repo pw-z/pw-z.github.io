@@ -24,9 +24,9 @@ def get_case_step(sheet_object, row_number):
         'Port': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Port')],  # 9192.0
         'Address': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Address')],
         'Body': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Body')],
-        'ContentType': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ContentType')],
+        'Header': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Header')],  # multiple lines
         'ResponseParameter': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ResponseParameter')],
-        'ExpectedData': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ExpectedData')],
+        'ExpectedData': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ExpectedData')],  # multiple lines
         'ShellScript': sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ShellScript')],
         # 'Run?': str(sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Run?')])[:-2],   # 111.0
         'Run?': str(sheet_object.row_values(row_number)[get_column_index(sheet_object, 'Run?')]),  # '111
@@ -35,13 +35,14 @@ def get_case_step(sheet_object, row_number):
             sheet_object.row_values(row_number)[get_column_index(sheet_object, 'ExpectedSQLData')]).upper().splitlines()
     }
     case_step['ResponseParameter'] = str(case_step['ResponseParameter']).splitlines()
+    case_step['ExpectedData'] = str(case_step['ExpectedData']).splitlines()
 
-    wanted_paras = {}
-    lines = str(case_step['ExpectedData']).splitlines()
+    header_paras = {}
+    lines = str(case_step['Header']).splitlines()
     for line in lines:
         i = line.find(':')
-        wanted_paras[line[:i]] = line[i + 1:]
-    case_step['ExpectedData'] = wanted_paras
+        header_paras[line[:i]] = line[i + 1:]
+    case_step['Header'] = header_paras
 
     return case_step
 

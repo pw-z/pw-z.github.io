@@ -19,35 +19,38 @@ class CaseHandler:
         # 1. flush the parameter pool
         self.para.flush_parameter_pool(case['ResponseParameter'], response.text)
         # 2. verify the wanted response values
-        flag = self.para.verify_parameter_in_response(case['ExpectedData'], response.text)
+        flag = self.para.verify_parameter_in_response_more_method(case['ExpectedData'], response)
         return flag
 
     def run(self, case):
         # __uri = (case['URI']!='') ? case['URI'] : para.get_parameter('uri')
         __uri = case['URI'] if case['URI'] != '' else self.para.get_parameter('uri')
         __port = str(case['Port'])[:4] if str(case['Port'])[:4] != '' else self.para.get_parameter('port')
-        __header = case['ContentType'] if case['ContentType'] != '' else self.para.get_parameter('content_type')
+        __header = case['Header'] if case['Header'] != '' else self.para.get_parameter('Header')
 
         if __uri != '' and __port != '' and case['Address'] != '' and __header != '':
             url = __uri + ":" + __port + case['Address']
-            header = {'content-type': __header}
+            header = __header
             logger.info('Request url: ' + url)
-            logger.info('Content type: ' + __header)
+            logger.info('Request header:\n' + str(__header))
         else:
             return False
 
-        # TODO: PARAMETER REPLACE ..done.
-        body = case['Body']
-        body = self.__before_run(body)
-        logger.info('Request body:\n' + body)
-
         try:
-            res = requests.post(url, headers=header, data=body.encode('utf-8'))
-            # print(res.json())
-            logger.info('Response:\n' + res.text)
+            # send requests based on method type
+            if str(case['Method']).lower() == 'post':
+                body = case['Body']
+                body = self.__before_run(body)
+                logger.info('Request body:\n' + body)
+                res = requests.post(url, headers=header, data=body.encode('utf-8'), verify=False)
+            elif str(case['Method']).lower() == 'get':
+                res = requests.get(url, headers=header, verify=False)
+            else:
+                raise Exception('Request method not in ["post", "get"].')
         except Exception as e:
             logger.error(e)
             return False
         else:
+            logger.info('Response:\n' + res.text)
             return self.__after_run(case, res)
 

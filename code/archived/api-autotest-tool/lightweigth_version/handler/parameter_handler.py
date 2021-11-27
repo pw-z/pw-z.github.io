@@ -142,6 +142,7 @@ class Parameter:
 
     def verify_parameter_in_response(self, paras_dict, response):
         # paras_dict = { 'expected_name1': 'expected_value1', 'expected_name2': 'expected_value2', ... }
+        response = response.text
         flag = True
         if len(paras_dict) == 0:
             pass
@@ -168,6 +169,113 @@ class Parameter:
                             flag = False
                 else:
                     logger.error("Bad Parameter! No parameter named --> {0}".format(key))
+                    flag = False
+        return flag
+
+    def verify_parameter_in_response_more_method(self, paras_list, response):
+        """
+        新的响应结果校验函数@2021年11月24日
+        :param paras_list: 按行划分的期望结果list，每行校验一项内容，三种形式，简单键值对、路径键值对、字符串包含
+        :param response: request请求收到的响应
+        :return:
+        """
+
+        def verify_1_simple_key_value(_verification):
+            logger.info('> handle verification --> ' + _verification)
+            _response = response.text
+            pivot = _verification.find(':')
+            key = _verification[:pivot]
+            value = _verification[pivot+1:]
+
+            logger.info(">> " + key + " == " + value + " ?")
+            if key in _response:
+                # re_string = r'{0} *: *\".*?\"'.format(key)  # outdated
+                re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'
+                finds = re.finditer(re_string, _response)
+                for _p in finds:
+                    logger.debug(">> find {} in response".format(_p.group()))
+                    s = _p.group(1).split(':')
+                    _p_name = s[0]
+                    _p_value = s[1]
+                    if value == _p_value:
+                        logger.info(">> Correct! Expected value of {0} is {1}, found {2}.".format(key, value, _p_value))
+                    else:
+                        logger.error(
+                            "Bad Value! Expected value of {0} is {1} but found {2}".format(key, value, _p_value))
+                        return False
+                return True
+            else:
+                logger.error("Bad Parameter! No parameter named --> {0}".format(key))
+                return False
+
+        def verify_2_json_path_key_value(_verification):
+            logger.info('> handle verification --> ' + _verification)
+
+            try:
+                logger.info('>> transforming response into json format..')
+                _response = response.json()
+            except Exception as e:
+                logger.error('>> transform failed, please check the content-type of the response.')
+                logger.error(e)
+                return False
+
+            logger.info('>> verifying...')
+            path = str(_verification[2:]).split('::')
+            for idx in range(len(path) - 1):
+                try:
+                    key = path[idx]
+                    if key.startswith('#'):
+                        key = int(key[1:])
+                    _response = _response[key]
+                except Exception as e:
+                    logger.error('>> can\'t deal with {} in response.json()'.format(key))
+                    logger.error(e)
+                    return False
+
+            target = path[-1]
+            if target.startswith('#'):
+                target = int(target[1:])
+
+            if target == _response:
+                logger.info('>> Ok. ')
+                return True
+            else:
+                logger.error('Bad Value! Expected value of {0} is {1}({2}) but found {3}({4})'
+                             .format(_verification, target, type(target), _response, type(_response)))
+                return False
+
+
+        def verify_3_string_contain(_verification):
+            logger.info('> handle verification --> ' + _verification)
+            _verification = _verification[2:]
+            logger.info(">> does response contains string: " + _verification + " ?")
+            if _verification in response.text:
+                logger.info('>> Yes.')
+                return True
+            else:
+                logger.error('>> No.')
+                return False
+
+        flag = True
+        if len(paras_list) == 0:
+            pass
+        else:
+            logger.info('Verify parameters in response...')
+            for verification in paras_list:
+                if str(verification).startswith('::'):
+                    # 调用路径键值对的校验方法，要求response为json格式串
+                    if not verify_2_json_path_key_value(verification):
+                        flag = False
+                elif str(verification).startswith(';;'):
+                    # 调用字符串包含的校验方法
+                    if not verify_3_string_contain(verification):
+                        flag = False
+                elif str(verification).count(':') == 1:
+                    # 调用简单键值对的校验方法
+                    if not verify_1_simple_key_value(verification):
+                        flag = False
+                else:
+                    logger.error('Parameters verification format error: ' + verification)
                     flag = False
         return flag
 
