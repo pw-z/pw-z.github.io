@@ -7,12 +7,18 @@ logger = init_logger(__name__)
 
 
 class CaseHandler:
+    """Handler test case.
+
+    run(): post or get the request through requests.\n
+    __before_run(): flush body parameter\n
+    __after_run(): flush global parameter pool, verify parameter in response
+    """
 
     def __init__(self, parameter_handler):
         self.para = parameter_handler
 
     def __before_run(self, body):
-        new_body = self.para.flush_body_parameter(body)
+        new_body = self.para.flush_data_parameter(body)
         return new_body
 
     def __after_run(self, case, response):
@@ -23,7 +29,6 @@ class CaseHandler:
         return flag
 
     def run(self, case):
-        # __uri = (case['URI']!='') ? case['URI'] : para.get_parameter('uri')
         __uri = case['URI'] if case['URI'] != '' else self.para.get_parameter('uri')
         __port = str(case['Port'])[:4] if str(case['Port'])[:4] != '' else self.para.get_parameter('port')
         __header = case['Header'] if case['Header'] != '' else self.para.get_parameter('Header')

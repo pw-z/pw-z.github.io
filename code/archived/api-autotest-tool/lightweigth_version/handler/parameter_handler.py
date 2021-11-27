@@ -51,9 +51,10 @@ class Parameter:
         test_report_title = cnf.get('other', 'test_report_title')
         self.__global_configs['test_report_title'] = test_report_title
 
-        logger.debug("parameter handler initialize success # " + str(self.__global_configs))
+        logger.debug("Parameter handler initialize success # " + str(self.__global_configs))
 
     def get_parameter(self, p_name):
+        """Get a parameter from the config or parameter pool."""
         if p_name in self.__global_configs:
             return self.__global_configs[p_name]
         elif p_name in self.__parameter_pool:
@@ -62,18 +63,20 @@ class Parameter:
             return False
 
     def add_parameter(self, p_name, p_value):
+        """Add (or update) a parameter into parameter pool."""
         self.__parameter_pool[p_name] = p_value
         return True
 
-    def flush_parameter_pool(self, parameters, response):
-        """
-        刷新参数池，根据用例的ResponseParameter字段从响应中获取参数存放到参数池中
-        :param parameters:测试用例的ResponseParameter字段，按行拆分成的list
-        :param response:接口的响应结果
-        :return:
+    def flush_parameter_pool(self, parameters: list, response):
+        """Flush __parameter_pool, add new or update old.
+
+        :param parameters: case_step['ResponseParameter'], see case_helper.py
+        :param response: HttpResponse return by requests.post() or .get()
+        :return: bool, flush result
         """
 
         def flush_by_re(_fail_count, _pattern):
+            """通过正则表达式的方式将response看作纯文本处理相应参数"""
             _response = response.text
             if ':' not in _pattern:
                 logger.info('Flush parameter: ' + _pattern)
@@ -117,6 +120,7 @@ class Parameter:
                         "No parameter in response -> {0}".format(p_origin))
 
         def flush_by_json_dict(_fail_count, _pattern):
+            """将响应看作json通过字典层层筛选处理对应的参数"""
             # 先将response转换成json格式
             try:
                 logger.info('>> transforming response into json format..')
@@ -185,36 +189,33 @@ class Parameter:
                     flush_by_re(fail_count, p)
             return True if fail_count == 0 else False
 
-    def flush_body_parameter(self, body):
+    def flush_data_parameter(self, data):
+        """Replace '${A}' in data with self.__parameter_pool['A'].
+
+        :param data: string with '${A}' in it
+        :return: string after replace
         """
-        replace '${A}' with 'A' in __parameter_pool
-        :param body:
-        :return: 
-        """
-        paras = re.finditer(r'\$\{\w*\}', body)
+        paras = re.finditer(r'\$\{\w*\}', data)
         fail_count = 0
         for p in paras:
-            # re.sub(r'\$\{\w*\}', self.get_parameter(p.group()[2:-1]), request_body)
-            # print(p.group())
             _p = self.get_parameter(p.group()[2:-1])
             if _p:
-                body = body.replace(p.group(), _p)
+                data = data.replace(p.group(), _p)
                 logger.info('Replace parameter: {0} --> {1}'.format(p.group(), _p))
             else:
                 fail_count += 1
                 logger.error("Fail to replace parameter -> {0}".format(p.group()[2:-1]))
-                pass
 
-        # if fail_count:
-        #     self.logger.error("fail to replace parameter * {0}".format(fail_count))
-        return body
+        if fail_count:
+            logger.error("Fail to replace {0} parameters in total.".format(fail_count))
+        return data
 
-    def verify_parameter_in_response(self, paras_list, response):
-        """
-        新的响应结果校验函数@2021年11月24日
-        :param paras_list: 按行划分的期望结果list，每行校验一项内容，三种形式，简单键值对、路径键值对、字符串包含
-        :param response: request请求收到的响应
-        :return:
+    def verify_parameter_in_response(self, paras_list: list, response):
+        """Verify the expected data in the response.
+
+        :param paras_list: str(case_step['ExpectedData']).splitlines(), see case_helper.py
+        :param response: HttpResponse return by requests.post() or .get()
+        :return: True or False, verification result
         """
 
         def verify_1_simple_key_value(_verification):
@@ -316,23 +317,20 @@ class Parameter:
                     flag = False
         return flag
 
-    def verify_parameter_in_sql_result(self, paras, results, db_col):
+    def verify_parameter_in_sql_result(self, paras: list, results, db_col):
+        """Verify the expected data in the SQL results.
+
+        :param paras: ['only_one_string_without_colon'] or ['expected_name:expected_value', 'n2:v2',...]
+        :param results: oracle.connect().cursor().execute(sql).fetchall(), all (remaining) rows of a query result
+        :param db_col: database table columns
+        :return: True of False, verification result
+        """
         logger.info("Verify parameters in sql result... ")
 
-        def verify_method1():
-            if para == str(results):
-                # TODO maybe we should consider more when para=='32' but result==32,
-                # TODO not just str(result) then conclude that para==result
-                logger.info("Correct! Expected SQL result is {1}".format(paras, results))
-                return True
-            else:
-                logger.warning("Bad Value! Expected SQL result is {0} but found {1}".format(paras, results))
-                return False
-
-        def verify_method2():
-            colon_index = para.index(':')
-            para_name = para[:colon_index]
-            para_value = para[colon_index + 1:]
+        def verify_method1(_para):
+            colon_index = _para.index(':')
+            para_name = _para[:colon_index]
+            para_value = _para[colon_index + 1:]
             para_col_number = -1
             for col in db_col:
                 col_description = list(col)
@@ -340,6 +338,7 @@ class Parameter:
                     # print(db_col.index(col))
                     para_col_number = db_col.index(col)
                     break
+
             if para_col_number != -1:
                 for row in results:
                     # if results contains more then one row, every row needs to meet the para_name:para_value
@@ -359,12 +358,22 @@ class Parameter:
                 logger.error('Bad Parameter! No column named --> {0}'.format(para_name))
                 return False
 
+        def verify_method2(_para):
+            if _para == str(results):
+                # TODO maybe we should consider more when para=='32' but result==32,
+                # TODO not just str(result) then conclude that para==result
+                logger.info("Correct! Expected SQL result is {0}".format(paras, results))
+                return True
+            else:
+                logger.error("Bad Value! Expected SQL result is {0} but found {1}".format(paras, results))
+                return False
+
         flag = True
         for para in paras:  # paras = ['only_one_string_without_colon'] or ['expected_name:expected_value', 'n2:v2',...]
             if ':' in para:
-                r = verify_method2()
+                r = verify_method1(para)
             else:
-                r = verify_method1()
+                r = verify_method2(para)
             if not r:
                 flag = False
         return flag

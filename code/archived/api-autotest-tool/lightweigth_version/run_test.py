@@ -1,18 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""Main script of the api-autotest-tool.
+
+Before running this script, make sure that config.ini
+has been written correctly.
+"""
 
 from handler.parameter_handler import Parameter
 from handler.case_handler import CaseHandler
 from handler.shell_handler import ShellHandler
 from handler.sql_handler import SQLHandler
-from helper.case_helper import *
-from helper.log_helper import *
+from helper.case_helper import read_excel
+from helper.log_helper import init_sio, init_logger, get_sio
 import datetime
 import helper.report_helper as r
 
 if __name__ == '__main__':
 
-    # 参数配置初始化
+    # initialize all the necessary parameters
     configpath = './config.ini'
     para = Parameter(configpath)
     excel_path = para.get_parameter('excel_path')
@@ -26,7 +31,7 @@ if __name__ == '__main__':
     if allow_SQL:
         sqlhandler = SQLHandler(para)
 
-    # 统计信息初始化
+    # initialize testing statistics for the final report
     test_result_detail = []
     test_result_summary = dict(
         count_all_cases=0,
@@ -40,11 +45,12 @@ if __name__ == '__main__':
     count_success_cases = 0
     count_fail_cases = 0
 
-    # 循环处理config.ini配置的每一个sheet页中的每一个case
+    # process each case in each sheet configured in config.ini
     for sheet in sheets:
         cases = read_excel(excel_path, sheet)
-        # print(cases)
-
+        if not cases:
+            logger.warning('Now try to process the next sheet page.')
+            continue
         for case in cases:
             case_start_time = datetime.datetime.now()
             logger.info('='*100)
@@ -58,7 +64,6 @@ if __name__ == '__main__':
             count_fail_steps = 0
             for step in case['CaseSteps']:
                 if step['Run?'] != 'y':
-                    # logger.info('SKIP CASE')
                     continue
                 else:
                     try:
@@ -104,7 +109,7 @@ if __name__ == '__main__':
                         logger.error(e)
 
             if count_all_steps == 0:  # no step run in this case
-                logger.info('SKIP\n')
+                logger.info('SKIP')
                 continue
 
             case_end_time = datetime.datetime.now()
@@ -127,21 +132,22 @@ if __name__ == '__main__':
             else:
                 count_fail_cases += 1
             count_all_cases += 1
+    logger.info('No more sheet.')
 
-    # 统计信息收尾
+    # process final testing statistics
     test_result_summary['test_end_time'] = datetime.datetime.now()
     test_result_summary['test_duration'] = test_result_summary['test_end_time'] - test_result_summary['test_start_time']
     test_result_summary['count_all_cases'] = count_all_cases
     test_result_summary['count_success_cases'] = count_success_cases
     test_result_summary['count_fail_cases'] = count_fail_cases
 
-    # 关闭SSH及数据库连接
+    # close ssh and database connections
     if allow_ssh:
         shellhandler.close()
     if allow_SQL:
         sqlhandler.close()
 
-    # 依据上面的统计信息生成测试报告
+    # generate testing report
     try:
         r.generate_report(test_result_summary, test_result_detail)
     except Exception as e:

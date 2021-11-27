@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""Logger Factory.
 
+fh = logging.FileHandler()   --> file log handler
+ch = logging.StreamHandler() --> console log handler
+sh = logging.StreamHandler() --> using to capture all logs to generate test report
+"""
 import logging
 import time
 import io
@@ -18,6 +23,11 @@ def get_sio():
 
 
 def init_logger(__name__):
+    """Initialize and return the logger.
+
+    :param __name__: model name
+    :return: logging.getLogger(__name__)
+    """
 
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
@@ -25,7 +35,6 @@ def init_logger(__name__):
     today = time.strftime('%Y-%m-%d')
     log_name = today + '.log'
     log_path = 'log/' + log_name
-    # log_path = log_name
 
     formatter = logging.Formatter('%(levelname)s [%(asctime)s] %(message)s')
 

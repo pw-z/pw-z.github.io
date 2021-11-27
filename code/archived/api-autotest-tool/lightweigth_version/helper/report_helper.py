@@ -1,7 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""An all-in-one html testing report generator."""
+
 import time
 from helper.log_helper import init_logger
+
+# for pie chart
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
 
 REPORT_TEMPLATE = """
 <!DOCTYPE html>
@@ -258,10 +265,14 @@ def generate_html_style():
 
 
 def generate_html_summary(test_summary_dict):
-    import matplotlib.pyplot as plt
-    from io import BytesIO
-    import base64
+    """Handle summary statistics and draw a pie chart of case result.
 
+    Fill all statistics into BODY_SUMMARY_TEMPLATE;
+    Embed a pie chart picture in HTML with the help of Base64 encoding.
+
+    :param test_summary_dict: see generate_report()
+    :return: long string, part of the html report, with a pie chart picture in it
+    """
     # total = test_summary_dict['count_all_cases']
     success = test_summary_dict['count_success_cases']
     fail = test_summary_dict['count_fail_cases']
@@ -320,9 +331,9 @@ def generate_html_body(test_summary_dict, case_detail_list):
             ]
         }
     ]
-    :param test_summary_dict:
-    :param case_detail_list:
-    :return:
+    :param test_summary_dict: refer generate_report()
+    :param case_detail_list: refer generate_report()
+    :return: (body_summary, body_detail), both html string
     """
 
     def get_step_list(steps):
@@ -383,7 +394,33 @@ def generate_html_body(test_summary_dict, case_detail_list):
     return body_summary, body_detail
 
 
-def generate_report(test_summary_dict, case_detail_list):
+def generate_report(test_summary_dict: dict, case_detail_list: list):
+    """The main method used to generate test report.
+
+    :param test_summary_dict:
+        test_summary_dict = dict(
+            count_all_cases=XXX,
+            count_success_cases=XXX,
+            count_fail_cases=XXX,
+            test_start_time=datetime.datetime.now(),
+            test_end_time=datetime.datetime.now(),
+            test_report_title=para.get_parameter('test_report_title')
+        )
+    :param case_detail_list:
+        [
+            case_detail_dict = {
+                    'case_name': case['CaseName'],
+                    'start_time': case_start_time,
+                    'end_time': case_end_time,
+                    'duration': case_duration,
+                    'run_result': case_run_result,
+                    'count_all_steps': count_all_steps,
+                    'count_success_steps': count_success_steps,
+                    'count_fail_steps': count_fail_steps,
+                    'step_detail': steps_run_detail
+            },
+        ]
+    """
     logger.info("=" * 100)
     logger.info("=" * 39 + " Generate Test Report " + "=" * 39)
     logger.info("=" * 100)
@@ -391,26 +428,32 @@ def generate_report(test_summary_dict, case_detail_list):
     # logger.debug("test_summary_dict is: \n\n" + test_summary_dict + "\n\n")
     # logger.debug("case_detail_list is: \n\n" + case_detail_list + "\n\n")
 
-    title = test_summary_dict['test_report_title']
-    if title == '':
-        title = 'API AutoTest Report ' + time.strftime('%Y.%m.%d')
+    try:
+        title = test_summary_dict['test_report_title']
+        if title == '':
+            title = 'API AutoTest Report ' + time.strftime('%Y.%m.%d')
+        else:
+            title = title + ' ' + time.strftime('%Y.%m.%d')
+        style = generate_html_style()
+        body_summary, body_detail = generate_html_body(test_summary_dict,
+                                                       case_detail_list)
+
+        html_dict = dict(
+            title=title,
+            style=style,
+            body_summary=body_summary,
+            body_detail=body_detail
+        )
+
+        date = time.strftime('%Y%m%d-%H%M%S')
+        report_name = 'report/TestReport-{0}.html'.format(date)
+        with open(report_name, 'w', encoding='utf8') as f:
+            report_html = REPORT_TEMPLATE % html_dict
+            f.write(report_html)
+
+    except Exception as e:
+        logger.error('Error while generating test report.')
+        logger.error(e)
     else:
-        title = title + ' ' + time.strftime('%Y.%m.%d')
-    style = generate_html_style()
-    body_summary, body_detail = generate_html_body(test_summary_dict,
-                                                   case_detail_list)
+        logger.info('Testing done, please check the report --> ' + report_name)
 
-    html_dict = dict(
-        title=title,
-        style=style,
-        body_summary=body_summary,
-        body_detail=body_detail
-    )
-
-    date = time.strftime('%Y%m%d-%H%M%S')
-    report_name = 'report/TestReport-{0}.html'.format(date)
-    with open(report_name, 'w', encoding='utf8') as f:
-        report_html = REPORT_TEMPLATE % html_dict
-        f.write(report_html)
-
-    logger.info('The test is done, please check the report --> ' + report_name)
