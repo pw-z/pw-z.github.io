@@ -30,7 +30,7 @@ class CaseHandler:
 
     def run(self, case):
         __uri = case['URI'] if case['URI'] != '' else self.para.get_parameter('uri')
-        __port = str(case['Port'])[:4] if str(case['Port'])[:4] != '' else self.para.get_parameter('port')
+        __port = case['Port'] if case['Port'] != '' else self.para.get_parameter('port')
         __header = case['Header'] if case['Header'] != '' else self.para.get_parameter('Header')
 
         if __uri != '' and __port != '' and case['Address'] != '' and __header != '':

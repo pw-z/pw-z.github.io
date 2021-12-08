@@ -42,27 +42,36 @@ def get_case_step(sheet, row_number: int):
         'Port': sheet.row_values(row_number)[get_column_index(sheet, 'Port')],  # 9192.0
         'Address': sheet.row_values(row_number)[get_column_index(sheet, 'Address')],
         'Body': sheet.row_values(row_number)[get_column_index(sheet, 'Body')],
-        'Header': sheet.row_values(row_number)[get_column_index(sheet, 'Header')],  # multiple lines
-        'ResponseParameter': sheet.row_values(row_number)[get_column_index(sheet, 'ResponseParameter')],
-        'ExpectedData': sheet.row_values(row_number)[get_column_index(sheet, 'ExpectedData')],  # multiple lines
+        'Header': sheet.row_values(row_number)[get_column_index(sheet, 'Header')],  # multiple lines --> dict
+        'ResponseParameter': sheet.row_values(row_number)[get_column_index(sheet, 'ResponseParameter')],  # multiple lines --> list
+        'ExpectedData': sheet.row_values(row_number)[get_column_index(sheet, 'ExpectedData')],  # multiple lines --> list
         'ShellScript': sheet.row_values(row_number)[get_column_index(sheet, 'ShellScript')],
-        # 'Run?': str(sheet.row_values(row_number)[get_column_index(sheet, 'Run?')])[:-2],   # 111.0
-        'Run?': str(sheet.row_values(row_number)[get_column_index(sheet, 'Run?')]),  # '111
+        'Run?': sheet.row_values(row_number)[get_column_index(sheet, 'Run?')],
+        'Delay': sheet.row_values(row_number)[get_column_index(sheet, 'Delay')],  # unit: second, support float, 0.5==500ms
         'SQL': sheet.row_values(row_number)[get_column_index(sheet, 'SQL')],
-        'ExpectedSQLData': str(
-            sheet.row_values(row_number)[get_column_index(sheet, 'ExpectedSQLData')]).upper().splitlines(),
-        'HandleParameter': sheet.row_values(row_number)[get_column_index(sheet, 'HandleParameter')]
+        'ExpectedSQLData': sheet.row_values(row_number)[get_column_index(sheet, 'ExpectedSQLData')],  # multiple lines --> list
+        'HandleParameter': sheet.row_values(row_number)[get_column_index(sheet, 'HandleParameter')]  # multiple lines --> list
     }
+    # List type columns
+    case_step['ExpectedSQLData'] = str(case_step['ExpectedSQLData']).splitlines()
     case_step['ResponseParameter'] = str(case_step['ResponseParameter']).splitlines()
     case_step['ExpectedData'] = str(case_step['ExpectedData']).splitlines()
     case_step['HandleParameter'] = str(case_step['HandleParameter']).splitlines()
 
+    # Column Header is of type dict
     header_paras = {}
     lines = str(case_step['Header']).splitlines()
     for line in lines:
         i = line.find(':')
         header_paras[line[:i]] = line[i + 1:]
     case_step['Header'] = header_paras
+
+    # special process
+    if case_step['Port'] != '':
+        case_step['Port'] = str(int(case_step['Port']))
+    if case_step['Delay'] != '':
+        case_step['Delay'] = float(case_step['Delay'])
+
     return case_step
 
 
@@ -79,6 +88,9 @@ def read_excel(file_path: str, sheet_name: str):
         book = xlrd.open_workbook(file_path)
         sheet = book.sheet_by_name(sheet_name)
         rows = sheet.nrows
+        if rows == 1:
+            logger.warning('Empty sheet!')
+            return False
 
         # when i==1, case name must exist
         case_name = sheet.row_values(1)[get_column_index(sheet,'CaseName')]
@@ -117,10 +129,13 @@ def read_excel(file_path: str, sheet_name: str):
             }
             case_dict_list.append(case_dict)
     except FileNotFoundError as error:
-        logger.error('Can\'t open the excel file  ' + str(error))
+        logger.error('Can\'t open the excel file:  ' + str(error))
         return False
     except xlrd.XLRDError as error:
-        logger.error('Error while reading excel file  ' + str(error))
+        logger.error('Error while reading excel file:  ' + str(error))
+        return False
+    except Exception as error:
+        logger.error('Error while dealing with case detail:  ' + str(error))
         return False
 
     return case_dict_list

@@ -32,6 +32,10 @@ class Parameter:
         db_password = cnf.get('database', 'db_password')
         db_oracle_lib_dir = cnf.get('database', 'db_oracle_lib_dir')
 
+        allow_SQL = cnf.get('other', 'allow_SQL')
+        allow_ssh = cnf.get('other', 'allow_ssh')
+        allow_global_parameter_replace = cnf.get('other', 'allow_global_parameter_replace')
+
         self.__global_configs['uri'] = uri
         self.__global_configs['port'] = port
         self.__global_configs['content_type'] = content_type
@@ -47,6 +51,10 @@ class Parameter:
         self.__global_configs['db_username'] = db_username
         self.__global_configs['db_password'] = db_password
         self.__global_configs['db_oracle_lib_dir'] = db_oracle_lib_dir
+
+        self.__global_configs['allow_SQL'] = allow_SQL
+        self.__global_configs['allow_ssh'] = allow_ssh
+        self.__global_configs['allow_global_parameter_replace'] = allow_global_parameter_replace
 
         test_report_title = cnf.get('other', 'test_report_title')
         self.__global_configs['test_report_title'] = test_report_title
@@ -121,9 +129,10 @@ class Parameter:
 
         def flush_by_json_dict(_fail_count, _pattern):
             """将响应看作json通过字典层层筛选处理对应的参数"""
+            logger.info('Flush parameter: ' + _pattern)
             # 先将response转换成json格式
             try:
-                logger.info('>> transforming response into json format..')
+                logger.debug('>> transforming response into json format..')
                 _response = response.json()
             except Exception as e:
                 logger.error(
@@ -228,14 +237,14 @@ class Parameter:
             logger.info(">> " + key + " == " + value + " ?")
             if key in _response:
                 # re_string = r'{0} *: *\".*?\"'.format(key)  # outdated
-                re_string = '({0} *: *.*?)'.format(key) + '[,|)|}]'
+                re_string = r'("{0}" *: *.*?)'.format(key) + '[,|)|}]'
                 finds = re.finditer(re_string, _response)
                 for _p in finds:
-                    logger.debug(">> find {} in response".format(_p.group()))
+                    logger.info(">> find {} in response".format(_p.group()))
                     s = _p.group(1).split(':')
                     _p_name = s[0]
                     _p_value = s[1]
-                    if value == _p_value:
+                    if value == _p_value or '"'+value+'"' == _p_value:
                         logger.info(">> Correct! Expected value of {0} is {1}, found {2}.".format(key, value, _p_value))
                     else:
                         logger.error(
@@ -250,7 +259,7 @@ class Parameter:
             logger.info('> handle verification --> ' + _verification)
 
             try:
-                logger.info('>> transforming response into json format..')
+                logger.debug('>> transforming response into json format..')
                 _response = response.json()
             except Exception as e:
                 logger.error('>> transform failed, please check the content-type of the response.')
@@ -371,9 +380,9 @@ class Parameter:
         flag = True
         for para in paras:  # paras = ['only_one_string_without_colon'] or ['expected_name:expected_value', 'n2:v2',...]
             if ':' in para:
-                r = verify_method1(para)
+                r = verify_method1(str(para).upper())
             else:
-                r = verify_method2(para)
+                r = verify_method2(str(para).upper())
             if not r:
                 flag = False
         return flag
