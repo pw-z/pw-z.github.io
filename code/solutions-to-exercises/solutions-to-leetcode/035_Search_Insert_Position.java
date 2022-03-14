@@ -11,7 +11,6 @@ class Solution {
         int low = 0;
         int high = nums.length-1;
         int ans = nums.length; //中间值一直小于target，最终target需要放在最后一个位置即nums.length
-        Boolean low_changed_last = false;
         while (low <= high) {
             int mid = (high-low)/2 +low;
             if(nums[mid] >= target){
