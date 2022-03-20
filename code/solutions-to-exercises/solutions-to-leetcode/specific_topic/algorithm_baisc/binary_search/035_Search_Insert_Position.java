@@ -1,3 +1,5 @@
+package binary_search;
+
 class Solution {
     /**
      * 二分查找，此题区别在于查找不到的情况下需要给出应该插入的位置
