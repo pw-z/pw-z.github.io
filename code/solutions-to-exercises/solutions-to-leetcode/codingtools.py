@@ -1,9 +1,11 @@
 import os
+import functools
+import time
 
 
-class RenameTool:
+class CodingTool:
     @staticmethod
-    def auto_rename(path='.', no_upper=False):
+    def rename_files_in_python_style(path='.', no_upper=False):
         """
         重命名当前目录及所有子目录下的文件：
         1.字母大小写处理 2.小数点及空格转换为下划线 3.多个连续下划线合并为一个
@@ -15,14 +17,14 @@ class RenameTool:
         print(f'current listdir: {dir_list}')
         for d_or_f in dir_list:
             print(f'handling {d_or_f}')
-            if d_or_f == 'rename-files-in-python-style.py':
+            if d_or_f == 'codingtools.py':
                 print('no need to rename')
                 continue
 
             if os.path.isdir(os.path.join(path, d_or_f)):
                 sub_path = os.path.join(path, d_or_f)
                 print(f'deal with sub_path: {sub_path}')
-                RenameTool.auto_rename(sub_path, no_upper)
+                CodingTool.rename_files_in_python_style(sub_path, no_upper)
             elif os.path.isfile(os.path.join(path, d_or_f)):
                 fname, ftype = os.path.splitext(d_or_f)
                 if no_upper:
@@ -46,6 +48,21 @@ class RenameTool:
             else:
                 return
 
+        def performance_analyzer(func):
+            """计算执行耗时
+            :param func:
+            :return:
+            """
+            @functools.wraps(func)  # 同步func原本的签名
+            def wrapper(*args, **kw):
+                print(f'exec {func.__name__}():')
+                start = time.perf_counter()
+                result = func(*args, **kw)
+                end = time.perf_counter()
+                print(f'cost: {(end - start) * 1000}ms')
+                return result
+            return wrapper
+
 
 if __name__ == '__main__':
-    RenameTool.auto_rename(no_upper=True)
+    CodingTool.rename_files_in_python_style(no_upper=True)
