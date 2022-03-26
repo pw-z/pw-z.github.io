@@ -30,7 +30,7 @@ public:
                 --high;
             }
 
-            //
+            // 更新low到下一个子串开头（可能超出len，则逻辑结束）
             low = tag+1;
         }
         return s;
