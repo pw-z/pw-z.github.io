@@ -1,3 +1,6 @@
+from re import S
+
+
 class Vertex:
     """
     顶点表元素，其中直接用self.edge存储对应边表
@@ -61,6 +64,9 @@ class Graph:
         """打印所有节点及节点间关系"""
         for ver in self.vertexList.values():
             print(ver)
+
+    def get_all_vertexs(self):
+        return self.vertexList.values
 
 
 
