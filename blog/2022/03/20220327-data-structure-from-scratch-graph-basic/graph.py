@@ -10,8 +10,8 @@ class Vertex:
         self.key = key
         self.edge = {}  # 边表字典，key=所指向的节点id，value=权重
 
-    def addNeighbor(self, key, cost):
-        self.edge[key] = cost
+    def add_neighbor(self, key: str, cost):
+        self.edge[str(key)] = cost
 
     def __str__(self):
         desc = ''
@@ -22,6 +22,9 @@ class Vertex:
         else:
             desc = f'({self.key}, -, -)'
         return desc
+
+    def get_all_edge(self) -> list:
+        return list(self.edge.keys())
 
 
 # class Edge:
@@ -50,9 +53,9 @@ class Graph:
             print(f'{b} not found, add vertex first please')
             return
         ver = self.vertexList.get(a)
-        ver.addNeighbor(b, cost)
+        ver.add_neighbor(b, cost)
 
-    def delete_vertex(self, v_id: int):
+    def delete_vertex(self, v_id: str):
         """根据id号删除顶点"""
         pass
 
@@ -65,9 +68,13 @@ class Graph:
         for ver in self.vertexList.values():
             print(ver)
 
-    def get_all_vertexs(self):
-        return self.vertexList.values
+    def get_all_vertex(self) -> list:
+        return list(self.vertexList.values())
 
+    def get_vertex(self, key: str) -> Vertex:
+        for _ in self.vertexList.values():
+            if _.key == key:
+                return _
 
 
 if __name__ == '__main__':
