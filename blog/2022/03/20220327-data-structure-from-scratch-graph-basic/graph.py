@@ -23,7 +23,7 @@ class Vertex:
             desc = f'({self.key}, -, -)'
         return desc
 
-    def get_all_edge(self) -> list:
+    def get_all_neighbor(self) -> list:
         return list(self.edge.keys())
 
 

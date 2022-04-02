@@ -9,12 +9,17 @@
 ...SUMMARY  AND TOC HERE
 
 ---
-
+- [图的存储结构及实现](#图的存储结构及实现)
+- [图的遍历](#图的遍历)
+  - [BFS](#bfs)
+  - [DFS](#dfs)
+- [图的经典应用](#图的经典应用)
+- [热点习题及实践](#热点习题及实践)
 
 
 ## 图的存储结构及实现
 
-邻接矩阵、邻接表是图的两种基本存储结构。
+`邻接矩阵`、`邻接表`是图的两种基本存储结构。
 
 邻接矩阵直接用二维数组实现即可，在N*N的二维数组中，用Array[I][J]存储I点与J点的关系，可以用01表示有无关系，或用数字表示权值等。无向图的邻接矩阵是一个对称矩阵。
 
@@ -109,8 +114,16 @@ if __name__ == '__main__':
 
 ### BFS
 
-BFS类似二叉树的层序遍历，需要一个队列存储本层所访问的节点，方便进行下一层的处理。
+BFS可类比二叉树的`层序遍历`，需要一个队列存储本层所访问的节点，方便进行下一层的处理。注意图不像二叉树按序遍历就可以实现每个节点的唯一访问，图中不同节点相互关联，访问时需要标记每个节点是否被访问过。
 
+算法思路：
+1. 对每个连通分量分别处理
+   1. 访问顶点，入队列
+   2. 从队列取出一个顶点，访问其所有邻接顶点
+   3. 将每个访问过的顶点依次入队列
+2. 重复上述过程，直到队空
+
+代码实现：
 ```python
 from graph import Graph
 from graph import Vertex
@@ -142,15 +155,177 @@ def bfs(g: Graph):
                         # 前面构造Vertex类的时候图省事，此处只好再从g中取下
                         v = g.get_vertex(key=vertex_)
                         ver_queue.append(v)
-```
 
+
+if __name__ == '__main__':
+    g = Graph()
+    for i in range(1, 16):
+        g.insert_vertex(str(i))
+
+    g.add_edge(1, 2)
+    g.add_edge(1, 3)
+    g.add_edge(3, 4)
+    g.add_edge(3, 6)
+    g.add_edge(6, 2)
+    g.add_edge(6, 5)
+    g.add_edge(4, 7)
+
+    g.add_edge(8, 9)
+    g.add_edge(8, 10)
+    g.add_edge(9, 10)
+    g.add_edge(10, 11)
+
+    g.add_edge(12, 13)
+    g.add_edge(12, 15)
+    g.add_edge(15, 14)
+    g.add_edge(14, 12)
+
+    bfs(g)
+
+"""
+try new component____________________
+visit 1
+visit 2
+visit 3
+visit 4
+visit 6
+visit 7
+visit 5
+try new component____________________
+try new component____________________
+try new component____________________
+try new component____________________
+try new component____________________
+try new component____________________
+try new component____________________
+visit 8
+visit 9
+visit 10
+visit 11
+try new component____________________
+try new component____________________
+try new component____________________
+try new component____________________
+visit 12
+visit 13
+visit 15
+visit 14
+try new component____________________
+try new component____________________
+try new component____________________
+"""
+```
 
 ### DFS
 
+DFS可类比二叉树的`先根序遍历`， 沿着一条路径向下访问，直到走到“叶子”节点（不再有未访问的邻接顶点），向上回溯，重复这个过程直到所有顶点都被遍历。
+
+算法思路：
+1. 对每个连通分量分别处理
+   1. 有未访问的邻接顶点，则向下探索，向下时将本层状态压栈
+   2. 走到叶子节点了，向上回溯，重复步骤1
+2. 重复上述过程直到所有节点遍历完毕
 
 
-### 调用测试
+代码实现（递归）：
+```python
+from graph import Graph
+from graph import Vertex
 
+
+def dfs(g: Graph):
+    """depth first search 图的深度优先搜索"""
+
+    all_vertex = g.get_all_vertex()
+    count = len(all_vertex)
+    is_visited = [False for _ in range(count+1)]  
+    # 换个写法，列表坐标作为key标记对应顶点，
+    # 这样做的前提是，顶点的key是int类型的（或可兼容的）
+    print(is_visited)
+
+    def dfs_recursive(v: Vertex):
+        print('visit ' + v.key)          # 访问
+        is_visited[int(v.key)] = True    # 标记
+        for vertex_ in v.get_all_neighbor():  
+        # 返回的是邻接顶点的key，str类型，不是Vertex类型
+            if not is_visited[int(vertex_)]:
+                v_ = g.get_vertex(vertex_)
+                dfs_recursive(v_)             # 递归向下遍历
+
+    for vertex in all_vertex:
+        print('try new component' + '_' * 20)
+        if not is_visited[int(vertex.key)]:
+            dfs_recursive(vertex)
+
+
+if __name__ == '__main__':
+    g = Graph()
+    for i in range(1, 16):
+        g.insert_vertex(str(i))
+
+    g.add_edge(1, 2)
+    g.add_edge(1, 3)
+    g.add_edge(3, 4)
+    g.add_edge(3, 6)
+    g.add_edge(6, 2)
+    g.add_edge(6, 5)
+    g.add_edge(4, 7)
+
+    g.add_edge(8, 9)
+    g.add_edge(8, 10)
+    g.add_edge(9, 10)
+    g.add_edge(10, 11)
+
+    g.add_edge(12, 13)
+    g.add_edge(12, 15)
+    g.add_edge(15, 14)
+    g.add_edge(14, 12)
+
+    dfs(g)
+
+
+    """
+    try new component____________________
+    visit 1
+    visit 2
+    visit 3
+    visit 4
+    visit 7
+    visit 6
+    visit 5
+    try new component____________________
+    try new component____________________
+    try new component____________________
+    try new component____________________
+    try new component____________________
+    try new component____________________
+    try new component____________________
+    visit 8
+    visit 9
+    visit 10
+    visit 11
+    try new component____________________
+    try new component____________________
+    try new component____________________
+    try new component____________________
+    visit 12
+    visit 13
+    visit 15
+    visit 14
+    try new component____________________
+    try new component____________________
+    try new component____________________
+    """
+```
+
+
+
+
+代码实现（非递归）：
+```python
+
+
+```
 
 ## 图的经典应用
 
