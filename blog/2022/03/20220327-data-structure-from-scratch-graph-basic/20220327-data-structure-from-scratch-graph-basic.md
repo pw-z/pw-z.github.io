@@ -6,19 +6,34 @@
 ![](graph_eg.png "图结构示例")  
 
 
-...SUMMARY  AND TOC HERE
+`图`结构基础知识的学习&复习范围（路径）如下：
+1. 基本概念：
+   * 图（graph）、子图（subgraph）、顶点（vertex）、边或弧（edge / arc）、权（weight）
+   * 有向无向（directed / undirected）、环（cycle）
+   * 联通非联通（connect / disconnected）、连通分量（connected component）
+   * etc.
+2. 存储结构及基本操作：
+   * 邻接矩阵（二维数组）、邻接表（adjacency list）
+   * 十字链表（orthogonal list）、邻接多重表（adjacency multilist）
+3. 遍历算法：
+   * 深度优先搜索
+   * 广度优先搜索
+4. 图的应用：
+   * 连通性问题 \~最小生成树
+     * Prim算法、Kruskal算法
+   * 有向无环图 \~拓扑排序 \~关键路径
+   * 最短路径问题
+     * Dijkstra算法、Floyd算法
 
----
+
 - [图的存储结构及实现](#图的存储结构及实现)
 - [图的遍历](#图的遍历)
   - [BFS](#bfs)
   - [DFS](#dfs)
 - [图的经典应用](#图的经典应用)
-  - [最小生成树](#最小生成树)
-  - [最短路径](#最短路径)
-  - [拓扑排序](#拓扑排序)
-  - [关键路径](#关键路径)
-- [习题实践](#习题实践)
+  - [连通性问题与最小生成树（Minimum Cost Spanning Tree）](#连通性问题与最小生成树minimum-cost-spanning-tree)
+  - [有向无环图的拓扑排序与关键路径](#有向无环图的拓扑排序与关键路径)
+  - [最短路径问题](#最短路径问题)
 
 
 ## 图的存储结构及实现
@@ -267,13 +282,8 @@ def dfs_unrecursive(g: Graph):
 
 ## 图的经典应用
 
-### 最小生成树
-### 最短路径
-### 拓扑排序
-### 关键路径
+### 连通性问题与最小生成树（Minimum Cost Spanning Tree）
 
+### 有向无环图的拓扑排序与关键路径
 
-
-
-## 习题实践
-
+### 最短路径问题
