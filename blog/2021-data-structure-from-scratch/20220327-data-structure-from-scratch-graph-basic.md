@@ -3,7 +3,7 @@
 *Posted on 2022.03.27 by [Zhang Pengwei](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)* 
 
 
-![](graph_eg.png "图结构示例")  
+![](20220327-data-structure-from-scratch-graph-basic.png "图结构示例")  
 
 
 `图`结构基础知识的学习&复习范围（路径）如下：
