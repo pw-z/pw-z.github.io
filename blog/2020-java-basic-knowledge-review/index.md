@@ -11,11 +11,11 @@
 
 
 
-[1]:20200311-java-basic-knowledge-review-1-eight-primitive-data-types.md
-[2]:20200312-java-basic-knowledge-review-2-oop-and-its-basic-characteristics.md
-[3]:20200323-java-basic-knowledge-review-3-access-control-and-feature-modifier.md
-[4]:20200324a-java-basic-knowledge-review-4-abstract-class-and-interface.md
-[5]:20200324b-java-basic-knowledge-review-5-exception-handling-and-log-logging.md
-[6]:20200330-java-basic-knowledge-review-6-character-string-handling.md
-[7]:20200331-java-basic-knowledge-review-7-generic-programming.md
-[8]:20200408-java-basic-knowledge-review-8-about-container.md
+[1]:20200311-java-basic-knowledge-review-1-eight-primitive-data-types
+[2]:20200312-java-basic-knowledge-review-2-oop-and-its-basic-characteristics
+[3]:20200323-java-basic-knowledge-review-3-access-control-and-feature-modifier
+[4]:20200324a-java-basic-knowledge-review-4-abstract-class-and-interface
+[5]:20200324b-java-basic-knowledge-review-5-exception-handling-and-log-logging
+[6]:20200330-java-basic-knowledge-review-6-character-string-handling
+[7]:20200331-java-basic-knowledge-review-7-generic-programming
+[8]:20200408-java-basic-knowledge-review-8-about-container

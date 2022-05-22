@@ -19,18 +19,18 @@
 
 
 
-[2021a]:./2021/20210505-ruanyf-weekly-compilation-1-155-with-the-process-code.md
-[2021b]:./2021/20210516-tail-f-logs-with-syntax-highlighting-through-perl-regex-replace.md
-[2021c]:./2021/20210531-collect-test-status-of-jira-and-testlink-then-send-msg-to-dingtalkchatbot.md
-[2021d]:./2021/20210623-import-testcases-from-excel-to-testlink.md
-[2021e]:./2021/20210908-check-the-validity-of-mathematical-expressions-with-python-and-regular-expression.md
+[2021a]:./2021/20210505-ruanyf-weekly-compilation-1-155-with-the-process-code
+[2021b]:./2021/20210516-tail-f-logs-with-syntax-highlighting-through-perl-regex-replace
+[2021c]:./2021/20210531-collect-test-status-of-jira-and-testlink-then-send-msg-to-dingtalkchatbot
+[2021d]:./2021/20210623-import-testcases-from-excel-to-testlink
+[2021e]:./2021/20210908-check-the-validity-of-mathematical-expressions-with-python-and-regular-expression
 
-[2020a]:./2020/20200328-the-illustrated-guide-to-a-phd-in-chinese-with-picture-in-css.md
-[2020b]:./2020/20200404-python3-zero-to-one-challenge-a-text-rpg-game.md
-[2020c]:./2020/20200407-lightweight-blog-construction-plan-and-writing-standard.md
-[2020d]:./2020/20200411-numpy-quick-start-practice.md
+[2020a]:./2020/20200328-the-illustrated-guide-to-a-phd-in-chinese-with-picture-in-css
+[2020b]:./2020/20200404-python3-zero-to-one-challenge-a-text-rpg-game
+[2020c]:./2020/20200407-lightweight-blog-construction-plan-and-writing-standard
+[2020d]:./2020/20200411-numpy-quick-start-practice
 
-[2019a]:./2019/20190317-all-about-how-i-build-a-wordpress-site.md
-[2019b]:./2019/20190319-run-bottom-up-attention-in-windows.md
-[2019c]:./2019/20191125-book-notes-of-Nonviolent-Communication-A-Language-of-Life.md
-[2019d]:./2019/20191210-book-notes-of-Insight-by-Chai-Jing.md
+[2019a]:./2019/20190317-all-about-how-i-build-a-wordpress-site
+[2019b]:./2019/20190319-run-bottom-up-attention-in-windows
+[2019c]:./2019/20191125-book-notes-of-Nonviolent-Communication-A-Language-of-Life
+[2019d]:./2019/20191210-book-notes-of-Insight-by-Chai-Jing
