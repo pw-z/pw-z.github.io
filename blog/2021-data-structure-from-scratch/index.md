@@ -1,12 +1,12 @@
 # Data Structure from Scratch
 
-[LinearList & Linkedlist][1]
-[Stack & Queue][2]
-[String][3]
-[Binary Tree][4]
-[Sorting Algorithm][5]
-[Graph][6]
-[Heap][7]
+* [LinearList & Linkedlist][1]  
+* [Stack & Queue][2]  
+* [String][3]  
+* [Binary Tree][4]  
+* [Sorting Algorithm][5]  
+* [Graph][6] 
+* [Heap][7]  
 
 
 [1]:20210705-data-structure-from-scratch-linearlist-and-linkedlist
