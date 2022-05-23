@@ -19,11 +19,11 @@
 
 
 
-[2021a]:./2021/20210505-ruanyf-weekly-compilation-1-155-with-the-process-code
-[2021b]:./2021/20210516-tail-f-logs-with-syntax-highlighting-through-perl-regex-replace
-[2021c]:./2021/20210531-collect-test-status-of-jira-and-testlink-then-send-msg-to-dingtalkchatbot
-[2021d]:./2021/20210623-import-testcases-from-excel-to-testlink
-[2021e]:./2021/20210908-check-the-validity-of-mathematical-expressions-with-python-and-regular-expression
+[2021a]:./2021/20210505-ruanyf-weekly-compilation-1-155-with-the-process-code/blog
+[2021b]:./2021/20210516-tail-f-logs-with-syntax-highlighting-through-perl-regex-replace/blog
+[2021c]:./2021/20210531-collect-test-status-of-jira-and-testlink-then-send-msg-to-dingtalkchatbot/blog
+[2021d]:./2021/20210623-import-testcases-from-excel-to-testlink/blog
+[2021e]:./2021/20210908-check-the-validity-of-mathematical-expressions-with-python-and-regular-expression/blog
 
 [2020a]:./2020/20200328-the-illustrated-guide-to-a-phd-in-chinese-with-picture-in-css
 [2020b]:./2020/20200404-python3-zero-to-one-challenge-a-text-rpg-game
