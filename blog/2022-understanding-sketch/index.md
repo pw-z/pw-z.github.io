@@ -18,8 +18,13 @@
 
 现有内容如下：
 
-[*阶段一 2021.03~2022.03 几何石膏*][stage1]  
-[*阶段二 2022.05~unknown 人像练习I*][stage2]  
+[*阶段一 2021.03.01~2021.08.15 基本几何体到简单静物*][stage1]  
+[*阶段二 2021.08.16~2022.11.15 静物组合到简单石膏像*][stage2]  
+[*阶段三 2021.11.15~2022.04.04 绘画练习停滞的几个月*][stage3]  
+[*阶段四 2021.05.13~unknown 尝试画人像*][stage4]  
 
-[stage1]:./stage1/index
-[stage2]:./stage2/index
+
+[stage1]:./period1/index
+[stage2]:./period2/index
+[stage3]:./period3/index
+[stage4]:./period4/index
