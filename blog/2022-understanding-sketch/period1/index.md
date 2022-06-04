@@ -1,0 +1,26 @@
+# 理解素描::阶段一::基本几何体到简单静物
+
+2021.03.01~2021.08.15 
+
+![](sketch/20210301-compressed.jpg)
+![](sketch/20210308-compressed.jpg)
+![](sketch/20210321-compressed.jpg)
+![](sketch/20210414-compressed.jpg)
+![](sketch/20210415-compressed.jpg)
+![](sketch/20210416-compressed.jpg)
+![](sketch/20210419-compressed.jpg)
+![](sketch/20210421-compressed.jpg)
+![](sketch/20210423-compressed.jpg)
+![](sketch/20210424-compressed.jpg)
+![](sketch/20210426-compressed.jpg)
+![](sketch/20210505-compressed.jpg)
+![](sketch/20210510-compressed.jpg)
+![](sketch/20210517-compressed.jpg)
+![](sketch/20210524-compressed.jpg)
+![](sketch/20210525-compressed.jpg)
+![](sketch/20210526-compressed.jpg)
+![](sketch/20210602-compressed.jpg)
+![](sketch/20210607-compressed.jpg)
+![](sketch/20210802-compressed.jpg)
+![](sketch/20210805-compressed.jpg)
+![](sketch/20210808-compressed.jpg)
