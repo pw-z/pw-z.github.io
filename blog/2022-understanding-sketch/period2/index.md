@@ -6,8 +6,15 @@
 ![](sketch/20210817-compressed.jpg)
 ![](sketch/20210818-compressed.jpg)
 ![](sketch/20210830-0901-compressed.jpg)
+
+
 ![](sketch/20210908-19-compressed.jpg)
+
+[初级静物组合不锈钢壶苹果白衬布 北京华艺名画室](https://www.bilibili.com/video/BV1t4411s7BE)
+
 ![](sketch/20210911-compressed.jpg)
+
+
 ![](sketch/20210924-compressed.jpg)
 ![](sketch/20210927-compressed.jpg)
 ![](sketch/20211006-08-compressed.jpg)
