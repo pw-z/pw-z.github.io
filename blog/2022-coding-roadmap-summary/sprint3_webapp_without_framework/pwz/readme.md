@@ -7,6 +7,6 @@
 * PRD：[OraKit Sprint 3 PRD](./prd)
 * OraKit3.0：
   1. [本次迭代说明文档](./orakit_sprint_3/readme)
-  2. [Code~ 应用主页html及js代码](./orakit_sprint_3/static_site/index.html)
-  3. [Code~ Http服务器及路由函数](./orakit_sprint_3/http_server/HttpServer.java)
-  4. [Code~ 后台服务代码（Mock）](./orakit_sprint_3/service_impl/ChatBot.java)
+  2. [Code~ 应用主页html及js代码](orakit_sprint_3/static_site/index.html)
+  3. [Code~ Http服务器及路由函数](orakit_sprint_3/http_server/HttpServer.java)
+  4. [Code~ 后台服务代码（Mock）](orakit_sprint_3/service_impl/ChatBot.java)

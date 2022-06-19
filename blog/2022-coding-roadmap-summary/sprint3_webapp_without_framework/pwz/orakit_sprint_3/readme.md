@@ -14,12 +14,12 @@
 
 
 
-![](./pics/1-start-http-server.png)  
+![](pics/1-start-http-server.png)  
 *启动http服务器*
 
-![](./pics/2-chat-func.png)  
+![](pics/2-chat-func.png)  
 *用浏览器将首页打开，正常输入后点击发送，出发后台逻辑，结果反显在上面的Textarea*
 
-![](./pics/3-test-button.png)  
+![](pics/3-test-button.png)  
 *测试按钮走到另一条url路由验证逻辑，触发了一个弹窗*
 

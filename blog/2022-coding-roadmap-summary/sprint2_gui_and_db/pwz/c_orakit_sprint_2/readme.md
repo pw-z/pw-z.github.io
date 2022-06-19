@@ -25,13 +25,13 @@
 
 框架层面的功能介绍见如下图文：
 
-![](./pics/01-main-window-logout.png)  
+![](pics/01-main-window-logout.png)  
 *未登录的主界面，Function下没有可用功能，通过默认账密可以以管理员身份登录*
 
-![](./pics/02-main-window-login.png)  
+![](pics/02-main-window-login.png)  
 *登录成功后将解锁可用功能，右侧聊天区域也被激活（但本次没有实现聊天系统的后台逻辑，聊天默认回复系统下线）*
 
-![](./pics/03-hidden-func-for-admin.png)  
+![](pics/03-hidden-func-for-admin.png)  
 *默认管理员（admin）可见的管理功能，本次仅实现新增用户，Function中实现了几个测试用的菜单项验证鉴权系统（见上一张图）*  
 *系统没实现登出逻辑，换账号可以直接重复登录*
 
@@ -41,10 +41,10 @@
 登录后可以通过Function菜单选中具体功能，左侧`func-area`面板会初始化相应功能页面。 本次实现了计算器、文件压缩器两项功能，其中计算器分了两个版本。
 
 计算器没什么好说的，不做介绍：  
-![](./pics/04-standard-calculator.png)
+![](pics/04-standard-calculator.png)
 
 文件压缩器是哈夫曼编码的简单实现，没有设计压缩文件的文件结构，码表需要单独保存。  
-![](./pics/05-huffman-compressor.png)
+![](pics/05-huffman-compressor.png)
 
 如上图，功能区域上半部分处理压缩过程，输入待压缩文件，选择保存位置（以及保存的文件名），点击`<compress>`按钮即可执行压缩。 
 

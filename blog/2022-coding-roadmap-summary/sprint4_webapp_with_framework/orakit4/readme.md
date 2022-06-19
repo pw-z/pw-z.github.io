@@ -11,8 +11,8 @@
 
 通过maven安装好相关依赖，启动Orakit4Application主函数，即可通过页面访问应用主页。
 
-![](./pics/1-start-server-and-visit-homepage.png)  
+![](pics/1-start-server-and-visit-homepage.png)  
 *启动Springboot程序入口后，通过8080端口访问本地*
 
-![](./pics/2-chat-service-mapping.png)  
+![](pics/2-chat-service-mapping.png)  
 *请求正确被解析到相关逻辑进行处理，Mock结果按预期显示在聊天区域*

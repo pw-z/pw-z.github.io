@@ -1,3 +1,0 @@
-# uubc-orakit
-
-uubc-orakit

@@ -23,14 +23,14 @@
 
 通过OriKit主函数启动程序，控制台上开始进行对话触发相应服务。
 
-![](./pics/1-greeting.png)  
+![](pics/1-greeting.png)  
 *启动后进入对话主线程，看到问候语后可在控制台正常输入*
 
 
-![](./pics/2-query-weather.png)  
+![](pics/2-query-weather.png)  
 *输入中命中关键字“weather”，则进入天气查询场景*
 
 
-![](./pics/3-snake-game.png)  
+![](pics/3-snake-game.png)  
 *输入中命中关键字“snake”，则进入贪吃蛇游戏，此时原控制台可以继续聊天*
 
