@@ -1,6 +1,5 @@
-# roadmap references
+# sprint1 roadmap references
 
-## sprint 1 - basic knowledge
 basic in basic
 * 大学生计算机基础（通识教育必修:）可以把大学课本翻出来再看看
 
@@ -40,19 +39,3 @@ other info you should skim at the beginning (personal advise
 
 additional book recommendation for sprint 1
 * [人月神话](https://book.douban.com/subject/1105381/)
-
-
-> Talk is cheap. Show me the code.
-
----
-
-## sprint 2 - whatever
-
-* 数据库
-* 面向对象编程思想、设计模式、UML
-* 编程语言进阶（C++ STL等）
-* 计算机相关知识加深（操作系统、计算机组成原理知识简单了解
-* ...
-
-additional book recommendation for sprint 2
-* [编码：隐匿在计算机软硬件背后的语言](https://book.douban.com/subject/4822685/)
