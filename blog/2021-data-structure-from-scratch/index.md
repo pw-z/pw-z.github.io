@@ -9,6 +9,9 @@
 * [Heap][7]  
 
 
+*code detail see [./data-structure-from-scratch/*](./data-structure-from-scratch/)*  
+
+
 [1]:20210705-data-structure-from-scratch-linearlist-and-linkedlist
 [2]:20210729-data-structure-from-scratch-stack-and-queue
 [3]:20210801-data-structure-from-scratch-string
