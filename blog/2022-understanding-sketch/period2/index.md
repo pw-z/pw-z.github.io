@@ -1,5 +1,6 @@
 # 理解素描::阶段二::静物组合到简单石膏像
-*Posted on 2022.06.05 by [Pengwei](http://pwz.wiki) under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*
+*Posted on 2022.06.05 by [Pengwei](http://pwz.wiki) under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*  
+*Updated on 2022.06.25 (typo fix, format fix)*
 
 在画室的第一期课程结束后，紧接着开始了第二期（2021.08.16~2022.11.15），以下为这一阶段的所有练习。
 

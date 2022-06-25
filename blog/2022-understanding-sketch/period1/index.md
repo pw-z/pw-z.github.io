@@ -1,5 +1,6 @@
 # 理解素描::阶段一::基本几何体到简单静物
-*First posted on 2022.06.04 by [Pengwei](http://pwz.wiki) under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*
+*Posted on 2022.06.04 by [Pengwei](http://pwz.wiki) under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*  
+*Updated on 2022.06.25 (typo fix, format fix)*
 
 
 - [背景介绍](#背景介绍)
