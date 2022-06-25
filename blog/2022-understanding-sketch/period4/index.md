@@ -6,23 +6,34 @@
 
 ## 0513-0625 *9
 
-![](./sketch/20220513-mix-compressed.jpg)
+![](./sketch/20220513-mix-compressed.jpg)  
 
-![](./sketch/20220515-mix-compressed.jpg)
 
-![](./sketch/20220520-mix-compressed.jpg)
+![](./sketch/20220515-mix-compressed.jpg)  
 
-![](./sketch/20220525-mix-compressed.jpg)
 
-![](./sketch/20220527-mix-compressed.jpg)
+![](./sketch/20220520-mix-compressed.jpg)  
 
-![](./sketch/20220603-mix-compressed.jpg)
 
-![](./sketch/20220619-mix-compressed.jpg)
+![](./sketch/20220525-mix-compressed.jpg)  
 
-![](./sketch/20220622-mix-compressed.jpg)
 
-![](./sketch/20220625-6-mix-compressed.jpg)
+![](./sketch/20220527-mix-compressed.jpg)  
+
+
+![](./sketch/20220603-mix-compressed.jpg)  
+
+
+![](./sketch/20220619-mix-compressed.jpg)  
+
+
+![](./sketch/20220622-mix-compressed.jpg)  
+
+
+![](./sketch/20220625-6-mix-compressed.jpg)  
+*重点：不使用揉擦，花费大部分时间观察块面形状、比例、角度*  
+*进步：大形状相比之前有进展*  
+*不足：面部的角度没有表现出来，并且是快画完才意识到，另外线条凌乱*  
 
 
 ## 0626-?
