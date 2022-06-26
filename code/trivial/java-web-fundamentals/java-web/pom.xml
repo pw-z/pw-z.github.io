@@ -13,13 +13,6 @@
     <!--依赖-->
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.derby</groupId>-->
-<!--            <artifactId>derby</artifactId>-->
-<!--            <version>10.16.1.1</version>-->
-<!--        </dependency>-->
-
         <!--sqlite-->
         <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
         <dependency>
@@ -28,6 +21,12 @@
             <version>3.36.0.3</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.11</version>
+        </dependency>
 
     </dependencies>
 
