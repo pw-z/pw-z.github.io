@@ -1,4 +1,4 @@
-package com.pwz.wiki.database.druid;
+package com.pwz.wiki.database.c_druid;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 

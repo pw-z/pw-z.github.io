@@ -1,4 +1,4 @@
-package com.pwz.wiki.database.jdbc;
+package com.pwz.wiki.database.a_jdbc;
 
 import java.sql.*;
 

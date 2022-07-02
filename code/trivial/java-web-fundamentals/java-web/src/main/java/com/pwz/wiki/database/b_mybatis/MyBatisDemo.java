@@ -1,7 +1,7 @@
-package com.pwz.wiki.database.mybatis;
+package com.pwz.wiki.database.b_mybatis;
 
-import com.pwz.wiki.database.mybatis.mapper.GuitarMapper;
-import com.pwz.wiki.database.mybatis.pojo.Guitar;
+import com.pwz.wiki.database.b_mybatis.mapper.GuitarMapper;
+import com.pwz.wiki.database.b_mybatis.pojo.Guitar;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
