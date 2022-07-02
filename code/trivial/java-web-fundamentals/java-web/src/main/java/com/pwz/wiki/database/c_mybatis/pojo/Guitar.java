@@ -1,4 +1,4 @@
-package com.pwz.wiki.database.b_mybatis.pojo;
+package com.pwz.wiki.database.c_mybatis.pojo;
 
 public class Guitar {
 
