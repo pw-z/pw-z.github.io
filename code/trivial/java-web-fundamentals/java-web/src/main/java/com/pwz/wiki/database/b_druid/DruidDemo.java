@@ -11,6 +11,13 @@ import java.util.Properties;
 
 public class DruidDemo {
 
+    /**
+     * 使用DataSource统一管理数据库连接
+     * 需要做的就是创建DruidDataSourceFactory，然后通过它获取dataSource，再通过dataSource获取connection就行了
+     * druid初始化需要传入配置信息，配置文件中可以配置的参数，具体见官网，参数名是规定好的，不要自己处理
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         //1.配置druid依赖
         //详见POM文件
