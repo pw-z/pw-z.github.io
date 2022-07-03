@@ -15,6 +15,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/pwz/wiki/database/mybatis/mapper/GuitarMapper.xml"/>
+        <mapper resource="com/pwz/wiki/database/c_mybatis/mapper/GuitarMapper.xml"/>
     </mappers>
 </configuration>
