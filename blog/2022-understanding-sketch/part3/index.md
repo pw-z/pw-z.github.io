@@ -1,4 +1,4 @@
-# 理解素描::阶段三::绘画练习停滞的几个月
+# 理解素描::三::停滞的几个月
 *Posted on 2022.06.05 by [Pengwei](http://pwz.wiki) under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*  
 *Updated on 2022.06.25 (typo fix, format fix)*
 

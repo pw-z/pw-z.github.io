@@ -1,4 +1,4 @@
-# 理解素描::阶段二::静物组合到简单石膏像
+# 理解素描::二::静物组合到简单石膏像
 *Posted on 2022.06.05 by [Pengwei](http://pwz.wiki) under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*  
 *Updated on 2022.06.25 (typo fix, format fix)*
 

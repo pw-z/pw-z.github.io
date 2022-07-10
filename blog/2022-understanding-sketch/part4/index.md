@@ -1,4 +1,4 @@
-# 理解素描::阶段四::尝试画人像
+# 理解素描::四::尝试画人像
 *Posted on 2022.06.05 by [Pengwei](http://pwz.wiki) under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*  
 *Last updated on 2022.07.10 ~add new sketch*
 
