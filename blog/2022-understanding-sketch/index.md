@@ -20,3 +20,7 @@
 [part3]:./part3/index
 [part4]:./part4/index
 [part5]:./part5/index
+
+---
+
+[对素描的理解@20220710](./summary/summary-20220710)
