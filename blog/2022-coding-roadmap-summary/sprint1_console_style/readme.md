@@ -4,7 +4,7 @@
 
 迭代1完全使用java实现，最终交付物汇总如下:
 
-* PRD：[OraKit Sprint 1 PRD](./prd)
-* JAVA：[迭代用到的Java内容代码实践](a_review_java_basic/readme)
-* OraKit2.0：[本次迭代正式代码及说明文档](b_orakit_sprint_1/readme)
-* Reference：[本次迭代参考资料汇总](./reference)
+* PRD：[OraKit Sprint 1 PRD](./prd.md)
+* JAVA：[迭代用到的Java内容代码实践](a_review_java_basic/readme.md)
+* OraKit2.0：[本次迭代正式代码及说明文档](b_orakit_sprint_1/readme.md)
+* Reference：[本次迭代参考资料汇总](./reference.md)
