@@ -7,11 +7,8 @@
 [迭代4：提供网页客户端（Web开发）（使用并理解框架的能力）][4]  
 [迭代5：高并发高可用场景与解决方案][5]  
 
-[1]:./sprint1_console_style/readme
-[2]:./sprint2_gui_and_db/readme
-[3]:./sprint3_webapp_without_framework/readme
-[4]:./sprint4_webapp_with_framework/readme
-[5]:./sprint5_high_concurrency_and_high_availability/readme
-
-
-[以上readme内容汇总概览](blog-backup)
+[1]:./sprint1_console_style/readme.md
+[2]:./sprint2_gui_and_db/readme.md
+[3]:./sprint3_webapp_without_framework/readme.md
+[4]:./sprint4_webapp_with_framework/readme.md
+[5]:./sprint5_high_concurrency_and_high_availability/readme.md

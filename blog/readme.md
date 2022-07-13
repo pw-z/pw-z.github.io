@@ -13,9 +13,9 @@
 
 
 
-[2022b]:./2022-coding-roadmap-summary/blog
-[2022a]:./2022-understanding-sketch/index
-[2021b]:./2021-data-structure-from-scratch/index
-[2021a]:./2021-an-api-autotest-tool/20210719-an-api-autotest-tool
-[2020]:./2020-java-basic-knowledge-review/index
-[2018]:./2018-some-views-about-cyberspace-security/some-views-about-cyberspace-security
+[2022b]:./2022-coding-roadmap-summary/blog.md
+[2022a]:./2022-understanding-sketch/index.md
+[2021b]:./2021-data-structure-from-scratch/index.md
+[2021a]:./2021-an-api-autotest-tool/20210719-an-api-autotest-tool.md
+[2020]:./2020-java-basic-knowledge-review/index.md
+[2018]:./2018-some-views-about-cyberspace-security/some-views-about-cyberspace-security.md
