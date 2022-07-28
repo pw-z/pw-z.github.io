@@ -4,6 +4,8 @@ import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 import javax.sql.DataSource;
 import java.io.FileInputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -27,7 +29,8 @@ public class DruidDemo {
 
         //3.加载配置文件
         Properties prop = new Properties();
-        prop.load(new FileInputStream("java-web/src/main/java/com/pwz/wiki/database/druid/druid.properties"));
+//        prop.load(Files.newInputStream(Paths.get("./druid.properties")));
+        prop.load(DruidDemo.class.getClassLoader().getResourceAsStream("druid.properties"));
 
         //4.获取连接池对象
         DataSource dataSource = DruidDataSourceFactory.createDataSource(prop);
