@@ -1,7 +1,12 @@
 # 理解素描::五::歇一歇读读书会有长进吗
 *Posted on 2022.07.10 by [Pengwei](http://pwz.wiki) under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*  
+*Last updated on 2022.07.31*
 
-[toc]
+- [《像艺术家一样思考》](#像艺术家一样思考)
+  - [1. 绘画和骑单车的艺术](#1-绘画和骑单车的艺术)
+  - [2. 素描训练基础说明](#2-素描训练基础说明)
+  - [3. 左脑与右脑](#3-左脑与右脑)
+  - [4. 右脑模式体验&儿时符号系统&绕开符号系统](#4-右脑模式体验儿时符号系统绕开符号系统)
 
 ## 《像艺术家一样思考》
 
@@ -23,11 +28,11 @@
 
 这一章介绍（本书中）关于素描训练的基本信息，需要用到的工具，布置了三项“学前练习”，分别是“自画像”、“某位记忆中的人物”和“自己的手”。
 
-![](./sketch/20220727-01-self-portrait-compressed.jpg)
+![](./sketch/sectionA/20220727-01-self-portrait-compressed.jpg)
 
-![](./sketch/20220727-02-a-person-drawn-from-memory-compressed.jpg)
+![](./sketch/sectionA/20220727-02-a-person-drawn-from-memory-compressed.jpg)
 
-![](./sketch/20220727-03-my-left-hand-compressed.jpg)
+![](./sketch/sectionA/20220727-03-my-left-hand-compressed.jpg)
 
 
 ### 3. 左脑与右脑
@@ -75,7 +80,7 @@
 >重复一遍，关键是如何完成从左脑模式到右脑模式的认知转换。像我在第四章说的那样，最有效的方法是向大脑提交一项左脑不能或不想处理的任务。
 
 
-![](./sketch/20220730-mix-edit-compressed.jpg)
+![](./sketch/sectionA/20220730-mix-edit-compressed.jpg)
 
 
 >向十岁以上的人教授写实画的中心问题是，当那些绘画符号不再适用于这个任务时，它们挥之不去。
@@ -84,4 +89,4 @@
 
 >到目前为止，我们已经发现了左脑在能力上的一些缺陷。它不喜欢对称的图像（如酒杯／人脸画）。它不能应付颠倒过来的感知信息（如在颠倒的斯特拉文斯基的画像中那样）。它拒绝处理缓慢、复杂的感知（如纯的和改良轮廓画）。我们通过利用这些缺陷来帮助右脑模式有机会在没有左脑模式干扰的情况下处理视觉信息。
 
-![](./sketch/20220731-palm-pattern-compressed.jpg)
+![](./sketch/sectionA/20220731-palm-pattern-compressed.jpg)
