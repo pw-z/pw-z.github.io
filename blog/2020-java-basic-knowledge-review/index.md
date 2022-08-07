@@ -23,4 +23,4 @@
 
 *\--- trivial essays*  
 [#20220807 关于架构分层及缩写名称的主题阅读与随笔](./trivial/20220807-project-architect-and-java-bean-acronyms.md)  
-[#20220807 JavaWeb技术栈概览与小结](./trivial/20220807-java-web-fundamentals-coding-and-summary/blog.md)
+[#20220807 JavaWeb技术栈概览与小结](./trivial/20220807-java-web-fundamentals-coding-and-summary/blog/mindmap.html)
