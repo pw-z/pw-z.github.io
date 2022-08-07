@@ -19,3 +19,7 @@
 [6]:./basic/20200330-java-basic-knowledge-review-6-character-string-handling
 [7]:./basic/20200331-java-basic-knowledge-review-7-generic-programming
 [8]:./basic/20200408-java-basic-knowledge-review-8-about-container
+
+\---
+
+[关于架构分层及缩写名称的主题阅读与随笔](./trivial/20220807-project-architect-and-java-bean-acronyms.md)
