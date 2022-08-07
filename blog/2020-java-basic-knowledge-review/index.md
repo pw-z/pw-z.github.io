@@ -10,7 +10,6 @@
 [（八）：集合框架基础*][8]  
 
 
-
 [1]:./basic/20200311-java-basic-knowledge-review-1-eight-primitive-data-types
 [2]:./basic/20200312-java-basic-knowledge-review-2-oop-and-its-basic-characteristics
 [3]:./basic/20200323-java-basic-knowledge-review-3-access-control-and-feature-modifier
@@ -20,7 +19,8 @@
 [7]:./basic/20200331-java-basic-knowledge-review-7-generic-programming
 [8]:./basic/20200408-java-basic-knowledge-review-8-about-container
 
-\---
 
-[关于架构分层及缩写名称的主题阅读与随笔](./trivial/20220807-project-architect-and-java-bean-acronyms.md)  
-[JavaWeb技术栈概览与小结](./trivial/java-web-fundamentals/readme.md)
+
+*\--- trivial essays*  
+[#20220807 关于架构分层及缩写名称的主题阅读与随笔](./trivial/20220807-project-architect-and-java-bean-acronyms.md)  
+[#20220807 JavaWeb技术栈概览与小结](./trivial/20220807-java-web-fundamentals-coding-and-summary/blog.md)
