@@ -22,4 +22,5 @@
 
 \---
 
-[关于架构分层及缩写名称的主题阅读与随笔](./trivial/20220807-project-architect-and-java-bean-acronyms.md)
+[关于架构分层及缩写名称的主题阅读与随笔](./trivial/20220807-project-architect-and-java-bean-acronyms.md)  
+[JavaWeb技术栈概览与小结](./trivial/java-web-fundamentals/readme.md)
