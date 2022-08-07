@@ -9,4 +9,4 @@
 [*2018-some-views-about-cyberspace-security*](./2018-some-views-about-cyberspace-security/some-views-about-cyberspace-security.md)  
 
 --  
-[**trivial-essays*](./unsorted-trivial/index.md)
+[**trivial-essays*](./trivial-essays/index.md)
