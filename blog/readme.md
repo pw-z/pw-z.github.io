@@ -8,9 +8,6 @@
 [*2020-being-pythonic*](./2020-being-pythonic/index.md)  
 [*2020-machine-learning*](./2020-machine-learning/index.md)  
 [*2020-java-basic-knowledge-review*](./2020-java-basic-knowledge-review/index.md)  
-[*2019-philosophy-of-life*](./2019-philosophy-of-life/index.md)
+[*2019-philosophy-of-life*](./2019-philosophy-of-life/index.md)  
 [*2019-about-blogging*](./2019-about-blogging/index.md)  
 [*2018-some-views-about-cyberspace-security*](./2018-some-views-about-cyberspace-security/some-views-about-cyberspace-security.md)  
-
-\---  
-[**trivial-essays*](./trivial-essays/index.md)
