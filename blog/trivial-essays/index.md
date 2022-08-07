@@ -1,10 +1,6 @@
 # trivial essays
 
 * 2021
-    + 09.10 - [用Python和正则表达式校验数学运算式的合法性][2021e]
-    + 06.23 - [Import Testcases From Excel to Testlink][2021d]
-    + 05.31 - [获取Jira与Testlink测试概况并推送消息到钉钉机器人][2021c]
-    + 05.16 - [使用Perl正则替换优化tail-f命令查看日志的显示效果][2021b]
     + 05.05 - [~~阮一峰科技爱好者周刊1~155期合集及~~处理脚本][2021a]
 * 2020
     + 04.11 - [NumPy入门实践][2020d]
@@ -20,10 +16,6 @@
 
 
 [2021a]:./2021/20210505-ruanyf-weekly-compilation-1-155-with-the-process-code/blog
-[2021b]:./2021/20210516-tail-f-logs-with-syntax-highlighting-through-perl-regex-replace/blog
-[2021c]:./2021/20210531-collect-test-status-of-jira-and-testlink-then-send-msg-to-dingtalkchatbot/blog
-[2021d]:./2021/20210623-import-testcases-from-excel-to-testlink/blog
-[2021e]:./2021/20210908-check-the-validity-of-mathematical-expressions-with-python-and-regular-expression/blog
 
 [2020a]:./2020/20200328-the-illustrated-guide-to-a-phd-in-chinese-with-picture-in-css
 [2020b]:./2020/20200404-python3-zero-to-one-challenge-a-text-rpg-game
