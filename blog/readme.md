@@ -11,3 +11,4 @@
 [*2019-philosophy-of-life*](./2019-philosophy-of-life/index.md)  
 [*2019-about-blogging*](./2019-about-blogging/index.md)  
 [*2018-some-views-about-cyberspace-security*](./2018-some-views-about-cyberspace-security/some-views-about-cyberspace-security.md)  
+[*2016-photography*](./2016-photography/index.md)
