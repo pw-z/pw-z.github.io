@@ -2,18 +2,19 @@
 # -*- coding: utf-8 -*-
 # created by pwz.wiki 2022
 import os
+import sys
 from PIL import Image
 
 
-def convert_all_webp_to_jpg(path='.', out_path='./out'):
+def traverse_and_process(path='.'):
     """
-    将指定路径下所有webp格式照片转换为jpg
+    遍历指定路径下所有文件，执行相关处理逻辑
     :param out_path:
     :param path:
     :return:
     """
-    webp_count = count = 0
-    os.makedirs(out_path) if not os.path.exists(out_path) else path
+    print("start traverse " + path)
+    process_count = count = 0
     path_queue = [path, ]
     while len(path_queue) > 0:
         current_path = path_queue.pop(0)
@@ -30,20 +31,21 @@ def convert_all_webp_to_jpg(path='.', out_path='./out'):
                 print(f'---  new dir enqueue, queue length:{len(path_queue)}')
                 continue
 
-            if item.endswith('.webp'):
-                print(f'!!!!!!!!!!!!!!!!!!!{item}')
-                img = Image.open(item)
-                img = img.convert("RGB")
-                # 原路径保存
+            # ============================================================
+            # 编写处理逻辑
+            # ============================================================
+            if item.endswith('.png'):
+                print(f'processing ... {item}')
+                # img = Image.open(item)
+                # img = img.convert("RGB")
                 # img.save(item.replace('webp', 'jpg'), "JPEG", quality=100, progressive=True)
-                # 统一保存到out目录
-                img.save(os.path.join(out_path, d_or_f.replace('webp', 'jpg')), "JPEG", quality=100, progressive=True)
 
-                webp_count += 1
+                process_count += 1
             count += 1
-    print(f'[{count}] pics processed, convert [{webp_count}] webp to jpg.')
+            # ============================================================
+    print(f"total: {count} \n processed: {process_count}")
 
 
 if __name__ == '__main__':
-    convert_all_webp_to_jpg()
+    traverse_and_process()
 
