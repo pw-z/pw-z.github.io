@@ -1,2 +1,0 @@
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\TEC\Ocular.3\agent\config" /v "hookapi_disins" /d "1" /f
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\TEC\Ocular.3\agent\config" /v "hookapi_filterproc_external" /d "*.exe;SourceTree.exe;Code.exe;Vboxsvc.exe;virtualbox.exe;VirtualBOX.exe;cmd.exe;powershell.exe;git.exe;idea64.exe;svn.exe;pycharm64.exe;anki.exe;firefox.exe" /f
