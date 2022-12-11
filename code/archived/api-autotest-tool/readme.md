@@ -10,9 +10,7 @@
 * ./src/lightweight_version 接口自动化测试框架@轻量化版本
 * ./src/pytest_allure_version 接口自动化测试框架@引入pytest及allure版本
 * ./case/case_template.xlsx 测试用例模板，需要与虚拟接口服务配合使用
-* ./doc/2021071901-basic-functions-implementation.md 说明文档@基本功能的实现
-* ./doc/2021071902-generate-test-report-from-scratch.md 说明文档@测试报告的生成
-* ./readme.md 整体说明文档
+* [./doc/20210719-an-api-autotest-tool.md](doc/20210719-an-api-autotest-tool.md) 设计实现过程
 
 ## 核心依赖
 
