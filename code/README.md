@@ -9,6 +9,6 @@
 |[StudentAchievementMS][SAMS]|学生成绩管理系统，C语言大作业，关于软件开发最古早的回忆。|
 
 
-[API_Autotest_Tool]:./archived/api-autotest-tool/
-[BCMS]:./archived/bank-credit-management-system/
-[SAMS]:./archived/c-programming-homework/
+[API_Autotest_Tool]:./api-autotest-tool/
+[BCMS]:./bank-credit-management-system/
+[SAMS]:./c-programming-homework/
