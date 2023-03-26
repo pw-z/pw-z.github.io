@@ -1,19 +1,22 @@
 # 理解素描::五::歇一歇读读书会有长进吗
 *Posted on 2022.07.10 by [Pengwei](http://pwz.wiki) under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*  
-*Last updated on 2022.07.31*
+*Last updated on 2023.03.27*
 
 - [理解素描::五::歇一歇读读书会有长进吗](#理解素描五歇一歇读读书会有长进吗)
-  - [《像艺术家一样思考》](#像艺术家一样思考)
-    - [1. 绘画和骑单车的艺术](#1-绘画和骑单车的艺术)
-    - [2. 素描训练基础说明](#2-素描训练基础说明)
-    - [3. 左脑与右脑](#3-左脑与右脑)
-    - [4-6. 右脑模式体验\&儿时符号系统\&绕开符号系统](#4-6-右脑模式体验儿时符号系统绕开符号系统)
-    - [7-8. 感知空间的形状（阴形）\&透视基础](#7-8-感知空间的形状阴形透视基础)
-    - [9、画头像](#9画头像)
+  - [Drawing on the Right Side of the Brain (《像艺术家一样思考》) by Betty Edwards](#drawing-on-the-right-side-of-the-brain-像艺术家一样思考-by-betty-edwards)
+    - [01. 绘画和骑单车的艺术](#01-绘画和骑单车的艺术)
+    - [02. 素描训练基础说明](#02-素描训练基础说明)
+    - [03. 左脑与右脑](#03-左脑与右脑)
+    - [04-06. 右脑模式体验\&儿时符号系统\&绕开符号系统](#04-06-右脑模式体验儿时符号系统绕开符号系统)
+    - [07-08. 感知空间的形状（阴形）\&透视基础](#07-08-感知空间的形状阴形透视基础)
+    - [09. 画头像](#09-画头像)
+    - [10. 光线与阴影的逻辑](#10-光线与阴影的逻辑)
+    - [99. 读后小结#20230327](#99-读后小结20230327)
+  - [The Eye of the Painter and the Elements of Beauty (《画家之眼》) by Andrew Loomis](#the-eye-of-the-painter-and-the-elements-of-beauty-画家之眼-by-andrew-loomis)
 
-## 《像艺术家一样思考》
+## Drawing on the Right Side of the Brain (《像艺术家一样思考》) by Betty Edwards
 
-### 1. 绘画和骑单车的艺术
+### 01. 绘画和骑单车的艺术
 
 可以从某种角度将知识分类为思考类知识和运动类知识[*(Refer~YJango-大脑运作模式视角下的知识分类)*](https://zhuanlan.zhihu.com/p/50793837)，关于学习绘画的相当一部分内容属于构建运动类知识这个过程，所以我们不能简单通过听课、阅读来掌握绘画。
 
@@ -27,18 +30,18 @@
 >当你能够掌握画家们看事物的特殊方法时，你就能画画了。
 >学习绘画的关键是把大脑转换到不同的信息处理模式，即一种意识模式的轻微转换，为你能够更好地看事物建立条件。
 
-### 2. 素描训练基础说明
+### 02. 素描训练基础说明
 
 这一章介绍（本书中）关于素描训练的基本信息，需要用到的工具，布置了三项“学前练习”，分别是“自画像”、“某位记忆中的人物”和“自己的手”。
 
-![](./sketch/sectionA/20220727-01-self-portrait-compressed.jpg)
+![](./sketch/Drawing-on-the-Right-Side-of-the-Brain/20220727-01-self-portrait-compressed.jpg)
 
-![](./sketch/sectionA/20220727-02-a-person-drawn-from-memory-compressed.jpg)
+![](./sketch/Drawing-on-the-Right-Side-of-the-Brain/20220727-02-a-person-drawn-from-memory-compressed.jpg)
 
-![](./sketch/sectionA/20220727-03-my-left-hand-compressed.jpg)
+![](./sketch/Drawing-on-the-Right-Side-of-the-Brain/20220727-03-my-left-hand-compressed.jpg)
 
 
-### 3. 左脑与右脑
+### 03. 左脑与右脑
 
 大多数人左右脑具有偏侧性，左右脑擅长的东西不一样。相比于擅长逻辑分析的总在进行概括归类的词汇性的左脑，右脑更擅长处理绘画这项任务。
 
@@ -69,7 +72,7 @@
 *上表来自原书*
 
 
-### 4-6. 右脑模式体验&儿时符号系统&绕开符号系统
+### 04-06. 右脑模式体验&儿时符号系统&绕开符号系统
 
 对应原书4~6章。通过一些设计好的绘画任务，感受左脑的符号系统对绘画的（不利）影响以及纯粹的右脑模式对绘画的帮助。右脑模式实际对应以前总结过的，“如实的观察”。
 
@@ -83,7 +86,7 @@
 >重复一遍，关键是如何完成从左脑模式到右脑模式的认知转换。像我在第四章说的那样，最有效的方法是向大脑提交一项左脑不能或不想处理的任务。
 
 
-![](./sketch/sectionA/20220730-mix-edit-compressed.jpg)
+![](./sketch/Drawing-on-the-Right-Side-of-the-Brain/20220730-mix-edit-compressed.jpg)
 
 
 >向十岁以上的人教授写实画的中心问题是，当那些绘画符号不再适用于这个任务时，它们挥之不去。
@@ -92,10 +95,10 @@
 
 >到目前为止，我们已经发现了左脑在能力上的一些缺陷。它不喜欢对称的图像（如酒杯／人脸画）。它不能应付颠倒过来的感知信息（如在颠倒的斯特拉文斯基的画像中那样）。它拒绝处理缓慢、复杂的感知（如纯的和改良轮廓画）。我们通过利用这些缺陷来帮助右脑模式有机会在没有左脑模式干扰的情况下处理视觉信息。
 
-![](./sketch/sectionA/20220731-palm-pattern-compressed.jpg)
+![](./sketch/Drawing-on-the-Right-Side-of-the-Brain/20220731-palm-pattern-compressed.jpg)
 
 
-### 7-8. 感知空间的形状（阴形）&透视基础
+### 07-08. 感知空间的形状（阴形）&透视基础
 
 构图的定义：阳形（目标物体/人物）+阴形（空白区域）+框架（平面外围边线）
 
@@ -117,7 +120,7 @@
 >    ——《艺术的精神》，1923。
 
 
-### 9、画头像
+### 09. 画头像
 人像画要求非常精确的感知，比例关系至关重要，右脑善于识别人脸，像与不像立刻就能知道
 
 除了复杂程度，某种类型的画（比如人像）不会比另一种类型的画更难，进行任何类型的绘画时所做的工作都是相同的，每一幅画都要求你学习这些基本感知技巧
@@ -128,4 +131,27 @@
 * 眼睛到下巴的距离与眼睛到头顶的距离相等
 * 眼睛水平线到下巴的长度与眼外角到耳朵背后的距离相等
 
-正侧面肖像练习
+正侧面肖像练习：
+
+![](./sketch/Drawing-on-the-Right-Side-of-the-Brain/20230103-Mme-Pierre-Gautreau-compressed.jpeg)
+
+### 10. 光线与阴影的逻辑
+
+如左脑对阴形与颠倒的画面的不感兴趣一样，左脑对光与影也不重视，需要调动意识客观地观察光影
+
+人像画三个基本角度：正面、侧面、四分之三侧面
+
+
+运用光线逻辑画一幅完全相似、带有色调、充满立体感的自画像：
+
+![](./sketch/Drawing-on-the-Right-Side-of-the-Brain/20230326-frontal-view-self-portrait-compressed.jpeg)
+
+### 99. 读后小结#20230327
+
+<video src="./sketch/Drawing-on-the-Right-Side-of-the-Brain/20230327-video.mp4" controls="controls" width="960px"> </video>
+
+最后一张自画像，傍晚坐窗前开始画，没多会儿天完全黑掉懒得开灯摸黑涂鸦，开灯后真是“惊喜”。对比开始读这本书时第一张自画像，绘画能力没啥进展（归咎于若干练习敷衍了事），认知方面书中关于左脑右脑模式的论述最有趣，理解并运用这种差异可以更好地进行绘画。有一种观念在读这本书时又不断被强化，即不带抽象总结的客观的观察与落笔，是描绘准确的关键，对于这本书而言，就是进入右脑模式感知现实情况，借助左脑模式评估修正，屏蔽左脑的符号系统。
+
+
+## The Eye of the Painter and the Elements of Beauty (《画家之眼》) by Andrew Loomis
+
