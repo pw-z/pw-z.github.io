@@ -1,6 +1,6 @@
 # 理解素描::五::歇一歇读读书会有长进吗
 *Posted on 2022.07.10 by [Pengwei](http://pwz.wiki) under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*  
-*Last updated on 2023.03.27*
+*Last updated on 2023.04.05*
 
 - [理解素描::五::歇一歇读读书会有长进吗](#理解素描五歇一歇读读书会有长进吗)
   - [Drawing on the Right Side of the Brain (《像艺术家一样思考》) by Betty Edwards](#drawing-on-the-right-side-of-the-brain-像艺术家一样思考-by-betty-edwards)
@@ -19,6 +19,15 @@
       - [色彩（Color）](#色彩color)
       - [质感（Texture）](#质感texture)
     - [03. 读后小记#20230402](#03-读后小记20230402)
+  - [Keys to Drawing (《素描的诀窍》) by Bert Dodson](#keys-to-drawing-素描的诀窍-by-bert-dodson)
+    - [1. The Drawing Process](#1-the-drawing-process)
+    - [2. The Artist's Handwriting](#2-the-artists-handwriting)
+    - [3. Proportions: Taking the Measure of Things](#3-proportions-taking-the-measure-of-things)
+    - [4. The Illusion of Light](#4-the-illusion-of-light)
+    - [5. The Illusion of Depth](#5-the-illusion-of-depth)
+    - [6. The Illusion of Texture](#6-the-illusion-of-texture)
+    - [7. Pattern and Design](#7-pattern-and-design)
+    - [8. Drawing and Imagination](#8-drawing-and-imagination)
 
 ## Drawing on the Right Side of the Brain (《像艺术家一样思考》) by Betty Edwards
 
@@ -234,4 +243,38 @@
 ![](./sketch/The-Eye-of-the-Painter-and-the-Elements-of-Beauty/reading-on-plane.jpeg)
 
 回上海的途中读完这本很久之前买回到家中一直没动放在书架上的书，15万字多是论述没有练习外加有些基础的了解于是读的很快，写这些笔记时又找来了英文版本重新对照阅读了一次，有收获但不多，原因也在于很多内容之前已经有所了解。看到个还不错的视频可以[快速了解这本书](https://www.bilibili.com/video/BV1XZ4y1w7A1/?spm_id_from=333.788&vd_source=215226f55ec25efebe70612682143c68)。
+
+
+
+## Keys to Drawing (《素描的诀窍》) by Bert Dodson
+
+This may be my third or fourth time reading this book, definitely more than twice. Before taking the formal course from the sketch teacher, I knew about this book and learned the basics of painting through it. I'd like to review some inspiring or important viewpoints in this book and do some casual exercises. It's midnight and raining outside, let's go have fun.
+
+### 1. The Drawing Process
+
+
+>It takes courage to ignore knowledge and to respond to what we see instead.
+
+
+
+
+### 2. The Artist's Handwriting
+
+
+### 3. Proportions: Taking the Measure of Things
+
+
+### 4. The Illusion of Light
+
+
+### 5. The Illusion of Depth
+
+
+### 6. The Illusion of Texture
+
+
+### 7. Pattern and Design
+
+
+### 8. Drawing and Imagination
 
