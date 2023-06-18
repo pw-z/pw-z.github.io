@@ -1,4 +1,6 @@
-# Guitar
+# Guitar Song Book
+
+[TOC]
 
 ## Wish You Were Here
 
