@@ -1,26 +1,11 @@
-# 乐理基础～搞清楚一些最基本的重要乐理
+# 乐理基础～搞清楚一些最基本的乐理
 
-目标：理解音程、音阶、和弦概念，支撑下一步在吉他指板上实践练习。  
+*Posted on 2023.07.12 by [Zhang Pengwei](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)* 
+
+目标：初步理解音程、音阶、和弦概念，支撑在吉他指板上的实践练习  
 参考书：The Musician's Guide to Theory and Analysis (Third Edition) 
 
 [TOC]
-
-## 术语
-
-* 音名 Pitch: A B C D E F G
-* 音高 Pitch-CLass
-* 八度 Octave
-* 升降音 Flats and Sharps
-* 同音异名 Enharmonic Pitches
-* 半音级 Half Step (or Semitone) 
-* 全音级 Whole Step (or Whole Tone)
-* 音程 Interval
-* 自然音组 Diatonic Collection
-* 变化音组 Chromatic Collection
-* 音阶 Scales: Ordered Pitch-Class Collections
-* 大调音阶;自然大调 Major Scale
-* 半音音阶 Chromatic Scale
-* 主音 Tonic
 
 ## 音程
 
@@ -75,8 +60,8 @@ C小调：C  D ♭E  F  G ♭A ♭B  C
 5个半音可以是纯四度也可以是增三度。度数、半音数与音程之间的关系不能简单映射，要综合来看。
 
 拓展链接：
-* [音程查找索引 - musicca.com](https://www.musicca.com/zh/interval-finder)
-* [半音可以描述所有的音程关系吗？如果能，那度存在的意义是什么？ - 知乎](https://www.zhihu.com/question/39434850/answer/84746214)
+* 音程查找：[音程查找索引 - musicca.com](https://www.musicca.com/zh/interval-finder)
+* 一个好问题：[半音可以描述所有的音程关系吗？如果能，那度存在的意义是什么？ - 知乎](https://www.zhihu.com/question/39434850/answer/84746214)
 
 ### 吉他指板上的音程关系
 
@@ -137,18 +122,100 @@ E-|--|--|-X|--|--|--|--|--|--|--|--|--|--|-|X|-|-|-|-|-|
 
 ### 七种中古调式及更多调式
 
-| 调式           | 模式           | 备注 |
-| -------------- | -------------- | ---- |
+| 调式           | 模式           | 备注     |
+| -------------- | -------------- | -------- |
 | I级 Ionian     | 全全半全全全半 | 自然大调 |
-| II级 Dorian    | 全半全全全半全 |
-| III级 Phrygian | 半全全全半全全 |
+| ii级 Dorian    | 全半全全全半全 |
+| iii级 Phrygian | 半全全全半全全 |
 | IV级 Lydian    | 全全全半全全半 |
 | V级 Mixolydian | 全全半全全半全 |
-| VI级  Aeolian  | 全半全全半全全 | 自然小调 |
-| VII级 Locrian  | 半全全半全全全 |
+| vi级  Aeolian  | 全半全全半全全 | 自然小调 |
+| vii级 Locrian  | 半全全半全全全 |
 
-调式种类繁多，不同国家、民族、类别的音乐会运用不同的调式，如此产生了各具特色听感的音乐。
+调式音阶种类繁多，不同国家、民族、类别的音乐运用不同的调式音阶（如五声音阶、布鲁斯音阶等）产生了听感各不相同的音乐。
+
+### 如何练习吉他指板上的音阶
+
+循序渐进地吃掉指板音阶：
+1. 认识指板：借助音程关系认识指板结构 ~ [参考1](https://hubguitar.com/zh_han/fretboard/knowledge-octaves)、[参考2](https://www.bilibili.com/video/BV1Ht4y1z7GE)
+2. 掌握规律：理解指板的**图形规律**，借助五个大调音阶指型、一弦三音等进一步熟悉指板 ～[参考1](https://www.bilibili.com/video/BV1Nf4y1i7Pf)、[参考2](https://www.bilibili.com/video/BV1v4411A7x2)
+3. 提高熟练度：大小调音阶、布鲁斯音阶、五声音阶等等常用音阶，上行下行横向纵向模进 ～[参考1](https://www.bilibili.com/video/BV1U5411N7hV)、[参考2](https://www.bilibili.com/video/BV1th411t7SH)
+4. 先把前面的练好再说:)
+
 
 ## 和弦
 
+### 三和弦七和弦构成及命名
 
+**和弦构成**：两个或更多的音程组合在一起构成和弦，以任意音作为根音叠加两个三度音构成**三和弦**（根音+三度音+五度音），继续叠加三度构成**七和弦**（根音+三度音+五度音+七度音）、**九和弦**等，
+
+| 三和弦   | 构成（两个三度音程视角） | 构成（三度音及五度音视角） | 标识符号            | 举例             |
+| -------- | ------------------------ | -------------------------- | ------------------- | ---------------- |
+| 大三和弦 | 大三度 + 小三度          | 大三度 + 纯五度            | 省略、M、maj、major | C、Cmaj、Cmajor  |
+| 小三和弦 | 小三度 + 大三度          | 小三度 + 纯五度            | m、min、minor       | Cm、Cmin、Cminor |
+| 减三和弦 | 小三度 + 小三度          | 小三度 + 减五度            | dim                 | -                |
+| 增三和弦 | 大三度 + 大三度          | 大三度 + 增五度            | -                   | -                |
+
+
+| 七和弦     | 构成              | 别名                   | 标识符号         | 举例                |
+| ---------- | ----------------- | ---------------------- | ---------------- | ------------------- |
+| 大大七和弦 | 大三和弦 + 大七度 | 大七和弦               | maj7、major7     | Cmaj7、Cmajor7      |
+| 小小七和弦 | 小三和弦 + 小七度 | 小七和弦               | m7、min7、minor7 | Cm7、Cmin7、Cminor7 |
+| 大小七和弦 | 大三和弦 + 小七度 | 属七和弦               | 7                | C7                  |
+| 减小七和弦 | 减三和弦 + 小七度 | 半减七和弦、七减五和弦 | -                | -                   |
+
+**和弦级数**：以调式音阶的第几个音作为根音组成的和弦称为该调的几级和弦，例如`C大三和弦（C-E-G）`是C大调的一级和弦、`E大三和弦（E-G♯-B）`是E大调的一级和弦，和弦级数方便表示和弦走向以及转调。
+
+| C大调级数 | 根音 | 三和弦 | 七和弦 |
+| --------- | ---- | ------ | ------ |
+| I         | C    | 大三   | 大七   |
+| II        | D    | 小三   | 小七   |
+| III       | E    | 小三   | 小七   |
+| IV        | F    | 大三   | 大七   |
+| V         | G    | 大三   | 属七   |
+| VI        | A    | 小三   | 小七   |
+| VII       | B    | 减三   | 半减七 |
+
+其他大调音阶对应级数的和弦同理，一级四级总是大七，二三六总是小七，五级总是属七，七级总是半减七。同理可推算出小调音阶所有和弦属性。
+| 级数       | I    | II     | III  | IV   | V     | VI   | VII    |
+| ---------- | ---- | ------ | ---- | ---- | ----- | ---- | ------ |
+| 大调三和弦 | 大三 | 小三   | 小三 | 大三 | 大三  | 小三 | 减三   |
+| 大调七和弦 | 大七 | 小七   | 小七 | 大七 | 属七  | 小七 | 半减七 |
+| 小调三和弦 | 小三 | 减三   | 大三 | 小三 | 小三*  | 大三 | 大三   |
+| 小调七和弦 | 小七 | 半减七 | 大七 | 小七 | 小七* | 大七 | 属七   |
+
+*由于属七和弦很重要，小调的五级和弦很多时候会将三度音升高半音变成属七和弦，此处可联系前文的`和声小调音阶`。
+
+
+拓展链接：
+* 这个视频对和弦做了很好的串讲：[神他妈乐理·和弦：和弦的构造、标识、功能与应用](https://www.bilibili.com/video/BV1ot4y1S7jh)
+
+### 八个重要的基本和弦
+
+```
+八个基本和弦
+
+D       A       E       Am      Em      Dm      C       G     
+xxo---  xo---o  o---oo  xo---o  o--ooo  xxo---  x--o-o  -xooo-
+......  ......  ...1..  ....1.  ......  .....1  ....1.  ......
+...1.2  ..213.  .23...  ..23..  .23...  ...2..  ..2...  ......
+....3.  ......  ......  ......  ......  ....4.  .3....  2....3
+```
+
+
+## 音乐术语中英对照
+
+* 音名 Pitch: A B C D E F G
+* 音高 Pitch-CLass
+* 八度 Octave
+* 升降音 Flats and Sharps
+* 同音异名 Enharmonic Pitches
+* 半音级 Half Step (or Semitone) 
+* 全音级 Whole Step (or Whole Tone)
+* 音程 Interval
+* 自然音组 Diatonic Collection
+* 变化音组 Chromatic Collection
+* 音阶 Scales: Ordered Pitch-Class Collections
+* 大调音阶 Major Scale
+* 半音音阶 Chromatic Scale
+* 主音 Tonic
