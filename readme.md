@@ -6,7 +6,7 @@ Hi, this is Pengwei.
 
 ## BLOG
 
-[*2023-guitar?guitar??guitar!!guitar!!!*](./blog/guitar/readme.md)
+[*2023-guitar?guitar??guitar!!guitar!!!*](./blog/guitar/readme.md)  
 [*2022-understanding-sketch*](./blog/2022-understanding-sketch/index.md)  
 [*2021-data-structure-from-scratch*](./blog/2021-data-structure-from-scratch/index.md)  
 [*2020-java-basic-knowledge-review*](./blog/2020-java-basic-knowledge-review/index.md)  
