@@ -5,4 +5,11 @@
 > * [*学习吉他大概要多久才能达到你想要的水平？*](https://hubguitar.com/articles/how-long-does-it-take-to-learn-guitar)
 
 
+## 总结
+
 [乐理基础～搞清楚一些最基本的乐理](./music-theory-basic.md)
+
+
+## 材料
+
+CAGED：[ How to use the CAGED system to play a SOLO ](https://youtu.be/0Qp26KcDrGw)
