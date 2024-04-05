@@ -1,6 +1,34 @@
 # Leetcode刷题总结
 
-[TOC]
+- [Leetcode刷题总结](#leetcode刷题总结)
+  - [20240401-04?LeetCode-Hot-100](#20240401-04leetcode-hot-100)
+    - [哈希表](#哈希表)
+      - [1. 两数之和](#1-两数之和)
+      - [49. 字母异位词分组](#49-字母异位词分组)
+      - [128. 最长连续序列](#128-最长连续序列)
+    - [双指针](#双指针)
+      - [283. 移动零](#283-移动零)
+      - [11. 盛最多水的容器](#11-盛最多水的容器)
+      - [167. 两数之和 II - 输入有序数组](#167-两数之和-ii---输入有序数组)
+      - [15. 三数之和](#15-三数之和)
+      - [](#)
+    - [滑动窗口](#滑动窗口)
+      - [3. 无重复字符的最长子串](#3-无重复字符的最长子串)
+      - [438. 找到字符串中所有字母异位词](#438-找到字符串中所有字母异位词)
+    - [子串](#子串)
+      - [](#-1)
+      - [](#-2)
+    - [栈](#栈)
+      - [20. 有效的括号](#20-有效的括号)
+      - [](#-3)
+      - [](#-4)
+      - [](#-5)
+  - [LeetCode刷题攻略](#leetcode刷题攻略)
+    - [](#-6)
+      - [](#-7)
+  - [零散刷题](#零散刷题)
+      - [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](#240-搜索二维矩阵-ii-矩阵二分压缩搜索空间)
+
 
 ## 20240401-04?[LeetCode-Hot-100](https://leetcode.cn/studyplan/top-100-liked/)
 
@@ -12,8 +40,7 @@
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        """解法1: 二层循环，O(N^2)，O(1)
-        ✅PASS
+        """✅解法1: 二层循环，O(N^2)，O(1)
 
         执行用时分布
         1619ms
@@ -29,8 +56,7 @@ class Solution:
                     return [i, j]
 
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        """解法2: 哈希表，O(N)，O(1)
-        ✅PASS
+        """✅解法2: 哈希表，O(N)，O(1)
 
         执行用时分布
         45ms
@@ -54,8 +80,8 @@ class Solution:
 
    
     def _hash1(self, str):
-        """哈希函数：对单词字母ascii码求和作为哈希值
-        ❌错误，哈希冲突
+        """❌哈希函数：对单词字母ascii码求和作为哈希值
+        哈希冲突
 
         解答错误
         55 / 126 个通过的测试用例
@@ -67,8 +93,8 @@ class Solution:
     
     
     def _hash2(self, str):
-        """哈希函数：尝试提高哈希值离散情况
-        ❌错误，哈希冲突
+        """❌哈希函数：尝试提高哈希值离散情况
+        哈希冲突
 
         解答错误
         113 / 126 个通过的测试用例
@@ -80,8 +106,7 @@ class Solution:
 
     
     def _hash(self, mystr):
-        """哈希函数：使用排序后的字母作为哈希值
-        ✅PASS
+        """✅哈希函数：使用排序后的字母作为哈希值
 
         执行用时分布
         41ms
@@ -114,8 +139,8 @@ class Solution:
 ```python
 class Solution:
     def longestConsecutive1(self, nums: List[int]) -> int:
-        """哈希表降低查找复杂度，通过判断n-1是否在表中跳过重复判断
-        ❌错误，特殊用例未兼容，用例[0]未通过，预期1实际0
+        """❌哈希表降低查找复杂度，通过判断n-1是否在表中跳过重复判断
+        特殊用例未兼容，用例[0]未通过，预期1实际0
 
         解答错误
         64 / 75 个通过的测试用例
@@ -139,8 +164,7 @@ class Solution:
         return res
     
     def longestConsecutive(self, nums: List[int]) -> int:
-        """逻辑同上，代码优化
-        ✅PASS
+        """✅逻辑同上，代码优化
         
         执行用时分布
         79ms
@@ -168,13 +192,488 @@ class Solution:
 
 #### [283. 移动零](https://leetcode.cn/problems/move-zeroes/description/?envType=study-plan-v2&envId=top-100-liked)
 
+```python
+class Solution:
+    def moveZeroes1(self, nums: List[int]) -> None:
+        """✅双指针同时从前往后扫描，一个找0，一个找非0，不断替换
+        Do not return anything, modify nums in-place instead.
+        
+        1、考虑特殊情况 --> 在程序中优先排除
+        2、考虑适用算法 --> 实在不行试试暴力解
+        3、考虑时间、空间复杂度 --> 有没有优化空间
+        
+        执行用时分布
+        45ms
+        击败69.72%使用 Python3 的用户
+        消耗内存分布
+        17.47MB
+        击败37.19%使用 Python3 的用户
+        """
+        l = len(nums)
+
+        # 初始化两个指针的位置，此处确保back处于front后面
+        front = 0
+        while nums[front] != 0:
+            front += 1
+            if front >= l:
+                break
+        back = front+1
+
+        # “冒泡”
+        while back < l:
+            nums[front] = nums[back]
+            nums[back] = 0
+
+            while nums[back] == 0:
+                back += 1
+                if back >= l:
+                    break
+            while nums[front] != 0:
+                front += 1
+                if front >= l:
+                    break
+
+    def moveZeroes(self, nums: List[int]) -> None:
+        """✅上述逻辑优化&&官方题解
+
+        执行用时分布
+        42ms
+        击败82.97%使用 Python3 的用户
+        消耗内存分布
+        17.35MB
+        击败82.39%使用 Python3 的用户
+        """
+        l = len(nums)
+        front = back = 0
+        while back < l:
+            if nums[back] != 0:
+                nums[front], nums[back] = nums[back], nums[front]
+                front += 1
+            back += 1
+    
+```
 
 
+#### [11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+class Solution:
+    def maxArea1(self, height: List[int]) -> int:
+        """❌双重循环暴力解，超出时间限制
+
+        超出时间限制
+        51 / 62 个通过的测试用例
+        """
+        max_area = 0
+        length = len(height)
+        for l in range(length):
+            for r in range(l+1, length):
+                max_area = max(max_area, min(height[l],height[r])*(r-l))
+        return max_area
+    
+    def maxArea(self, height: List[int]) -> int:
+        """✅双指针，始终移动指向更矮的那个指针，缩减搜索空间
+
+        执行用时分布
+        127ms
+        击败65.06%使用 Python3 的用户
+        消耗内存分布
+        26.66MB
+        击败87.96%使用 Python3 的用户
+        """
+        max_area = 0
+        left, right = 0, len(height)-1
+        while left < right:
+            current_area = (right - left) * min(height[left], height[right])
+            if current_area > max_area:
+                max_area = current_area
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+        return max_area
+
+# 这个题解很棒：https://leetcode.cn/problems/container-with-most-water/solutions/94102/on-shuang-zhi-zhen-jie-fa-li-jie-zheng-que-xing-tu/?envType=study-plan-v2&envId=top-100-liked
+```
 
 
+#### [167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/description/)
 
+```python
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        """你所设计的解决方案必须只使用常量级的额外空间 --> 不能使用哈希表
+        非递减顺序：从前往后可能是相等或者增加
+        """
+        l, r = 0, len(numbers)-1
+        while l < r:
+            current = numbers[l] + numbers[r]
+            if current == target:
+                return [l+1, r+1]
+            # 缩减搜索范围的逻辑：
+            # 当前两数和可能大于或小于target
+            if current > target:
+                r -= 1
+            if current < target:
+                l += 1
+            #以上过程不会把正确答案过滤掉，参考官方题解：https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/solutions/337156/liang-shu-zhi-he-ii-shu-ru-you-xu-shu-zu-by-leet-2/
+```
+
+
+#### [15. 三数之和](https://leetcode.cn/problems/3sum/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+class Solution:
+    def threeSum1(self, nums: List[int]) -> List[List[int]]:
+        """❌排序O(NlogN) + 双循环O(N^2) * ( 哈希表O(1)? + 遍历O(N) ), 整体复杂度 O(N^3)，超时了
+
+        超出时间限制
+        308 / 313 个通过的测试用例
+        """
+        size = len(nums)
+        results = []
+        target_mark = {}
+
+        nums = sorted(nums)
+        i = 0
+        while i < size - 2:
+            target = 0 - nums[i]
+            j = i + 1
+            while j < size - 1:
+                # print("i=", i)
+                s_nums_set = nums[j + 1:]
+                inner_target = target - nums[j]
+
+                if target in target_mark.keys():
+                    if inner_target == target_mark[target] or nums[j] == target_mark[target]:
+                        j+=1
+                        continue
+
+                if inner_target in s_nums_set:
+                    results.append([nums[i], nums[j], inner_target])
+                    target_mark[target] = inner_target
+                j += 1
+            i += 1
+        return results
+
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        """✅官方题解的复现，各种需要跳过的重复判断是提高效率的关键
+        
+        执行用时分布
+        590ms
+        击败67.23%使用 Python3 的用户
+        消耗内存分布
+        19.52MB
+        击败28.71%使用 Python3 的用户
+        """
+        size = len(nums)
+        results = []
+        nums = sorted(nums)
+        for i in range(size):
+
+            if i>0 and nums[i] == nums[i -1]:continue #排除重复的三元组第1个值
+            target = -nums[i]
+
+            r = size-1 #随着后续l不断变大，r没有往右的空间，所以在l遍历前初始化一次即可
+            for l in range(i+1, size):
+                if l > i+1 and nums[l] == nums[l-1]:continue  #排除重复的三元组第2个值
+                
+                while l < r and nums[l] + nums[r] > target:r -= 1
+                if l == r: break #上一行l<r的情况下有可能把r减成l
+
+                if nums[l] + nums[r] == target:
+                    results.append([nums[i], nums[l], nums[r]])
+        
+        return results
+```
+
+
+#### []()
+
+```python
+
+```
+
+### 滑动窗口
+
+> 滑动窗口算法在一个特定大小的字符串或数组上进行操作，而不在整个字符串和数组上操作，这样就降低了问题的复杂度，从而也达到降低了循环的嵌套深度。
+> 由于区间连续，因此当区间发生变化时，可以通过旧有的计算结果对搜索空间进行剪枝，这样便减少了重复计算，降低了时间复杂度。往往类似于“ 请找到满足 xx 的最 x 的区间（子串、子数组）的 xx ”这类问题都可以使用该方法进行解决。
+> >[滑动窗口算法基本原理与实践](https://www.cnblogs.com/huansky/p/13488234.html)
+
+
+#### [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+class Solution:
+    def lengthOfLongestSubstring1(self, s: str) -> int:
+        """✅滑动窗口，窗口大小不固定，窗口内不能有重复字符
+
+        执行用时分布
+        91ms
+        击败16.20%使用 Python3 的用户
+        消耗内存分布
+        16.49MB
+        击败58.95%使用 Python3 的用户
+        """
+        l = r = 0
+        max_s = 0
+        w = []
+        while r < len(s):
+            if s[r] not in w:
+                w.append(s[r])
+                max_s = max(max_s, len(w))
+                r+=1
+            else:
+                l += 1
+                w.pop(0)
+        return max_s
+
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        """✅滑动窗口，优化效率，主要是将判断新字符是否在窗口内改成了哈希表判断
+
+        执行用时分布
+        56ms
+        击败73.63%使用 Python3 的用户
+        消耗内存分布
+        16.63MB
+        击败19.96%使用 Python3 的用户
+        """
+        l = r = max_s = 0
+        w = set()
+        while r < len(s):
+            if s[r] not in w:
+                w.add(s[r])
+                max_s = max(max_s, len(w))
+                r += 1
+            else:
+                w.remove(s[l]) # 移除窗口内最左边的数据
+                l += 1
+        return max_s
+```
+
+
+#### [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+class Solution:
+    def findAnagrams1(self, s: str, p: str) -> List[int]:
+        """✅滑动窗口，窗口固定大小为len(p)，判断窗口内是否为p的异位词
+
+        执行用时分布
+        6303ms
+        击败14.51%使用 Python3 的用户
+        消耗内存分布
+        17.00MB
+        击败24.48%使用 Python3 的用户
+        """
+        win_size = len(p)
+        p = sorted(p)
+        ans = []
+        for l in range(len(s)-win_size+1):
+            if sorted(s[l:l+win_size]) == p:
+                # 切片操作的时间复杂度为O(k),k=切片长度
+                # sorted时间复杂度为O(nlogn)
+                ans.append(l)
+        return ans
+        
+    
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        """✅滑动窗口，优化窗口内判断是否为异位词的逻辑
+
+        执行用时分布
+        53ms
+        击败97.23%使用 Python3 的用户
+        消耗内存分布
+        16.98MB
+        击败27.27%使用 Python3 的用户
+        """
+        win_size = len(p)
+        s_size = len(s)
+        ans = []
+
+        if s_size < win_size:return []
+
+        # 依据题目条件仅含小写字母，使用26位数组分别存储26个字母的数量，用于判断是否为异位词
+        s_count = [0] * 26
+        p_count = [0] * 26
+
+        # 初始化第一个窗口及目标值
+        for i in range(win_size):
+            s_count[ord(s[i])-ord('a')] += 1
+            p_count[ord(p[i])-ord('a')] += 1
+        if s_count == p_count:
+            ans.append(0)
+
+        for start in range(len(s) - win_size):
+            # 窗口向右挪动一单位
+            s_count[ord(s[start]) - ord('a')] -= 1 # 窗口左侧字母消除
+            s_count[ord(s[start + win_size]) - ord('a')] += 1 # 窗口右侧字母加入
+            if s_count == p_count:
+                ans.append(start+1)
+
+        return ans
+
+```
+
+
+### 子串
+
+#### []()
+
+```python
+
+```
+
+#### []()
+
+```python
+
+```
+
+
+### 栈
+
+#### [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+class Solution:
+    def isValid1(self, s: str) -> bool:
+        """✅栈基础应用
+
+        执行用时分布
+        40ms
+        击败46.16%使用 Python3 的用户
+        消耗内存分布
+        16.42MB
+        击败45.84%使用 Python3 的用户
+        """
+        ss = []
+        for _ in s:
+            if _ in ['(','{','[']:
+                ss.append(_)
+            elif len(ss) > 0:
+                last = ss.pop()
+                if _ == ')' and last == '(':continue
+                if _ == '}' and last == '{':continue
+                if _ == ']' and last == '[':continue
+                return False
+            else:
+                return False
+        return True if len(ss) == 0 else False
+    
+    def isValid(self, s: str) -> bool:
+        """✅引入哈希表降低匹配括号的复杂度
+        
+        执行用时分布
+        32ms
+        击败89.12%使用 Python3 的用户
+        消耗内存分布
+        16.51MB
+        击败18.70%使用 Python3 的用户
+        
+        这个耗时本来就不多，多次提交波动很明显
+        """
+        hashdict = {'(':')', '[':']', '{':'}'}
+        ss = []
+        for x in s:
+            # 左括号入栈
+            if x in hashdict.keys():
+                ss.append(x)
+                continue
+            # 右括号出栈
+            if len(ss) > 0:
+                last = ss.pop()
+                if hashdict[last] == x:
+                    continue
+            
+            # 未入栈也未匹配则失败
+            return False
+        return True if len(ss) == 0 else False
+```
+
+#### []()
+
+```python
+
+```
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
 ## [LeetCode刷题攻略](https://github.com/youngyangyang04/leetcode-master)
 
 `数组-> 链表-> 哈希表->字符串->栈与队列->树->回溯->贪心->动态规划->图论->高级数据结构`
 
 
+### []()
+
+#### []()
+
+```python
+
+```
+
+
+## 零散刷题
+
+#### [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](https://leetcode.cn/problems/search-a-2d-matrix-ii/description/)
+
+```python
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        """❌如何有效的缩减搜索范围并且不能错过目标是关键
+
+        解答错误
+        105 / 130 个通过的测试用例
+
+        [[-1,3]]
+        -1
+
+        对比官方题解[方法三：Z 字形查找](https://leetcode.cn/problems/search-a-2d-matrix-ii/solutions/1062538/sou-suo-er-wei-ju-zhen-ii-by-leetcode-so-9hcx/)，主要是起始位置的选择
+        从矩阵右下角无论往上还是往左走都是递减，而从右上角开始往左是递减、往下是递增，是个二叉搜索树，左下角同理
+        """
+        row = len(matrix)-1
+        col = len(matrix[0])-1
+        while row >= 0 and col >= 0:
+            if matrix[row][col] == target:
+                return True
+            elif matrix[row-1][col] < target: # 变动行后若错过目标，则只能列变动
+                col -= 1
+            elif matrix[row][col-1] < target: # 变动列后若错过目标，则只能行变动
+                row -= 1
+            else: # 选择变动小的方向，不然可能错过目标
+                if matrix[row][0] < matrix[0][col-1]:
+                    col -= 1
+                else:
+                    row -= 1
+        return False
+
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        """✅根据官方题解从矩阵左下角出发进行Z字形搜索
+        
+        执行用时分布
+        148ms
+        击败54.23%使用 Python3 的用户
+        消耗内存分布
+        22.57MB
+        击败50.48%使用 Python3 的用户
+        """
+        x, y = len(matrix)-1, 0  # 从左下角开始
+        while x >= 0 and y < len(matrix[0]):
+            if matrix[x][y] == target:
+                return True
+            if matrix[x-1][y] >= target:
+                x -= 1
+            else:
+                y += 1
+        return False
+```
