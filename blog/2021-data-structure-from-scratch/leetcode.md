@@ -1,41 +1,53 @@
 # Leetcode刷题总结
 
 - [Leetcode刷题总结](#leetcode刷题总结)
-  - [20240401-04?LeetCode-Hot-100](#20240401-04leetcode-hot-100)
+  - [20240401-04? LeetCode-Hot-100](#20240401-04-leetcode-hot-100)
     - [哈希表](#哈希表)
-      - [1. 两数之和](#1-两数之和)
+      - [1. 两数之和\*](#1-两数之和)
       - [49. 字母异位词分组](#49-字母异位词分组)
       - [128. 最长连续序列](#128-最长连续序列)
     - [双指针](#双指针)
-      - [283. 移动零](#283-移动零)
+      - [283. 移动零\*](#283-移动零)
       - [11. 盛最多水的容器](#11-盛最多水的容器)
       - [167. 两数之和 II - 输入有序数组](#167-两数之和-ii---输入有序数组)
       - [15. 三数之和](#15-三数之和)
-      - [](#)
+      - [42. 接雨水\*\*](#42-接雨水)
     - [滑动窗口](#滑动窗口)
       - [3. 无重复字符的最长子串](#3-无重复字符的最长子串)
       - [438. 找到字符串中所有字母异位词](#438-找到字符串中所有字母异位词)
     - [子串](#子串)
-      - [](#-1)
+      - [](#)
+    - [](#-1)
       - [](#-2)
-    - [栈](#栈)
-      - [20. 有效的括号](#20-有效的括号)
       - [](#-3)
       - [](#-4)
       - [](#-5)
+    - [栈](#栈)
+      - [20. 有效的括号](#20-有效的括号)
+      - [155. 最小栈](#155-最小栈)
+      - [394. 字符串解码](#394-字符串解码)
+      - [739. 每日温度（单调栈）](#739-每日温度单调栈)
+      - [496. 下一个更大元素 I\*（单调栈）](#496-下一个更大元素-i单调栈)
+      - [503. 下一个更大元素 II](#503-下一个更大元素-ii)
+      - [84. 柱状图中最大的矩形\*\*（单调栈）](#84-柱状图中最大的矩形单调栈)
+      - [](#-6)
   - [LeetCode刷题攻略](#leetcode刷题攻略)
-    - [](#-6)
-      - [](#-7)
+    - [](#-7)
+      - [](#-8)
   - [零散刷题](#零散刷题)
       - [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](#240-搜索二维矩阵-ii-矩阵二分压缩搜索空间)
 
 
-## 20240401-04?[LeetCode-Hot-100](https://leetcode.cn/studyplan/top-100-liked/)
+## 20240401-04? LeetCode-Hot-100
+
+题单地址：https://leetcode.cn/studyplan/top-100-liked/
+
+有些相关典型题一并在这个目录下做了。
 
 
 ### 哈希表
 
-#### [1. 两数之和](https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [1. 两数之和*](https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=top-100-liked)
 
 ```python
 class Solution:
@@ -190,7 +202,7 @@ class Solution:
 
 ### 双指针
 
-#### [283. 移动零](https://leetcode.cn/problems/move-zeroes/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [283. 移动零*](https://leetcode.cn/problems/move-zeroes/description/?envType=study-plan-v2&envId=top-100-liked)
 
 ```python
 class Solution:
@@ -388,7 +400,7 @@ class Solution:
 ```
 
 
-#### []()
+#### [42. 接雨水**](https://leetcode.cn/problems/trapping-rain-water/description/?envType=study-plan-v2&envId=top-100-liked)
 
 ```python
 
@@ -397,7 +409,9 @@ class Solution:
 ### 滑动窗口
 
 > 滑动窗口算法在一个特定大小的字符串或数组上进行操作，而不在整个字符串和数组上操作，这样就降低了问题的复杂度，从而也达到降低了循环的嵌套深度。
+> 
 > 由于区间连续，因此当区间发生变化时，可以通过旧有的计算结果对搜索空间进行剪枝，这样便减少了重复计算，降低了时间复杂度。往往类似于“ 请找到满足 xx 的最 x 的区间（子串、子数组）的 xx ”这类问题都可以使用该方法进行解决。
+> 
 > >[滑动窗口算法基本原理与实践](https://www.cnblogs.com/huansky/p/13488234.html)
 
 
@@ -524,6 +538,26 @@ class Solution:
 
 ```
 
+### 
+
+#### []()
+
+```python
+
+```
+
+#### []()
+
+```python
+
+```
+
+#### []()
+
+```python
+
+```
+
 #### []()
 
 ```python
@@ -532,6 +566,13 @@ class Solution:
 
 
 ### 栈
+
+> 栈（Stack）是一种满足后进先出（LIFO）逻辑的数据结构，而单调栈实际上就是在栈的基础上增加单调的性质（单调递增或单调递减）
+> 
+> 单调栈是一种特别适合解决 “下一个更大元素” 问题的数据结构。
+> 
+> > [使用单调栈解决 “下一个更大元素” 问题](https://mdnice.com/writing/b5cd53ce22c14069b63c6d5d3ad41bd9)
+
 
 #### [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/description/?envType=study-plan-v2&envId=top-100-liked)
 
@@ -591,24 +632,537 @@ class Solution:
         return True if len(ss) == 0 else False
 ```
 
+#### [155. 最小栈](https://leetcode.cn/problems/min-stack/description/?envType=study-plan-v2&envId=top-100-liked)
+
+使用辅助栈实现`常数时间内检索到最小元素`
+
+```python
+class MinStack1:
+    """✅朴素解，pop操作因为做了遍历时间复杂度O(N)
+
+    执行用时分布
+    58ms
+    击败40.95%使用 Python3 的用户
+    消耗内存分布
+    19.99MB
+    击败64.40%使用 Python3 的用户
+    """
+
+    def __init__(self):
+        self._min = None # 存储最小值，pop与push时都需要更新
+        self.ss = []
+        self.length = 0
+
+
+    def push(self, val: int) -> None:
+        self.length += 1
+        self.ss.append(val)
+        if self._min is None or val < self._min: self._min = val
+
+    def pop(self) -> None:
+        self.length -= 1
+        last_pop = self.ss[self.length]
+        del self.ss[self.length]
+
+        # 更新最小值
+        if last_pop == self._min:
+            self._min = None
+            for idx, x in enumerate(self.ss):
+                if idx == 0 or x < self._min: 
+                    self._min = x
+                
+
+    def top(self) -> int:
+        return self.ss[self.length - 1]
+
+
+    def getMin(self) -> int:
+        return self._min
+
+
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(val)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
+
+class MinStack2:
+    """✅使用辅助栈优化寻找min的时间复杂度
+
+    执行用时分布
+    51ms
+    击败77.69%使用 Python3 的用户
+    消耗内存分布
+    20.04MB
+    击败49.47%使用 Python3 的用户
+    """
+
+    def __init__(self):
+        self.min_stack = []
+        self.stack = []
+        self.length = 0
+
+
+    def push(self, val: int) -> None:
+        self.stack.append(val)
+        
+        if self.length > 0:
+            last_min = self.min_stack[self.length-1]
+            if val < last_min:
+                self.min_stack.append(val)
+            else: 
+                self.min_stack.append(last_min)
+        else: 
+            self.min_stack.append(val)
+
+        self.length += 1
+
+
+    def pop(self) -> None:
+        self.stack.pop()
+        self.min_stack.pop()
+        self.length -= 1
+
+
+    def top(self) -> int:
+        if self.length > 0:
+            return self.stack[self.length-1]
+        else:
+            return None
+
+    def getMin(self) -> int:
+        if self.length > 0:
+            return self.min_stack[self.length-1]
+        else:
+            return None
+
+class MinStack:
+    """✅优雅些，效率没太多区别"""
+
+    def __init__(self):
+        self.min_stack = [math.inf]
+        self.stack = []
+
+
+    def push(self, val: int) -> None:
+        self.stack.append(val)
+        self.min_stack.append(min(val, self.min_stack[-1]))
+
+
+    def pop(self) -> None:
+        self.stack.pop()
+        self.min_stack.pop()
+
+
+    def top(self) -> int:
+        return self.stack[-1]
+
+    def getMin(self) -> int:
+        return self.min_stack[-1]
+```
+
+#### [394. 字符串解码](https://leetcode.cn/problems/decode-string/description/?envType=study-plan-v2&envId=top-100-liked)
+
+
+```python
+class Solution:
+    def decodeString1(self, s: str) -> str:
+        """❌两个栈，读题不仔细，没处理嵌套的情况"""
+
+        num_stack = []
+        patten_stack = []
+        ans = ''
+
+        for c in s:
+            order = ord(c)
+            if order > ord('0') and order <= ord('9'):
+                num_stack.append(c)
+            elif order == ord('['):
+                pass
+            elif order == ord(']'): # 输出，清空栈
+                count = int(''.join(num_stack))
+                ans += ''.join(patten_stack) * count
+                patten_stack = []
+                num_stack = []
+            else: # 字母入模式栈
+                patten_stack.append(c)
+        return ans
+    
+
+    def decodeString2(self, s: str) -> str:
+        """✅BUG FIX
+
+        执行用时分布
+        37ms
+        击败56.43%使用 Python3 的用户
+        消耗内存分布
+        16.43MB
+        击败24.32%使用 Python3 的用户
+        """
+        num_stack = []
+        patten_stack = []
+        ans = ''
+        current_patten = ''
+
+        for c in s:
+            order = ord(c)
+            if order >= ord('0') and order <= ord('9'):
+                num_stack.append(c)
+            elif order == ord('['):
+                patten_stack.append(''.join(num_stack))
+                num_stack = []
+                patten_stack.append(c)
+            elif order == ord(']'):
+                last_pop = patten_stack.pop()
+                while last_pop != '[':
+                    current_patten += last_pop # 注意这里出栈拼接出来的字符串还需要反转
+                    last_pop = patten_stack.pop()
+                
+                current_patten = int(patten_stack.pop()) * current_patten[::-1]
+                for _ in current_patten:
+                    patten_stack.append(_)
+                current_patten = ''
+            else:
+                patten_stack.append(c)
+
+            print(patten_stack)
+        
+        ans = ''.join(patten_stack)
+        return ans
+
+
+    def decodeString(self, s: str) -> str:
+        """✅优化，栈里不存字符，而是存字符串
+
+        执行用时分布
+        31ms
+        击败90.22%使用 Python3 的用户
+        消耗内存分布
+        16.42MB
+        击败26.47%使用 Python3 的用户
+        """
+        num_stack = []
+        patten_stack = []
+        current_patten = ''
+        current_num = ''
+
+        for c in s:
+            if ord(c) >= ord('0') and ord(c) <= ord('9'):
+                current_num += c
+            elif ord(c) == ord('['):
+                num_stack.append(current_num)
+                patten_stack.append(current_patten)
+                current_patten = ''
+                current_num = ''
+            elif ord(c) == ord(']'):
+                temp = patten_stack.pop()
+                current_patten = temp + int(num_stack.pop()) * current_patten
+            else:
+                current_patten += c
+        return current_patten
+```
+
+#### [739. 每日温度（单调栈）](https://leetcode.cn/problems/daily-temperatures/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+class Solution:
+    def dailyTemperatures1(self, temperatures: List[int]) -> List[int]:
+        """✅单调栈存储还没有遇到更高温度的日期坐标，栈中日期对应温度单调递减
+        """
+        length = len(temperatures)
+        ans = [0] * length
+        s = [0, ]
+        for i in range(1, length):
+            while temperatures[i] > temperatures[s[-1]]:
+                ans[s[-1]] = i - s[-1]
+                s.pop()
+                if len(s) == 0:
+                    break
+            s.append(i)
+
+        for _ in s:
+            ans[_] = 0
+
+        return ans
+
+
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        """✅单调栈，语法优化
+        """
+        length = len(temperatures)
+        ans = [0] * length
+
+        s = [0, ]
+        for i in range(1, length):
+            while s and temperatures[i] > temperatures[s[-1]]:
+                prev_idx = s.pop()
+                ans[prev_idx] = i - prev_idx
+            s.append(i)
+
+        return ans
+```
+
+#### [496. 下一个更大元素 I*（单调栈）](https://leetcode.cn/problems/next-greater-element-i/description/)
+
+这道题用单调栈+哈希表的写法不算Easy题目了，比每日温度要复杂。
+
+```python
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        """单调栈 + 哈希表
+
+        执行用时分布
+        35ms
+        击败87.58%使用 Python3 的用户
+        消耗内存分布
+        16.60MB
+        击败63.09%使用 Python3 的用户
+
+        大的框架基本是最优思路了
+        """
+        length = len(nums2)
+        stack = []
+        mid_ans = [-1] * length
+        mid_ans_dict = {}
+        ans = []
+
+        # 单调栈：构建nums2的每个坐标的下一个最大值坐标
+        for i in range(length):
+            while stack and nums2[i] > nums2[stack[-1]]:
+                p = stack.pop()
+                mid_ans[p] = i - p
+            stack.append(i)
+        # print(mid_ans)
+
+        # 哈希表：对nums1的每个坐标进行匹配
+        for idx, x in enumerate(mid_ans):
+            # print(idx, nums2[idx], x)
+            mid_ans_dict[nums2[idx]] = nums2[idx + x] if x != -1 else -1
+        for _ in nums1:
+            ans.append(mid_ans_dict[_]) 
+        
+        return ans
+```
+
+
+
+#### [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/description/)
+
+```python
+class Solution:
+    def nextGreaterElements1(self, nums: List[int]) -> List[int]:
+        """✅单调栈，与I不同的在于循环数组，解法是直接把数组长度*2即可，另外不再需要哈希表
+        
+        执行用时分布
+        66ms
+        击败67.19%使用 Python3 的用户
+        消耗内存分布
+        18.73MB
+        击败8.64%使用 Python3 的用户
+        """
+
+        ans = []
+        l = len(nums)
+        mid_ans = [-1] * l * 2
+        mid_nums = nums + nums 
+        stack = []
+        for i in range(l*2):
+            while stack and mid_nums[i] > mid_nums[stack[-1]]:
+                prev = stack.pop()
+                mid_ans[prev] = i - prev
+            stack.append(i)
+        # print(mid_ans)
+        
+        for i in range(l):
+            ans.append(-1 if mid_ans[i] == -1 else mid_nums[i + mid_ans[i]])
+        return ans
+        
+    def nextGreaterElements(self, nums: List[int]) -> List[int]:
+        """✅优化，单调栈处理过程直接往存答案即可，不用先存坐标再处理一遍
+        
+        执行用时分布
+        49ms
+        击败98.54%使用 Python3 的用户
+        消耗内存分布
+        18.48MB
+        击败18.50%使用 Python3 的用户
+        """
+
+        l = len(nums)
+        ans = [-1] * l * 2
+        mid_nums = nums + nums 
+        stack = []
+        for i in range(l*2):
+            while stack and mid_nums[i] > mid_nums[stack[-1]]:
+                ans[stack.pop()] = mid_nums[i]
+            stack.append(i)
+
+        return ans[:l]
+```
+
+
+#### [84. 柱状图中最大的矩形**（单调栈）](https://leetcode.cn/problems/largest-rectangle-in-histogram/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+class Solution:
+    def largestRectangleArea1(self, heights: List[int]) -> int:
+        """❌单调栈，从一个坐标开始单调递增的连续最大区间则是从该坐标高度开始能组成的最大矩形
+
+        解答错误
+        53 / 99 个通过的测试用例
+        heights = [2,1,2]， 输出 = 2， 预期 = 3
+
+        只考虑了向右延伸，没有考虑向左延伸
+        """
+        stack =[]
+        length = len(heights)
+        less_next = [0]*length
+
+        # 通过单调栈为每个height确定下一个更小值的位置
+        for i in range(length):
+            while stack and heights[i] < heights[stack[-1]]:
+                prev = stack.pop()
+                less_next[prev] = i - prev
+            stack.append(i)
+        # 注意处理栈内还剩的元素，约定输入的heights之后为负无穷
+        # 方便后续以这些坐标为起点计算矩形面积
+        while stack:
+            prev = stack.pop()
+            less_next[prev] = length - prev
+        print(less_next)
+
+        max_area = 0
+        for i, height in enumerate(heights):
+            print(max_area)
+            print(i, height, less_next[i])
+            max_area = max(max_area, height*(less_next[i]))
+        return max_area
+
+
+    def largestRectangleArea2(self, heights: List[int]) -> int:
+        """✅BUG_FIX 单调栈*2，一个从左往右，一个从右往左
+
+        NOTE：处理stack时候左侧、右侧虚拟的无穷小的那根柱子，被称为`哨兵`
+
+        执行用时分布
+        288ms
+        击败16.00%使用 Python3 的用户
+        消耗内存分布
+        32.70MB
+        击败9.02%使用 Python3 的用户
+        """
+        length = len(heights)
+        stack =[]
+        less_l2r = [0]*length
+        less_r2l = [0]*length
+
+        # 通过单调栈为每个height确定下一个更小值的位置
+        for i in range(length):
+            while stack and heights[i] < heights[stack[-1]]:
+                prev = stack.pop()
+                less_l2r[prev] = i - prev
+            stack.append(i)
+        while stack:
+            prev = stack.pop()
+            less_l2r[prev] = length - prev
+        # print(less_l2r)
+
+        for j in range(length):
+            current_idx = -j-1
+            while stack and heights[current_idx] < heights[stack[-1]]:
+                prev = stack.pop()
+                less_r2l[prev] = prev - current_idx # 此处存的是当前节点到下一更小节点横跨的节点数量，正数
+            stack.append(current_idx) # 栈里存的是负坐标，负数
+        while stack:
+            prev = stack.pop()
+            less_r2l[prev] = prev - (-length-1)
+        # print(less_r2l)
+        
+        max_area = 0
+        for i, height in enumerate(heights):
+            max_area = max(max_area, height*(less_l2r[i] + less_r2l[i] -1))
+        return max_area
+
+
+    def largestRectangleArea3(self, heights: List[int]) -> int:
+        """✅参照官方题解，写法优化
+
+        执行用时分布
+        282ms   
+        击败17.91%使用 Python3 的用户
+        消耗内存分布
+        28.78MB
+        击败81.80%使用 Python3 的用户
+        """
+        length = len(heights)
+        stack =[]
+        less_l2r, less_r2l = [0]*length, [0]*length
+
+        # 假设heights左右两侧各加一个负无穷
+        for i in range(length):
+            while stack and heights[i] <= heights[stack[-1]]:
+                stack.pop()
+            less_l2r[i] = stack[-1] if stack else -1
+            stack.append(i)
+        # print(less_l2r)
+        
+        stack = []
+        for j in range(length-1, -1, -1):
+            while stack and heights[j] <= heights[stack[-1]]:
+                stack.pop()
+            less_r2l[j] = stack[-1] if stack else length
+            stack.append(j)
+        # print(less_r2l)
+        
+        max_area = 0
+        for i, height in enumerate(heights):
+            max_area = max(max_area, height * (less_r2l[i] - less_l2r[i] -1))
+        return max_area
+    
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        """✅官方题解，常数优化，在确定左边界的同时，确定右边界
+
+        作者：力扣官方题解
+        链接：https://leetcode.cn/problems/largest-rectangle-in-histogram/solutions/266844/zhu-zhuang-tu-zhong-zui-da-de-ju-xing-by-leetcode-/
+        来源：力扣（LeetCode）
+        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+        执行用时分布
+        169ms
+        击败92.31%使用 Python3 的用户
+        消耗内存分布
+        29.03MB
+        击败56.75%使用 Python3 的用户
+        """
+        n = len(heights)
+        left, right = [0] * n, [n] * n
+
+        mono_stack = list()
+        for i in range(n):
+            while mono_stack and heights[mono_stack[-1]] >= heights[i]:
+                right[mono_stack[-1]] = i
+                mono_stack.pop()
+            left[i] = mono_stack[-1] if mono_stack else -1
+            mono_stack.append(i)
+        
+        ans = max((right[i] - left[i] - 1) * heights[i] for i in range(n)) if n > 0 else 0
+        return ans
+```
+
+
+
+
+
+
 #### []()
 
 ```python
 
 ```
 
-#### []()
 
-```python
-
-```
-
-
-#### []()
-
-```python
-
-```
 ## [LeetCode刷题攻略](https://github.com/youngyangyang04/leetcode-master)
 
 `数组-> 链表-> 哈希表->字符串->栈与队列->树->回溯->贪心->动态规划->图论->高级数据结构`
