@@ -1,8 +1,9 @@
-# Leetcode刷题总结
+# Leetcode算法总结
 
-- [Leetcode刷题总结](#leetcode刷题总结)
+- [Leetcode算法总结](#leetcode算法总结)
+  - [LeetCode刷题攻略](#leetcode刷题攻略)
   - [20240401-04? LeetCode-Hot-100](#20240401-04-leetcode-hot-100)
-    - [哈希表](#哈希表)
+    - [哈希](#哈希)
       - [1. 两数之和\*](#1-两数之和)
       - [49. 字母异位词分组](#49-字母异位词分组)
       - [128. 最长连续序列](#128-最长连续序列)
@@ -11,17 +12,20 @@
       - [11. 盛最多水的容器](#11-盛最多水的容器)
       - [167. 两数之和 II - 输入有序数组](#167-两数之和-ii---输入有序数组)
       - [15. 三数之和](#15-三数之和)
-      - [42. 接雨水\*\*](#42-接雨水)
+      - [42. 接雨水\*\*（单调栈；双指针）](#42-接雨水单调栈双指针)
     - [滑动窗口](#滑动窗口)
       - [3. 无重复字符的最长子串](#3-无重复字符的最长子串)
       - [438. 找到字符串中所有字母异位词](#438-找到字符串中所有字母异位词)
-    - [子串](#子串)
+    - [矩阵](#矩阵)
+      - [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](#240-搜索二维矩阵-ii-矩阵二分压缩搜索空间)
+    - [链表](#链表)
+      - [160. 相交链表\*](#160-相交链表)
+      - [206. 反转链表\*](#206-反转链表)
+      - [234. 回文链表\*（快慢指针）](#234-回文链表快慢指针)
+      - [141. 环形链表\*（快慢指针）](#141-环形链表快慢指针)
       - [](#)
-    - [](#-1)
-      - [](#-2)
-      - [](#-3)
-      - [](#-4)
-      - [](#-5)
+      - [21. 合并两个有序链表\*（双指针）](#21-合并两个有序链表双指针)
+      - [](#-1)
     - [栈](#栈)
       - [20. 有效的括号](#20-有效的括号)
       - [155. 最小栈](#155-最小栈)
@@ -30,22 +34,26 @@
       - [496. 下一个更大元素 I\*（单调栈）](#496-下一个更大元素-i单调栈)
       - [503. 下一个更大元素 II](#503-下一个更大元素-ii)
       - [84. 柱状图中最大的矩形\*\*（单调栈）](#84-柱状图中最大的矩形单调栈)
-      - [](#-6)
-  - [LeetCode刷题攻略](#leetcode刷题攻略)
-    - [](#-7)
-      - [](#-8)
-  - [零散刷题](#零散刷题)
-      - [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](#240-搜索二维矩阵-ii-矩阵二分压缩搜索空间)
+    - [技巧](#技巧)
+      - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
+      - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
+      - [](#-2)
+      - [](#-3)
+      - [](#-4)
+
+## LeetCode刷题攻略
+https://github.com/youngyangyang04/leetcode-master
+
+`数组-> 链表-> 哈希表->字符串->栈与队列->树->回溯->贪心->动态规划->图论->高级数据结构`
+
 
 
 ## 20240401-04? LeetCode-Hot-100
 
-题单地址：https://leetcode.cn/studyplan/top-100-liked/
-
-有些相关典型题一并在这个目录下做了。
+题单地址：https://leetcode.cn/studyplan/top-100-liked/ ，有些相关典型题一并在这个目录下做了，不仅限于hot100。
 
 
-### 哈希表
+### 哈希
 
 #### [1. 两数之和*](https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=top-100-liked)
 
@@ -400,10 +408,55 @@ class Solution:
 ```
 
 
-#### [42. 接雨水**](https://leetcode.cn/problems/trapping-rain-water/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [42. 接雨水**（单调栈；双指针）](https://leetcode.cn/problems/trapping-rain-water/description/?envType=study-plan-v2&envId=top-100-liked)
+
+一个视频把思路讲的很清晰：https://www.bilibili.com/video/BV1Qg411q7ia/?vd_source=215226f55ec25efebe70612682143c68
 
 ```python
+class Solution:
+    def trap1(self, height: List[int]) -> int:
+        """✅单调栈，参考官解
+        
+        时间复杂度：O(n)
+        空间复杂度：O(n)
+        """
+        ans = 0
+        stack = list()
+        length = len(height)
 
+        for i in range(length):
+            while stack and height[i] > height[stack[-1]]:
+                top = stack.pop()
+                if stack:
+                    left = stack[-1]
+                    ans += (i-left-1) * (min(height[left],height[i]) - height[top])
+                else:break
+
+            stack.append(i)
+            
+        return ans
+    
+
+    def trap(self, height: List[int]) -> int:
+        """✅双指针，参考官解
+        时间复杂度：O(n)
+        空间复杂度：O(1)
+        """
+        length = len(height)
+        l, r = 0, length-1
+        l_max = r_max = 0
+        ans = 0
+
+        while l < r:
+            l_max = max(l_max, height[l])
+            r_max = max(r_max, height[r])
+            if l_max < r_max:
+                ans += l_max-height[l]
+                l += 1
+            else:
+                ans += r_max-height[r]
+                r -= 1
+        return ans
 ```
 
 ### 滑动窗口
@@ -526,11 +579,269 @@ class Solution:
                 ans.append(start+1)
 
         return ans
+```
 
+### 矩阵
+
+#### [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](https://leetcode.cn/problems/search-a-2d-matrix-ii/description/)
+
+```python
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        """❌如何有效的缩减搜索范围并且不能错过目标是关键
+
+        解答错误
+        105 / 130 个通过的测试用例
+
+        [[-1,3]]
+        -1
+
+        对比官方题解[方法三：Z 字形查找](https://leetcode.cn/problems/search-a-2d-matrix-ii/solutions/1062538/sou-suo-er-wei-ju-zhen-ii-by-leetcode-so-9hcx/)，主要是起始位置的选择
+        从矩阵右下角无论往上还是往左走都是递减，而从右上角开始往左是递减、往下是递增，是个二叉搜索树，左下角同理
+        """
+        row = len(matrix)-1
+        col = len(matrix[0])-1
+        while row >= 0 and col >= 0:
+            if matrix[row][col] == target:
+                return True
+            elif matrix[row-1][col] < target: # 变动行后若错过目标，则只能列变动
+                col -= 1
+            elif matrix[row][col-1] < target: # 变动列后若错过目标，则只能行变动
+                row -= 1
+            else: # 选择变动小的方向，不然可能错过目标
+                if matrix[row][0] < matrix[0][col-1]:
+                    col -= 1
+                else:
+                    row -= 1
+        return False
+
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        """✅根据官方题解从矩阵左下角出发进行Z字形搜索
+        
+        执行用时分布
+        148ms
+        击败54.23%使用 Python3 的用户
+        消耗内存分布
+        22.57MB
+        击败50.48%使用 Python3 的用户
+        """
+        x, y = len(matrix)-1, 0  # 从左下角开始
+        while x >= 0 and y < len(matrix[0]):
+            if matrix[x][y] == target:
+                return True
+            if matrix[x-1][y] >= target:
+                x -= 1
+            else:
+                y += 1
+        return False
 ```
 
 
-### 子串
+### 链表
+
+#### [160. 相交链表*](https://leetcode.cn/problems/intersection-of-two-linked-lists/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode1(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        """✅哈希，时间复杂度O(m+n)，空间复杂度O(m)，m是A链表长度
+
+        执行用时分布
+        92ms
+        击败28.59%使用 Python3 的用户
+        消耗内存分布
+        26.84MB
+        击败27.16%使用 Python3 的用户
+        """
+        node = headA
+        hash_table = {}
+        while node is not None:
+            # print(node.val)
+            hash_table[id(node)] = node
+            node = node.next
+
+        node = headB
+        while node is not None:
+            if id(node) in hash_table.keys():
+                break
+            node = node.next
+        return node
+    
+
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        """✅双指针，没想到这个解法（遍历过程指针运行长度的恒等式），看了题解后实现一遍。
+
+        执行用时分布
+        77ms
+        击败90.61%使用 Python3 的用户
+        消耗内存分布
+        26.68MB
+        击败46.24%使用 Python3 的用户
+        """
+        pa = headA
+        pb = headB
+        while pa != pb:
+            if pa is None and pb is None:
+                return None
+            elif pa is None:
+                pa = headB
+                pb = pb.next
+            elif pb is None:
+                pb = headA
+                pa = pa.next
+            else:
+                pa = pa.next
+                pb = pb.next
+        return pa
+```
+
+#### [206. 反转链表*](https://leetcode.cn/problems/reverse-linked-list/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList1(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """✅迭代
+
+        执行用时分布
+        34ms
+        击败84.93%使用 Python3 的用户
+        消耗内存分布
+        17.32MB
+        击败34.48%使用 Python3 的用户
+        """
+        prev = None
+        current = head
+        while current is not None:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        return prev
+
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """递归？晚点再研究
+        """
+```
+
+#### [234. 回文链表*（快慢指针）](https://leetcode.cn/problems/palindrome-linked-list/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        """简单题我不会:(
+        
+        快慢指针：参考题解实现空间复杂度O(1)的解法
+            在原链表上操作，快指针一次两步、慢指针一次一步找到中间节点
+            反转一半的链表后进行对比
+            对比完成后将链表恢复原位
+        
+        执行用时分布
+        268ms
+        击败92.76%使用 Python3 的用户
+        消耗内存分布
+        33.04MB
+        击败91.84%使用 Python3 的用户
+        """
+
+        # slow 停在后半部份的head
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        
+        # 反转链表后半部份
+        # 反转前：
+        # 1 -> ... -> lmid_end -> rmid_start -> ... -> end
+        # ^                           ^
+        # |                           |
+        # head                       slow
+        # 反转后：
+        # 1 -> ... -> lmid_end -> rmid_start <- ... <- end
+        # ^                           ^
+        # |                           |
+        # head                       slow
+        prev = slow
+        current = slow.next
+        while current is not None:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        # 此时 prev 为尾节点
+        # 1 -> ... -> lmid_end -> rmid_start <- ... <- end
+        # ^                           ^                 ^
+        # |                           |                 |
+        # head                       slow              prev
+        
+        # 判断回文
+        check_l = head
+        check_r = prev
+        while check_l != slow:
+            if check_l.val != check_r.val:
+                return False
+            check_l = check_l.next
+            check_r = check_r.next
+        
+        # 将链表恢复原状（可选，函数便携规范，不改变入参）
+        prev_new = None
+        current = prev
+        while current != slow:
+            next = current.next
+            current.next = prev_new
+            prev_new = current
+            current = next
+
+        return True
+```
+
+
+#### [141. 环形链表*（快慢指针）](https://leetcode.cn/problems/linked-list-cycle/description/?envType=study-plan-v2&envId=top-100-liked)
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        """✅快慢指针
+
+        执行用时分布
+        44ms
+        击败80.90%使用 Python3 的用户
+        消耗内存分布
+        18.86MB
+        击败48.93%使用 Python3 的用户
+
+        > NOTE: 兔子会不会「跳过」乌龟，从来不会和乌龟相遇呢？这是不可能的。如果有环的话，那么兔子和乌龟都会进入环中。这时用「相对速度」思考，乌龟不动，兔子相对乌龟每次只走一步，这样就可以看出兔子一定会和乌龟相遇了。
+        """
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if fast == slow:
+                return True
+        return False
+```
+
 
 #### []()
 
@@ -538,7 +849,46 @@ class Solution:
 
 ```
 
-### 
+
+#### [21. 合并两个有序链表*（双指针）](https://leetcode.cn/problems/merge-two-sorted-lists/description/?envType=study-plan-v2&envId=top-100-liked)
+
+链表操作还需要熟悉。算法很简单，但代码实现不熟练。
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        """
+        执行用时分布
+        41ms
+        击败44.17%使用 Python3 的用户
+        消耗内存分布
+        16.43MB
+        击败54.28%使用 Python3 的用户
+        """
+        l1 = list1
+        l2 = list2
+        ans = ListNode(-1)
+        prev = ans
+        while l1 is not None and l2 is not None:
+            if l1.val <= l2.val:
+                prev.next = l1
+                l1 = l1.next
+            else:
+                prev.next = l2
+                l2 = l2.next
+            prev = prev.next
+        
+        prev.next = l1 if l1 is not None else l2
+        return ans.next
+```
+
+
+
 
 #### []()
 
@@ -546,23 +896,7 @@ class Solution:
 
 ```
 
-#### []()
 
-```python
-
-```
-
-#### []()
-
-```python
-
-```
-
-#### []()
-
-```python
-
-```
 
 
 ### 栈
@@ -1152,82 +1486,72 @@ class Solution:
 ```
 
 
+### 技巧
 
+#### [136. 只出现一次的数字*（位运算）](https://leetcode.cn/problems/single-number/?envType=study-plan-v2&envId=top-100-liked)
 
+> 按位运算符是把数字看作二进制来进行计算的。
+> 
+> 按位异或运算符`^`：当两对应的二进位相异时，结果为1 
+> 
+> > Python位运算：https://www.runoob.com/python3/python3-basic-operators.html#ysf5
 
-
-#### []()
-
-```python
-
-```
-
-
-## [LeetCode刷题攻略](https://github.com/youngyangyang04/leetcode-master)
-
-`数组-> 链表-> 哈希表->字符串->栈与队列->树->回溯->贪心->动态规划->图论->高级数据结构`
-
-
-### []()
-
-#### []()
-
-```python
-
-```
-
-
-## 零散刷题
-
-#### [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](https://leetcode.cn/problems/search-a-2d-matrix-ii/description/)
+> 异或运算有以下三个性质:
+    1. 何数和0做异或运算，结果仍然是原来的数
+    2. 任何数和其自身做异或运算，结果是0
+    3. 异或运算满足交换律和结合律，即 a⊕b⊕a=b⊕a⊕a=b⊕(a⊕a)
+> > [力扣官方题解](https://leetcode.cn/problems/single-number/solutions/242211/zhi-chu-xian-yi-ci-de-shu-zi-by-leetcode-solution/)
 
 ```python
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        """❌如何有效的缩减搜索范围并且不能错过目标是关键
+    def singleNumber(self, nums: List[int]) -> int:
+        ans = 0
+        for i in range(len(nums)):
+            ans = ans ^ nums[i]
+        return ans
+```
 
-        解答错误
-        105 / 130 个通过的测试用例
 
-        [[-1,3]]
-        -1
+#### [169. 多数元素*（Boyer-Moore多数投票算法）](https://leetcode.cn/problems/majority-element/description/?envType=study-plan-v2&envId=top-100-liked)
 
-        对比官方题解[方法三：Z 字形查找](https://leetcode.cn/problems/search-a-2d-matrix-ii/solutions/1062538/sou-suo-er-wei-ju-zhen-ii-by-leetcode-so-9hcx/)，主要是起始位置的选择
-        从矩阵右下角无论往上还是往左走都是递减，而从右上角开始往左是递减、往下是递增，是个二叉搜索树，左下角同理
-        """
-        row = len(matrix)-1
-        col = len(matrix[0])-1
-        while row >= 0 and col >= 0:
-            if matrix[row][col] == target:
-                return True
-            elif matrix[row-1][col] < target: # 变动行后若错过目标，则只能列变动
-                col -= 1
-            elif matrix[row][col-1] < target: # 变动列后若错过目标，则只能行变动
-                row -= 1
-            else: # 选择变动小的方向，不然可能错过目标
-                if matrix[row][0] < matrix[0][col-1]:
-                    col -= 1
-                else:
-                    row -= 1
-        return False
+Robert S. Boyer and J Strother Moore 这俩人提出过很多算法，该题中用到的是多数投票算法，更著名的以他们命名的算法是BM字符串匹配算法。
 
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        """✅根据官方题解从矩阵左下角出发进行Z字形搜索
-        
-        执行用时分布
-        148ms
-        击败54.23%使用 Python3 的用户
-        消耗内存分布
-        22.57MB
-        击败50.48%使用 Python3 的用户
-        """
-        x, y = len(matrix)-1, 0  # 从左下角开始
-        while x >= 0 and y < len(matrix[0]):
-            if matrix[x][y] == target:
-                return True
-            if matrix[x-1][y] >= target:
-                x -= 1
+* [Boyer-Moore多数投票算法](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm)
+* [字符串匹配的Boyer-Moore算法](https://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
+
+```python
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        """多数投票，空间复杂度O(1)"""
+        count = 0
+        target = None
+        for n in nums:
+            if count == 0:
+                target = n
+            elif target == n:
+                count += 1
             else:
-                y += 1
-        return False
+                count -= 1
+        return target
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
 ```
