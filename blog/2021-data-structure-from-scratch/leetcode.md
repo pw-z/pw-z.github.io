@@ -23,9 +23,21 @@
       - [206. 反转链表\*](#206-反转链表)
       - [234. 回文链表\*（快慢指针）](#234-回文链表快慢指针)
       - [141. 环形链表\*（快慢指针）](#141-环形链表快慢指针)
-      - [](#)
+      - [142. 环形链表 II（快慢指针 + 数学）](#142-环形链表-ii快慢指针--数学)
       - [21. 合并两个有序链表\*（双指针）](#21-合并两个有序链表双指针)
+    - [二叉树](#二叉树)
+      - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
+      - [104. 二叉树的最大深度\*](#104-二叉树的最大深度)
+      - [226. 翻转二叉树\*](#226-翻转二叉树)
+      - [101. 对称二叉树\*](#101-对称二叉树)
+      - [543. 二叉树的直径\*](#543-二叉树的直径)
+      - [102. 二叉树的层序遍历](#102-二叉树的层序遍历)
+      - [](#)
       - [](#-1)
+    - [二分查找](#二分查找)
+      - [35. 搜索插入位置](#35-搜索插入位置)
+      - [](#-2)
+      - [](#-3)
     - [栈](#栈)
       - [20. 有效的括号](#20-有效的括号)
       - [155. 最小栈](#155-最小栈)
@@ -37,9 +49,13 @@
     - [技巧](#技巧)
       - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
       - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
-      - [](#-2)
-      - [](#-3)
       - [](#-4)
+      - [](#-5)
+    - [动态规划](#动态规划)
+      - [70. 爬楼梯](#70-爬楼梯)
+      - [](#-6)
+      - [](#-7)
+      - [](#-8)
 
 ## LeetCode刷题攻略
 https://github.com/youngyangyang04/leetcode-master
@@ -55,7 +71,7 @@ https://github.com/youngyangyang04/leetcode-master
 
 ### 哈希
 
-#### [1. 两数之和*](https://leetcode.cn/problems/two-sum/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [1. 两数之和*](https://leetcode.cn/problems/two-sum/)
 
 ```python
 class Solution:
@@ -93,7 +109,7 @@ class Solution:
 ```
 
 
-#### [49. 字母异位词分组](https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [49. 字母异位词分组](https://leetcode.cn/problems/group-anagrams/)
 
 ```python
 class Solution:
@@ -154,7 +170,7 @@ class Solution:
 ```
 
 
-#### [128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/)
 
 ```python
 class Solution:
@@ -210,7 +226,7 @@ class Solution:
 
 ### 双指针
 
-#### [283. 移动零*](https://leetcode.cn/problems/move-zeroes/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [283. 移动零*](https://leetcode.cn/problems/move-zeroes/)
 
 ```python
 class Solution:
@@ -274,7 +290,7 @@ class Solution:
 ```
 
 
-#### [11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/)
 
 ```python
 class Solution:
@@ -313,11 +329,11 @@ class Solution:
                 right -= 1
         return max_area
 
-# 这个题解很棒：https://leetcode.cn/problems/container-with-most-water/solutions/94102/on-shuang-zhi-zhen-jie-fa-li-jie-zheng-que-xing-tu/?envType=study-plan-v2&envId=top-100-liked
+# 这个题解很棒：https://leetcode.cn/problems/container-with-most-water/solutions/94102/on-shuang-zhi-zhen-jie-fa-li-jie-zheng-que-xing-tu/
 ```
 
 
-#### [167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/description/)
+#### [167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
 
 ```python
 class Solution:
@@ -340,7 +356,7 @@ class Solution:
 ```
 
 
-#### [15. 三数之和](https://leetcode.cn/problems/3sum/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [15. 三数之和](https://leetcode.cn/problems/3sum/)
 
 ```python
 class Solution:
@@ -408,7 +424,7 @@ class Solution:
 ```
 
 
-#### [42. 接雨水**（单调栈；双指针）](https://leetcode.cn/problems/trapping-rain-water/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [42. 接雨水**（单调栈；双指针）](https://leetcode.cn/problems/trapping-rain-water/)
 
 一个视频把思路讲的很清晰：https://www.bilibili.com/video/BV1Qg411q7ia/?vd_source=215226f55ec25efebe70612682143c68
 
@@ -468,7 +484,7 @@ class Solution:
 > >[滑动窗口算法基本原理与实践](https://www.cnblogs.com/huansky/p/13488234.html)
 
 
-#### [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
 
 ```python
 class Solution:
@@ -519,7 +535,7 @@ class Solution:
 ```
 
 
-#### [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/)
 
 ```python
 class Solution:
@@ -583,7 +599,7 @@ class Solution:
 
 ### 矩阵
 
-#### [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](https://leetcode.cn/problems/search-a-2d-matrix-ii/description/)
+#### [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](https://leetcode.cn/problems/search-a-2d-matrix-ii/)
 
 ```python
 class Solution:
@@ -639,7 +655,7 @@ class Solution:
 
 ### 链表
 
-#### [160. 相交链表*](https://leetcode.cn/problems/intersection-of-two-linked-lists/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [160. 相交链表*](https://leetcode.cn/problems/intersection-of-two-linked-lists/)
 
 ```python
 # Definition for singly-linked list.
@@ -701,7 +717,7 @@ class Solution:
         return pa
 ```
 
-#### [206. 反转链表*](https://leetcode.cn/problems/reverse-linked-list/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [206. 反转链表*](https://leetcode.cn/problems/reverse-linked-list/)
 
 ```python
 # Definition for singly-linked list.
@@ -734,7 +750,7 @@ class Solution:
         """
 ```
 
-#### [234. 回文链表*（快慢指针）](https://leetcode.cn/problems/palindrome-linked-list/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [234. 回文链表*（快慢指针）](https://leetcode.cn/problems/palindrome-linked-list/)
 
 ```python
 # Definition for singly-linked list.
@@ -811,7 +827,7 @@ class Solution:
 ```
 
 
-#### [141. 环形链表*（快慢指针）](https://leetcode.cn/problems/linked-list-cycle/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [141. 环形链表*（快慢指针）](https://leetcode.cn/problems/linked-list-cycle/)
 
 ```python
 # Definition for singly-linked list.
@@ -843,14 +859,38 @@ class Solution:
 ```
 
 
-#### []()
+#### [142. 环形链表 II（快慢指针 + 数学）](https://leetcode.cn/problems/linked-list-cycle-ii/)
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """✅快慢指针判断是否有环，然后通过数学关系实现入口节点的判断
+        时间复杂度：O(n)
+        空间复杂度：O(1)
+        """
+        slow  = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if fast == slow: #存在环
+                # 数字关系分析过程：https://leetcode.cn/problems/linked-list-cycle-ii/solutions/12616/linked-list-cycle-ii-kuai-man-zhi-zhen-shuang-zhi-/
+                fast = head
+                while fast != slow:
+                    fast = fast.next
+                    slow = slow.next
+                return fast
+        return None
 
 ```
 
 
-#### [21. 合并两个有序链表*（双指针）](https://leetcode.cn/problems/merge-two-sorted-lists/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [21. 合并两个有序链表*（双指针）](https://leetcode.cn/problems/merge-two-sorted-lists/)
 
 链表操作还需要熟悉。算法很简单，但代码实现不熟练。
 
@@ -889,6 +929,389 @@ class Solution:
 
 
 
+### 二叉树
+
+二叉树很久没接触了，实现下三种遍历复习下（着重注意后序遍历的非递归写法，从头实现有点绕）：
+
+```python
+class TreeNode:
+    def __init__(self, value):
+        self.val = value
+        self.left = None
+        self.right = None
+
+    def setL(self, treeNode):
+        self.left = treeNode
+
+    def setR(self, treeNode):
+        self.right = treeNode
+
+
+# 先序遍历 递归
+def preorder_recur(node: TreeNode):
+    if node:
+        print(node.val, end='')
+        preorder_recur(node.left)
+        preorder_recur(node.right)
+    return
+
+
+# 先序遍历 迭代
+def preorder_non_recur(node: TreeNode):
+    stack = []
+    cur = node
+    while stack or cur:
+        if cur:
+            print(cur.val, end='')
+            stack.append(cur)
+            cur = cur.left
+        else:
+            cur = stack.pop().right
+
+
+# 中序遍历 递归
+def inorder_recur(node: TreeNode):
+    if node:
+        inorder_recur(node.left)
+        print(node.val, end='')
+        inorder_recur(node.right)
+    return
+
+
+# 中序遍历 迭代
+def inorder_non_recur(node: TreeNode):
+    stack = []
+    cur = node
+    while stack or cur:
+        if cur:
+            stack.append(cur)
+            cur = cur.left
+        else:
+            cur = stack.pop()
+            print(cur.val, end='')
+            cur = cur.right
+
+
+# 后序遍历 递归
+def postorder_recur(node: TreeNode):
+    if node:
+        postorder_recur(node.left)
+        postorder_recur(node.right)
+        print(node.val, end='')
+    return
+
+
+# 后序遍历 递归
+def postorder_non_recur(node: TreeNode):
+    stack = []
+    cur = node
+    last_visited = None
+    while stack or cur:
+        if cur:
+            stack.append(cur)
+            cur = cur.left
+        else:
+            cur = stack[-1]
+            if cur.right and cur.right != last_visited:
+                cur = cur.right
+            else:
+                cur = stack.pop()
+                print(cur.val, end='')
+                last_visited = cur
+                cur = None
+
+
+if __name__ == '__main__':
+    a = TreeNode('a')
+    b = TreeNode('b')
+    c = TreeNode('c')
+    d = TreeNode('d')
+    e = TreeNode('e')
+
+    a.setL(b)
+    a.setR(c)
+    c.setL(d)
+    c.setR(e)
+
+    print("先序遍历_递归：", end='')
+    preorder_recur(a)
+    print("\n先序遍历_迭代：", end='')
+    preorder_non_recur(a)
+
+    print("\n中序遍历_递归：", end='')
+    inorder_recur(a)
+    print("\n中序遍历_迭代：", end='')
+    inorder_non_recur(a)
+
+    print("\n后序遍历_递归：", end='')
+    postorder_recur(a)
+    print("\n后序遍历_迭代：", end='')
+    postorder_non_recur(a)
+
+# 先序遍历_递归：abcde
+# 先序遍历_迭代：abcde
+# 中序遍历_递归：badce
+# 中序遍历_迭代：badce
+# 后序遍历_递归：bdeca
+# 后序遍历_迭代：bdeca
+```
+
+
+#### [94. 二叉树的中序遍历*](https://leetcode.cn/problems/binary-tree-inorder-traversal/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        """✅借助栈实现非递归
+        时间复杂度：O(n)
+        空间复杂度：O(n)
+
+        递归实现更简单跳过；还有个优化空间复杂度的解法参考官解：https://leetcode.cn/problems/binary-tree-inorder-traversal/solutions/412886/er-cha-shu-de-zhong-xu-bian-li-by-leetcode-solutio/
+        """
+        stack = []
+        p = root
+        ans = []
+        while stack or p:
+            if p:
+                stack.append(p)
+                p = p.left
+            else:
+                p = stack.pop()
+                ans.append(p.val)
+                p = p.right
+        return ans
+```
+
+
+#### [104. 二叉树的最大深度*](https://leetcode.cn/problems/maximum-depth-of-binary-tree/?envType=study-plan-v2&envId=top-100-**liked**)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxDepth1(self, root: Optional[TreeNode]) -> int:
+        # 分治、递归
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        if root:
+            return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
+        else:
+            return 0
+    
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        # 层序遍历
+        # 时间复杂度：O(n)
+        # 空间复杂度：O(n)
+        if not root:
+            return 0
+        queue = [root]
+        ans = 0
+        while queue:
+            # p = queue.pop(1)
+            temp = []
+            for p in queue:
+                # visit node, no need here
+                if p.left: temp.append(p.left)
+                if p.right: temp.append(p.right)
+            queue = temp
+            ans += 1
+        return ans
+```
+
+
+#### [226. 翻转二叉树*](https://leetcode.cn/problems/invert-binary-tree/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        """后序遍历，每次对调根节点的左右子树"""
+        stack = []
+        p = root
+        last = None
+        while stack or p:
+            if p:
+              stack.append(p)
+              p = p.left
+            else:
+                p = stack[-1].right
+                if p and p != last:
+                    continue
+                else:
+                    p = stack.pop()
+                    # do something
+                    p.left, p.right = p.right, p.left
+                    last = p
+                    p = None
+        return root
+```
+
+
+#### [101. 对称二叉树*](https://leetcode.cn/problems/symmetric-tree/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        """非递归实现：层序遍历，对于每一层使用双指针判断是否对称
+        """
+        if not root:
+            return True
+
+        queue = [root]
+        p = None
+        while queue:
+            temp = []
+            for_test = []
+            for item in queue:
+                if item.left:
+                    temp.append(item.left)
+                    for_test.append(item.left.val)
+                else:
+                    for_test.append("")
+
+                if item.right:
+                    temp.append(item.right)
+                    for_test.append(item.right.val)
+                else:
+                    for_test.append("")
+
+            # 判断temp是否回文
+            print(for_test)
+            l, r = 0, len(for_test)-1
+            while l < r:
+                if for_test[l] != for_test[r]:
+                    return False
+                l += 1
+                r -= 1
+
+            queue = temp
+        
+        return True
+```
+
+
+#### [543. 二叉树的直径*](https://leetcode.cn/problems/diameter-of-binary-tree/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        self._max = 1 # 题目限制节点至少1个
+
+        def depth(node):
+            if node is None:
+                return 0
+
+            l = depth(node.left)
+            r = depth(node.right)
+            self._max = max(self._max, l+r+1)
+            return max(l, r)+1
+        
+        depth(root)
+        return self._max-1
+```
+
+
+#### [102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
+
+        queue = [root]
+        ans = []
+        while queue:
+            temp = []
+            _ans = []
+            for n in queue:
+                _ans.append(n.val)
+                if n.left: temp.append(n.left)
+                if n.right: temp.append(n.right)
+            ans.append(_ans)
+            queue = temp
+        return ans
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+### 二分查找
+
+#### [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/)
+
+```python
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        """✅二分
+        时间复杂度：O(logn)
+        空间复杂度：O(1)
+        """
+        n = len(nums)
+        l, r = 0, n-1
+        ans = n
+        while l <= r:
+            mid = round((r - l)/2 + l)
+            if nums[mid] >= target:
+                ans = mid
+                r = mid - 1
+            else:
+                l = mid + 1
+        return ans
+```
+
+
+#### []()
+
+```python
+
+```
+
 
 #### []()
 
@@ -908,7 +1331,7 @@ class Solution:
 > > [使用单调栈解决 “下一个更大元素” 问题](https://mdnice.com/writing/b5cd53ce22c14069b63c6d5d3ad41bd9)
 
 
-#### [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/)
 
 ```python
 class Solution:
@@ -966,7 +1389,7 @@ class Solution:
         return True if len(ss) == 0 else False
 ```
 
-#### [155. 最小栈](https://leetcode.cn/problems/min-stack/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [155. 最小栈](https://leetcode.cn/problems/min-stack/)
 
 使用辅助栈实现`常数时间内检索到最小元素`
 
@@ -1097,7 +1520,7 @@ class MinStack:
         return self.min_stack[-1]
 ```
 
-#### [394. 字符串解码](https://leetcode.cn/problems/decode-string/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [394. 字符串解码](https://leetcode.cn/problems/decode-string/)
 
 
 ```python
@@ -1198,7 +1621,7 @@ class Solution:
         return current_patten
 ```
 
-#### [739. 每日温度（单调栈）](https://leetcode.cn/problems/daily-temperatures/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [739. 每日温度（单调栈）](https://leetcode.cn/problems/daily-temperatures/)
 
 ```python
 class Solution:
@@ -1238,7 +1661,7 @@ class Solution:
         return ans
 ```
 
-#### [496. 下一个更大元素 I*（单调栈）](https://leetcode.cn/problems/next-greater-element-i/description/)
+#### [496. 下一个更大元素 I*（单调栈）](https://leetcode.cn/problems/next-greater-element-i/)
 
 这道题用单调栈+哈希表的写法不算Easy题目了，比每日温度要复杂。
 
@@ -1282,7 +1705,7 @@ class Solution:
 
 
 
-#### [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/description/)
+#### [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/)
 
 ```python
 class Solution:
@@ -1337,7 +1760,7 @@ class Solution:
 ```
 
 
-#### [84. 柱状图中最大的矩形**（单调栈）](https://leetcode.cn/problems/largest-rectangle-in-histogram/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [84. 柱状图中最大的矩形**（单调栈）](https://leetcode.cn/problems/largest-rectangle-in-histogram/)
 
 ```python
 class Solution:
@@ -1488,7 +1911,7 @@ class Solution:
 
 ### 技巧
 
-#### [136. 只出现一次的数字*（位运算）](https://leetcode.cn/problems/single-number/?envType=study-plan-v2&envId=top-100-liked)
+#### [136. 只出现一次的数字*（位运算）](https://leetcode.cn/problems/single-number/)
 
 > 按位运算符是把数字看作二进制来进行计算的。
 > 
@@ -1512,7 +1935,7 @@ class Solution:
 ```
 
 
-#### [169. 多数元素*（Boyer-Moore多数投票算法）](https://leetcode.cn/problems/majority-element/description/?envType=study-plan-v2&envId=top-100-liked)
+#### [169. 多数元素*（Boyer-Moore多数投票算法）](https://leetcode.cn/problems/majority-element/)
 
 Robert S. Boyer and J Strother Moore 这俩人提出过很多算法，该题中用到的是多数投票算法，更著名的以他们命名的算法是BM字符串匹配算法。
 
@@ -1528,11 +1951,47 @@ class Solution:
         for n in nums:
             if count == 0:
                 target = n
-            elif target == n:
+            
+            if target == n:
                 count += 1
             else:
                 count -= 1
         return target
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+### 动态规划
+
+参考：[动态规划基础](https://oi-wiki.org/dp/basic/)
+
+
+#### [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs)
+
+```python
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        p = q = 0
+        ans = 1
+        for i in range(n):
+            p = q
+            q = ans
+            ans = p + q
+        return ans
+
 ```
 
 
