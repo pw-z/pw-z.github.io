@@ -16,6 +16,8 @@
     - [滑动窗口](#滑动窗口)
       - [3. 无重复字符的最长子串](#3-无重复字符的最长子串)
       - [438. 找到字符串中所有字母异位词](#438-找到字符串中所有字母异位词)
+    - [普通数组](#普通数组)
+      - [53. 最大子数组和（动态规划）](#53-最大子数组和动态规划)
     - [矩阵](#矩阵)
       - [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](#240-搜索二维矩阵-ii-矩阵二分压缩搜索空间)
     - [链表](#链表)
@@ -25,6 +27,9 @@
       - [141. 环形链表\*（快慢指针）](#141-环形链表快慢指针)
       - [142. 环形链表 II（快慢指针 + 数学）](#142-环形链表-ii快慢指针--数学)
       - [21. 合并两个有序链表\*（双指针）](#21-合并两个有序链表双指针)
+      - [2. 两数相加](#2-两数相加)
+      - [](#)
+      - [](#-1)
     - [二叉树](#二叉树)
       - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
       - [104. 二叉树的最大深度\*](#104-二叉树的最大深度)
@@ -32,12 +37,12 @@
       - [101. 对称二叉树\*](#101-对称二叉树)
       - [543. 二叉树的直径\*](#543-二叉树的直径)
       - [102. 二叉树的层序遍历](#102-二叉树的层序遍历)
-      - [](#)
-      - [](#-1)
-    - [二分查找](#二分查找)
-      - [35. 搜索插入位置](#35-搜索插入位置)
       - [](#-2)
       - [](#-3)
+    - [二分查找](#二分查找)
+      - [35. 搜索插入位置](#35-搜索插入位置)
+      - [](#-4)
+      - [](#-5)
     - [栈](#栈)
       - [20. 有效的括号](#20-有效的括号)
       - [155. 最小栈](#155-最小栈)
@@ -49,13 +54,13 @@
     - [技巧](#技巧)
       - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
       - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
-      - [](#-4)
-      - [](#-5)
-    - [动态规划](#动态规划)
-      - [70. 爬楼梯](#70-爬楼梯)
       - [](#-6)
       - [](#-7)
+    - [动态规划](#动态规划)
+      - [70. 爬楼梯](#70-爬楼梯)
       - [](#-8)
+      - [](#-9)
+      - [](#-10)
 
 ## LeetCode刷题攻略
 https://github.com/youngyangyang04/leetcode-master
@@ -597,6 +602,31 @@ class Solution:
         return ans
 ```
 
+### 普通数组
+
+
+#### [53. 最大子数组和（动态规划）](https://leetcode.cn/problems/maximum-subarray/)
+
+```python
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        """动态规划经典题
+        题解：https://leetcode.cn/problems/maximum-subarray/solutions/9058/dong-tai-gui-hua-fen-zhi-fa-python-dai-ma-java-dai/?envType=study-plan-v2&envId=top-100-liked
+        """
+        n = len(nums)
+        if n == 0: return 0
+
+        dp = [0] * n
+        dp[0] = nums[0] # 初始值
+        for i in range(1, n):
+            dp[i] = dp[i-1] + nums[i] if dp[i-1] >= 0 else nums[i]
+
+        return max(dp)
+```
+
+
+
+
 ### 矩阵
 
 #### [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](https://leetcode.cn/problems/search-a-2d-matrix-ii/)
@@ -928,6 +958,103 @@ class Solution:
 ```
 
 
+
+#### [2. 两数相加](https://leetcode.cn/problems/add-two-numbers)
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        """✅双指针
+        执行用时分布
+        37ms
+        击败98.65%使用 Python3 的用户
+        消耗内存分布
+        16.53MB
+        击败24.73%使用 Python3 的用户
+        """
+        # """反转链表然后算数运算？"""
+        # def rev(head):
+        #     prev = None
+        #     cur = head
+        #     while cur:
+        #         next = cur.next
+        #         cur.next = prev
+        #         prev = cur
+        #         cur = next
+        #     return prev
+        
+        # l1_rev = rev(l1)
+        # l2_rev = rev(l2)
+        # while l1_rev: # check the rev function
+        #     print(l1_rev.val)
+        #     l1_rev = l1_rev.next
+
+        # """不对啊傻逼了，算数运算就得从个位数开始加啊，不然还的对齐两个数字的数位“”“
+        # 双指针指向两个链表并行前进
+        ans_head = None
+        ans = None
+        last_addon = 0
+        a = l1
+        b = l2
+        while a and b:
+            temp = a.val+b.val + last_addon
+            last_addon = 1 if temp > 9 else 0
+            _ans = ListNode(temp%10)
+            a = a.next
+            b = b.next
+            if not ans:
+                ans = _ans
+                ans_head = _ans
+            else:
+                ans.next = _ans
+                ans = ans.next
+        while a:
+            temp = a.val + last_addon
+            last_addon = 1 if temp > 9 else 0
+            _ans = ListNode(temp%10)
+            a = a.next
+            ans.next = _ans
+            ans = ans.next
+        while b:
+            temp = b.val + last_addon
+            last_addon = 1 if temp > 9 else 0
+            _ans = ListNode(temp%10)
+            b = b.next
+            ans.next = _ans
+            ans = ans.next
+        
+        if last_addon:
+            _ans = ListNode(last_addon)
+            ans.next = _ans
+            ans = ans.next
+        
+        return ans_head
+
+
+
+
+```
+
+
+
+#### []()
+
+```python
+
+```
+
+
+
+#### []()
+
+```python
+
+```
 
 ### 二叉树
 
