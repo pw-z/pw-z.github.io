@@ -58,6 +58,8 @@
       - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
       - [](#-5)
       - [](#-6)
+    - [贪心算法](#贪心算法)
+      - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [动态规划](#动态规划)
       - [70. 爬楼梯](#70-爬楼梯)
       - [](#-7)
@@ -2246,6 +2248,26 @@ class Solution:
 ```python
 
 ```
+
+### 贪心算法
+
+
+#### [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
+
+相关阅读：[动态规划(Dynamic Programming)和贪心算法(Greedy Algorithm)](https://hughesxu.github.io/posts/DP_Greedy_Algorithm/)
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        """ """
+        minprice = 1e5
+        maxprofit = 0
+        for price in prices:
+            maxprofit = max(price - minprice, maxprofit)
+            minprice = min(price, minprice)
+        return maxprofit
+```
+
 
 
 ### 动态规划
