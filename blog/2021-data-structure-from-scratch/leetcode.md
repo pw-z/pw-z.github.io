@@ -30,8 +30,8 @@
       - [2. 两数相加](#2-两数相加)
       - [19. 删除链表的倒数第 N 个结点](#19-删除链表的倒数第-n-个结点)
       - [24. 两两交换链表中的节点](#24-两两交换链表中的节点)
+      - [图解 K 个一组翻转链表](#图解-k-个一组翻转链表)
       - [](#)
-      - [](#-1)
     - [二叉树](#二叉树)
       - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
       - [104. 二叉树的最大深度\*](#104-二叉树的最大深度)
@@ -39,12 +39,12 @@
       - [101. 对称二叉树\*](#101-对称二叉树)
       - [543. 二叉树的直径\*](#543-二叉树的直径)
       - [102. 二叉树的层序遍历](#102-二叉树的层序遍历)
+      - [](#-1)
       - [](#-2)
-      - [](#-3)
     - [二分查找](#二分查找)
       - [35. 搜索插入位置](#35-搜索插入位置)
+      - [](#-3)
       - [](#-4)
-      - [](#-5)
     - [栈](#栈)
       - [20. 有效的括号](#20-有效的括号)
       - [155. 最小栈](#155-最小栈)
@@ -56,13 +56,13 @@
     - [技巧](#技巧)
       - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
       - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
+      - [](#-5)
       - [](#-6)
-      - [](#-7)
     - [动态规划](#动态规划)
       - [70. 爬楼梯](#70-爬楼梯)
+      - [](#-7)
       - [](#-8)
       - [](#-9)
-      - [](#-10)
 
 ## LeetCode刷题攻略
 https://github.com/youngyangyang04/leetcode-master
@@ -1124,10 +1124,76 @@ class Solution:
 ```
 
 
-#### []()
+#### [图解 K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
 
 ```python
+# Definition for singly-linked list.
+from typing import Optional
 
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        """用时1小时10分钟...DEBUG了很久，看看题解，应善用哨兵节点
+        """
+
+        def rev(_head, _prev, stop_at, point_stop):
+            _cur = _head
+            while _cur:
+                _next = _cur.next
+                _cur.next = _prev
+                _prev = _cur
+                if _cur is stop_at:
+                    if point_stop:
+                        point_stop.next = _cur
+                    return
+                _cur = _next
+
+        last_head = cur = head
+        prev_tail = None
+        count = 0
+        while cur:
+            count += 1
+            next = cur.next
+
+            if count == 1:
+                last_head = cur
+
+            if count == k:
+                # start reverse
+                rev(last_head, next, cur, prev_tail)
+                if not prev_tail:
+                    head = cur
+                prev_tail = last_head
+                count = 0
+
+            cur = next
+
+        return head
+
+
+if __name__ == '__main__':
+    n1 = ListNode(1)
+    n2 = ListNode(2)
+    n3 = ListNode(3)
+    n4 = ListNode(4)
+    n5 = ListNode(5)
+    n1.next = n2
+    n2.next = n3
+    n3.next = n4
+    n4.next = n5
+
+    s = Solution()
+    ans = s.reverseKGroup(n1, 2)
+    while ans:
+        print(ans.val)
+        ans = ans.next
+
+    # 2 1 4 3 5 
 ```
 
 
