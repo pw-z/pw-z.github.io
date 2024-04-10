@@ -28,6 +28,8 @@
       - [142. 环形链表 II（快慢指针 + 数学）](#142-环形链表-ii快慢指针--数学)
       - [21. 合并两个有序链表\*（双指针）](#21-合并两个有序链表双指针)
       - [2. 两数相加](#2-两数相加)
+      - [19. 删除链表的倒数第 N 个结点](#19-删除链表的倒数第-n-个结点)
+      - [24. 两两交换链表中的节点](#24-两两交换链表中的节点)
       - [](#)
       - [](#-1)
     - [二叉树](#二叉树)
@@ -958,7 +960,6 @@ class Solution:
 ```
 
 
-
 #### [2. 两数相加](https://leetcode.cn/problems/add-two-numbers)
 
 ```python
@@ -970,6 +971,9 @@ class Solution:
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         """✅双指针
+        时间复杂度：O(n)
+        空间复杂度：O(1)
+
         执行用时分布
         37ms
         击败98.65%使用 Python3 的用户
@@ -1042,12 +1046,89 @@ class Solution:
 
 
 
+#### [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
+
+看了官解所谓的一次遍历，有点自欺欺人了，本质上还是遍历了两次。
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        # 朴素解：遍历确认链表长度，再次遍历到n的前一个位置处理链表节点关系
+        # 如何一趟遍历实现？那就必须把链表每个节点对应的位置记录下来，空间换时间
+        hash_dict = dict() # k = order, value = ref
+        i = 0
+        p = head
+        while p:
+            hash_dict[i] = p
+            p = p.next
+            i += 1  # after last round, i = numbers of linklist
+        # 倒数第n个 = 正数第length-n+1个，所以从0开始的话索引值=length-n
+        if n == i:
+            head = head.next
+        else:
+            hash_dict[i-n-1].next = hash_dict[i-n].next
+        return head
+```
+
+
+#### [24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/)
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def swapPairs1(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """迭代解法：通过两个指针记忆上两个节点位置，通过一个计数判断当前是否偶数位，是则交换当前节点于上一个节点位置"""
+        cur = head
+        last = last_last = None
+        tick = 0
+        while cur:
+            tick += 1
+            if tick == 2:
+                # exchange
+                last.next = cur.next
+                cur.next = last
+                if last_last:
+                    last_last.next = cur
+                else: 
+                    head = cur
+                cur = last.next
+                tick = 0
+            else:
+                last_last = last
+                last = cur
+                cur = cur.next
+        return head
+    
+    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """官解的迭代解法：设置一个哑节点，不断处理其后续两个节点。 比自己的解法优雅些，没那么多ifelse"""
+        dummy = ListNode(0)
+        dummy.next = head
+        temp = dummy
+        while temp.next and temp.next.next:
+            n1 = temp.next
+            n2 = temp.next.next
+            temp.next = n2
+            n1.next = n2.next
+            n2.next = n1
+            temp = n1
+        return dummy.next
+```
+
+
 #### []()
 
 ```python
 
 ```
-
 
 
 #### []()
