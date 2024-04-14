@@ -1,96 +1,89 @@
-# Leetcode算法总结
+# LeetCode Hot 100
 
-- [Leetcode算法总结](#leetcode算法总结)
-  - [LeetCode刷题攻略](#leetcode刷题攻略)
-  - [20240401-04? LeetCode-Hot-100](#20240401-04-leetcode-hot-100)
-    - [哈希](#哈希)
-      - [1. 两数之和\*](#1-两数之和)
-      - [49. 字母异位词分组](#49-字母异位词分组)
-      - [128. 最长连续序列](#128-最长连续序列)
-    - [双指针](#双指针)
-      - [283. 移动零\*](#283-移动零)
-      - [11. 盛最多水的容器](#11-盛最多水的容器)
-      - [167. 两数之和 II - 输入有序数组](#167-两数之和-ii---输入有序数组)
-      - [15. 三数之和](#15-三数之和)
-      - [42. 接雨水\*\*（单调栈；双指针）](#42-接雨水单调栈双指针)
-    - [滑动窗口](#滑动窗口)
-      - [3. 无重复字符的最长子串](#3-无重复字符的最长子串)
-      - [438. 找到字符串中所有字母异位词](#438-找到字符串中所有字母异位词)
-    - [子串](#子串)
-      - [560. 和为 K 的子数组（有空再瞅瞅）](#560-和为-k-的子数组有空再瞅瞅)
-      - [](#)
-      - [](#-1)
-    - [普通数组](#普通数组)
-      - [53. 最大子数组和（动态规划）](#53-最大子数组和动态规划)
-      - [56. 合并区间（排序）](#56-合并区间排序)
-      - [189. 轮转数组](#189-轮转数组)
-      - [](#-2)
-    - [矩阵](#矩阵)
-      - [73. 矩阵置零](#73-矩阵置零)
-      - [](#-3)
-      - [](#-4)
-      - [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](#240-搜索二维矩阵-ii-矩阵二分压缩搜索空间)
-    - [链表](#链表)
-      - [160. 相交链表\*](#160-相交链表)
-      - [206. 反转链表\*](#206-反转链表)
-      - [234. 回文链表\*（快慢指针）](#234-回文链表快慢指针)
-      - [141. 环形链表\*（快慢指针）](#141-环形链表快慢指针)
-      - [142. 环形链表 II（快慢指针 + 数学）](#142-环形链表-ii快慢指针--数学)
-      - [21. 合并两个有序链表\*（双指针）](#21-合并两个有序链表双指针)
-      - [2. 两数相加](#2-两数相加)
-      - [19. 删除链表的倒数第 N 个结点](#19-删除链表的倒数第-n-个结点)
-      - [24. 两两交换链表中的节点](#24-两两交换链表中的节点)
-      - [图解 K 个一组翻转链表](#图解-k-个一组翻转链表)
-      - [](#-5)
-    - [二叉树](#二叉树)
-      - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
-      - [104. 二叉树的最大深度\*](#104-二叉树的最大深度)
-      - [226. 翻转二叉树\*](#226-翻转二叉树)
-      - [101. 对称二叉树\*](#101-对称二叉树)
-      - [543. 二叉树的直径\*](#543-二叉树的直径)
-      - [102. 二叉树的层序遍历](#102-二叉树的层序遍历)
-      - [108. 将有序数组转换为二叉搜索树\*](#108-将有序数组转换为二叉搜索树)
-      - [](#-6)
-    - [二分查找](#二分查找)
-      - [35. 搜索插入位置](#35-搜索插入位置)
-      - [](#-7)
-      - [](#-8)
-    - [栈](#栈)
-      - [20. 有效的括号](#20-有效的括号)
-      - [155. 最小栈](#155-最小栈)
-      - [394. 字符串解码](#394-字符串解码)
-      - [739. 每日温度（单调栈）](#739-每日温度单调栈)
-      - [496. 下一个更大元素 I\*（单调栈）](#496-下一个更大元素-i单调栈)
-      - [503. 下一个更大元素 II](#503-下一个更大元素-ii)
-      - [84. 柱状图中最大的矩形\*\*（单调栈）](#84-柱状图中最大的矩形单调栈)
-    - [技巧](#技巧)
-      - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
-      - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
-      - [](#-9)
-      - [](#-10)
-    - [贪心算法](#贪心算法)
-      - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
-    - [动态规划](#动态规划)
-      - [70. 爬楼梯](#70-爬楼梯)
-      - [](#-11)
-      - [](#-12)
-      - [](#-13)
-
-## LeetCode刷题攻略
-https://github.com/youngyangyang04/leetcode-master
-
-`数组-> 链表-> 哈希表->字符串->栈与队列->树->回溯->贪心->动态规划->图论->高级数据结构`
-
-
-
-## 20240401-04? LeetCode-Hot-100
+20240401-04? 
 
 题单地址：https://leetcode.cn/studyplan/top-100-liked/ ，有些相关典型题一并在这个目录下做了，不仅限于hot100。
 
 
-### 哈希
+- [LeetCode Hot 100](#leetcode-hot-100)
+  - [哈希](#哈希)
+    - [1. 两数之和\*](#1-两数之和)
+    - [49. 字母异位词分组](#49-字母异位词分组)
+    - [128. 最长连续序列](#128-最长连续序列)
+  - [双指针](#双指针)
+    - [283. 移动零\*](#283-移动零)
+    - [11. 盛最多水的容器](#11-盛最多水的容器)
+    - [167. 两数之和 II - 输入有序数组](#167-两数之和-ii---输入有序数组)
+    - [15. 三数之和](#15-三数之和)
+    - [42. 接雨水\*\*（单调栈；双指针）](#42-接雨水单调栈双指针)
+  - [滑动窗口](#滑动窗口)
+    - [3. 无重复字符的最长子串](#3-无重复字符的最长子串)
+    - [438. 找到字符串中所有字母异位词](#438-找到字符串中所有字母异位词)
+  - [子串](#子串)
+    - [560. 和为 K 的子数组（有空再瞅瞅）](#560-和为-k-的子数组有空再瞅瞅)
+    - [](#)
+    - [](#-1)
+  - [普通数组](#普通数组)
+    - [53. 最大子数组和（动态规划）](#53-最大子数组和动态规划)
+    - [56. 合并区间（排序）](#56-合并区间排序)
+    - [189. 轮转数组](#189-轮转数组)
+    - [](#-2)
+  - [矩阵](#矩阵)
+    - [73. 矩阵置零](#73-矩阵置零)
+    - [](#-3)
+    - [](#-4)
+    - [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](#240-搜索二维矩阵-ii-矩阵二分压缩搜索空间)
+  - [链表](#链表)
+    - [160. 相交链表\*](#160-相交链表)
+    - [206. 反转链表\*](#206-反转链表)
+    - [234. 回文链表\*（快慢指针）](#234-回文链表快慢指针)
+    - [141. 环形链表\*（快慢指针）](#141-环形链表快慢指针)
+    - [142. 环形链表 II（快慢指针 + 数学）](#142-环形链表-ii快慢指针--数学)
+    - [21. 合并两个有序链表\*（双指针）](#21-合并两个有序链表双指针)
+    - [2. 两数相加](#2-两数相加)
+    - [19. 删除链表的倒数第 N 个结点](#19-删除链表的倒数第-n-个结点)
+    - [24. 两两交换链表中的节点](#24-两两交换链表中的节点)
+    - [图解 K 个一组翻转链表](#图解-k-个一组翻转链表)
+    - [](#-5)
+  - [二叉树](#二叉树)
+    - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
+    - [104. 二叉树的最大深度\*](#104-二叉树的最大深度)
+    - [226. 翻转二叉树\*](#226-翻转二叉树)
+    - [101. 对称二叉树\*](#101-对称二叉树)
+    - [543. 二叉树的直径\*](#543-二叉树的直径)
+    - [102. 二叉树的层序遍历](#102-二叉树的层序遍历)
+    - [108. 将有序数组转换为二叉搜索树\*](#108-将有序数组转换为二叉搜索树)
+    - [](#-6)
+  - [二分查找](#二分查找)
+    - [35. 搜索插入位置](#35-搜索插入位置)
+    - [](#-7)
+    - [](#-8)
+  - [栈](#栈)
+    - [20. 有效的括号](#20-有效的括号)
+    - [155. 最小栈](#155-最小栈)
+    - [394. 字符串解码](#394-字符串解码)
+    - [739. 每日温度（单调栈）](#739-每日温度单调栈)
+    - [496. 下一个更大元素 I\*（单调栈）](#496-下一个更大元素-i单调栈)
+    - [503. 下一个更大元素 II](#503-下一个更大元素-ii)
+    - [84. 柱状图中最大的矩形\*\*（单调栈）](#84-柱状图中最大的矩形单调栈)
+  - [技巧](#技巧)
+    - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
+    - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
+    - [](#-9)
+    - [](#-10)
+  - [贪心算法](#贪心算法)
+    - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
+    - [55. 跳跃游戏](#55-跳跃游戏)
+  - [动态规划](#动态规划)
+    - [70. 爬楼梯](#70-爬楼梯)
+    - [](#-11)
+    - [](#-12)
+    - [](#-13)
 
-#### [1. 两数之和*](https://leetcode.cn/problems/two-sum/)
+
+## 哈希
+
+### [1. 两数之和*](https://leetcode.cn/problems/two-sum/)
 
 ```python
 class Solution:
@@ -128,7 +121,7 @@ class Solution:
 ```
 
 
-#### [49. 字母异位词分组](https://leetcode.cn/problems/group-anagrams/)
+### [49. 字母异位词分组](https://leetcode.cn/problems/group-anagrams/)
 
 ```python
 class Solution:
@@ -189,7 +182,7 @@ class Solution:
 ```
 
 
-#### [128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/)
+### [128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/)
 
 ```python
 class Solution:
@@ -243,9 +236,9 @@ class Solution:
 ```
 
 
-### 双指针
+## 双指针
 
-#### [283. 移动零*](https://leetcode.cn/problems/move-zeroes/)
+### [283. 移动零*](https://leetcode.cn/problems/move-zeroes/)
 
 ```python
 class Solution:
@@ -309,7 +302,7 @@ class Solution:
 ```
 
 
-#### [11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/)
+### [11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/)
 
 ```python
 class Solution:
@@ -352,7 +345,7 @@ class Solution:
 ```
 
 
-#### [167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
+### [167. 两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
 
 ```python
 class Solution:
@@ -375,7 +368,7 @@ class Solution:
 ```
 
 
-#### [15. 三数之和](https://leetcode.cn/problems/3sum/)
+### [15. 三数之和](https://leetcode.cn/problems/3sum/)
 
 ```python
 class Solution:
@@ -443,7 +436,7 @@ class Solution:
 ```
 
 
-#### [42. 接雨水**（单调栈；双指针）](https://leetcode.cn/problems/trapping-rain-water/)
+### [42. 接雨水**（单调栈；双指针）](https://leetcode.cn/problems/trapping-rain-water/)
 
 一个视频把思路讲的很清晰：https://www.bilibili.com/video/BV1Qg411q7ia/?vd_source=215226f55ec25efebe70612682143c68
 
@@ -494,7 +487,7 @@ class Solution:
         return ans
 ```
 
-### 滑动窗口
+## 滑动窗口
 
 > 滑动窗口算法在一个特定大小的字符串或数组上进行操作，而不在整个字符串和数组上操作，这样就降低了问题的复杂度，从而也达到降低了循环的嵌套深度。
 > 
@@ -503,7 +496,7 @@ class Solution:
 > >[滑动窗口算法基本原理与实践](https://www.cnblogs.com/huansky/p/13488234.html)
 
 
-#### [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
+### [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
 
 ```python
 class Solution:
@@ -554,7 +547,7 @@ class Solution:
 ```
 
 
-#### [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/)
+### [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/)
 
 ```python
 class Solution:
@@ -616,9 +609,9 @@ class Solution:
         return ans
 ```
 
-### 子串
+## 子串
 
-#### [560. 和为 K 的子数组（有空再瞅瞅）](https://leetcode.cn/problems/subarray-sum-equals-k/)
+### [560. 和为 K 的子数组（有空再瞅瞅）](https://leetcode.cn/problems/subarray-sum-equals-k/)
 
 ```python
 class Solution:
@@ -637,14 +630,14 @@ class Solution:
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
 
-#### []()
+### []()
 
 ```python
 
@@ -652,10 +645,10 @@ class Solution:
 
 
 
-### 普通数组
+## 普通数组
 
 
-#### [53. 最大子数组和（动态规划）](https://leetcode.cn/problems/maximum-subarray/)
+### [53. 最大子数组和（动态规划）](https://leetcode.cn/problems/maximum-subarray/)
 
 ```python
 class Solution:
@@ -675,7 +668,7 @@ class Solution:
 ```
 
 
-#### [56. 合并区间（排序）](https://leetcode.cn/problems/merge-intervals/)
+### [56. 合并区间（排序）](https://leetcode.cn/problems/merge-intervals/)
 
 ```python
 class Solution:
@@ -691,7 +684,7 @@ class Solution:
 ```
 
 
-#### [189. 轮转数组](https://leetcode.cn/problems/rotate-array/)
+### [189. 轮转数组](https://leetcode.cn/problems/rotate-array/)
 
 ```python
 class Solution:
@@ -727,17 +720,17 @@ class Solution:
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
 
-### 矩阵
+## 矩阵
 
 
-#### [73. 矩阵置零](https://leetcode.cn/problems/set-matrix-zeroes/)
+### [73. 矩阵置零](https://leetcode.cn/problems/set-matrix-zeroes/)
 
 没什么特殊解法，空间优化可以考虑使用传入的参数本身占据的内存空间。
 
@@ -788,21 +781,21 @@ class Solution:
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
 
-#### [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](https://leetcode.cn/problems/search-a-2d-matrix-ii/)
+### [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](https://leetcode.cn/problems/search-a-2d-matrix-ii/)
 
 ```python
 class Solution:
@@ -856,9 +849,9 @@ class Solution:
 ```
 
 
-### 链表
+## 链表
 
-#### [160. 相交链表*](https://leetcode.cn/problems/intersection-of-two-linked-lists/)
+### [160. 相交链表*](https://leetcode.cn/problems/intersection-of-two-linked-lists/)
 
 ```python
 # Definition for singly-linked list.
@@ -920,7 +913,7 @@ class Solution:
         return pa
 ```
 
-#### [206. 反转链表*](https://leetcode.cn/problems/reverse-linked-list/)
+### [206. 反转链表*](https://leetcode.cn/problems/reverse-linked-list/)
 
 ```python
 # Definition for singly-linked list.
@@ -953,7 +946,7 @@ class Solution:
         """
 ```
 
-#### [234. 回文链表*（快慢指针）](https://leetcode.cn/problems/palindrome-linked-list/)
+### [234. 回文链表*（快慢指针）](https://leetcode.cn/problems/palindrome-linked-list/)
 
 ```python
 # Definition for singly-linked list.
@@ -1030,7 +1023,7 @@ class Solution:
 ```
 
 
-#### [141. 环形链表*（快慢指针）](https://leetcode.cn/problems/linked-list-cycle/)
+### [141. 环形链表*（快慢指针）](https://leetcode.cn/problems/linked-list-cycle/)
 
 ```python
 # Definition for singly-linked list.
@@ -1062,7 +1055,7 @@ class Solution:
 ```
 
 
-#### [142. 环形链表 II（快慢指针 + 数学）](https://leetcode.cn/problems/linked-list-cycle-ii/)
+### [142. 环形链表 II（快慢指针 + 数学）](https://leetcode.cn/problems/linked-list-cycle-ii/)
 
 ```python
 # Definition for singly-linked list.
@@ -1093,7 +1086,7 @@ class Solution:
 ```
 
 
-#### [21. 合并两个有序链表*（双指针）](https://leetcode.cn/problems/merge-two-sorted-lists/)
+### [21. 合并两个有序链表*（双指针）](https://leetcode.cn/problems/merge-two-sorted-lists/)
 
 链表操作还需要熟悉。算法很简单，但代码实现不熟练。
 
@@ -1131,7 +1124,7 @@ class Solution:
 ```
 
 
-#### [2. 两数相加](https://leetcode.cn/problems/add-two-numbers)
+### [2. 两数相加](https://leetcode.cn/problems/add-two-numbers)
 
 ```python
 # Definition for singly-linked list.
@@ -1217,7 +1210,7 @@ class Solution:
 
 
 
-#### [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
+### [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
 
 看了官解所谓的一次遍历，有点自欺欺人了，本质上还是遍历了两次。
 
@@ -1247,7 +1240,7 @@ class Solution:
 ```
 
 
-#### [24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/)
+### [24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/)
 
 ```python
 # Definition for singly-linked list.
@@ -1295,7 +1288,7 @@ class Solution:
 ```
 
 
-#### [图解 K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
+### [图解 K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
 
 ```python
 # Definition for singly-linked list.
@@ -1368,13 +1361,13 @@ if __name__ == '__main__':
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
-### 二叉树
+## 二叉树
 
 二叉树很久没接触了，实现下三种遍历复习下（着重注意后序遍历的非递归写法，从头实现有点绕）：
 
@@ -1502,7 +1495,7 @@ if __name__ == '__main__':
 ```
 
 
-#### [94. 二叉树的中序遍历*](https://leetcode.cn/problems/binary-tree-inorder-traversal/)
+### [94. 二叉树的中序遍历*](https://leetcode.cn/problems/binary-tree-inorder-traversal/)
 
 ```python
 # Definition for a binary tree node.
@@ -1534,7 +1527,7 @@ class Solution:
 ```
 
 
-#### [104. 二叉树的最大深度*](https://leetcode.cn/problems/maximum-depth-of-binary-tree/?envType=study-plan-v2&envId=top-100-**liked**)
+### [104. 二叉树的最大深度*](https://leetcode.cn/problems/maximum-depth-of-binary-tree/?envType=study-plan-v2&envId=top-100-**liked**)
 
 ```python
 # Definition for a binary tree node.
@@ -1574,7 +1567,7 @@ class Solution:
 ```
 
 
-#### [226. 翻转二叉树*](https://leetcode.cn/problems/invert-binary-tree/)
+### [226. 翻转二叉树*](https://leetcode.cn/problems/invert-binary-tree/)
 
 ```python
 # Definition for a binary tree node.
@@ -1607,7 +1600,7 @@ class Solution:
 ```
 
 
-#### [101. 对称二叉树*](https://leetcode.cn/problems/symmetric-tree/)
+### [101. 对称二叉树*](https://leetcode.cn/problems/symmetric-tree/)
 
 ```python
 # Definition for a binary tree node.
@@ -1656,7 +1649,7 @@ class Solution:
 ```
 
 
-#### [543. 二叉树的直径*](https://leetcode.cn/problems/diameter-of-binary-tree/)
+### [543. 二叉树的直径*](https://leetcode.cn/problems/diameter-of-binary-tree/)
 
 ```python
 # Definition for a binary tree node.
@@ -1683,7 +1676,7 @@ class Solution:
 ```
 
 
-#### [102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/)
+### [102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/)
 
 ```python
 # Definition for a binary tree node.
@@ -1712,7 +1705,7 @@ class Solution:
 ```
 
 
-#### [108. 将有序数组转换为二叉搜索树*](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/)
+### [108. 将有序数组转换为二叉搜索树*](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/)
 
 二叉搜索树：https://zh.wikipedia.org/zh-cn/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9
 
@@ -1739,16 +1732,16 @@ class Solution:
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
 
-### 二分查找
+## 二分查找
 
-#### [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/)
+### [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/)
 
 ```python
 class Solution:
@@ -1771,14 +1764,14 @@ class Solution:
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
 
-#### []()
+### []()
 
 ```python
 
@@ -1787,7 +1780,7 @@ class Solution:
 
 
 
-### 栈
+## 栈
 
 > 栈（Stack）是一种满足后进先出（LIFO）逻辑的数据结构，而单调栈实际上就是在栈的基础上增加单调的性质（单调递增或单调递减）
 > 
@@ -1796,7 +1789,7 @@ class Solution:
 > > [使用单调栈解决 “下一个更大元素” 问题](https://mdnice.com/writing/b5cd53ce22c14069b63c6d5d3ad41bd9)
 
 
-#### [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/)
+### [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/)
 
 ```python
 class Solution:
@@ -1854,7 +1847,7 @@ class Solution:
         return True if len(ss) == 0 else False
 ```
 
-#### [155. 最小栈](https://leetcode.cn/problems/min-stack/)
+### [155. 最小栈](https://leetcode.cn/problems/min-stack/)
 
 使用辅助栈实现`常数时间内检索到最小元素`
 
@@ -1985,7 +1978,7 @@ class MinStack:
         return self.min_stack[-1]
 ```
 
-#### [394. 字符串解码](https://leetcode.cn/problems/decode-string/)
+### [394. 字符串解码](https://leetcode.cn/problems/decode-string/)
 
 
 ```python
@@ -2086,7 +2079,7 @@ class Solution:
         return current_patten
 ```
 
-#### [739. 每日温度（单调栈）](https://leetcode.cn/problems/daily-temperatures/)
+### [739. 每日温度（单调栈）](https://leetcode.cn/problems/daily-temperatures/)
 
 ```python
 class Solution:
@@ -2126,7 +2119,7 @@ class Solution:
         return ans
 ```
 
-#### [496. 下一个更大元素 I*（单调栈）](https://leetcode.cn/problems/next-greater-element-i/)
+### [496. 下一个更大元素 I*（单调栈）](https://leetcode.cn/problems/next-greater-element-i/)
 
 这道题用单调栈+哈希表的写法不算Easy题目了，比每日温度要复杂。
 
@@ -2170,7 +2163,7 @@ class Solution:
 
 
 
-#### [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/)
+### [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii/)
 
 ```python
 class Solution:
@@ -2225,7 +2218,7 @@ class Solution:
 ```
 
 
-#### [84. 柱状图中最大的矩形**（单调栈）](https://leetcode.cn/problems/largest-rectangle-in-histogram/)
+### [84. 柱状图中最大的矩形**（单调栈）](https://leetcode.cn/problems/largest-rectangle-in-histogram/)
 
 ```python
 class Solution:
@@ -2374,9 +2367,9 @@ class Solution:
 ```
 
 
-### 技巧
+## 技巧
 
-#### [136. 只出现一次的数字*（位运算）](https://leetcode.cn/problems/single-number/)
+### [136. 只出现一次的数字*（位运算）](https://leetcode.cn/problems/single-number/)
 
 > 按位运算符是把数字看作二进制来进行计算的。
 > 
@@ -2400,7 +2393,7 @@ class Solution:
 ```
 
 
-#### [169. 多数元素*（Boyer-Moore多数投票算法）](https://leetcode.cn/problems/majority-element/)
+### [169. 多数元素*（Boyer-Moore多数投票算法）](https://leetcode.cn/problems/majority-element/)
 
 Robert S. Boyer and J Strother Moore 这俩人提出过很多算法，该题中用到的是多数投票算法，更著名的以他们命名的算法是BM字符串匹配算法。
 
@@ -2425,25 +2418,27 @@ class Solution:
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
-### 贪心算法
+## 贪心算法
 
 
-#### [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
+### [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
 
-相关阅读：[动态规划(Dynamic Programming)和贪心算法(Greedy Algorithm)](https://hughesxu.github.io/posts/DP_Greedy_Algorithm/)
+参考：
+* [动态规划(Dynamic Programming)和贪心算法(Greedy Algorithm)](https://hughesxu.github.io/posts/DP_Greedy_Algorithm/)
+
 
 ```python
 class Solution:
@@ -2458,13 +2453,30 @@ class Solution:
 ```
 
 
+### [55. 跳跃游戏](https://leetcode.cn/problems/jump-game/)
 
-### 动态规划
+```python
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        """
+        看了题解：https://leetcode.cn/problems/jump-game/solutions/24322/55-by-ikaruga
+        看了评论，我也想问为什么我这么蠢
+        """
+        k = 0
+        for i in range(len(nums)):
+            if i > k:
+                return False
+            k = max(k, i+nums[i])
+        return True
+```
+
+
+## 动态规划
 
 参考：[动态规划基础](https://oi-wiki.org/dp/basic/)
 
 
-#### [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs)
+### [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs)
 
 ```python
 class Solution:
@@ -2480,21 +2492,21 @@ class Solution:
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
 
-#### []()
+### []()
 
 ```python
 
 ```
 
 
-#### []()
+### []()
 
 ```python
 
