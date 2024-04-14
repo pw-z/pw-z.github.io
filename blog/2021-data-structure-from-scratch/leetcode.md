@@ -53,11 +53,11 @@
     - [543. 二叉树的直径\*](#543-二叉树的直径)
     - [102. 二叉树的层序遍历](#102-二叉树的层序遍历)
     - [108. 将有序数组转换为二叉搜索树\*](#108-将有序数组转换为二叉搜索树)
-    - [](#-6)
+    - [98. 验证二叉搜索树](#98-验证二叉搜索树)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
+    - [](#-6)
     - [](#-7)
-    - [](#-8)
   - [栈](#栈)
     - [20. 有效的括号](#20-有效的括号)
     - [155. 最小栈](#155-最小栈)
@@ -69,16 +69,16 @@
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
+    - [](#-8)
     - [](#-9)
-    - [](#-10)
   - [贪心算法](#贪心算法)
     - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
+    - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-10)
     - [](#-11)
-    - [](#-12)
-    - [](#-13)
 
 
 ## 哈希
@@ -1732,10 +1732,35 @@ class Solution:
 ```
 
 
-### []()
+### [98. 验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/)
+
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        # 递归+先序遍历，参考官解
+        def preorder(_root, lower, upper):
+            if not _root:
+                return True
+            
+            # visit & check
+            if _root.val <= lower or _root.val >= upper:
+                return False
 
+            # go on
+            if not preorder(_root.left, lower, _root.val):
+                return False
+            if not preorder(_root.right, _root.val, upper):
+                return False
+            return True
+        
+        return preorder(root, float('-inf'), float('inf'))
 ```
 
 
@@ -2488,14 +2513,23 @@ class Solution:
             q = ans
             ans = p + q
         return ans
-
 ```
 
 
-### []()
+### [118. 杨辉三角](https://leetcode.cn/problems/pascals-triangle/)
 
 ```python
-
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        """没有技巧，全是感情版解法"""
+        ans = [[1],]
+        for r in range(2, numRows+1):
+            temp_row = [1,]
+            for i in range(1, r-1):
+                temp_row.append(ans[-1][i-1] + ans[-1][i])
+            temp_row.append(1)
+            ans.append(temp_row)
+        return ans
 ```
 
 
