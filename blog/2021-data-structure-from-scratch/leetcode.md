@@ -23,8 +23,12 @@
     - [普通数组](#普通数组)
       - [53. 最大子数组和（动态规划）](#53-最大子数组和动态规划)
       - [56. 合并区间（排序）](#56-合并区间排序)
+      - [189. 轮转数组](#189-轮转数组)
       - [](#-2)
     - [矩阵](#矩阵)
+      - [73. 矩阵置零](#73-矩阵置零)
+      - [](#-3)
+      - [](#-4)
       - [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](#240-搜索二维矩阵-ii-矩阵二分压缩搜索空间)
     - [链表](#链表)
       - [160. 相交链表\*](#160-相交链表)
@@ -37,7 +41,7 @@
       - [19. 删除链表的倒数第 N 个结点](#19-删除链表的倒数第-n-个结点)
       - [24. 两两交换链表中的节点](#24-两两交换链表中的节点)
       - [图解 K 个一组翻转链表](#图解-k-个一组翻转链表)
-      - [](#-3)
+      - [](#-5)
     - [二叉树](#二叉树)
       - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
       - [104. 二叉树的最大深度\*](#104-二叉树的最大深度)
@@ -45,12 +49,12 @@
       - [101. 对称二叉树\*](#101-对称二叉树)
       - [543. 二叉树的直径\*](#543-二叉树的直径)
       - [102. 二叉树的层序遍历](#102-二叉树的层序遍历)
-      - [](#-4)
-      - [](#-5)
+      - [108. 将有序数组转换为二叉搜索树\*](#108-将有序数组转换为二叉搜索树)
+      - [](#-6)
     - [二分查找](#二分查找)
       - [35. 搜索插入位置](#35-搜索插入位置)
-      - [](#-6)
       - [](#-7)
+      - [](#-8)
     - [栈](#栈)
       - [20. 有效的括号](#20-有效的括号)
       - [155. 最小栈](#155-最小栈)
@@ -62,15 +66,15 @@
     - [技巧](#技巧)
       - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
       - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
-      - [](#-8)
       - [](#-9)
+      - [](#-10)
     - [贪心算法](#贪心算法)
       - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [动态规划](#动态规划)
       - [70. 爬楼梯](#70-爬楼梯)
-      - [](#-10)
       - [](#-11)
       - [](#-12)
+      - [](#-13)
 
 ## LeetCode刷题攻略
 https://github.com/youngyangyang04/leetcode-master
@@ -650,6 +654,7 @@ class Solution:
 
 ### 普通数组
 
+
 #### [53. 最大子数组和（动态规划）](https://leetcode.cn/problems/maximum-subarray/)
 
 ```python
@@ -686,6 +691,42 @@ class Solution:
 ```
 
 
+#### [189. 轮转数组](https://leetcode.cn/problems/rotate-array/)
+
+```python
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        每个需要被挪动的数据最终坐标可以通过数组长度及K计算出来
+        """
+        n = len(nums)
+        k %= n
+        count = 0
+        for i in range(n):
+            cur = i
+            prev = nums[i]
+
+            flag = True
+            while flag or cur != i:
+                flag = False
+                next = (cur + k)%n
+                temp = nums[next]
+                nums[next] = prev
+                prev = temp
+                cur = next
+
+                count += 1
+
+            if count == n:
+                break
+        
+        # 官解的O(1)求了个最大公约数，算法有质因数分解法、短除法、辗转相除法、更相减损法
+        # 辗转相除法最易于用算法表达，递归实现如下：
+        def gcd(a, b):
+            return gcd(b, a%b) if b > 0 else a
+```
+
+
 #### []()
 
 ```python
@@ -693,8 +734,73 @@ class Solution:
 ```
 
 
-
 ### 矩阵
+
+
+#### [73. 矩阵置零](https://leetcode.cn/problems/set-matrix-zeroes/)
+
+没什么特殊解法，空间优化可以考虑使用传入的参数本身占据的内存空间。
+
+```python
+class Solution:
+    def setZeroes1(self, matrix: List[List[int]]) -> None:
+        """空间复杂度 O(m+n)，顺其自然的朴素解
+        """
+        m, n = len(matrix), len(matrix[0])
+        tag_x = [False]*m
+        tag_y = [False]*n
+        for x in range(m):
+            for y in range(n):
+                if matrix[x][y] == 0:
+                    tag_x[x] = True
+                    tag_y[y] = True
+        
+        for x in range(m):
+            for y in range(n):
+                if tag_x[x] or tag_y[y]:
+                    matrix[x][y] = 0
+
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """空间复杂度 O(1)，看了官解实践一次
+        any关键字之前没用过，好方便，有必要把python基础巩固下
+        """
+        m, n = len(matrix), len(matrix[0])
+        f_col0 = any(matrix[i][0] == 0 for i in range(m))
+        f_row0 = any(matrix[0][j] == 0 for j in range(n))
+
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[i][j] == 0:
+                    matrix[i][0] = matrix[0][j] = 0
+        
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[i][0] == 0 or matrix[0][j] == 0:
+                    matrix[i][j] = 0
+        
+        if f_col0:
+            for i in range(m):
+                matrix[i][0] = 0
+        
+        if f_row0:
+            for j in range(n):
+                matrix[0][j] = 0
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
 
 #### [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](https://leetcode.cn/problems/search-a-2d-matrix-ii/)
 
@@ -1606,10 +1712,30 @@ class Solution:
 ```
 
 
-#### []()
+#### [108. 将有序数组转换为二叉搜索树*](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/)
+
+二叉搜索树：https://zh.wikipedia.org/zh-cn/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+        def bst(l, r):
+            if l>r: return None
 
+            mid = (l+r)//2
+            root = TreeNode(nums[mid])
+            root.left = bst(l, mid-1)
+            root.right = bst(mid+1, r)
+
+            return root
+        
+        return bst(0, len(nums)-1)
 ```
 
 
