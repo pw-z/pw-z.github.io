@@ -30,8 +30,8 @@
     - [](#-2)
   - [矩阵](#矩阵)
     - [73. 矩阵置零](#73-矩阵置零)
+    - [54. 螺旋矩阵](#54-螺旋矩阵)
     - [](#-3)
-    - [](#-4)
     - [240. 搜索二维矩阵 II （矩阵、二分、压缩搜索空间）](#240-搜索二维矩阵-ii-矩阵二分压缩搜索空间)
   - [链表](#链表)
     - [160. 相交链表\*](#160-相交链表)
@@ -44,7 +44,7 @@
     - [19. 删除链表的倒数第 N 个结点](#19-删除链表的倒数第-n-个结点)
     - [24. 两两交换链表中的节点](#24-两两交换链表中的节点)
     - [图解 K 个一组翻转链表](#图解-k-个一组翻转链表)
-    - [](#-5)
+    - [](#-4)
   - [二叉树](#二叉树)
     - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
     - [104. 二叉树的最大深度\*](#104-二叉树的最大深度)
@@ -56,8 +56,8 @@
     - [98. 验证二叉搜索树](#98-验证二叉搜索树)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
+    - [](#-5)
     - [](#-6)
-    - [](#-7)
   - [栈](#栈)
     - [20. 有效的括号](#20-有效的括号)
     - [155. 最小栈](#155-最小栈)
@@ -69,16 +69,16 @@
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
+    - [](#-7)
     - [](#-8)
-    - [](#-9)
   - [贪心算法](#贪心算法)
     - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-9)
     - [](#-10)
-    - [](#-11)
 
 
 ## 哈希
@@ -781,10 +781,108 @@ class Solution:
 ```
 
 
-### []()
+### [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix/)
 
 ```python
+class Solution:
+    def spiralOrder1(self, matrix: List[List[int]]) -> List[int]:
+        """✅找规律，对结尾的判断、方向转换的判断有瑕疵，打补丁变成屎山
 
+        00，01，02，03==None，12，22，32==None，21，20，2-1==None，10，00==visited，11，12==visited，21==visited，Done
+        用两个变量标记矩阵当前的宽度、高度，转一圈需要➡️⬇️⬅️⬆️四个方向各走到头，每次⬆️or⬇️的时候高度-1，每次⬅️or➡️的时候宽度-1
+        用宽高余量判断结束有点麻烦，额外申请一个变量count_stop，当访问了m*n个数据点之后结束遍历
+        """
+        ans = []
+        m, n = len(matrix), len(matrix[0])
+        w, h = n, m
+        current_x, current_y = 0, 0
+        ans.append(matrix[current_y][current_x])
+        count = 1
+        count_stop = m*n
+        flag = True
+
+        # 先把第一行走完，这一行不用改变宽度
+        for i in range(1, w):
+            current_x += 1
+            ans.append(matrix[current_y][current_x])
+            count += 1
+            if count == count_stop:
+                flag = False
+                break
+        current_d = 'down' # left, up, down
+
+        # 开始绕圈，每次绕圈改变方向的过程都需要将对应的宽度或高度-1
+        while flag and (w > 0 and h > 0):
+            if current_d == 'right':
+                for i in range(1, w):
+                    current_x += 1
+                    ans.append(matrix[current_y][current_x])
+                    count += 1
+                    if count == count_stop:
+                        flag = False
+                        break
+                    print(count, current_d, ans[-1], flag, w, h)
+                w -= 1
+                current_d = 'down'
+            elif current_d == 'down':
+                for i in range(1, h):
+                    current_y += 1
+                    ans.append(matrix[current_y][current_x])
+                    count += 1
+                    if count == count_stop:
+                        flag = False
+                        break
+                    print(count, current_d, ans[-1], flag, w, h)
+                h -= 1
+                current_d = 'left'
+            elif current_d == 'left':
+                for i in range(1, w):
+                    current_x -= 1
+                    ans.append(matrix[current_y][current_x])
+                    count += 1
+                    if count == count_stop:
+                        flag = False
+                        break
+                    print(count, current_d, ans[-1], flag, w, h)
+                w -= 1
+                current_d = 'up'
+            elif current_d == 'up':
+                for i in range(1, h):
+                    current_y-=1
+                    ans.append(matrix[current_y][current_x])
+                    count += 1
+                    if count == count_stop:
+                        flag = False
+                        break
+                    print(count, current_d, ans[-1], flag, w, h)
+                h -= 1
+                current_d = 'right'
+        return ans
+    
+
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        """官方题解写法，清爽"""
+        m, n = len(matrix), len(matrix[0])
+        ans = []
+        left, right, top, bottom = 0, n-1, 0, m-1
+        while left <= right and top <= bottom:
+            # 从左到右
+            for col in range(left, right+1):
+                ans.append(matrix[top][col])
+            # 从上往下
+            for row in range(top+1, bottom+1):
+                ans.append(matrix[row][right])
+            
+            if left < right and top < bottom:
+                # 从右往左
+                for col in range(right-1, left, -1):
+                    ans.append(matrix[bottom][col])
+                # 从下往上
+                for row in range(bottom, top, -1):
+                    ans.append(matrix[row][left])
+            
+            left, right, top, bottom = left+1, right-1, top+1, bottom-1
+        return ans
 ```
 
 
