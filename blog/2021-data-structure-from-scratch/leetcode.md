@@ -72,21 +72,20 @@
   - [堆](#堆)
     - [215. 数组中的第K个最大元素](#215-数组中的第k个最大元素)
     - [347. 前 K 个高频元素](#347-前-k-个高频元素)
-    - [](#-8)
-    - [](#-9)
+    - [295. 数据流的中位数](#295-数据流的中位数)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
-    - [](#-10)
-    - [](#-11)
+    - [](#-8)
+    - [](#-9)
   - [贪心算法](#贪心算法)
     - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
-    - [](#-12)
-    - [](#-13)
+    - [](#-10)
+    - [](#-11)
 
 
 ## 哈希
@@ -2688,17 +2687,27 @@ class Solution:
 ```
 
 
-### []()
+### [295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream/)
 
 ```python
+class MedianFinder:
 
-```
+    def __init__(self):
+        self.smallTop = []
+        self.bigTop = []
 
+    def addNum(self, num: int) -> None:
+        if len(self.smallTop) == len(self.bigTop):
+            # 往小顶堆插入
+            heapq.heappush(self.bigTop, -num)
+            heapq.heappush(self.smallTop, -heapq.heappop(self.bigTop))
+        else:
+            # 往大顶堆插入，heapq为小顶堆，通过在push、pop过程求相反数实现大顶堆
+            heapq.heappush(self.smallTop, num)
+            heapq.heappush(self.bigTop, -heapq.heappop(self.smallTop))
 
-### []()
-
-```python
-
+    def findMedian(self) -> float:
+        return self.smallTop[0] if len(self.smallTop) != len(self.bigTop) else (self.smallTop[0]+-self.bigTop[0])/2.0
 ```
 
 
