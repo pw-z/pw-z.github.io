@@ -54,10 +54,13 @@
     - [102. 二叉树的层序遍历](#102-二叉树的层序遍历)
     - [108. 将有序数组转换为二叉搜索树\*](#108-将有序数组转换为二叉搜索树)
     - [98. 验证二叉搜索树](#98-验证二叉搜索树)
-  - [二分查找](#二分查找)
-    - [35. 搜索插入位置](#35-搜索插入位置)
+  - [回溯](#回溯)
+    - [46. 全排列](#46-全排列)
     - [](#-5)
     - [](#-6)
+  - [二分查找](#二分查找)
+    - [35. 搜索插入位置](#35-搜索插入位置)
+    - [](#-7)
   - [栈](#栈)
     - [20. 有效的括号](#20-有效的括号)
     - [155. 最小栈](#155-最小栈)
@@ -66,19 +69,24 @@
     - [496. 下一个更大元素 I\*（单调栈）](#496-下一个更大元素-i单调栈)
     - [503. 下一个更大元素 II](#503-下一个更大元素-ii)
     - [84. 柱状图中最大的矩形\*\*（单调栈）](#84-柱状图中最大的矩形单调栈)
+  - [堆](#堆)
+    - [](#-8)
+    - [347. 前 K 个高频元素](#347-前-k-个高频元素)
+    - [](#-9)
+    - [](#-10)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
-    - [](#-7)
-    - [](#-8)
+    - [](#-11)
+    - [](#-12)
   - [贪心算法](#贪心算法)
     - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
-    - [](#-9)
-    - [](#-10)
+    - [](#-13)
+    - [](#-14)
 
 
 ## 哈希
@@ -1861,6 +1869,56 @@ class Solution:
         return preorder(root, float('-inf'), float('inf'))
 ```
 
+## 回溯
+
+
+
+### [46. 全排列](https://leetcode.cn/problems/permutations)
+
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        """回溯
+        1、定义解空间、确定易于搜索的解空间结构
+        2、DFS搜索，剪枝优化
+
+        refer: https://www.bilibili.com/video/BV1mY411D7f6
+        """
+        n = len(nums)
+        ans = []
+        path = [0]*n
+        def dfs(i, s):
+            """
+            i: 当前选择了多少个数字，若i=n,则排列完成
+            s: 剩余未选择的数字
+            """
+
+            if i == n:
+                ans.append(path.copy())
+                return
+            
+            for x in s:
+                path[i] = x
+                dfs(i+1, s-{x})
+            
+        dfs(0, set(nums))
+        return ans
+```
+
+
+### []()
+
+```python
+
+```
+
+
+### []()
+
+```python
+
+```
+
 
 ## 二分查找
 
@@ -1887,11 +1945,6 @@ class Solution:
 ```
 
 
-### []()
-
-```python
-
-```
 
 
 ### []()
@@ -2487,6 +2540,151 @@ class Solution:
         
         ans = max((right[i] - left[i] - 1) * heights[i] for i in range(n)) if n > 0 else 0
         return ans
+```
+
+
+## 堆
+
+堆又称优先队列，是一棵完全二叉树，方便使用数组存储，根据二叉树的坐标规律可以快速计算给定节点的父节点、子节点坐标。堆通过偏序（而不是完全有序）适用于特定场景，参考[堆(Heap)这种数据结构有什么用处呢？](https://www.zhihu.com/question/466078026)。
+
+```python
+class Heap:
+    """实现一个大顶堆温习下这种数据结构
+
+    root index = 0
+    (let current index = i)
+        left child = 2*i+1
+        right child = 2*i +2
+        parent of left = (i-1)/2
+        parent of right = (i-2)/2
+            parent = (i-1)//2
+    """
+
+    def __init__(self):
+        self.heap = []
+
+    def peek(self):
+        if self.heap[0]:
+            return self.heap[0]
+        else:
+            return None
+
+    def parent_idx(self, current):
+        return (current - 1) // 2  # here!
+
+    def lchild_idx(self, current):
+        return 2 * current + 1
+
+    def rchild_idx(self, current):
+        return 2 * current + 2
+
+    # 末尾插入后通过上浮操作重新堆化
+    def insert(self, num):
+        self.heap.append(num)
+        self.shift_up(len(self.heap) - 1)
+
+    def shift_up(self, idx):
+        while idx > 0 and self.heap[self.parent_idx(idx)] < self.heap[idx]:  # 这里把<改成>就成了小顶堆
+            self.heap[self.parent_idx(idx)], self.heap[idx] = self.heap[idx], self.heap[self.parent_idx(idx)]
+            idx = self.parent_idx(idx)
+
+    # 堆顶弹出后将末尾元素放到堆顶并通过下浮操作重新堆化
+    def pop(self):
+        _ = self.heap[0]
+        self.heap[0] = self.heap[-1]
+        self.heap.pop(-1)
+        self.shift_down()
+        return _
+
+    def shift_down(self, idx=0):
+        # 不断选择更大的子节点与之对换位置，向下递归
+        # 最后一个父节点的位置 = len(heap)/2-1
+        while idx <= len(self.heap) / 2 - 1:
+            l_idx = idx * 2 + 1
+            r_idx = idx * 2 + 2
+            max_child_idx = None
+            if l_idx < len(self.heap) and self.heap[l_idx] > self.heap[idx]:
+                max_child_idx = l_idx
+            if r_idx < len(self.heap) and self.heap[r_idx] > self.heap[l_idx]:
+                max_child_idx = r_idx
+
+            if max_child_idx:
+                self.heap[max_child_idx], self.heap[idx] = self.heap[idx], self.heap[max_child_idx]
+                idx = max_child_idx
+            else:
+                return
+
+
+if __name__ == '__main__':
+    h = Heap()
+    for i in [1, 6, -7, 2, 8, 9, 2, -1, 3]:
+        h.insert(i)
+        print(h.peek())
+    print(h.heap)
+    h.pop()
+    h.pop()
+    print(h.heap)
+
+# 1
+# 6
+# 6
+# 6
+# 8
+# 9
+# 9
+# 9
+# 9
+# [9, 6, 8, 3, 2, -7, 2, -1, 1]
+# [6, 3, 2, -1, 2, -7, 1]
+```
+
+
+### []()
+
+```python
+
+
+```
+
+
+### [347. 前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements/)
+
+熟悉下标准库中的heapq、defaultdict -> https://docs.python.org/zh-cn/3/library/heapq.html。
+
+```python
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        # 统计频率 O(n)
+        count = defaultdict(int)
+        for num in nums:
+            count[num] += 1
+        
+        # 堆操作维护TopK，时间复杂度O(logk)
+        heap = []
+        for _k, v in count.items():
+            if len(heap) < k:
+                heapq.heappush(heap, (v, _k))
+            else:
+                if v > heap[0][0]:
+                    heapq.heappop(heap)
+                    heapq.heappush(heap, (v, _k))
+        
+        return [k for v, k in heap]
+        # 整体时间复杂度O(nlogk)
+```
+
+
+### []()
+
+```python
+
+```
+
+
+### []()
+
+```python
+
 ```
 
 
