@@ -54,13 +54,18 @@
     - [102. 二叉树的层序遍历](#102-二叉树的层序遍历)
     - [108. 将有序数组转换为二叉搜索树\*](#108-将有序数组转换为二叉搜索树)
     - [98. 验证二叉搜索树](#98-验证二叉搜索树)
-  - [回溯](#回溯)
-    - [46. 全排列](#46-全排列)
+    - [230. 二叉搜索树中第K小的元素](#230-二叉搜索树中第k小的元素)
     - [](#-4)
     - [](#-5)
+    - [](#-6)
+    - [](#-7)
+  - [回溯](#回溯)
+    - [46. 全排列](#46-全排列)
+    - [](#-8)
+    - [](#-9)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
-    - [](#-6)
+    - [](#-10)
   - [栈](#栈)
     - [20. 有效的括号](#20-有效的括号)
     - [155. 最小栈](#155-最小栈)
@@ -76,16 +81,16 @@
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
-    - [](#-7)
-    - [](#-8)
+    - [](#-11)
+    - [](#-12)
   - [贪心算法](#贪心算法)
     - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
-    - [](#-9)
-    - [](#-10)
+    - [](#-13)
+    - [](#-14)
 
 
 ## 哈希
@@ -1887,6 +1892,67 @@ class Solution:
         
         return preorder(root, float('-inf'), float('inf'))
 ```
+
+
+### [230. 二叉搜索树中第K小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/)
+
+答案已经在数据结构的基本操作中了。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        stack = []
+        count = 0
+        while root or stack:
+            # checkin all left
+            while root:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+
+            # checkout
+            count += 1
+            if count == k:
+                return root.val
+            
+            # checkin all right
+            root = root.right
+```
+
+
+### []()
+
+```python
+
+```
+
+
+### []()
+
+```python
+
+```
+
+
+### []()
+
+```python
+
+```
+
+
+### []()
+
+```python
+
+```
+
 
 ## 回溯
 
