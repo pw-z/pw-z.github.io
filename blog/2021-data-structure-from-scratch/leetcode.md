@@ -66,6 +66,10 @@
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
+    - [34. 在排序数组中查找元素的第一个和最后一个位置](#34-在排序数组中查找元素的第一个和最后一个位置)
+    - [33. 搜索旋转排序数组](#33-搜索旋转排序数组)
+    - [](#-10)
+    - [](#-11)
   - [栈](#栈)
     - [20. 有效的括号](#20-有效的括号)
     - [155. 最小栈](#155-最小栈)
@@ -81,16 +85,16 @@
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
-    - [](#-10)
-    - [](#-11)
+    - [](#-12)
+    - [](#-13)
   - [贪心算法](#贪心算法)
     - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
-    - [](#-12)
-    - [](#-13)
+    - [](#-14)
+    - [](#-15)
 
 
 ## 哈希
@@ -2054,6 +2058,97 @@ class Solution:
 ```
 
 
+### [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+```python
+class Solution:
+    def searchRange1(self, nums: List[int], target: int) -> List[int]:
+        """
+        二分查找未命中，直接返回[-1,-1]
+        二分查找命中目标值:有可能左右有重复值，双指针向左右拓展到非目标值后，返回[l+1,r-1]
+        """
+        n = len(nums)
+        l, r = 0, n-1
+        while l<=r:
+            cur = (l+r)//2
+            if nums[cur] > target:
+                r = cur-1
+            elif nums[cur] < target:
+                l = cur+1
+            else:
+                # 开始拓展
+                l = cur-1
+                r = cur+1
+                while l >= 0 and nums[l] == target:
+                    l -= 1
+                while r < n and nums[r] == target:
+                    r += 1
+                return [l+1, r-1]
+        return [-1, -1]
+        # 最坏情况所有数字都是target，时间复杂度劣化为O(n)
+
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        """官解，通过两轮二分寻找两个下标，左右两个下标的特征要处理好"""
+        def binary_s(_nums, _target, find_most_left):
+            n = len(_nums)
+            l, r = 0, n-1
+            ans = n
+            while l<=r:
+                cur = (l+r)//2
+                if _nums[cur] > _target or (find_most_left and _nums[cur] >= _target):
+                    r = cur-1
+                    ans = cur
+                elif _nums[cur] <= _target:
+                    l = cur+1
+            return ans
+        
+        ll = binary_s(nums,target, True)
+        rr = binary_s(nums,target, False)-1
+        if ll <= rr and rr < len(nums) and nums[ll]==target and nums[rr]==target:
+            return [ll, rr]
+
+        return [-1, -1]
+```
+
+
+### [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
+
+```python
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        """关键：一分为二后一定有一半有序
+        """
+        l, r = 0, len(nums)-1
+        while l<=r:
+            mid = (l + r)//2
+            if nums[mid] == target:
+                return mid
+            else:
+                if nums[mid] <= nums[-1]: # 右侧有序判断
+                    if nums[mid] < target <= nums[-1]:
+                        l = mid+1
+                    else:
+                        r = mid-1
+                else: # 左侧有序
+                    if nums[mid] > target >= nums[l]:
+                        r = mid-1
+                    else:
+                        l = mid+1
+        return -1
+```
+
+
+### []()
+
+```python
+
+```
+
+### []()
+
+```python
+
+```
 
 
 ## 栈
