@@ -65,7 +65,7 @@
     - [](#-9)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
-    - [](#-10)
+    - [74. 搜索二维矩阵](#74-搜索二维矩阵)
   - [栈](#栈)
     - [20. 有效的括号](#20-有效的括号)
     - [155. 最小栈](#155-最小栈)
@@ -81,16 +81,16 @@
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
+    - [](#-10)
     - [](#-11)
-    - [](#-12)
   - [贪心算法](#贪心算法)
     - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-12)
     - [](#-13)
-    - [](#-14)
 
 
 ## 哈希
@@ -2030,12 +2030,27 @@ class Solution:
 ```
 
 
-
-
-### []()
+### [74. 搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix/)
 
 ```python
-
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        """把有序数组等m分拆成了n列矩阵"""
+        m,n = len(matrix),len(matrix[0])
+        l,r = 0, m*n-1
+        while l<=r:
+            idx = (r+l)//2
+            idx_r = idx//n
+            idx_c = idx%n
+            mid_num = matrix[idx_r][idx_c]
+            print(l, r, idx, idx_r, idx_c, mid_num)
+            if mid_num == target:
+                return True
+            elif mid_num < target:
+                l = idx+1
+            else:
+                r = idx-1
+        return False
 ```
 
 
