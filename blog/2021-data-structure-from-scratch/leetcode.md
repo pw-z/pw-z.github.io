@@ -68,8 +68,8 @@
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
     - [34. 在排序数组中查找元素的第一个和最后一个位置](#34-在排序数组中查找元素的第一个和最后一个位置)
     - [33. 搜索旋转排序数组](#33-搜索旋转排序数组)
+    - [153. 寻找旋转排序数组中的最小值](#153-寻找旋转排序数组中的最小值)
     - [](#-10)
-    - [](#-11)
   - [栈](#栈)
     - [20. 有效的括号](#20-有效的括号)
     - [155. 最小栈](#155-最小栈)
@@ -85,16 +85,16 @@
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
+    - [](#-11)
     - [](#-12)
-    - [](#-13)
   - [贪心算法](#贪心算法)
     - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-13)
     - [](#-14)
-    - [](#-15)
 
 
 ## 哈希
@@ -2138,10 +2138,33 @@ class Solution:
 ```
 
 
-### []()
+### [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/)
 
 ```python
-
+class Solution:
+    def findMin1(self, nums: List[int]) -> int:
+        """个人解，找规律"""
+        l, r = 0, len(nums)-1
+        while l<=r:
+            m = (l+r)//2
+            if nums[m] >= nums[0] and nums[m] > nums[-1]: # ordered left, unordered right
+                l = m+1
+            elif nums[m] <= nums[0] and nums[m] < nums[-1]: # ordered right, unordered left
+                r = m-1
+            else:
+                break
+        return nums[l]
+    
+    def findMin(self, nums: List[int]) -> int:
+        """官解，更清晰的规律"""
+        l, r = 0, len(nums)-1
+        while l<r:
+            m = (l+r)//2
+            if nums[m] < nums[r]:
+                r = m
+            else:
+                l = m+1
+        return nums[l]
 ```
 
 ### []()
