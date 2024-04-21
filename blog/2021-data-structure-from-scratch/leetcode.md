@@ -69,7 +69,7 @@
     - [34. 在排序数组中查找元素的第一个和最后一个位置](#34-在排序数组中查找元素的第一个和最后一个位置)
     - [33. 搜索旋转排序数组](#33-搜索旋转排序数组)
     - [153. 寻找旋转排序数组中的最小值](#153-寻找旋转排序数组中的最小值)
-    - [](#-10)
+    - [4. 寻找两个正序数组的中位数](#4-寻找两个正序数组的中位数)
   - [栈](#栈)
     - [20. 有效的括号](#20-有效的括号)
     - [155. 最小栈](#155-最小栈)
@@ -85,16 +85,16 @@
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
+    - [](#-10)
     - [](#-11)
-    - [](#-12)
   - [贪心算法](#贪心算法)
     - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-12)
     - [](#-13)
-    - [](#-14)
 
 
 ## 哈希
@@ -2167,10 +2167,40 @@ class Solution:
         return nums[l]
 ```
 
-### []()
+### [4. 寻找两个正序数组的中位数](https://leetcode.cn/problems/median-of-two-sorted-arrays/)
 
 ```python
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        """官解思路，将寻找中位数转换为寻找作为第K小的数，二分法迫近第K小的数"""
+        def getkth(k):
+            offset1 = offset2 = 0
+            while True:
 
+                # special
+                if offset1 == m:  # nums1均被排除时，直接返回nums2中第k小的数
+                    return nums2[offset2 + k -1]
+                if offset2 == n:  # 同上
+                    return nums1[offset1 + k -1]
+                if k == 1:
+                    return min(nums1[offset1], nums2[offset2])
+
+                # default
+                newoffset1 = min(offset1+k//2-1, m-1)
+                newoffset2 = min(offset2+k//2-1, n-1)
+                if nums1[newoffset1] <= nums2[newoffset2]:
+                    k -= newoffset1 - offset1 + 1
+                    offset1 = newoffset1 + 1
+                else:
+                    k -= newoffset2 - offset2 + 1
+                    offset2 = newoffset2 + 1
+        
+        m, n = len(nums1), len(nums2)
+        count = m+n
+        if (count)%2 == 1:
+            return getkth((count+1)//2)
+        else:
+            return (getkth(count//2) + getkth(count//2+1))/2
 ```
 
 
