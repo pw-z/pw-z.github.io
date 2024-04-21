@@ -82,19 +82,20 @@
     - [215. 数组中的第K个最大元素](#215-数组中的第k个最大元素)
     - [347. 前 K 个高频元素](#347-前-k-个高频元素)
     - [295. 数据流的中位数](#295-数据流的中位数)
-  - [技巧](#技巧)
-    - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
-    - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
-    - [](#-10)
-    - [](#-11)
   - [贪心算法](#贪心算法)
     - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-10)
+    - [](#-11)
+  - [技巧](#技巧)
+    - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
+    - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
+    - [75. 颜色分类](#75-颜色分类)
+    - [31. 下一个排列](#31-下一个排列)
     - [](#-12)
-    - [](#-13)
 
 
 ## 哈希
@@ -2960,70 +2961,6 @@ class MedianFinder:
 ```
 
 
-## 技巧
-
-### [136. 只出现一次的数字*（位运算）](https://leetcode.cn/problems/single-number/)
-
-> 按位运算符是把数字看作二进制来进行计算的。
-> 
-> 按位异或运算符`^`：当两对应的二进位相异时，结果为1 
-> 
-> > Python位运算：https://www.runoob.com/python3/python3-basic-operators.html#ysf5
-
-> 异或运算有以下三个性质:
-    1. 何数和0做异或运算，结果仍然是原来的数
-    2. 任何数和其自身做异或运算，结果是0
-    3. 异或运算满足交换律和结合律，即 a⊕b⊕a=b⊕a⊕a=b⊕(a⊕a)
-> > [力扣官方题解](https://leetcode.cn/problems/single-number/solutions/242211/zhi-chu-xian-yi-ci-de-shu-zi-by-leetcode-solution/)
-
-```python
-class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
-        ans = 0
-        for i in range(len(nums)):
-            ans = ans ^ nums[i]
-        return ans
-```
-
-
-### [169. 多数元素*（Boyer-Moore多数投票算法）](https://leetcode.cn/problems/majority-element/)
-
-Robert S. Boyer and J Strother Moore 这俩人提出过很多算法，该题中用到的是多数投票算法，更著名的以他们命名的算法是BM字符串匹配算法。
-
-* [Boyer-Moore多数投票算法](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm)
-* [字符串匹配的Boyer-Moore算法](https://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
-
-```python
-class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
-        """多数投票，空间复杂度O(1)"""
-        count = 0
-        target = None
-        for n in nums:
-            if count == 0:
-                target = n
-            
-            if target == n:
-                count += 1
-            else:
-                count -= 1
-        return target
-```
-
-
-### []()
-
-```python
-
-```
-
-
-### []()
-
-```python
-
-```
-
 ## 贪心算法
 
 
@@ -3105,6 +3042,150 @@ class Solution:
 
 ```python
 
+```
+
+
+### []()
+
+```python
+
+```
+
+
+
+## 技巧
+
+### [136. 只出现一次的数字*（位运算）](https://leetcode.cn/problems/single-number/)
+
+> 按位运算符是把数字看作二进制来进行计算的。
+> 
+> 按位异或运算符`^`：当两对应的二进位相异时，结果为1 
+> 
+> > Python位运算：https://www.runoob.com/python3/python3-basic-operators.html#ysf5
+
+> 异或运算有以下三个性质:
+    1. 何数和0做异或运算，结果仍然是原来的数
+    2. 任何数和其自身做异或运算，结果是0
+    3. 异或运算满足交换律和结合律，即 a⊕b⊕a=b⊕a⊕a=b⊕(a⊕a)
+> > [力扣官方题解](https://leetcode.cn/problems/single-number/solutions/242211/zhi-chu-xian-yi-ci-de-shu-zi-by-leetcode-solution/)
+
+```python
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        ans = 0
+        for i in range(len(nums)):
+            ans = ans ^ nums[i]
+        return ans
+```
+
+
+### [169. 多数元素*（Boyer-Moore多数投票算法）](https://leetcode.cn/problems/majority-element/)
+
+Robert S. Boyer and J Strother Moore 这俩人提出过很多算法，该题中用到的是多数投票算法，更著名的以他们命名的算法是BM字符串匹配算法。
+
+* [Boyer-Moore多数投票算法](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm)
+* [字符串匹配的Boyer-Moore算法](https://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
+
+```python
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        """多数投票，空间复杂度O(1)"""
+        count = 0
+        target = None
+        for n in nums:
+            if count == 0:
+                target = n
+            
+            if target == n:
+                count += 1
+            else:
+                count -= 1
+        return target
+```
+
+
+### [75. 颜色分类](https://leetcode.cn/problems/sort-colors/)
+
+```python
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """计数后重写数组，思路及实现最简单
+        
+        """
+        n = len(nums)
+        count = [0]*3
+        for x in nums:
+            count[x] += 1
+        
+        i = 0
+        while i < n:
+            if count[0] > 0:
+                nums[i] = 0
+                count[0] -= 1
+            elif count[1] > 0:
+                nums[i] = 1
+                count[1] -= 1
+            else:
+                nums[i] = 2
+                count[2] -= 1
+            i += 1
+```
+
+
+### [31. 下一个排列](https://leetcode.cn/problems/next-permutation/)
+
+```python
+class Solution:
+    def nextPermutation1(self, nums: List[int]) -> None:
+        """❌
+        从右往左扫描交换第一个【相邻升序对】，若没有则需要反转
+        思路错了，下一个更大的排列不能这样简单判断相邻两个元素，得跨位置考虑
+        155 / 266 个通过的测试用例
+        输入nums = [1,3,2]
+        输出[3,1,2]
+        预期结果[2,1,3]
+        """
+        p = len(nums)-1
+        flag = False
+        while p > 0:
+            if nums[p-1] < nums[p]:
+                nums[p-1], nums[p] = nums[p], nums[p-1]
+                flag = True
+                break
+            p -= 1
+
+        if not flag:
+            l, r = 0, len(nums)-1
+            while l < r:
+                nums[l], nums[r] = nums[r], nums[l]
+                l += 1
+                r -= 1
+
+    def nextPermutation(self, nums: List[int]) -> None:
+        """找到第一个相邻升序对[a,b]后，再从后往前找第一个比a大的数c，换完a,c之后需要将c后面的数排序。
+        具体分析见：https://leetcode.cn/problems/next-permutation/solutions/80560/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-
+        """
+
+        p = len(nums)-1
+        flag = False
+        while p > 0:
+            if nums[p-1] < nums[p]:
+                p -= 1
+                _p = len(nums)-1
+                while _p > p:
+                    if nums[_p] > nums[p]:
+                        nums[p], nums[_p] = nums[_p], nums[p]
+                        break
+                    _p -= 1
+                flag = True
+                break
+            p -= 1
+        
+        l, r = 0 if not flag else p+1, len(nums)-1
+        while l < r:
+            nums[l], nums[r] = nums[r], nums[l]
+            l += 1
+            r -= 1
 ```
 
 
