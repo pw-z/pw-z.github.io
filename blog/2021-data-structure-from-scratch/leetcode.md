@@ -95,7 +95,7 @@
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
     - [75. 颜色分类](#75-颜色分类)
     - [31. 下一个排列](#31-下一个排列)
-    - [](#-12)
+    - [287. 寻找重复数](#287-寻找重复数)
 
 
 ## 哈希
@@ -3189,8 +3189,43 @@ class Solution:
 ```
 
 
-### []()
+### [287. 寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number/)
+
+shit.
 
 ```python
+class Solution:
+    def findDuplicate1(self, nums: List[int]) -> int:
+        n = len(nums)
+        l,r = 1, n-1
+        ans = -1
+        while l <= r:
+            m = (l+r)//2
+            cnt = 0
+            for i in range(n):
+                cnt += nums[i] <= m
+            if cnt <= m:
+                l = m+1
+            else:
+                r = m-1
+                ans = m
+        return ans
+    
+    def findDuplicate(self, nums: List[int]) -> int:
+        slow = fast = 0
+        
 
+        slow = nums[slow]
+        fast = nums[nums[fast]]
+        print(slow, fast)
+        while nums[slow] != nums[fast]:
+        # while nums[slow] != nums[fast]: # also okay
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            print(slow, fast)
+        slow = 0
+        while slow != fast:
+            slow = nums[slow]
+            fast = nums[fast]
+        return slow
 ```
