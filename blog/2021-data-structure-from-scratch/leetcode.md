@@ -43,7 +43,8 @@
     - [2. 两数相加](#2-两数相加)
     - [19. 删除链表的倒数第 N 个结点](#19-删除链表的倒数第-n-个结点)
     - [24. 两两交换链表中的节点](#24-两两交换链表中的节点)
-    - [图解 K 个一组翻转链表](#图解-k-个一组翻转链表)
+    - [25. K 个一组翻转链表](#25-k-个一组翻转链表)
+    - [138. 随机链表的复制](#138-随机链表的复制)
     - [](#-3)
   - [二叉树](#二叉树)
     - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
@@ -1423,7 +1424,7 @@ class Solution:
 ```
 
 
-### [图解 K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
+### [25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)
 
 ```python
 # Definition for singly-linked list.
@@ -1493,6 +1494,51 @@ if __name__ == '__main__':
         ans = ans.next
 
     # 2 1 4 3 5 
+```
+
+
+### [138. 随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer/)
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
+
+class Solution:
+    cache = {}
+    def copyRandomList1(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        """哈希表 + 递归回溯"""
+        if not head:
+            return None
+
+        if head not in self.cache.keys():
+            tmp = Node(head.val)
+            self.cache[head] = tmp
+            tmp.next = self.copyRandomList(head.next)
+            tmp.random = self.copyRandomList(head.random)
+        
+        return self.cache[head]
+    
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        """二次迭代 + 哈希表"""
+        p = head
+        while p:
+            tmp = Node(p.val)
+            self.cache[p] = tmp
+            p = p.next
+        
+        p = head
+        while p:
+            self.cache[p].next = self.cache.get(p.next)
+            self.cache[p].random = self.cache.get(p.random)
+            p = p.next
+        
+        return self.cache.get(head)
 ```
 
 
