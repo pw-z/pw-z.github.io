@@ -46,6 +46,7 @@
     - [25. K 个一组翻转链表](#25-k-个一组翻转链表)
     - [138. 随机链表的复制](#138-随机链表的复制)
     - [](#-3)
+    - [146. LRU 缓存](#146-lru-缓存)
   - [二叉树](#二叉树)
     - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
     - [104. 二叉树的最大深度\*](#104-二叉树的最大深度)
@@ -1546,6 +1547,91 @@ class Solution:
 
 ```python
 
+```
+
+### [146. LRU 缓存](https://leetcode.cn/problems/lru-cache/)
+
+调试吐血，像官解那样抽象成函数还是有必要的，有两个指针互相转换的过程有依赖，顺序不对导致排查半天。
+
+```python
+class Node:
+    def __init__(self, key=0, val=0):
+        self.key = key
+        self.val = val
+        self.prev = None
+        self.next = None
+
+
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.cache = {}
+        self.capacity = capacity
+        self.size = 0  # 用于判断是否超过容量
+        self.head = Node()
+        self.tail = Node()
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def get(self, key: int) -> int:
+        # 哈希表判断是否存在，否返回-1，存在返回并更新链表节点到头节点
+        res = self.cache.get(key)
+        if res:
+            res.prev.next = res.next
+            res.next.prev = res.prev
+
+            res.next = self.head.next
+            res.prev = self.head
+            self.head.next.prev = res
+            self.head.next = res
+
+            return res.val
+        return -1
+
+    def put(self, key: int, value: int) -> None:
+        if key not in self.cache:
+            print('not hit')
+            # 新增节点
+            node = Node(key, value)
+            self.cache[key] = node
+            # 放到头部
+            node.next = self.head.next
+            node.prev = self.head
+            self.head.next.prev = node
+            self.head.next = node
+            # 判断容量，已经满了则删除末尾节点
+            if self.size == self.capacity:
+                self.cache.pop(self.tail.prev.key)
+                self.tail.prev.prev.next = self.tail # 先这个
+                self.tail.prev = self.tail.prev.prev # 再这个！反过来是不行的
+            else:
+                self.size += 1
+        else:
+            print('hit')
+            node = self.cache[key]
+            node.val = value
+            # 放到头部（放置前先移除原关系）
+            node.prev.next = node.next
+            node.next.prev = node.prev
+            node.next = self.head.next
+            node.prev = self.head
+            self.head.next.prev = node
+            self.head.next = node
+
+        print(self.cache)
+
+if __name__ == '__main__':
+    obj = LRUCache(10)
+    input = [[10,13],[3,17],[6,11],[10,5],[9,10],[13],[2,19],[2],[3],[5,25],[8],[9,22],[5,5],[1,30],[11],[9,12],[7],[5],[8],[9],[4,30],[9,3],[9],[10],[10],[6,14],[3,1],[3],[10,11],[8],[2,14],[1],[5],[4],[11,4],[12,24],[5,18],[13],[7,23],[8],[12],[3,27],[2,12],[5],[2,9],[13,4],[8,18],[1,7],[6],[9,29],[8,21],[5],[6,30],[1,12],[10],[4,15],[7,22],[11,26],[8,17],[9,29],[5],[3,4],[11,30],[12],[4,29],[3],[9],[6],[3,4],[1],[10],[3,29],[10,28],[1,20],[11,13],[3],[3,12],[3,8],[10,9],[3,26],[8],[7],[5],[13,17],[2,27],[11,15],[12],[9,19],[2,15],[3,16],[1],[12,17],[9,1],[6,19],[4],[5],[5],[8,1],[11,7],[5,2],[9,28],[1],[2,2],[7,4],[4,22],[7,24],[9,26],[13,28],[11,26]]
+    for i in input:
+        if len(i) == 2:
+            obj.put(i[0], i[1])
+        else:
+            obj.get(i[0])
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
 ```
 
 ## 二叉树
