@@ -19,10 +19,11 @@
   - [滑动窗口](#滑动窗口)
     - [3. 无重复字符的最长子串](#3-无重复字符的最长子串)
     - [438. 找到字符串中所有字母异位词](#438-找到字符串中所有字母异位词)
+    - [209. 长度最小的子数组](#209-长度最小的子数组)
   - [子串](#子串)
     - [560. 和为 K 的子数组（有空再瞅瞅）](#560-和为-k-的子数组有空再瞅瞅)
     - [239. 滑动窗口最大值](#239-滑动窗口最大值)
-    - [](#)
+    - [76. 最小覆盖子串](#76-最小覆盖子串)
   - [普通数组](#普通数组)
     - [53. 最大子数组和（动态规划）](#53-最大子数组和动态规划)
     - [56. 合并区间（排序）](#56-合并区间排序)
@@ -46,7 +47,7 @@
     - [24. 两两交换链表中的节点](#24-两两交换链表中的节点)
     - [25. K 个一组翻转链表](#25-k-个一组翻转链表)
     - [138. 随机链表的复制](#138-随机链表的复制)
-    - [](#-1)
+    - [](#)
     - [146. LRU 缓存](#146-lru-缓存)
   - [二叉树](#二叉树)
     - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
@@ -58,14 +59,14 @@
     - [108. 将有序数组转换为二叉搜索树\*](#108-将有序数组转换为二叉搜索树)
     - [98. 验证二叉搜索树](#98-验证二叉搜索树)
     - [230. 二叉搜索树中第K小的元素](#230-二叉搜索树中第k小的元素)
+    - [](#-1)
     - [](#-2)
     - [](#-3)
     - [](#-4)
-    - [](#-5)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
+    - [](#-5)
     - [](#-6)
-    - [](#-7)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
@@ -91,8 +92,8 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-7)
     - [](#-8)
-    - [](#-9)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -629,6 +630,26 @@ class Solution:
         return ans
 ```
 
+### [209. 长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum/)
+
+```python
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        # https://www.bilibili.com/video/BV1hd4y1r7Gq
+        n = len(nums)
+        ans = n+1
+        l = 0
+        s = 0
+        for r, x in enumerate(nums):
+            s += x
+            while s >= target:
+                ans = min(ans, r-l+1)
+                s -= nums[l]
+                l += 1
+        return ans if ans <= n else 0
+```
+
+
 ## 子串
 
 ### [560. 和为 K 的子数组（有空再瞅瞅）](https://leetcode.cn/problems/subarray-sum-equals-k/)
@@ -700,10 +721,34 @@ class Solution:
 ```
 
 
-### []()
+### [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/)
 
 ```python
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
 
+        cnt_t = defaultdict(int)
+        for c in t:
+            cnt_t[c] += 1
+        def covered(a: dict, b: dict):
+            # 判断 a 是否覆盖 b
+            for k, v in b.items():
+                if not a[k] or a[k] < v:
+                    return False
+            return True
+
+        cnt_s = defaultdict(int)
+        ansL, ansR = -1, len(s)
+        l = 0
+        for r, x in enumerate(s):
+            cnt_s[x] += 1
+            while covered(cnt_s, cnt_t):
+                if r - l < ansR - ansL:
+                    ansL, ansR = l, r
+                cnt_s[s[l]] -= 1
+                l += 1
+
+        return "" if ansL < 0 else s[ansL: ansR+1]
 ```
 
 
