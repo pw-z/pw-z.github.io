@@ -27,6 +27,7 @@
     - [53. 最大子数组和（动态规划）](#53-最大子数组和动态规划)
     - [56. 合并区间（排序）](#56-合并区间排序)
     - [189. 轮转数组](#189-轮转数组)
+    - [238. 除自身以外数组的乘积](#238-除自身以外数组的乘积)
     - [](#-2)
   - [矩阵](#矩阵)
     - [73. 矩阵置零](#73-矩阵置零)
@@ -736,6 +737,29 @@ class Solution:
         # 辗转相除法最易于用算法表达，递归实现如下：
         def gcd(a, b):
             return gcd(b, a%b) if b > 0 else a
+```
+
+
+### [238. 除自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/)
+
+```python
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        """前缀积 * 后缀积"""
+        n = len(nums)
+        L = [1]*n
+        R = [1]*n
+
+        for i in range(1, n):
+            L[i] = L[i-1] * nums[i-1]
+            R[-i-1] = R[-i] * nums[-i]
+        print(L, R)
+
+        ans = []
+        for i in range(n):
+            ans.append(L[i]*R[i])
+        return ans
+    # O(1)空间复杂度可以借助ans数组本身存储L，然后遍历求R的同时给出ans
 ```
 
 
