@@ -21,8 +21,8 @@
     - [438. 找到字符串中所有字母异位词](#438-找到字符串中所有字母异位词)
   - [子串](#子串)
     - [560. 和为 K 的子数组（有空再瞅瞅）](#560-和为-k-的子数组有空再瞅瞅)
+    - [239. 滑动窗口最大值](#239-滑动窗口最大值)
     - [](#)
-    - [](#-1)
   - [普通数组](#普通数组)
     - [53. 最大子数组和（动态规划）](#53-最大子数组和动态规划)
     - [56. 合并区间（排序）](#56-合并区间排序)
@@ -46,7 +46,7 @@
     - [24. 两两交换链表中的节点](#24-两两交换链表中的节点)
     - [25. K 个一组翻转链表](#25-k-个一组翻转链表)
     - [138. 随机链表的复制](#138-随机链表的复制)
-    - [](#-2)
+    - [](#-1)
     - [146. LRU 缓存](#146-lru-缓存)
   - [二叉树](#二叉树)
     - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
@@ -58,14 +58,14 @@
     - [108. 将有序数组转换为二叉搜索树\*](#108-将有序数组转换为二叉搜索树)
     - [98. 验证二叉搜索树](#98-验证二叉搜索树)
     - [230. 二叉搜索树中第K小的元素](#230-二叉搜索树中第k小的元素)
+    - [](#-2)
     - [](#-3)
     - [](#-4)
     - [](#-5)
-    - [](#-6)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
+    - [](#-6)
     - [](#-7)
-    - [](#-8)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
@@ -91,8 +91,8 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-8)
     - [](#-9)
-    - [](#-10)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -650,10 +650,53 @@ class Solution:
 ```
 
 
-### []()
+### [239. 滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/)
 
 ```python
+class Solution:
+    def maxSlidingWindow1(self, nums: List[int], k: int) -> List[int]:
+        """❌拜托答案不是递增的，当前窗口的最大值可能小于前一窗口最大值"""
+        low = 0
+        high = k-1
+        n = len(nums)
+        ans = []
+        lastTop = max(nums[low:high+1])
+        while high < n:
+            # print(nums[low:high+1])
+            if nums[high] > lastTop:
+                lastTop = nums[high]
+            ans.append(lastTop)
+            low += 1
+            high += 1
+        return ans
+    
+    def maxSlidingWindow2(self, nums: List[int], k: int) -> List[int]:
+        """堆 官解思路"""
+        n = len(nums)
+        q = [(-nums[i],i) for i in range(k)] # 建堆 O(k)
+        heapq.heapify(q) 
 
+        ans = [-q[0][0]]
+        for i in range(k, n): # 遍历 O(n)
+            heapq.heappush(q, (-nums[i], i)) # 堆化 最差O(logn)
+            while q[0][1] <= i-k:
+                heapq.heappop(q)
+            ans.append(-q[0][0])
+        return ans
+
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        """双端队列 https://www.bilibili.com/video/BV1bM411X72E"""
+        ans = []
+        q = deque()
+        for i,x in enumerate(nums):
+            while q and nums[q[-1]] <= x:
+                q.pop()
+            q.append(i)
+            if i-q[0] >= k:
+                q.popleft()
+            if i>= k-1:
+                ans.append(nums[q[0]])
+        return ans
 ```
 
 
@@ -2970,7 +3013,9 @@ class Solution:
 
 堆又称优先队列，是一棵完全二叉树，方便使用数组存储，根据二叉树的坐标规律可以快速计算给定节点的父节点、子节点坐标。堆通过偏序（而不是完全有序）适用于特定场景，参考[堆(Heap)这种数据结构有什么用处呢？](https://www.zhihu.com/question/466078026)。
 
-堆参考：[数据结构 - 堆的原理 和 常见算法问题](https://writings.sh/post/data-structure-heap-and-common-problems)
+堆参考：
+* [数据结构 - 堆的原理 和 常见算法问题](https://writings.sh/post/data-structure-heap-and-common-problems)
+* [堆排序中建堆过程时间复杂度O(n)怎么来的？](https://www.zhihu.com/question/20729324)
 
 ```python
 class Heap:
