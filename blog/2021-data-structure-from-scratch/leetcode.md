@@ -47,7 +47,8 @@
     - [24. 两两交换链表中的节点](#24-两两交换链表中的节点)
     - [25. K 个一组翻转链表](#25-k-个一组翻转链表)
     - [138. 随机链表的复制](#138-随机链表的复制)
-    - [](#)
+    - [148. 排序链表](#148-排序链表)
+    - [23. 合并 K 个升序链表](#23-合并-k-个升序链表)
     - [146. LRU 缓存](#146-lru-缓存)
   - [二叉树](#二叉树)
     - [94. 二叉树的中序遍历\*](#94-二叉树的中序遍历)
@@ -59,14 +60,14 @@
     - [108. 将有序数组转换为二叉搜索树\*](#108-将有序数组转换为二叉搜索树)
     - [98. 验证二叉搜索树](#98-验证二叉搜索树)
     - [230. 二叉搜索树中第K小的元素](#230-二叉搜索树中第k小的元素)
+    - [](#)
     - [](#-1)
     - [](#-2)
     - [](#-3)
-    - [](#-4)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
+    - [](#-4)
     - [](#-5)
-    - [](#-6)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
@@ -92,8 +93,8 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-6)
     - [](#-7)
-    - [](#-8)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -1673,7 +1674,99 @@ class Solution:
 ```
 
 
-### []()
+### [148. 排序链表](https://leetcode.cn/problems/sort-list/)
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    """你可以在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？"""
+    
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        def merge(l1:ListNode, l2:ListNode):
+            ans = ListNode(-1)
+            cur = ans
+            while l1 and l2:
+                if l1.val <= l2.val:
+                    cur.next = l1
+                    l1 = l1.next
+                else:
+                    cur.next = l2
+                    l2 = l2.next
+                cur = cur.next
+            if l1:
+                cur.next = l1
+            else:
+                cur.next = l2
+            return ans.next
+        
+        def mysort(head, tail):
+            """时间：O(nlogn)，空间：O(logn)"""
+            if not head:
+                return head
+            if head.next == tail:
+                head.next = None
+                return head
+            slow = fast = head
+            while fast != tail:
+                fast = fast.next
+                slow = slow.next
+                if fast != tail:
+                    fast = fast.next
+            return merge(mysort(head, slow), mysort(slow, tail))
+        
+        def mysort_bot_top(head: ListNode):
+            """时间：O(nlogn)，空间：O(1)
+            自底向上的归并写法，by Krahets
+            https://leetcode.cn/problems/sort-list/solutions/13728/sort-list-gui-bing-pai-xu-lian-biao-by-jyd
+            """
+            h = head
+            length, intv = 0, 1
+            while h:
+                h = h.next
+                length += 1 # 求链表长度
+            res = ListNode(0)
+            res.next = head
+            while intv < length:
+                pre, h = res, res.next
+                while h:
+                    h1, i = h, intv
+                    while i and h:
+                        h, i = h.next, i-1
+                    if i: break
+
+                    h2, i = h, intv
+                    while i and h:
+                        h, i = h.next, i-1
+                    
+                    # 合并h1与h2
+                    c1, c2 = intv, intv-i
+                    while c1 and c2:
+                        if h1.val < h2.val:
+                            pre.next = h1
+                            h1 = h1.next
+                            c1 -= 1
+                        else:
+                            pre.next = h2
+                            h2 = h2.next
+                            c2 -= 1
+                        pre = pre.next
+                    pre.next = h1 if c1 else h2
+                    while c1>0 or c2>0:
+                        pre, c1, c2 = pre.next, c1 - 1, c2 - 1
+                    pre.next = h
+                    
+                intv *= 2
+            return res.next
+        
+        # return mysort(head, None)
+        return mysort_bot_top(head)
+```
+
+### [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
 ```python
 
