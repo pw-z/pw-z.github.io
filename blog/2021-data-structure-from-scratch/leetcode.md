@@ -60,14 +60,14 @@
     - [108. 将有序数组转换为二叉搜索树\*](#108-将有序数组转换为二叉搜索树)
     - [98. 验证二叉搜索树](#98-验证二叉搜索树)
     - [230. 二叉搜索树中第K小的元素](#230-二叉搜索树中第k小的元素)
+    - [199. 二叉树的右视图](#199-二叉树的右视图)
     - [](#)
     - [](#-1)
     - [](#-2)
-    - [](#-3)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
+    - [](#-3)
     - [](#-4)
-    - [](#-5)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
@@ -93,8 +93,8 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-5)
     - [](#-6)
-    - [](#-7)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -2327,10 +2327,56 @@ class Solution:
 ```
 
 
-### []()
+### [199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/)
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        """思路：层序遍历，打印每一层最后一个节点值"""
+        if not root:
+            return []
 
+        q = [root,]
+        mid_q = []
+        ans = []
+
+        while q:
+            tmp = q.pop(0)
+            if tmp.left: mid_q.append(tmp.left)
+            if tmp.right: mid_q.append(tmp.right)
+            if not q: # 说明tmp是队列里最后一个元素
+                ans.append(tmp.val)
+                q = mid_q
+                mid_q = []
+        return ans
+    
+
+    def rightSideView2(self, root: Optional[TreeNode]) -> List[int]:
+        """
+        可以使用collections模块中的deque，上面使用list模拟队列pop(0)的耗时是O(n)
+        """
+        if not root:
+            return []
+
+        q = deque([root,])
+        mid_q = []
+        ans = []
+
+        while q:
+            tmp = q.popleft()
+            if tmp.left: mid_q.append(tmp.left)
+            if tmp.right: mid_q.append(tmp.right)
+            if not q: # 说明tmp是队列里最后一个元素
+                ans.append(tmp.val)
+                q = deque(mid_q)
+                mid_q = []
+        return ans
 ```
 
 
