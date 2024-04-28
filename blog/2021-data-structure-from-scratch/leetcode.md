@@ -1769,7 +1769,48 @@ class Solution:
 ### [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        """
+        思路：官解 + https://leetcode.cn/problems/merge-k-sorted-lists/solutions/219756/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/comments/2092297
+        
+        一开始往堆里塞的是二元组(node.val, node)，结果push的时候报错，查heapq官方文档：
+            > 如果 priority 相同且 task 之间未定义默认比较顺序，则两个 (priority, task) 元组之间的比较会报错。
+            > https://docs.python.org/zh-cn/3/library/heapq.html#priority-queue-implementation-notes
+        解法文档里也说明了，可以再加一个参数，入堆三元组，其中第二个元素给了个计数值，不断变化即可
 
+        ---
+        复杂度分析：
+            堆中一共k个元素（k=链表的数量），插入删除O(logk)
+            k个链表最多有kn个节点，每个节点插入删除一次，总时间复杂度O(kn * logk)
+            空间复杂度：O(k)，堆的空间大小
+        """
+        ans = ListNode()
+        cur = ans
+        heads = [h for h in lists if h]
+        # print(heads)
+        q = []
+        cnt = 0
+        for head in heads:
+            # print(head.val)
+            cnt += 1
+            heapq.heappush(q, (head.val, cnt, head))
+        
+        while q:
+            node = heapq.heappop(q)
+            print(node)
+            if node[2].next:
+                cnt += 1
+                heapq.heappush(q, (node[2].next.val, cnt, node[2].next))
+            cur.next = node[2]
+            cur = cur.next
+        
+        return ans.next
 ```
 
 ### [146. LRU 缓存](https://leetcode.cn/problems/lru-cache/)
