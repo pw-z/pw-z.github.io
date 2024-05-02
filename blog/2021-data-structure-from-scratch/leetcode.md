@@ -61,13 +61,13 @@
     - [98. 验证二叉搜索树](#98-验证二叉搜索树)
     - [230. 二叉搜索树中第K小的元素](#230-二叉搜索树中第k小的元素)
     - [199. 二叉树的右视图](#199-二叉树的右视图)
+    - [114. 二叉树展开为链表](#114-二叉树展开为链表)
     - [](#)
     - [](#-1)
-    - [](#-2)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
+    - [](#-2)
     - [](#-3)
-    - [](#-4)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
@@ -93,8 +93,8 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-4)
     - [](#-5)
-    - [](#-6)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -2380,10 +2380,48 @@ class Solution:
 ```
 
 
-### []()
+### [114. 二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/)
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def flatten1(self, root: Optional[TreeNode]) -> None:
+        """时间与空间复杂度都是O(n)
+        """
+        stack = []
+        store = []
+        cur = root
+        while stack or cur:
+            if cur:
+                print(cur.val)
+                store.append(cur)
+                stack.append(cur)
+                cur = cur.left
+            else:
+                cur = stack.pop().right
+        
+        for i in range(len(store)-1):
+            store[i].left = None
+            store[i].right = store[i+1]
+        
+    def flatten(self, root: Optional[TreeNode]) -> None:
+        """官解迭代找前缀，时间O(n),空间优化到了O(1)"""
+        cur = root
+        while cur:
+            if cur.left:
+                tmp = cur.left
+                conn = tmp
+                while conn.right:
+                    conn = conn.right
+                conn.right = cur.right
+                cur.left = None
+                cur.right = tmp
+            cur = cur.right
 ```
 
 
