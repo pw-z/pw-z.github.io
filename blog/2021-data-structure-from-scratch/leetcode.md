@@ -65,11 +65,12 @@
     - [105. 从前序与中序遍历序列构造二叉树](#105-从前序与中序遍历序列构造二叉树)
     - [112. 路径总和\*](#112-路径总和)
     - [437. 路径总和 III](#437-路径总和-iii)
-    - [](#)
+    - [236. 二叉树的最近公共祖先](#236-二叉树的最近公共祖先)
+    - [124. 二叉树中的最大路径和\*\*](#124-二叉树中的最大路径和)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
+    - [](#)
     - [](#-1)
-    - [](#-2)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
@@ -95,8 +96,8 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-2)
     - [](#-3)
-    - [](#-4)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -2610,15 +2611,67 @@ class Solution:
         return dfs(root, 0)
 ```
 
-### []()
+### [236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+分析所有的可能场景，分析逐步处理过程，形式化总结。
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        def dfs(root, p, q):
+            if not root:
+                return None
+            if root is p or root is q:
+                return root
+            
+            l = dfs(root.left, p, q)
+            r = dfs(root.right, p, q)
+
+            if l and r:
+                return root
+            if l and not r:
+                return l
+            if r and not l:
+                return r
+        return dfs(root, p, q)
 ```
 
+### [124. 二叉树中的最大路径和**](https://leetcode.cn/problems/binary-tree-maximum-path-sum/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def __init__(self):
+        self.ans = float("-inf") # 所有数都比无穷小float("-inf")大，所有数都比无穷大float("inf")小
+
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        def dfs(root):
+            if not root:
+                return 0
+            
+            l = max(dfs(root.left), 0)
+            r = max(dfs(root.right), 0)
+
+            self.ans = max(self.ans, root.val+l+r)
+
+            return max(l, r)+root.val
+        dfs(root)
+        return self.ans
+```
 
 ## 回溯
-
 
 
 ### [46. 全排列](https://leetcode.cn/problems/permutations)
