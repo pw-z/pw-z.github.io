@@ -63,6 +63,8 @@
     - [199. 二叉树的右视图](#199-二叉树的右视图)
     - [114. 二叉树展开为链表](#114-二叉树展开为链表)
     - [105. 从前序与中序遍历序列构造二叉树](#105-从前序与中序遍历序列构造二叉树)
+    - [112. 路径总和\*](#112-路径总和)
+    - [437. 路径总和 III](#437-路径总和-iii)
     - [](#)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
@@ -2506,6 +2508,107 @@ class Solution:
         return root
 ```
 
+
+### [112. 路径总和*](https://leetcode.cn/problems/path-sum/)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def hasPathSum1(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        """❌DFS累加每个节点值，每到叶子节点时判断当前累加值是否符合target，回溯时减掉当前节点值
+        值扣减条件比较麻烦
+        """
+        amt = 0
+        stack = []
+        cur = root
+        last_amt = 0
+        while stack or cur:
+            if cur:
+                amt += cur.val
+                last_amt = cur.val
+                stack.append(cur)
+
+                # print(cur.val, last_amt, amt)
+                if not cur.left and not cur.right:
+                    if amt == targetSum: return True
+                
+                cur = cur.left
+            else:
+                cur = stack.pop().right
+                amt -= last_amt  # 这里有问题，还要区分情况进行扣减，再进行特殊判断代码就写的思路太不简洁了，换种写法吧
+                last_amt = 0
+            # print(amt, last_amt)
+        return False
+    
+    def hasPathSum2(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        """BFS借助双队列求和"""
+        if not root:
+            return False
+        que_node = deque([root])
+        que_val = deque([root.val])
+        while que_node:
+            node = que_node.popleft()
+            val = que_val.popleft()
+            if node.left is node.right: #都为None才成立
+                if val == targetSum:
+                    return True
+                continue
+            if node.left:
+                que_node.append(node.left)
+                que_val.append(val + node.left.val)
+            if node.right:
+                que_node.append(node.right)
+                que_val.append(val + node.right.val)
+        return False
+    
+    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        # 递归，sum减为0且为叶子节点则命中
+        if not root:
+            return False
+        if root.left is root.right:
+            return targetSum == root.val
+        return self.hasPathSum(root.left, targetSum-root.val) or self.hasPathSum(root.right, targetSum-root.val)
+```
+
+### [437. 路径总和 III](https://leetcode.cn/problems/path-sum-iii/)
+
+再遇到就能做出来了吗？
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+        # 菜是原罪
+        
+        prefix = defaultdict(int)
+        prefix[0] = 1
+
+        def dfs(root, cur):
+            if not root:
+                return 0
+            
+            ret = 0
+            cur += root.val
+            ret += prefix[cur - targetSum]
+            prefix[cur] += 1
+            ret += dfs(root.left, cur)
+            ret += dfs(root.right, cur)
+            prefix[cur] -= 1
+
+            return ret
+        
+        return dfs(root, 0)
+```
 
 ### []()
 
