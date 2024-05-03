@@ -62,12 +62,12 @@
     - [230. 二叉搜索树中第K小的元素](#230-二叉搜索树中第k小的元素)
     - [199. 二叉树的右视图](#199-二叉树的右视图)
     - [114. 二叉树展开为链表](#114-二叉树展开为链表)
+    - [105. 从前序与中序遍历序列构造二叉树](#105-从前序与中序遍历序列构造二叉树)
     - [](#)
-    - [](#-1)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
+    - [](#-1)
     - [](#-2)
-    - [](#-3)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
@@ -93,8 +93,8 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-3)
     - [](#-4)
-    - [](#-5)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -2425,10 +2425,85 @@ class Solution:
 ```
 
 
-### []()
+### [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def buildTree1(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        """没写出来，学习下官解 递归解法
+        
+        核心算法依据如下特征：
+        前序遍历：[ 根节点, [左子树的前序遍历结果], [右子树的前序遍历结果] ]
+        中序遍历：[ [左子树的中序遍历结果], 根节点, [右子树的中序遍历结果] ]
 
+        每一轮：通过中序遍历从前序中确认[左子树的前序遍历结果]、[右子树的前序遍历结果]，然后递归对其继续解析，每次递归返回一个子树根节点作为当前层节点的子节点
+        递归结束条件：？？ 见下面递归函数里的自问自答
+        """
+        
+        hashtable = {node: i for i, node in enumerate(inorder)}  # 字典推导式（dictionary comprehension）一行构造hash表，消耗O(n)，题目规定了node不重复
+        n = len(preorder)
+
+        # 递归函数
+        def _build(preorder_left: int, preorder_right: int, inorder_left: int, inorder_right: int):
+            if preorder_left > preorder_right:
+            # if inorder_left > inorder_right:
+                # Q~这里的结束条件为啥这样写？
+                # A~[preorder_left, preorder_right] 这个区间实际代表着子树本身，若子树左边界大于有边界了说明子树不成立了，返回None
+                # Q~为什么用preorder判断？用inorder是否可以？
+                # A~可以的，含义同上
+                # Q~改成大于等于可不可以？
+                # A～不可，等于的情况说明子树成立，需要创建一个root节点用于返回，而这个操作在下面代码里。
+                return None
+            
+            # 接上面最后的QA，这里可以单独加个判断若等于则直接返回一个TreeNode，是可以Pass的。
+            # 增加了一行通用判断然后在叶子节点上节省了两次递归调用。
+            if preorder_left == preorder_right:
+                return TreeNode(preorder[preorder_left])
+
+            preorder_root = preorder_left # 前序遍历第一个节点一定是跟节点
+            inorder_root = hashtable[preorder[preorder_root]] # 借助哈希表O(1)消耗定位跟节点在中序遍历中的位置
+
+            # 创建根节点
+            root = TreeNode(preorder[preorder_root])
+            # 子树长度
+            size_of_left = inorder_root - inorder_left  # [0*left, 1, 2, 3, 4*root, 5, 6, 7, 8 ]
+            # 递归处理左子树
+            root.left = _build(preorder_left + 1, preorder_left + size_of_left, inorder_left, inorder_root - 1)
+            # 递归处理右子树
+            root.right = _build(preorder_left + size_of_left + 1, preorder_right, inorder_root+1, inorder_right)
+            # 返回根节点
+            return root
+        
+        return _build(0, n-1, 0, n-1)
+
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        """迭代解法
+        """
+        if not preorder:
+            return None
+        
+        root = TreeNode(preorder[0])
+        stack = [root] # 当前节点的所有还没有考虑过右儿子的祖先节点, 栈顶等于当前节点
+        inorder_idx = 0
+        for i in range(1, len(preorder)):
+            preorder_val = preorder[i]
+            node = stack[-1] # 回忆：栈可以直接用list，队列最好用collections.deque，用list操作队首耗时O(n)
+            if node.val != inorder[inorder_idx]:
+                node.left = TreeNode(preorder_val)
+                stack.append(node.left)
+            else:
+                while stack and stack[-1].val == inorder[inorder_idx]:
+                    node = stack.pop()
+                    inorder_idx += 1
+                node.right = TreeNode(preorder_val)
+                stack.append(node.right)
+        return root
 ```
 
 
