@@ -1,10 +1,12 @@
-# LeetCode 每日一题
+# LeetCode Daily Challenge
 
-这篇文档记录每日一题
+这篇文档记录每日一题的解题记录，尽可能的理解好每一道题，总结相关经验。
 
 [TOC]
 
 ## 20240504 [1235. 规划兼职工作](https://leetcode.cn/problems/maximum-profit-in-job-scheduling/description/)
+
+动态规划题，目前还不大熟，先把题解思路能看懂，顺便巩固基础。基础材料阅读：[动态规划部分简介](https://oi-wiki.org/dp/)。
 
 ```python
 class Solution:
