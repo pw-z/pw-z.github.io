@@ -2,7 +2,7 @@
 
 20240401-04? 
 
-题单地址：https://leetcode.cn/studyplan/top-100-liked/ ，有些相关典型题一并在这个目录下做了，不仅限于hot100。
+题单地址：[https://leetcode.cn/studyplan/top-100-liked/](https://leetcode.cn/studyplan/top-100-liked/) ，有些相关典型题一并在这个目录下做了，不仅限于hot100。
 
 
 - [LeetCode Hot 100](#leetcode-hot-100)
