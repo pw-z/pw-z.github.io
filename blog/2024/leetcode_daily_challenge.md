@@ -4,7 +4,38 @@
 
 [TOC]
 
-## 20240504 [1235. 规划兼职工作](https://leetcode.cn/problems/maximum-profit-in-job-scheduling/description/)
+## 20240506 []()
+
+```python
+
+```
+
+## 20240505 Easy [1652. 拆炸弹](https://leetcode.cn/problems/defuse-the-bomb/)
+
+```python
+class Solution:
+    def decrypt(self, code: List[int], k: int) -> List[int]:
+        """定长滑动窗口，实际用循环取模做的累加模拟"""
+        n = len(code)
+        ans = [0]*n
+
+        if k == 0:
+            return ans
+        
+        for i in range(n):
+            tmp = 0
+            if k > 0:
+                for j in range(1,k+1):
+                    tmp += code[(i+j)%n]
+            else:
+                for j in range(1,-k+1):
+                    tmp += code[i-j]
+            ans[i] = tmp
+        return ans
+```
+
+
+## 20240504 Hard [1235. 规划兼职工作](https://leetcode.cn/problems/maximum-profit-in-job-scheduling/description/)
 
 动态规划题，目前还不大熟，先把题解思路能看懂，顺便巩固基础。基础材料阅读：[动态规划部分简介](https://oi-wiki.org/dp/)。
 
