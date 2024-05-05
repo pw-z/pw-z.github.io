@@ -104,10 +104,11 @@
     - [121. 买卖股票的最佳时机\*](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
     - [45. 跳跃游戏 II](#45-跳跃游戏-ii)
-    - [](#-11)
+    - [763. 划分字母区间](#763-划分字母区间)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-11)
     - [](#-12)
     - [](#-13)
     - [](#-14)
@@ -115,13 +116,12 @@
     - [](#-16)
     - [](#-17)
     - [](#-18)
-    - [](#-19)
   - [多维动态规划](#多维动态规划)
+    - [](#-19)
     - [](#-20)
     - [](#-21)
     - [](#-22)
     - [](#-23)
-    - [](#-24)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -3825,10 +3825,46 @@ class Solution:
         return ans
 ```
 
-### []()
+### [763. 划分字母区间](https://leetcode.cn/problems/partition-labels/)
+
+看了提示1给的思路写的，用时达到99%那岂不是很开心。
 
 ```python
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+        # 先写个“解：”
+        n = len(s)
+        ans = []
 
+        # 初始化哈希表，每个字母最后出现的位置
+        last = {}
+        for i in range(n):
+            last[s[i]] = i
+        
+        i = 0
+        last_start = 0
+        while i < n:
+            cur_end = s[i]
+            cur_end_last_index = last[cur_end]
+            # print(i,cur_end,cur_end_last_index)
+
+            # 判断在当前结束字符最后出现的位置之前，是否出现了新的字符结束位置更远，有的话必须将其纳入当前片段
+            for j in range(i, cur_end_last_index+1):
+                tmp_char = s[j]
+                
+                # 出现了新的字符结束位置更远，更新当前片段的结束字符
+                if tmp_char != cur_end and last[tmp_char] > cur_end_last_index:
+                    cur_end = tmp_char
+                    i = j
+                    break
+
+                # 如果判断的字符位置与结束字符位置重合，说明当前片段可以独立，ans+1
+                if j == cur_end_last_index:
+                    ans.append(j-last_start+1)
+                    last_start = j+1
+                    i = j+1
+        
+        return ans
 ```
 
 
