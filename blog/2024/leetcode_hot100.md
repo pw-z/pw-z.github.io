@@ -101,13 +101,14 @@
     - [347. 前 K 个高频元素](#347-前-k-个高频元素)
     - [295. 数据流的中位数](#295-数据流的中位数)
   - [贪心算法](#贪心算法)
-    - [121. 买卖股票的最佳时机](#121-买卖股票的最佳时机)
+    - [121. 买卖股票的最佳时机\*](#121-买卖股票的最佳时机)
     - [55. 跳跃游戏](#55-跳跃游戏)
+    - [45. 跳跃游戏 II](#45-跳跃游戏-ii)
     - [](#-11)
-    - [](#-12)
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-12)
     - [](#-13)
     - [](#-14)
     - [](#-15)
@@ -115,13 +116,12 @@
     - [](#-17)
     - [](#-18)
     - [](#-19)
-    - [](#-20)
   - [多维动态规划](#多维动态规划)
+    - [](#-20)
     - [](#-21)
     - [](#-22)
     - [](#-23)
     - [](#-24)
-    - [](#-25)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -3766,7 +3766,7 @@ class MedianFinder:
 ## 贪心算法
 
 
-### [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
+### [121. 买卖股票的最佳时机*](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
 
 参考：
 * [动态规划(Dynamic Programming)和贪心算法(Greedy Algorithm)](https://hughesxu.github.io/posts/DP_Greedy_Algorithm/)
@@ -3794,7 +3794,7 @@ class Solution:
         看了题解：https://leetcode.cn/problems/jump-game/solutions/24322/55-by-ikaruga
         看了评论，我也想问为什么我这么蠢
         """
-        k = 0
+        k = 0 # 目前为止可以跳到的最远的距离
         for i in range(len(nums)):
             if i > k:
                 return False
@@ -3802,10 +3802,27 @@ class Solution:
         return True
 ```
 
-### []()
+### [45. 跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii/)
+
+怎么论证？有算法思路上的模版可以用吗？每道题似乎完全不一样。
 
 ```python
-
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        """「贪心」地进行正向查找，每次找到可到达的最远位置
+        难呀☹️
+        """
+        n = len(nums)
+        farthest = 0
+        end = 0
+        ans = 0
+        for i in range(n-1):
+            # if farthest >= i:
+            farthest = max(farthest, i + nums[i])
+            if i == end:  # 抵达上一次判断end的时候预测的最远距离
+                end = farthest  # 保存目前为止在上一轮的行动距离内可选择出来的下一轮的最优解
+                ans += 1
+        return ans
 ```
 
 ### []()
