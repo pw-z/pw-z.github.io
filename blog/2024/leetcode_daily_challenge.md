@@ -3,11 +3,43 @@
 这篇文档记录每日一题的解题记录，尽可能的理解好每一道题，总结相关经验。
 
 [TOC]
-
-## 20240506 []()
+## 20240507 []()
 
 ```python
 
+```
+
+## 20240506 [741. 摘樱桃](https://leetcode.cn/problems/cherry-pickup/)
+
+诶诶诶诶诶诶诶诶！
+
+```python
+class Solution:
+    def cherryPickup(self, grid: List[List[int]]) -> int:
+        """题解@宫水三叶：https://leetcode.cn/problems/cherry-pickup/solutions/1658619/by-ac_oier-pz7i/"""
+        n = len(grid)
+        f = [[[float('-inf') for _ in range(55)] for _ in range(55)] for _ in range(2*55)]
+        
+        g = grid
+        f[2][1][1] = g[0][0]
+        for k in range(3, 2*n+1):
+            for i1 in range(1, n+1):
+                for i2 in range(1, n+1):
+                    j1, j2 = k - i1, k - i2
+                    if j1<=0 or j1>n or j2<=0 or j2>n: continue
+                    A, B = g[i1-1][j1-1], g[i2-1][j2-1]
+                    if A==-1 or B==-1: continue
+
+                    a = f[k-1][i1-1][i2]
+                    b = f[k-1][i1-1][i2-1]
+                    c = f[k-1][i1][i2-1]
+                    d = f[k-1][i1][i2]
+                    t = max(max(a, b), max(c, d)) + A
+                    if i1 != i2:
+                        t += B
+                    f[k][i1][i2] = t
+        
+        return 0 if f[2 * n][n][n] <= 0 else f[2 * n][n][n]
 ```
 
 ## 20240505 Easy [1652. 拆炸弹](https://leetcode.cn/problems/defuse-the-bomb/)
@@ -35,7 +67,7 @@ class Solution:
 ```
 
 
-## 20240504 Hard [1235. 规划兼职工作](https://leetcode.cn/problems/maximum-profit-in-job-scheduling/description/)
+## 20240504 Hard [1235. 规划兼职工作](https://leetcode.cn/problems/maximum-profit-in-job-scheduling/)
 
 动态规划题，目前还不大熟，先把题解思路能看懂，顺便巩固基础。基础材料阅读：[动态规划部分简介](https://oi-wiki.org/dp/)。
 
