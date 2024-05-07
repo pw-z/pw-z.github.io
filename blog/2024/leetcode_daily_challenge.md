@@ -23,7 +23,61 @@
 > 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 ```python
+class Solution:
+    def cherryPickup(self, grid: List[List[int]]) -> int:
+        #题解： https://leetcode.cn/problems/cherry-pickup-ii/solutions/2768158/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-i70v/
 
+        m, n = len(grid), len(grid[0])
+
+        # 缓存
+        memo = {}
+
+        # 机器人每轮一定会往下走一行，即每轮i++
+        # 状态定义：dp(i, j, k)代表在第i行，robot1在j列，robot2在k列，能摘取的最大值
+        # 状态转移：当前第i行能拿到的樱桃 + 第i+1行（j的三种取值情况 * k的三种取值情况)九种情况里的最大值
+        # 边界条件：到最底部或者超出左右边界的时候dp()=0
+        # @cache 缓存可以直接通过这个装饰器实现，见底部备注
+        def dp(i, j, k):
+            # 缓存消费
+            if (i, j, k) in memo:
+                return memo[(i, j, k)]                
+
+            if i >= m or j < 0 or k >= n or j >= n or k < 0:
+                return 0
+
+            a1 = dp(i+1, j-1, k)
+            a2 = dp(i+1, j, k)
+            a3 = dp(i+1, j+1, k)
+
+            a4 = dp(i+1, j-1, k-1)
+            a5 = dp(i+1, j, k-1)
+            a6 = dp(i+1, j+1, k-1)
+
+            a7 = dp(i+1, j-1, k+1)
+            a8 = dp(i+1, j, k+1)
+            a9 = dp(i+1, j+1, k+1)
+
+            max_next_amt = max(a1, a2, a3, a4, a5, a6, a7, a8, a9)
+            ith_amt = grid[i][j] + grid[i][k] if j != k else 0
+
+            # 缓存更新
+            memo[(i, j, k)] = max_next_amt + ith_amt
+
+            return max_next_amt + ith_amt
+
+        return dp(0, 0, n-1)
+
+"""@cache介绍（ChatGPT3.5）
+请介绍下python的@cache装饰器
+---
+@cache 装饰器通常用于缓存函数的返回值，以提高程序的性能。Python 3.9 开始提供了内置的 functools 模块，其中包含了 @cache 装饰器。
+这个装饰器可以应用在纯函数（pure function）上，也就是说，对于相同的输入，函数应该始终返回相同的输出，而不依赖于程序的状态或外部环境。
+
+@cache的大小是多少，可以自定义吗
+---
+在 Python 3.9 中，@cache 装饰器使用的是基于 LRU（Least Recently Used，最近最少使用）算法的缓存策略，并且没有提供直接设置缓存大小的选项。缓存的大小由 Python 解释器自行管理，通常会根据可用的内存空间和系统资源进行动态调整。
+如果你需要自定义缓存大小或者其他高级缓存策略，可以考虑使用第三方库，比如 functools_lru_cache。这个库提供了一个高度可定制的 LRU 缓存装饰器，可以设置缓存大小、过期时间等参数，以满足更复杂的需求。
+"""
 ```
 
 ## 20240506 [741. 摘樱桃](https://leetcode.cn/problems/cherry-pickup/)
