@@ -11,7 +11,7 @@
 class Solution:
     def wateringPlants1(self, plants: List[int], capacity: int) -> int:
         """模拟
-        1. 水桶里有水且满足plants[i]所需，不断向右移动，step++，water-=plants[i]
+        1. 水桶里有水且满足plants[i]所需，不断向右移动，step++，water-=plants[i]l
         2. 不能提前补充水，即只有当水桶剩余水量不足plants[i]，才向左移动到-1位置，
             也就是i+1步，再返回到i来（又是i+1步），即每次补充水量消耗2*(i+1)
         
