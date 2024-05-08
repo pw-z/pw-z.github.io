@@ -3,6 +3,52 @@
 这篇文档记录每日一题的解题记录，尽可能的理解好每一道题，总结相关经验。
 
 [TOC]
+
+
+## 20240508 [2079. 给植物浇水](https://leetcode.cn/problems/watering-plants/)
+
+```python
+class Solution:
+    def wateringPlants1(self, plants: List[int], capacity: int) -> int:
+        """模拟
+        1. 水桶里有水且满足plants[i]所需，不断向右移动，step++，water-=plants[i]
+        2. 不能提前补充水，即只有当水桶剩余水量不足plants[i]，才向左移动到-1位置，
+            也就是i+1步，再返回到i来（又是i+1步），即每次补充水量消耗2*(i+1)
+        
+        时间O(n)，空间O(1)
+        """
+        # [-1river, 0, 1, 2, 3, ...]
+        n = len(plants)
+        i = -1
+        steps = 0
+        water_remain = capacity
+        while i < n-1:
+            if water_remain >= plants[i+1]:
+                steps += 1
+                water_remain -= plants[i+1]
+                i += 1 # 向右移动
+            else:
+                # 回到水边补满水回到i
+                steps += 2*(i+1)
+                water_remain = capacity  
+            # print(i-1, i,plants[i-1], water_remain, steps)
+        return steps
+
+    def wateringPlants(self, plants: List[int], capacity: int) -> int:
+        """优化写法"""
+        steps = 0
+        water_remain = capacity
+        for i in range(len(plants)):
+            if water_remain >= plants[i]:
+                steps += 1
+            else:
+                steps += 2*i + 1
+                water_remain = capacity
+            water_remain -= plants[i]
+        return steps
+```
+
+
 ## 20240507 [1463. 摘樱桃 II](https://leetcode.cn/problems/cherry-pickup-ii/)
 
 > 能用动态规划解决的问题，需要满足三个条件：最优子结构，无后效性和子问题重叠。
@@ -80,6 +126,7 @@ class Solution:
 """
 ```
 
+
 ## 20240506 [741. 摘樱桃](https://leetcode.cn/problems/cherry-pickup/)
 
 诶诶诶诶诶诶诶诶！
@@ -112,6 +159,7 @@ class Solution:
         
         return 0 if f[2 * n][n][n] <= 0 else f[2 * n][n][n]
 ```
+
 
 ## 20240505 Easy [1652. 拆炸弹](https://leetcode.cn/problems/defuse-the-bomb/)
 
