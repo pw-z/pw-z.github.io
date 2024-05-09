@@ -4,6 +4,40 @@
 
 [TOC]
 
+## 20240509 [2105. 给植物浇水 II](https://leetcode.cn/problems/watering-plants-ii/)
+
+这题如果改成没步消耗时间一样，两个人谁没水了要回去补水，计算浇完水所需的步骤...等等，那不会就是`给植物浇水III`吧。
+
+```python
+class Solution:
+    def minimumRefill(self, plants: List[int], capacityA: int, capacityB: int) -> int:
+        a, b = 0, len(plants)-1
+        wa, wb = capacityA, capacityB
+        ans = 0
+        while a<=b:
+            # 先浇水
+            if a == b:
+                if wa >= wb:
+                    wa -= plants[a]
+                else:
+                    wb -= plants[b]
+            else:
+                wa -= plants[a]
+                wb -= plants[b]
+            
+            # 判断是否有亏空
+            if wa < 0:
+                ans += 1
+                wa = capacityA - plants[a]
+            if wb < 0:
+                ans += 1
+                wb = capacityB - plants[b]
+
+            a += 1
+            b -= 1
+
+        return ans
+```
 
 ## 20240508 [2079. 给植物浇水](https://leetcode.cn/problems/watering-plants/)
 
