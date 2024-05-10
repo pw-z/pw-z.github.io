@@ -4,6 +4,20 @@
 
 [TOC]
 
+## 20240510 [2960. 统计已测试设备](https://leetcode.cn/problems/count-tested-devices-after-test-operations/)
+
+```python
+class Solution:
+    def countTestedDevices(self, batteryPercentages: List[int]) -> int:
+        """O(n), O(1)"""
+        cnt = 0
+        for x in batteryPercentages:
+            if x-cnt > 0:
+                cnt += 1
+        return cnt
+```
+
+
 ## 20240509 [2105. 给植物浇水 II](https://leetcode.cn/problems/watering-plants-ii/)
 
 这题如果改成没步消耗时间一样，两个人谁没水了要回去补水，计算浇完水所需的步骤...等等，那不会就是`给植物浇水III`吧。
