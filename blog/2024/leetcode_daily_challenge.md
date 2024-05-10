@@ -4,7 +4,7 @@
 
 [TOC]
 
-## 20240510 [2960. 统计已测试设备](https://leetcode.cn/problems/count-tested-devices-after-test-operations/)
+## 20240510 Easy [2960. 统计已测试设备](https://leetcode.cn/problems/count-tested-devices-after-test-operations/)
 
 ```python
 class Solution:
@@ -18,7 +18,7 @@ class Solution:
 ```
 
 
-## 20240509 [2105. 给植物浇水 II](https://leetcode.cn/problems/watering-plants-ii/)
+## 20240509 Medium [2105. 给植物浇水 II](https://leetcode.cn/problems/watering-plants-ii/)
 
 这题如果改成没步消耗时间一样，两个人谁没水了要回去补水，计算浇完水所需的步骤...等等，那不会就是`给植物浇水III`吧。
 
@@ -53,7 +53,7 @@ class Solution:
         return ans
 ```
 
-## 20240508 [2079. 给植物浇水](https://leetcode.cn/problems/watering-plants/)
+## 2024050 Medium [2079. 给植物浇水](https://leetcode.cn/problems/watering-plants/)
 
 ```python
 class Solution:
@@ -97,7 +97,7 @@ class Solution:
 ```
 
 
-## 20240507 [1463. 摘樱桃 II](https://leetcode.cn/problems/cherry-pickup-ii/)
+## 20240507 Hard [1463. 摘樱桃 II](https://leetcode.cn/problems/cherry-pickup-ii/)
 
 > 能用动态规划解决的问题，需要满足三个条件：最优子结构，无后效性和子问题重叠。
 > 
@@ -175,7 +175,7 @@ class Solution:
 ```
 
 
-## 20240506 [741. 摘樱桃](https://leetcode.cn/problems/cherry-pickup/)
+## 20240506 Hard [741. 摘樱桃](https://leetcode.cn/problems/cherry-pickup/)
 
 诶诶诶诶诶诶诶诶！
 
@@ -295,4 +295,24 @@ class Solution:
             # f[i + 1] = max(f[i], f[???]+p) 取值时，???到底是j还是j+1。此处有点绕，找个case走读一遍就懂了
             
         return f[-1] # 最后一位存储的即总n个工作中的最大利润
+```
+
+
+## 20240510 Easy [1491. 去掉最低工资和最高工资后的工资平均值](https://leetcode.cn/problems/average-salary-excluding-the-minimum-and-maximum-salary/)
+
+补卡。
+
+```python
+class Solution:
+    def average(self, salary: List[int]) -> float:
+        bottom = top = salary[0]
+        total, length = 0, len(salary)
+        for s in salary:
+            total += s
+            bottom, top = min(s, bottom), max(s, top)
+        return (total - top - bottom)/(length - 2)
+
+    def average_pythonic(self, salary: List[int]) -> float:
+        """sum, max, min, len 这四个内置函数的时间复杂度都是O(n)"""
+        return (sum(salary) - min(salary) - max(salary)) / (len(salary) - 2)
 ```
