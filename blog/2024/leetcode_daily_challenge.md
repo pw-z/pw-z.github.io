@@ -4,6 +4,50 @@
 
 [TOC]
 
+
+## []()
+
+```python
+
+```
+
+
+## 20240511 Medium [2391. 收集垃圾的最少总时间](https://leetcode.cn/problems/minimum-amount-of-time-to-collect-garbage/)
+
+```python
+class Solution:
+    def garbageCollection1(self, garbage: List[str], travel: List[int]) -> int:
+        # 模拟，多次遍历
+        n = len(garbage)
+        ans = 0
+        MPG_last = {'M':0, 'P':0, 'G':0}
+        MPG_cnt = {'M':0, 'P':0, 'G':0}
+
+        for i in range(n):
+            for item in garbage[i]:
+                MPG_cnt[item] += 1
+                MPG_last[item] = i
+        
+        for k, v in MPG_last.items():
+            ans += MPG_cnt[k]
+            if v != 0:
+                ans += sum(travel[:v])
+        return ans
+            
+    def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
+        # 一次遍历
+        MPG_runtime = defaultdict(int)
+        ans = sum_runtime = 0
+        for g, t in zip(garbage, [0]+travel): # zip函数！
+            ans += len(g) # 不必区分材料因为每种材料耗时相同
+            sum_runtime += t
+            for c in g:
+                ans += sum_runtime - MPG_runtime[c]
+                MPG_runtime[c] = sum_runtime # 更新每种垃圾车的车程耗时
+        return ans
+```
+
+
 ## 20240510 Easy [2960. 统计已测试设备](https://leetcode.cn/problems/count-tested-devices-after-test-operations/)
 
 ```python

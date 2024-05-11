@@ -74,13 +74,13 @@
     - [](#-3)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
+    - [78. 子集](#78-子集)
     - [](#-4)
     - [](#-5)
     - [](#-6)
     - [](#-7)
     - [](#-8)
     - [](#-9)
-    - [](#-10)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
@@ -108,6 +108,7 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-10)
     - [](#-11)
     - [](#-12)
     - [](#-13)
@@ -115,13 +116,12 @@
     - [](#-15)
     - [](#-16)
     - [](#-17)
-    - [](#-18)
   - [多维动态规划](#多维动态规划)
+    - [](#-18)
     - [](#-19)
     - [](#-20)
     - [](#-21)
     - [](#-22)
-    - [](#-23)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -2729,6 +2729,21 @@ class Solution:
 ## 回溯
 
 
+> 回溯算法（backtracking algorithm）是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。
+> 回溯算法通常采用“深度优先搜索”来遍历解空间。
+> 
+> https://www.hello-algo.com/chapter_backtracking/backtracking_algorithm/
+
+
+> 回溯三问：当前操作？子问题？下一个子问题？
+>
+> 子集型回溯：选或不选、选哪一个 两种思路
+> 
+> 组合型回溯
+> 排列型回溯
+> 
+> [灵茶山艾府 - 回溯算法套路](https://www.bilibili.com/video/BV1mG4y1A7Gu)
+
 ### [46. 全排列](https://leetcode.cn/problems/permutations)
 
 ```python
@@ -2762,10 +2777,51 @@ class Solution:
 ```
 
 
-### []()
+### [78. 子集](https://leetcode.cn/problems/subsets/)
 
 ```python
+class Solution:
+    def subsets1(self, nums: List[int]) -> List[List[int]]:
+        """选或不选"""
+        ans = []
+        n = len(nums)
+        path = []
 
+        def dfs(i):
+            # 边界
+            if i==n:
+                ans.append(path.copy())
+                return
+
+            # 不选
+            dfs(i+1)
+
+            # 选
+            path.append(nums[i])
+            dfs(i+1)
+            path.pop()
+
+        dfs(0)
+        return ans
+
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        """选哪一个"""
+        ans = []
+        n = len(nums)
+        path = []
+
+        def dfs(i):
+            # 保存当前结果
+            ans.append(path.copy())
+            
+            for j in range(i, n):
+                # 选下一个数
+                path.append(nums[j])
+                dfs(j+1)
+                path.pop()
+
+        dfs(0)
+        return ans
 ```
 
 
