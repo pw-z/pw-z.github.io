@@ -77,10 +77,11 @@
     - [78. 子集](#78-子集)
     - [17. 电话号码的字母组合](#17-电话号码的字母组合)
     - [39. 组合总和](#39-组合总和)
+    - [22. 括号生成](#22-括号生成)
+    - [77. 组合](#77-组合)
     - [](#-4)
+    - [131. 分割回文串](#131-分割回文串)
     - [](#-5)
-    - [](#-6)
-    - [](#-7)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
@@ -108,20 +109,20 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-6)
+    - [](#-7)
     - [](#-8)
     - [](#-9)
     - [](#-10)
     - [](#-11)
     - [](#-12)
     - [](#-13)
+  - [多维动态规划](#多维动态规划)
     - [](#-14)
     - [](#-15)
-  - [多维动态规划](#多维动态规划)
     - [](#-16)
     - [](#-17)
     - [](#-18)
-    - [](#-19)
-    - [](#-20)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -2885,10 +2886,81 @@ class Solution:
 ```
 
 
-### []()
+### [22. 括号生成](https://leetcode.cn/problems/generate-parentheses/)
+
+跟着代码思路把二叉搜索树走一遍，就能很好的理解代码思路了。
 
 ```python
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        
+        m = n*2
+        state = []
+        ans = []
 
+        def dfs(i, l_brackets):
+
+            if i == m:
+                ans.append(''.join(state))
+                return
+
+            # 选左括号
+            if l_brackets < n:
+                state.append('(')
+                dfs(i+1, l_brackets+1)
+                state.pop()
+
+            # 选右括号
+            if i - l_brackets < l_brackets:
+                state.append(')')
+                dfs(i+1, l_brackets)
+                state.pop()
+        dfs(0, 0)
+        return ans
+```
+
+
+### [77. 组合](https://leetcode.cn/problems/combinations/)
+
+```python
+class Solution:
+    def combine1(self, n: int, k: int) -> List[List[int]]:
+        ans = []
+        path = []
+        def dfs(i):
+            # 剪枝：剩余的数不足以凑成k个数字则直接返回
+            if i < k-len(path):
+                return
+
+            if len(path) == k:
+                ans.append(path.copy())
+                return
+
+            for j in range(i, 0, -1):
+                path.append(j)
+                dfs(j-1)
+                path.pop()
+        dfs(n) # 倒序枚举
+        return ans
+
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        ans = []
+        path = []
+        def dfs(i):
+            # 剪枝
+            need = k - len(path)
+            if n - i + 1 < need: return
+
+            if len(path) == k:
+                ans.append(path.copy())
+                return
+
+            for j in range(i, n+1):
+                path.append(j)
+                dfs(j+1)
+                path.pop()
+        dfs(1) # 正序枚举
+        return ans
 ```
 
 
@@ -2899,10 +2971,31 @@ class Solution:
 ```
 
 
-### []()
+### [131. 分割回文串](https://leetcode.cn/problems/palindrome-partitioning/)
 
 ```python
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
 
+        ans = []
+        path = []
+        n = len(s)
+
+        def dfs(i): # 当前字母是否作为结束位置
+            
+            if i == n:
+                ans.append(path.copy())
+                return
+
+            for j in range(i, n):
+                cur = s[i:j+1]
+                if cur == cur[::-1]: # 把j作为当前字符结尾时子串是回文串，才往下递归，不然j++
+                    path.append(cur)
+                    # print(i, j, path)
+                    dfs(j+1)
+                    path.pop()
+        dfs(0)
+        return ans
 ```
 
 
