@@ -11,6 +11,24 @@
 
 ```
 
+## 20240512 Hard [1553. 吃掉 N 个橘子的最少天数](https://leetcode.cn/problems/minimum-number-of-days-to-eat-n-oranges/)
+
+要多久我能独立写出这样的算法分析？
+
+```python
+class Solution:
+    def minDays(self, n: int) -> int:
+        """
+        题解：https://leetcode.cn/problems/minimum-number-of-days-to-eat-n-oranges/solutions/2773476/liang-chong-fang-fa-ji-yi-hua-sou-suo-zu-18jv
+        所有的-1操作都是为了凑/2或/3操作，子问题dfs(i)定义为把i变为0的最小操作次数
+        """
+        @cache
+        def dfs(i):
+            if i <= 1: return i
+            return min(dfs(i//2)+i%2, dfs(i//3)+i%3) + 1  # 此处的+1代表着执行一次除法
+        return dfs(n)
+```
+
 
 ## 20240511 Medium [2391. 收集垃圾的最少总时间](https://leetcode.cn/problems/minimum-amount-of-time-to-collect-garbage/)
 
