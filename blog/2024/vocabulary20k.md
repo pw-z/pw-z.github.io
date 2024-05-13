@@ -2,7 +2,7 @@
 
 [TOC]
 
-## Intro
+## Intro 41
 
 Here's a simple idea for predicting my vocabulary size. I'm going to put my favorite content here and then count them. A simple script for counting is as follows, the `2+2+3lem` from the [12Dicts Package](http://wordlist.aspell.net/12dicts/) is used for lemmatization.
 
@@ -44,7 +44,7 @@ The intro stop here.
 *The vocabulary size up to now, as of 2024.05.05, is **41**.*
 
 
-## [Song] Tom's Diner
+## [Song] Tom's Diner 183
 
 > "Tom's Diner" is a song written in 1982 by American singer and songwriter Suzanne Vega. It was first released as a track on the January 1984 issue of Fast Folk Musical Magazine. When first featured on one of her own studio albums, it appeared as the first track of her 1987 album Solitude Standing. It was later used as the basis for a remix by the British group DNA in 1990, which reached number 1 in Austria, Germany, Greece and Switzerland. The 1991 compilation Tom's Album includes the DNA version as well as cover versions by such artists as After One, Nikki D and Bingo Hand Job (R. E. M. and Billy Bragg). It was also used as the background soundtrack for the opening scene of the 1993 film Untamed Heart.
 
@@ -112,7 +112,7 @@ It's time to catch the train
 *The vocabulary size up to now, as of 2024.05.05, is **183**.*
 
 
-## [Song] Freedom
+## [Song] Freedom 250
 
 (with Elayna Boynton)
 (from "Django Unchained" soundtrack)
@@ -138,7 +138,7 @@ And to find it may take everything I have!
 I know all too well it don’t come easy;
 The chains of the world they seem to move in tight;
 I try to walk around it,
-But stumbling’s so familiar;
+But ***stumbling***’s so familiar;
 Try to get up but the doubt is so strong;
 There’s gotta be a wind in my bones...
 
@@ -168,8 +168,10 @@ Well I’m looking for freedom,
 I’m looking for freedom...
 And to find it may take everything I have! 
 
+*The vocabulary size up to now, as of 2024.05.12, is **250**.*
 
-## [Song] Love of My Life
+
+## [Song] Love of My Life 299
 
 > Queen - Track 9 on A Night at the Opera
 > 
@@ -228,4 +230,53 @@ Ooh, ooh
 
 *The vocabulary size up to now, as of 2024.05.12, is **299**.*
 
+
+## [Song] When I'm Sixty-Four 376
+
+> "When I'm Sixty-Four" is a song by the English rock band The Beatles, written by Paul McCartney (credited to Lennon–McCartney) and released on their 1967 album Sgt. Pepper's Lonely Hearts Club Band. It was one of the first songs McCartney wrote; he was about 14, probably in April or May 1956. The song was recorded in a key different from the final recording; it was sped up at the request of McCartney to make his voice sound younger. It prominently features a trio of clarinets (two B♭ clarinets and one bass clarinet) throughout. 
+>
+> https://en.wikipedia.org/wiki/When_I%27m_Sixty-Four
+
+
+When I get older losing my hair
+Many years from now
+Will you still be sending me a ***Valentine***
+Birthday greetings bottle of wine
+
+If I'd been out till quarter to three
+Would you lock the door
+Will you still need me, will you still feed me
+When I'm sixty-four
+
+You'll be older too
+And if you say the word
+I could stay with you
+
+I could be handy, ***mending*** a ***fuse***
+When your lights have gone
+You can knit a sweater by the ***fireside***
+Sunday mornings go for a ride
+Doing the garden, digging the weeds
+Who could ask for more
+
+Will you still need me, will you still feed me
+When I'm sixty-four
+
+Every summer we can rent a cottage
+In the Isle of Wight, if it's not too ***dear***
+We shall scrimp and save
+Grandchildren on your knee
+Vera, Chuck and Dave
+
+Send me a postcard, drop me a line
+Stating point of view
+Indicate precisely what you mean to say
+Yours sincerely, wasting away
+
+Give me your answer, fill in a form
+Mine for ***evermore***
+Will you still need me, will you still feed me
+When I'm sixty-four
+
+*The vocabulary size up to now, as of 2024.05.14, is **376**.*
 
