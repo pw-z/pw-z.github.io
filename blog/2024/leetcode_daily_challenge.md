@@ -5,10 +5,61 @@
 [TOC]
 
 
-## []()
+## 20240513 Medium [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/)
 
 ```python
+class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        """题解：https://leetcode.cn/problems/rotting-oranges/solutions/129831/li-qing-si-lu-wei-shi-yao-yong-bfsyi-ji-ru-he-xie-
+        利用队列执行广度优先搜索
+        初始化队列为所有的腐烂橘子坐标，每轮将队列处理完毕后再将下一波的腐烂橘子入队，最后一波处理完检查是否还有好橘子
+        """
+        m, n = len(grid), len(grid[0])
+        queue = []
+        tmp_queue = [] # 用于存储下一轮被感染的橘子，区分每轮的轮次方便计算时间
+        ans = 0 # 轮次
+        good = 0
+        for x in range(m):
+            for y in range(n):
+                if grid[x][y] == 2:
+                    queue.append((x,y))
+                elif grid[x][y] == 1:
+                    good += 1
+        # print(queue, good)
 
+        while queue or tmp_queue:
+            if not queue: # 一轮感染完成，进入下一轮感染
+                ans += 1
+                queue = tmp_queue
+                tmp_queue = []
+            else: # 感染四周，并将被感染的橘子坐标放入tmp_queue
+                cur = queue.pop(0)
+                x, y = cur[0], cur[1]
+
+                # if x-1 >= 0 and grid[x-1][y] == 1:
+                #     grid[x-1][y] = 2
+                #     tmp_queue.append((x-1, y))
+                #     good -= 1
+                # if x+1 < m and grid[x+1][y] == 1:
+                #     grid[x+1][y] = 2
+                #     tmp_queue.append((x+1, y))
+                #     good -= 1
+                # if y-1 >= 0 and grid[x][y-1] == 1:
+                #     grid[x][y-1] = 2
+                #     tmp_queue.append((x, y-1))
+                #     good -= 1
+                # if y+1 < n and grid[x][y+1] == 1:
+                #     grid[x][y+1] = 2
+                #     tmp_queue.append((x, y+1))
+                #     good -= 1
+
+                # 简写上述四个if为for循环
+                for x,y in ((x-1, y), (x+1, y), (x, y-1), (x, y+1)):
+                    if x>=0 and y>=0 and x<m and y<n and grid[x][y]==1:
+                        grid[x][y] = 2
+                        tmp_queue.append((x,y))
+                        good -= 1
+        return ans if good == 0 else -1
 ```
 
 ## 20240512 Hard [1553. 吃掉 N 个橘子的最少天数](https://leetcode.cn/problems/minimum-number-of-days-to-eat-n-oranges/)
