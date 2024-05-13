@@ -2,7 +2,7 @@
 
 [TOC]
 
-## Intro 41
+## Intro *41
 
 Here's a simple idea for predicting my vocabulary size. I'm going to put my favorite content here and then count them. A simple script for counting is as follows, the `2+2+3lem` from the [12Dicts Package](http://wordlist.aspell.net/12dicts/) is used for lemmatization.
 
@@ -44,7 +44,7 @@ The intro stop here.
 *The vocabulary size up to now, as of 2024.05.05, is **41**.*
 
 
-## [Song] Tom's Diner 183
+## [Song] Tom's Diner *183
 
 > "Tom's Diner" is a song written in 1982 by American singer and songwriter Suzanne Vega. It was first released as a track on the January 1984 issue of Fast Folk Musical Magazine. When first featured on one of her own studio albums, it appeared as the first track of her 1987 album Solitude Standing. It was later used as the basis for a remix by the British group DNA in 1990, which reached number 1 in Austria, Germany, Greece and Switzerland. The 1991 compilation Tom's Album includes the DNA version as well as cover versions by such artists as After One, Nikki D and Bingo Hand Job (R. E. M. and Billy Bragg). It was also used as the background soundtrack for the opening scene of the 1993 film Untamed Heart.
 
@@ -112,7 +112,7 @@ It's time to catch the train
 *The vocabulary size up to now, as of 2024.05.05, is **183**.*
 
 
-## [Song] Freedom 250
+## [Song] Freedom *250
 
 (with Elayna Boynton)
 (from "Django Unchained" soundtrack)
@@ -171,7 +171,7 @@ And to find it may take everything I have!
 *The vocabulary size up to now, as of 2024.05.12, is **250**.*
 
 
-## [Song] Love of My Life 299
+## [Song] Love of My Life *299
 
 > Queen - Track 9 on A Night at the Opera
 > 
@@ -231,7 +231,7 @@ Ooh, ooh
 *The vocabulary size up to now, as of 2024.05.12, is **299**.*
 
 
-## [Song] When I'm Sixty-Four 376
+## [Song] When I'm Sixty-Four *376
 
 > "When I'm Sixty-Four" is a song by the English rock band The Beatles, written by Paul McCartney (credited to Lennon–McCartney) and released on their 1967 album Sgt. Pepper's Lonely Hearts Club Band. It was one of the first songs McCartney wrote; he was about 14, probably in April or May 1956. The song was recorded in a key different from the final recording; it was sped up at the request of McCartney to make his voice sound younger. It prominently features a trio of clarinets (two B♭ clarinets and one bass clarinet) throughout. 
 >
@@ -280,3 +280,56 @@ When I'm sixty-four
 
 *The vocabulary size up to now, as of 2024.05.14, is **376**.*
 
+
+## [Song] Parachute *412
+
+> Track 3 on Friendly Fire (Sean Lennon album)
+> 
+> Friendly Fire is the second studio album by Sean Lennon, released on 2 October 2006 by Capitol Records in the US, and Parlophone in the UK. It reached #152 on the US Billboard 200 chart and #5 in the Top Heatseekers chart. It stayed on the French album chart for 43 weeks and was certified silver. 
+> 
+
+Love is like an aeroplane
+Jump and then you pray
+Lucky ones remain
+In the clouds for days
+Life is just a stage
+Let's put on the best show
+And let everyone know
+
+'Cause if I have to die tonight
+I'd rather be with you
+Cut the ***parachute*** before you die
+Baby don't you cry
+You had to bring me down
+We had some fun before we hit the ground
+
+Love is like a ***hurricane***
+You know it's on the way
+You think you can be brave
+Underneath the waves
+Life is just a dream
+Which of us is dreaming?
+And who will wake up screaming?
+
+'Cause if I have to die tonight
+I'd rather be with you
+Cut the parachute before you die
+Baby don't you cry
+You had to bring me down
+We had some fun before we hit the ground
+
+'Cause if I have to die tonight
+I'd rather be with you
+Cut the parachute before you die
+Baby don't you cry
+You had to bring me down
+We had some fun before we hit the ground
+
+'Cause if I have to die tonight
+I'd rather be with you
+Cut the parachute before you die
+Baby don't you cry
+You had to bring me down
+We had some fun before we hit the ground
+
+*The vocabulary size up to now, as of 2024.05.14, is **412**.*
