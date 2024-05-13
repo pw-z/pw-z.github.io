@@ -79,9 +79,9 @@
     - [39. 组合总和](#39-组合总和)
     - [22. 括号生成](#22-括号生成)
     - [77. 组合](#77-组合)
-    - [](#-4)
+    - [79. 单词搜索](#79-单词搜索)
     - [131. 分割回文串](#131-分割回文串)
-    - [](#-5)
+    - [51. N 皇后\*\*](#51-n-皇后)
   - [二分查找](#二分查找)
     - [35. 搜索插入位置](#35-搜索插入位置)
     - [74. 搜索二维矩阵](#74-搜索二维矩阵)
@@ -109,20 +109,20 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [](#-4)
+    - [](#-5)
     - [](#-6)
     - [](#-7)
     - [](#-8)
     - [](#-9)
     - [](#-10)
     - [](#-11)
+  - [多维动态规划](#多维动态规划)
     - [](#-12)
     - [](#-13)
-  - [多维动态规划](#多维动态规划)
     - [](#-14)
     - [](#-15)
     - [](#-16)
-    - [](#-17)
-    - [](#-18)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -2729,7 +2729,6 @@ class Solution:
 
 ## 回溯
 
-
 > 回溯算法（backtracking algorithm）是一种通过穷举来解决问题的方法，它的核心思想是从一个初始状态出发，暴力搜索所有可能的解决方案，当遇到正确的解则将其记录，直到找到解或者尝试了所有可能的选择都无法找到解为止。
 > 回溯算法通常采用“深度优先搜索”来遍历解空间。
 > 
@@ -2964,10 +2963,37 @@ class Solution:
 ```
 
 
-### []()
+### [79. 单词搜索](https://leetcode.cn/problems/word-search/)
 
 ```python
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        """题解：https://leetcode.cn/problems/word-search/solutions/2361646/79-dan-ci-sou-suo-hui-su-qing-xi-tu-jie-5yui2"""
+        m, n = len(board), len(board[0])
 
+        # 统计起始坐标
+        start = []
+        for r in range(m):
+            for c in range(n):
+                if board[r][c] == word[0]:
+                    start.append((r,c))
+
+        # 定义dfs(i,j,k)为第k步选择的字母坐标(i,j)
+        def dfs(i, j, k):
+            if i<0 or j<0 or i==m or j==n or board[i][j] != word[k]:
+                return False
+            if k == len(word)-1 and board[i][j] == word[k]:
+                return True
+                
+            board[i][j] = ''
+            res = dfs(i-1, j, k+1) or dfs(i+1, j, k+1) or dfs(i, j-1, k+1) or dfs(i, j+1, k+1)
+            board[i][j] = word[k]
+            return res
+
+        # 任意起点能够命中word，则返回True
+        for x, y in start:
+            if dfs(x, y, 0): return True
+        return False
 ```
 
 
@@ -2999,10 +3025,30 @@ class Solution:
 ```
 
 
-### []()
+### [51. N 皇后**](https://leetcode.cn/problems/n-queens/)
 
 ```python
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        ans = []
+        col = [0]*n # 每行的皇后列坐标
+        col_used = [False]*n
+        m = 2*n-1
+        RpC_used = [False]*m
+        RsC_used = [False]*m
 
+        def dfs(r):
+            if r == n:
+                ans.append(['.'*c + 'Q' + '.'*(n-1-c) for c in col])
+                return
+            for c in range(n): # 在第r行枚举每一列
+                if not col_used[c] and not RpC_used[r+c] and not RsC_used[r-c]: # 判断当前位置是否可以放皇后
+                    col[r] = c # 在第r行第c列放皇后
+                    col_used[c] = RpC_used[r+c] = RsC_used[r-c] = True
+                    dfs(r+1) # 处理下一行
+                    col_used[c] = RpC_used[r+c] = RsC_used[r-c] = False
+        dfs(0)
+        return ans
 ```
 
 ## 二分查找
