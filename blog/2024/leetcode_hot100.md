@@ -109,6 +109,7 @@
   - [动态规划](#动态规划)
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
+    - [198. 打家劫舍](#198-打家劫舍)
     - [](#-3)
     - [](#-4)
     - [](#-5)
@@ -116,13 +117,12 @@
     - [](#-7)
     - [](#-8)
     - [](#-9)
-    - [](#-10)
   - [多维动态规划](#多维动态规划)
+    - [](#-10)
     - [](#-11)
     - [](#-12)
     - [](#-13)
     - [](#-14)
-    - [](#-15)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4164,6 +4164,7 @@ class Solution:
 
 参考：[动态规划基础](https://oi-wiki.org/dp/basic/)
 
+参考：[动态规划入门：从记忆化搜索到递推](https://www.bilibili.com/video/BV1Xj411K7oF)
 
 ### [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs)
 
@@ -4197,10 +4198,62 @@ class Solution:
 ```
 
 
-### []()
+### [198. 打家劫舍](https://leetcode.cn/problems/house-robber/)
 
 ```python
+class Solution:
+    def rob1(self, nums: List[int]) -> int:
+        """记忆化搜索
+        See: https://www.bilibili.com/video/BV1Xj411K7oF
+        当前操作：第i房子选/不选
+        当前子问题：从前i个房子里计算最大金额
+        下一子问题：
+            选：从前i-2个房子里计算最大金额
+            不选：从前i-1个房子里计算最大金额
+        """
+        n = len(nums)
+        cache = [-1]*n
+        def dfs(i):
+            if i < 0:
+                return 0
+            if cache[i] != -1:
+                return cache[i]
 
+            yes = dfs(i-2) +  nums[i]
+            no = dfs(i-1)
+            cur_ans = max(yes, no)
+            cache[i] = cur_ans
+
+            return cur_ans
+
+        return dfs(n-1)
+
+
+    def rob(self, nums: List[int]) -> int:
+        """
+        在确定了子问题的递推关系之后，下一步就是依次计算出这些子问题了。在很多教程中都会写，动态规划有两种计算顺序，一种是自顶向下的、使用备忘录的递归方法，一种是自底向上的、使用 dp 数组的循环方法。不过在普通的动态规划题目中，99% 的情况我们都不需要用到备忘录方法，所以我们最好坚持用自底向上的 dp 数组。
+
+        # 子问题：
+        # f(k) = 偷 [0..k) 房间中的最大金额
+
+        # f(0) = 0
+        # f(1) = nums[0]
+        # f(k) = max{ rob(k-1), nums[k-1] + rob(k-2) }
+
+        作者：nettee
+        链接：https://leetcode.cn/problems/house-robber/solutions/138131/dong-tai-gui-hua-jie-ti-si-bu-zou-xiang-jie-cjavap/
+        来源：力扣（LeetCode）
+        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+        """
+        n = len(nums)
+
+        dp = [0]*(n+1)
+        dp[0] = 0
+        dp[1] = nums[0]
+        for k in range(2, n+1):
+            dp[k] = max(dp[k-1], dp[k-2]+nums[k-1])
+            print(dp)
+        return dp[n]
 ```
 
 
