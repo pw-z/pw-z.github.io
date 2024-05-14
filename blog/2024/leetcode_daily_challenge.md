@@ -4,6 +4,45 @@
 
 [TOC]
 
+## 20240514 Medium [2244. 完成所有任务需要的最少轮数](https://leetcode.cn/problems/minimum-rounds-to-complete-all-tasks/)
+
+贪心。
+
+```python
+class Solution:
+    def minimumRounds1(self, tasks: List[int]) -> int:
+        ans = 0
+
+        # counting
+        counter = defaultdict(int)
+        for x in tasks:
+            counter[x] += 1
+
+        # deal with every number
+        for v in counter.values():
+            tmp = v//3
+            remain = v%3
+            # print(v, tmp, remain)
+            if (remain == 1 and tmp > 0) or remain==2:
+                # remain == 1 and tmp > 0 : 3 + 1 --> 2 + 2
+                tmp += 1
+                ans += tmp
+            elif remain==0:
+                ans += tmp
+            else:
+                return -1
+        return ans
+
+    def minimumRounds(self, tasks: List[int]) -> int:
+        # 简化
+        counter = Counter(tasks)
+        ans = 0
+        for x in counter.values():
+            if x == 1: return -1
+            ans += (x+2)//3
+        return ans
+```
+
 
 ## 20240513 Medium [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/)
 
