@@ -6,6 +6,8 @@
 
 ## 20240515 Hard [2589. 完成所有任务的最少时间](https://leetcode.cn/problems/minimum-time-to-complete-all-tasks/)
 
+昨天问题的进阶问题，没做出来。
+
 ```python
 class Solution:
     def findMinimumTime(self, tasks: List[List[int]]) -> int:
@@ -15,7 +17,7 @@ class Solution:
         print(run)
         print(sum(run))
         for st, end, d in tasks:
-            d -= sum(run[st: end+1])
+            d -= sum(run[st: end+1]) # sum布尔值True=1False=0
             if d <= 0: continue
 
             for i in range(end, st-1, -1):
