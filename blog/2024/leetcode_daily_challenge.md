@@ -4,6 +4,30 @@
 
 [TOC]
 
+## 20240515 Hard [2589. 完成所有任务的最少时间](https://leetcode.cn/problems/minimum-time-to-complete-all-tasks/)
+
+```python
+class Solution:
+    def findMinimumTime(self, tasks: List[List[int]]) -> int:
+        # 题解：https://leetcode.cn/problems/minimum-time-to-complete-all-tasks/solutions/2163130/tan-xin-pythonjavacgo-by-endlesscheng-w3k3
+        tasks.sort(key=lambda t:t[1])
+        run = [False]* (tasks[-1][1]+1)
+        print(run)
+        print(sum(run))
+        for st, end, d in tasks:
+            d -= sum(run[st: end+1])
+            if d <= 0: continue
+
+            for i in range(end, st-1, -1):
+                if run[i]: continue
+                run[i] = True
+                d -= 1
+                if d == 0: break
+        
+        return sum(run)
+```
+
+
 ## 20240514 Medium [2244. 完成所有任务需要的最少轮数](https://leetcode.cn/problems/minimum-rounds-to-complete-all-tasks/)
 
 贪心。
