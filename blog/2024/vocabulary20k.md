@@ -388,3 +388,80 @@ I'm gonna love you (Oh) like I'm gonna lose you
 *The vocabulary size up to now, as of 2024.05.15, is **451**.*
 
 
+## [Book] Content by ChatGPT3.5 *574
+
+Give me some wonderful ***excerpts*** from classic English books.
+
+Certainly! Here are some wonderful excerpts from classic English books:
+
+1. **"Pride and Prejudice" by Jane Austen:**
+   "It is a truth universally acknowledged, that a single man ***in possession of*** a good fortune, must be ***in want of*** a wife."
+
+2. **"Jane Eyre" by Charlotte Brontë:**
+   "I am no bird; and no net ***ensnares*** me: I am a free human being with an independent will."
+
+3. **"Great Expectations" by Charles Dickens:**
+   "I loved her against reason, against promise, against peace, against hope, against happiness, against all discouragement that could be."
+
+4. **"Wuthering Heights" by Emily Brontë:**
+   "Whatever our souls are made of, his and mine are the same."
+
+5. **"To Kill a Mockingbird" by Harper Lee:**
+   "You never really understand a person until you consider things from his point of view... Until you climb inside of his skin and walk around in it."
+
+6. **"1984" by George Orwell:**
+   "War is peace. Freedom is ***slavery***. Ignorance is strength."
+
+7. **"The Picture of Dorian Gray" by Oscar Wilde:**
+   "The only way to get rid of a temptation is to yield to it. Resist it, and your soul grows sick with ***longing*** for the things it has forbidden to itself."
+
+8. **"Moby-Dick" by Herman Melville:**
+   "Call me Ishmael."
+
+9. **"The Catcher in the Rye" by J.D. Salinger:**
+   "All ***morons*** hate it when you call them a moron."
+
+10. **"The Great Gatsby" by F. Scott Fitzgerald:**
+    "So we beat on, boats against the current, ***borne*** back ***ceaselessly*** into the past."
+
+These excerpts capture the essence and brilliance of some of the ***finest*** works in English literature.
+
+
+I need more.
+
+Of course! Here are more wonderful excerpts from classic English books:
+
+11. **"Alice's Adventures in Wonderland" by Lewis Carroll:**
+    "Why, sometimes I've believed as many as six impossible things before breakfast."
+
+12. **"Frankenstein" by Mary Shelley:**
+    "Life, although it may only be an accumulation of anguish, is dear to me, and I will defend it."
+
+13. **"The Hobbit" by J.R.R. Tolkien:**
+    "In a hole in the ground there lived a hobbit."
+
+14. **"Sense and Sensibility" by Jane Austen:**
+    "Know your own happiness. You want nothing but patience- or give it a more fascinating name, call it hope."
+
+15. **"Dracula" by Bram Stoker:**
+    "Listen to them, the children of the night. What music they make!"
+
+16. **"The Adventures of Sherlock Holmes" by Arthur Conan Doyle:**
+    "When you have eliminated all which is impossible, then whatever remains, however ***improbable***, must be the truth."
+
+17. **"A Tale of Two Cities" by Charles Dickens:**
+    "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness..."
+
+18. **"Emma" by Jane Austen:**
+    "Silly things do cease to be silly if they are done by sensible people in an ***impudent*** way."
+
+19. **"The War of the Worlds" by H.G. Wells:**
+    "No one would have believed in the last years of the nineteenth century that this world was being watched ***keenly*** and closely by intelligences greater than man's and yet as mortal as his own."
+
+20. **"Robinson Crusoe" by Daniel Defoe:**
+    "Thus fear of danger is ten thousand times more terrifying than danger itself when apparent to the eyes."
+
+These timeless excerpts continue to ***resonate*** with readers across generations, showcasing the enduring power of classic English literature.
+
+*The vocabulary size up to now, as of 2024.05.17, is **574**.*
+
