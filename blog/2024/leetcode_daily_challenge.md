@@ -4,6 +4,41 @@
 
 [TOC]
 
+## 20240517 Medium [1953. 你可以工作的最大周数](https://leetcode.cn/problems/maximum-number-of-weeks-for-which-you-can-work/)
+
+```python
+class Solution:
+    def numberOfWeeks(self, milestones: List[int]) -> int:
+        """❌模拟：首先有bug需要改，另外最大数字10^9不适合用模拟，还是得数学解"""
+        milestones.sort(reverse=True)
+        print(milestones)
+        l,r = 0, len(milestones)-1
+        ans = 0
+        while l < r:
+            if milestones[l] > 0:
+                milestones[l] -= 1
+                ans += 1
+
+            if milestones[r] > 0:
+                milestones[r] -= 1
+                ans += 1
+            
+            # 每轮处理完成后判断项目是否已经完成
+            if milestones[l] == 0: l+=1
+            if milestones[r] == 0: r-=1
+
+            print(l, r, milestones, ans)
+        if milestones[l] > 0: ans+=1
+        return ans
+
+    def numberOfWeeks2(self, milestones: List[int]) -> int:
+        """数学"""
+        _max = max(milestones)
+        _rest = sum(milestones) - _max
+        return _rest*2+1 if _max > _rest+1 else _max+_rest
+```
+
+
 ## 20240515 Hard [2589. 完成所有任务的最少时间](https://leetcode.cn/problems/minimum-time-to-complete-all-tasks/)
 
 昨天问题的进阶问题，没做出来。
