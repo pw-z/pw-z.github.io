@@ -4,7 +4,30 @@
 
 [TOC]
 
-## 20240517 Medium [1953. 你可以工作的最大周数](https://leetcode.cn/problems/maximum-number-of-weeks-for-which-you-can-work/)
+## 20240517 Medium [826. 安排工作以达到最大收益](https://leetcode.cn/problems/most-profit-assigning-work/)
+
+```python
+class Solution:
+    def maxProfitAssignment(self, difficulty: List[int], profit: List[int], worker: List[int]) -> int:
+        jobs = sorted(zip(profit, difficulty)) # 按照利润从小到大排序
+        worker.sort(reverse=True)
+        print(jobs, worker)
+        
+        p = len(jobs)-1 # 从后往前优先判断能否消化利润最大的工作
+        ans = 0
+        for w in worker:
+            while jobs[p][1] > w: # 如果当前能力强的工人无法把高利润工作消化，则往后找利润更小的工作进行判断（难度不一定更低）
+                # 这里有没有可能将高利润的工作错过？
+                # 不会，高能力的工人若都无法消化前面高利润的工作，下一个工人能够处理的工作利润只可能<=当前最高利润的工作
+                p -= 1
+                if p < 0:
+                    return ans
+            ans += jobs[p][0]
+        return ans
+```
+
+
+## 20240516 Medium [1953. 你可以工作的最大周数](https://leetcode.cn/problems/maximum-number-of-weeks-for-which-you-can-work/)
 
 ```python
 class Solution:
