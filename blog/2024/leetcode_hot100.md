@@ -111,18 +111,18 @@
     - [118. 杨辉三角](#118-杨辉三角)
     - [198. 打家劫舍](#198-打家劫舍)
     - [](#-3)
+    - [322. 零钱兑换](#322-零钱兑换)
     - [](#-4)
     - [](#-5)
     - [](#-6)
     - [](#-7)
     - [](#-8)
-    - [](#-9)
   - [多维动态规划](#多维动态规划)
+    - [](#-9)
     - [](#-10)
     - [](#-11)
     - [](#-12)
     - [](#-13)
-    - [](#-14)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4263,10 +4263,54 @@ class Solution:
  
 ```
 
-### []()
+### [322. 零钱兑换](https://leetcode.cn/problems/coin-change/)
 
 ```python
+class Solution:
+    def coinChange1(self, coins: List[int], amount: int) -> int:
+        """
+        背包DP，选或不选思路的典型场景：0-1背包（每个物品最多选一次）、完全背包（每个物品可以选择多次）
+        Refer：https://github.com/tianyicui/pack/tree/master
 
+        零钱兑换：完全背包问题的变种，可重复选择的基础上判断已经选择的金额是否已经刚好等于目标值
+        题解：https://leetcode.cn/problems/coin-change/solutions/2119065/jiao-ni-yi-bu-bu-si-kao-dong-tai-gui-hua-21m5
+        """
+        n = len(coins)
+        @cache # 不加缓存会超时
+        def dfs(i, j):
+            """前i个物品在金额为j的情况下，是否可以凑整"""
+            # 边界
+            if i < 0:
+                return 0 if j==0 else inf # 由于外层使用min()找最优解，此处用无穷大代表没有解
+            
+            # 面值超出目标值则不选
+            if j < coins[i]:
+                return dfs(i-1, j)
+            # 否则选、不选都可以，取更符合目标的结果
+            return min(dfs(i-1, j), dfs(i, j-coins[i])+1) # +1代表选择了当前货币，所以目标金额需要减掉当前货币面值
+
+        ans = dfs(n-1, amount)
+        return ans if ans < inf else -1
+
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        # 改成递推 dfs递归函数改成f数组，递归过程用循环模拟
+        # dfs(i,j) = min(dfs(i-1, j), dfs(i, j-w[i])+1)
+        # f[i][j] = min(f[i-1][j], f[i][j-w[i]]+1)
+        # 为了避免负数下表，所有的i都+1处理 --> f[i+1][j] = min(f[i][j], f[i+1][j-w[i]]+1)
+
+        n = len(coins)
+        f = [[inf] * (amount+1) for c in range(n+1)]
+        f[0][0] = 0
+        # print(f)
+        for i, c in enumerate(coins): # 第i个硬币
+            for j in range(amount+1):
+                if j < c:
+                    f[i+1][j] = f[i][j]
+                else:
+                    f[i+1][j] = min(f[i][j], f[i+1][j-c]+1)
+        
+        ans = f[n][amount]
+        return ans if ans < inf else -1
 ```
 
 
