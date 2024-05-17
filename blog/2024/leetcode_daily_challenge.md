@@ -4,6 +4,27 @@
 
 [TOC]
 
+## 20240518 Easy [2644. 找出可整除性得分最大的整数](https://leetcode.cn/problems/find-the-maximum-divisibility-score/)
+
+```python
+class Solution:
+    def maxDivScore(self, nums: List[int], divisors: List[int]) -> int:
+        max_score = -1
+        ans = None
+        for d in divisors:
+            d_score = 0
+            for n in nums:
+                if n%d == 0:
+                    d_score += 1
+            if d_score > max_score or not ans:
+                ans = d
+                max_score = d_score
+            if d_score == max_score:
+                ans = min(ans, d)
+        return ans
+```
+
+
 ## 20240517 Medium [826. 安排工作以达到最大收益](https://leetcode.cn/problems/most-profit-assigning-work/)
 
 ```python
