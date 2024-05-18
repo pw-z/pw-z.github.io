@@ -110,19 +110,19 @@
     - [70. 爬楼梯](#70-爬楼梯)
     - [118. 杨辉三角](#118-杨辉三角)
     - [198. 打家劫舍](#198-打家劫舍)
-    - [](#-3)
+    - [279. 完全平方数](#279-完全平方数)
     - [322. 零钱兑换](#322-零钱兑换)
+    - [](#-3)
     - [](#-4)
     - [](#-5)
     - [](#-6)
     - [](#-7)
-    - [](#-8)
   - [多维动态规划](#多维动态规划)
+    - [](#-8)
     - [](#-9)
     - [](#-10)
     - [](#-11)
     - [](#-12)
-    - [](#-13)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4257,10 +4257,81 @@ class Solution:
 ```
 
 
-### []()
+### [279. 完全平方数](https://leetcode.cn/problems/perfect-squares/)
 
 ```python
- 
+class Solution:
+    # 题解：https://leetcode.cn/problems/perfect-squares/solutions/823248/gong-shui-san-xie-xiang-jie-wan-quan-bei-nqes
+
+    def numSquares1(self, n: int) -> int:
+        """记忆化递归❌MLE
+        n <= 10^4, k**2=n, k<=100 
+        完全背包问题：k可选值1～100，可重复选择，最终目标等于n
+        """
+        @cache
+        def dfs(i, j):
+            # i当前值，j目标值
+            # 定义状态：前i个数字，凑出数字总和j所需的最少数字量
+
+            # 边界
+            if i < 1:
+                return 0 if j==0 else inf
+            
+            # 不选
+            if i**2 > j:
+                return dfs(i-1, j)
+            # 选
+            return min(dfs(i-1, j), dfs(i, j-i**2)+1)
+
+        ans = dfs(100, n)
+        return ans if ans < inf else -1
+
+
+    def numSquares2(self, n: int) -> int:
+        """递归改递推（二维）❌TLE
+        """
+
+        pkgs = []
+        k = 1
+        while k**2 <= n:
+            pkgs.append(k**2)
+            k += 1
+        m = len(pkgs)
+
+        # f[i][j]: 前i个数字凑出数字总和j所需的最少数字量
+        f = [[inf] * (n+1) for _ in range(m+1)]
+        f[0][0] = 0  # 除了临界值用0个值凑出0外（不选任何数），初始化为inf
+
+        for i in range(1, m+1): # 总共m个数字
+            x = pkgs[i-1] # 当前遍历到的数字
+            for j in range(n+1): 
+                # 不选第i个数字
+                # print(i,x, j)
+                f[i][j] = f[i-1][j]
+                # 选
+                k=1
+                while k*x <= j:
+                    # 能够选择 k 个 t 的前提是剩余的数字 j - k * t 也能被凑出
+                    if f[i-1][j-k*x] != inf:
+                        f[i][j] = min(f[i][j], f[i-1][j-k*x]+k)
+                    k += 1
+                    # print(x, k, j)
+        
+        ans = f[m][n]
+        return ans if ans < inf else -1
+
+    def numSquares(self, n: int) -> int:
+        # 推导过程？
+        f = [inf]*(n+1)
+        f[0] = 0
+        for t in range(1, n+1):
+            cur = t*t
+            if cur > n:
+                break
+            for j in range(cur, n+1):
+                f[j] = min(f[j], f[j-cur]+1)
+                # print(f)
+        return f[n]
 ```
 
 ### [322. 零钱兑换](https://leetcode.cn/problems/coin-change/)
