@@ -115,14 +115,14 @@
     - [139. 单词拆分](#139-单词拆分)
     - [1143. 最长公共子序列LCS](#1143-最长公共子序列lcs)
     - [300. 最长递增子序列LIS](#300-最长递增子序列lis)
+    - [152. 乘积最大子数组](#152-乘积最大子数组)
     - [](#-3)
-    - [](#-4)
   - [多维动态规划](#多维动态规划)
+    - [](#-4)
     - [](#-5)
     - [](#-6)
     - [](#-7)
     - [](#-8)
-    - [](#-9)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4522,10 +4522,54 @@ class Solution:
         return max(f)
 ```
 
-### []()
+### [152. 乘积最大子数组](https://leetcode.cn/problems/maximum-product-subarray/)
 
 ```python
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        """
+        状态：dfs(i)为前i个数字的最大乘积
+        
+        转移方程1：dfs(i) = max(dfs(i-1), 1) * nums[i]  #❌反例：[-3,-1,-1]
+        转移方程2：dfs(i) = max(dfs(i-1)* nums[i], nums[i]) #❌反例 [-2,3,-4]
+        
+        转移方程3:
+        dfs(i-1)、nums[i]可能是正数、负数、0，二者乘积的最大值？
+        设dfs(i-1)为a,nums[i]为b
+        a < 0, b < 0 --> return ab
+        a < 0, b = 0 --> return b 0
+        a < 0, b > 0 --> return b
+        a = 0, b < 0 --> return a 0
+        a = 0, b = 0 --> return 0
+        a = 0, b > 0 --> return b
+        a > 0, b < 0 --> return a
+        a > 0, b = 0 --> return a
+        a > 0, b > 0 --> return ab
+        dfs(i) = max(dfs(i-1), dfs(i-1)*nums[i], nums[i], 0) 
+        ❌[2,3,-2,4]返回24而不是6，dfs([2,3,-2])得到6没问题，但不能再用6*4了，因为中间隔了个-2
+        精准踩坑，可以看官方题解的第一段错误分析 https://leetcode.cn/problems/maximum-product-subarray/solutions/250015/cheng-ji-zui-da-zi-shu-zu-by-leetcode-solution
+        class Solution:
+            def maxProduct(self, nums: List[int]) -> int:
+                n = len(nums)
+                @cache
+                def dfs(i):
+                    if i<0:return 1
+                    return max(dfs(i-1)*nums[i], nums[i]) 
+                return max(dfs(i) for i in range(n))
+        
+        转移方程4:根据正负号分别讨论
+        maxf: 以第i个元素结尾的乘积最大子数组的乘积
+        minf: 以第i个元素结尾的乘积最小子数组的乘积
+        """
 
+        n = len(nums)
+        maxf = nums.copy()
+        minf = nums.copy()
+        for i in range(1, n):
+            maxf[i] = max(maxf[i-1]*nums[i], minf[i-1]*nums[i], nums[i])
+            minf[i] = min(minf[i-1]*nums[i], maxf[i-1]*nums[i], nums[i])
+        # print(maxf, minf)
+        return max(maxf)
 ```
 
 
