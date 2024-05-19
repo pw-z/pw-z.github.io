@@ -113,16 +113,16 @@
     - [279. 完全平方数](#279-完全平方数)
     - [322. 零钱兑换](#322-零钱兑换)
     - [139. 单词拆分](#139-单词拆分)
+    - [1143. 最长公共子序列](#1143-最长公共子序列)
     - [](#-3)
     - [](#-4)
     - [](#-5)
-    - [](#-6)
   - [多维动态规划](#多维动态规划)
+    - [](#-6)
     - [](#-7)
     - [](#-8)
     - [](#-9)
     - [](#-10)
-    - [](#-11)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4429,10 +4429,62 @@ class Solution:
         return f[len(s)]
 ```
 
-### []()
+### [1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/)
 
 ```python
+class Solution:
+    def longestCommonSubsequence1(self, text1: str, text2: str) -> int:
+        """DP题解: https://www.bilibili.com/video/BV1TM4y1o7ug"""
+        n1 = len(text1)
+        n2 = len(text2)
 
+        def dfs(i, j):
+            if i<0 or j<0: return 0
+
+            if text1[i] == text2[j]:
+                return dfs(i-1, j-1) +1
+            return max(dfs(i-1,j), dfs(i, j-1))
+        
+        return dfs(n1-1, n2-1)
+
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        # 递归改递推
+        n1 = len(text1)
+        n2 = len(text2)
+
+        f = [[0]*(n2+1) for _ in range(n1+1)]
+        for i in range(n1):
+            for j in range(n2):
+                if text1[i] == text2[j]:
+                    f[i][j] = f[i-1][j-1] + 1
+                else:
+                    f[i][j] = max(f[i-1][j], f[i][j-1])
+                """
+                [[1, 1, 1, 0, 0], 
+                [1, 1, 1, 0, 0], 
+                [1, 2, 2, 0, 0], 
+                [1, 2, 2, 0, 0], 
+                [1, 2, 3, 0, 0], 
+                [0, 0, 0, 0, 0], 
+                [0, 0, 0, 0, 0]]
+                """
+
+                # if text1[i] == text2[j]:
+                #     f[i+1][j+1] = f[i][j] + 1
+                # else:
+                #     f[i+1][j+1] = max(f[i][j+1], f[i+1][j])
+                """
+                [
+                [0, 0, 0, 0, 0], 
+                [0, 1, 1, 1, 0], 
+                [0, 1, 1, 1, 0], 
+                [0, 1, 2, 2, 0], 
+                [0, 1, 2, 2, 0], 
+                [0, 1, 2, 3, 0], 
+                [0, 0, 0, 0, 0]]
+                """
+        print(f)
+        return f[n1-1][n2-1]
 ```
 
 
