@@ -113,16 +113,16 @@
     - [279. 完全平方数](#279-完全平方数)
     - [322. 零钱兑换](#322-零钱兑换)
     - [139. 单词拆分](#139-单词拆分)
-    - [1143. 最长公共子序列](#1143-最长公共子序列)
+    - [1143. 最长公共子序列LCS](#1143-最长公共子序列lcs)
+    - [300. 最长递增子序列LIS](#300-最长递增子序列lis)
     - [](#-3)
     - [](#-4)
-    - [](#-5)
   - [多维动态规划](#多维动态规划)
+    - [](#-5)
     - [](#-6)
     - [](#-7)
     - [](#-8)
     - [](#-9)
-    - [](#-10)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4429,7 +4429,7 @@ class Solution:
         return f[len(s)]
 ```
 
-### [1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/)
+### [1143. 最长公共子序列LCS](https://leetcode.cn/problems/longest-common-subsequence/)
 
 ```python
 class Solution:
@@ -4488,10 +4488,38 @@ class Solution:
 ```
 
 
-### []()
+### [300. 最长递增子序列LIS](https://leetcode.cn/problems/longest-increasing-subsequence/)
 
 ```python
+class Solution:
+    def lengthOfLIS1(self, nums: List[int]) -> int:
+        # DP题解：https://www.bilibili.com/video/BV1ub411Q7sB
+        n = len(nums)
 
+        @cache
+        def dfs(i):
+            # 状态：以第i个数字为结尾，最长子序列的长度
+            # 状态转移：dfs(i) = max(dfs(j))+1, j<i && nums[j]<nums[i]
+            res = 0
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    res = max(res, dfs(j))
+            return res + 1
+        
+        return max(dfs(i) for i in range(n))
+    
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        # 递归改递推
+        n = len(nums)
+        f = [0]*n
+        # print(f)
+        for i in range(n):
+            for j in range(i):
+                if nums[i] > nums[j]:
+                    f[i] = max(f[i], f[j])
+            f[i] += 1
+        # print(f)
+        return max(f)
 ```
 
 ### []()
