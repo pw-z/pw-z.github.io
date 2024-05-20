@@ -4,6 +4,17 @@
 
 [TOC]
 
+## 20240521 Easy [2769. 找出最大的可达成数字](https://leetcode.cn/problems/find-the-maximum-achievable-number/)
+
+谢谢，让我睡个好觉。
+
+```python
+class Solution:
+    def theMaximumAchievableX(self, num: int, t: int) -> int:
+        return num + 2*t
+```
+
+
 ## 20240520 Hard [1542. 找出最长的超赞子字符串](https://leetcode.cn/problems/find-longest-awesome-substring/)
 
 题解都看不懂啊，给跪了QAQ。
