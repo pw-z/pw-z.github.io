@@ -116,14 +116,14 @@
     - [1143. 最长公共子序列LCS](#1143-最长公共子序列lcs)
     - [300. 最长递增子序列LIS](#300-最长递增子序列lis)
     - [152. 乘积最大子数组](#152-乘积最大子数组)
+    - [416. 分割等和子集](#416-分割等和子集)
     - [](#-3)
-    - [](#-4)
   - [多维动态规划](#多维动态规划)
+    - [](#-4)
     - [](#-5)
     - [](#-6)
     - [](#-7)
     - [](#-8)
-    - [](#-9)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4574,10 +4574,45 @@ class Solution:
 ```
 
 
-### []()
+### [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/)
 
 ```python
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        n = len(nums)
+        s = sum(nums)
+        if n < 2 or s%2 != 0:
+            return False
+        target = s//2
+        m = max(nums)
+        if m > target:
+            return False
 
+        '''
+        # 选若干个数字是否可以凑出target，0-1背包问题的变种
+        # 状态：dp[i][j] = 从数组[0, i]选取若干数字是否可以使数字和为j
+        dp = [[False]*(target+1) for _ in range(n+1)]
+        for i in range(n):
+            dp[i][0] = True
+        # 状态转移
+        dp[0][nums[0]] = True
+        for i in range(1, n):
+            num = nums[i]
+            for j in range(1, target+1):
+                if j >= num: # 选或不选都可以
+                    dp[i][j] = dp[i-1][j] | dp[i-1][j-num]
+                else: # 只能不选
+                    dp[i][j] = dp[i-1][j]
+        # print(dp)
+        return dp[n-1][target]
+        '''
+
+        # 空间优化
+        dp = [True] + [False]*target
+        for num in nums:
+            for j in range(target, num-1, -1):
+                dp[j] |= dp[j-num]
+        return dp[target]
 ```
 
 
