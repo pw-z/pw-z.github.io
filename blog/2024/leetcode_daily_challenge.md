@@ -4,6 +4,108 @@
 
 [TOC]
 
+## 20240520 Hard [1542. 找出最长的超赞子字符串](https://leetcode.cn/problems/find-longest-awesome-substring/)
+
+题解都看不懂啊，给跪了QAQ。
+
+```python
+class Solution:
+    """
+    1177. 构建回文串检测
+    题解：https://leetcode.cn/problems/can-make-palindrome-from-substring/solutions/2309725/yi-bu-bu-you-hua-cong-qian-zhui-he-dao-q-yh5p
+    """
+    def canMakePaliQueries1(self, s: str, queries: List[List[int]]) -> List[bool]:
+        # 前缀和
+        sum = [[0] * 26]
+        # print(sum)
+        for c in s:
+            sum.append(sum[-1].copy())
+            sum[-1][ord(c) - ord('a')] += 1
+        # print(sum)
+
+        ans = []
+        for l, r, k in queries:
+            m = 0
+            # print(sum[l], sum[r+1])
+            for ll, rr in zip(sum[l], sum[r+1]):
+                m += (rr - ll)%2 # 统计有多少种字母出现奇数次
+            # print(m)
+            ans.append(m//2 <= k)
+        return ans
+
+    def canMakePaliQueries(self, s: str, queries: List[List[int]]) -> List[bool]:
+        # 状态压缩，引入异或逻辑
+        sum = [0]
+        for c in s:
+            bit = 1 << (ord(c) - ord('a'))
+            sum.append(sum[-1] ^ bit)
+
+        ans = []
+        for l, r, k in queries:
+            m = (sum[l] ^ sum[r+1]).bit_count() # 还有这种东西...
+            ans.append(m//2 <= k)
+        return ans
+
+class Solution:
+    """
+    1542. 找出最长的超赞子字符串
+    题解：https://leetcode.cn/problems/find-longest-awesome-substring/solutions/2773468/qian-zhui-yi-huo-he-fu-lei-si-ti-mu-pyth-j8lx
+    """
+    def longestAwesome(self, s: str) -> int:
+        D = 10  # s 中的字符种类数
+        n = len(s)
+        pos = [n] * (1 << D)  # n 表示没有找到异或前缀和
+        pos[0] = -1  # pre[-1] = 0
+        ans = pre = 0
+        for i, x in enumerate(map(int, s)): # map()会根据提供的函数对指定序列做映射，此处返回int(s中每个字符)
+            pre ^= 1 << x # 左移操作找到对应的二进制位数，然后与pre做异或运算
+            ans = max(ans, i - pos[pre],  # 偶数
+                      max(i - pos[pre ^ (1 << d)] for d in range(D)))  # 奇数
+            if pos[pre] == n:  # 首次遇到值为 pre 的前缀异或和，记录其下标 i
+                pos[pre] = i
+        return ans
+
+# 作者：灵茶山艾府
+# 链接：https://leetcode.cn/problems/find-longest-awesome-substring/solutions/2773468/qian-zhui-yi-huo-he-fu-lei-si-ti-mu-pyth-j8lx/
+# 来源：力扣（LeetCode）
+# 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+## 20240519 Medium [1535. 找出数组游戏的赢家](https://leetcode.cn/problems/find-the-winner-of-an-array-game/)
+
+```python
+class Solution:
+    def getWinner1(self, arr: List[int], k: int) -> int:
+        # 真·模拟，一直在操作数组，时间复杂度很高
+        n = len(arr)
+        if k > n:
+            return max(arr)
+        cnt = 0
+        while True:
+            if arr[0] > arr[1]:
+                arr.append(arr.pop(1))
+                cnt += 1
+            else:
+                arr.append(arr.pop(0))
+                cnt = 1
+            if cnt == k:
+                return arr[0]
+
+    def getWinner(self, arr: List[int], k: int) -> int:
+        cur_max = arr[0]
+        cnt = -1
+        for n in arr:
+            if n > cur_max:
+                cur_max = n
+                cnt = 0
+            cnt += 1
+            if cnt == k:
+                return cur_max
+        return cur_max
+```
+
+
 ## 20240518 Easy [2644. 找出可整除性得分最大的整数](https://leetcode.cn/problems/find-the-maximum-divisibility-score/)
 
 ```python
