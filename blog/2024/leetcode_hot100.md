@@ -117,13 +117,13 @@
     - [300. 最长递增子序列LIS](#300-最长递增子序列lis)
     - [152. 乘积最大子数组](#152-乘积最大子数组)
     - [416. 分割等和子集](#416-分割等和子集)
-    - [](#-3)
+    - [32. 最长有效括号\*\*](#32-最长有效括号)
   - [多维动态规划](#多维动态规划)
+    - [](#-3)
     - [](#-4)
     - [](#-5)
     - [](#-6)
     - [](#-7)
-    - [](#-8)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4616,10 +4616,47 @@ class Solution:
 ```
 
 
-### []()
+### [32. 最长有效括号**](https://leetcode.cn/problems/longest-valid-parentheses/)
 
 ```python
+class Solution:
+    def longestValidParentheses1(self, s: str) -> int:
+        """❌暴力解，超时，224 / 231 个通过的测试用例
+        """
+        n = len(s)
+        ans = 0
+        for i in range(n):
+            for j in range(i+1, n):
+                stack = []
+                cnt = 0
+                for c in s[i:j+1]:
+                    if c == '(': # 左括号入栈
+                        stack.append(c)
+                    elif not stack or stack.pop() != '(': # 右扣号消除
+                        break
+                    cnt += 1
 
+                if stack:
+                    cnt = 0
+
+                ans = max(ans, cnt)
+        return ans
+
+    def longestValidParentheses(self, s: str) -> int:
+        """
+        状态定义：dp[i] = 以下标 i 字符结尾的最长有效括号的长度
+        """
+        n = len(s)
+        dp = [0] * (n+1)
+        ans = 0
+        for i in range(1, n):
+            if s[i] == ')':
+                if s[i-1] == '(':
+                    dp[i] = 2 + dp[i-2] # dp数组位数为n+1，最后一位作为-1下标（仅python适用），-1下标初始化为0
+                elif i-dp[i-1] > 0 and s[i - dp[i-1] -1] == '(': # 把中间的连续合格子串算上，再往前找一个，看是否能跟当前的）匹配上
+                    dp[i] = dp[i-1] + 2 + (dp[i - dp[i-1] -2] if (i - dp[i-1])>=2 else 0)
+                ans = max(ans, dp[i])
+        return ans
 ```
 
 
