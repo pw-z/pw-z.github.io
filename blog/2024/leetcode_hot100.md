@@ -119,10 +119,10 @@
     - [32. 最长有效括号\*\*](#32-最长有效括号)
   - [多维动态规划](#多维动态规划)
     - [62. 不同路径](#62-不同路径)
+    - [64. 最小路径和](#64-最小路径和)
     - [](#-3)
-    - [](#-4)
     - [1143. 最长公共子序列LCS](#1143-最长公共子序列lcs)
-    - [](#-5)
+    - [](#-4)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4617,10 +4617,25 @@ class Solution:
 ```
 
 
-### []()
+### [64. 最小路径和](https://leetcode.cn/problems/minimum-path-sum/)
 
 ```python
-
+class Solution:
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        # 状态定义： dp[i][j] = 走到(i,j)的最小路径和
+        # 状态转移： dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
+        m = len(grid)
+        n = len(grid[0])
+        for i in range(m):
+            for j in range(n):
+                if i == 0 and j == 0: continue
+                elif i == 0:
+                    grid[i][j] = grid[i][j-1] + grid[i][j]
+                elif j == 0:
+                    grid[i][j] = grid[i-1][j] + grid[i][j]
+                else:
+                    grid[i][j] = min(grid[i-1][j], grid[i][j-1]) + grid[i][j]
+        return grid[m-1][n-1]
 ```
 
 
