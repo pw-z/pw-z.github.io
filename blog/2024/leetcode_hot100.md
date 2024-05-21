@@ -120,7 +120,7 @@
   - [多维动态规划](#多维动态规划)
     - [62. 不同路径](#62-不同路径)
     - [64. 最小路径和](#64-最小路径和)
-    - [](#-3)
+    - [5. 最长回文子串](#5-最长回文子串)
     - [1143. 最长公共子序列LCS](#1143-最长公共子序列lcs)
     - [72. 编辑距离](#72-编辑距离)
   - [技巧](#技巧)
@@ -4639,10 +4639,30 @@ class Solution:
 ```
 
 
-### []()
+### [5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/)
 
 ```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        # 题解：https://leetcode.cn/problems/longest-palindromic-substring/solutions/63641/zhong-xin-kuo-san-fa-he-dong-tai-gui-hua-by-reedfa
+        # 题解：https://leetcode.cn/problems/longest-palindromic-substring/solutions/255195/zui-chang-hui-wen-zi-chuan-by-leetcode-solution
+        n = len(s)
+        if n < 2:
+            return s
+        
+        ans_start = 0
+        ans_len = 1
 
+        f = [[False] * n for _ in range(n)]
+        # for i in range(n): f[i][i] = True
+        for r in range(1, n):
+            for l in range(r):
+                if s[l] == s[r] and (r-l<3 or f[l+1][r-1]):
+                    f[l][r] = True
+                    if (r-l+1) > ans_len:
+                        ans_len = r-l+1
+                        ans_start = l
+        return s[ans_start:ans_start+ans_len]
 ```
 
 
