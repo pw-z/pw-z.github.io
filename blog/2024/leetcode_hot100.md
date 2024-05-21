@@ -122,7 +122,7 @@
     - [64. 最小路径和](#64-最小路径和)
     - [](#-3)
     - [1143. 最长公共子序列LCS](#1143-最长公共子序列lcs)
-    - [](#-4)
+    - [72. 编辑距离](#72-编辑距离)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4705,10 +4705,32 @@ class Solution:
 ```
 
 
-### []()
+### [72. 编辑距离](https://leetcode.cn/problems/edit-distance/)
 
 ```python
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        n = len(word1)
+        m = len(word2)
 
+        if m*n == 0: return m+n
+
+        # 状态定义: f[i][j] = word1前i个字母和word2前j个字母之间的编辑距离
+        f = [[0]*(m+1) for _ in range(n+1)] # n+1行，m+1列
+
+        # 状态参数i,j为0的情况下边界值
+        for i in range(n+1): f[i][0] = i
+        for j in range(m+1): f[0][j] = j
+
+        # 状态转移：
+        for i in range(n):
+            for j in range(m):
+                if word1[i] == word2[j]:
+                    f[i+1][j+1] = f[i][j]
+                else:
+                    f[i+1][j+1] = 1 + min(f[i+1][j], f[i][j+1], f[i][j])
+
+        return f[n][m]
 ```
 
 
