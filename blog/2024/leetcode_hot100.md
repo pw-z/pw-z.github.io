@@ -113,17 +113,16 @@
     - [279. 完全平方数](#279-完全平方数)
     - [322. 零钱兑换](#322-零钱兑换)
     - [139. 单词拆分](#139-单词拆分)
-    - [1143. 最长公共子序列LCS](#1143-最长公共子序列lcs)
     - [300. 最长递增子序列LIS](#300-最长递增子序列lis)
     - [152. 乘积最大子数组](#152-乘积最大子数组)
     - [416. 分割等和子集](#416-分割等和子集)
     - [32. 最长有效括号\*\*](#32-最长有效括号)
   - [多维动态规划](#多维动态规划)
+    - [62. 不同路径](#62-不同路径)
     - [](#-3)
     - [](#-4)
+    - [1143. 最长公共子序列LCS](#1143-最长公共子序列lcs)
     - [](#-5)
-    - [](#-6)
-    - [](#-7)
   - [技巧](#技巧)
     - [136. 只出现一次的数字\*（位运算）](#136-只出现一次的数字位运算)
     - [169. 多数元素\*（Boyer-Moore多数投票算法）](#169-多数元素boyer-moore多数投票算法)
@@ -4430,64 +4429,6 @@ class Solution:
         return f[len(s)]
 ```
 
-### [1143. 最长公共子序列LCS](https://leetcode.cn/problems/longest-common-subsequence/)
-
-```python
-class Solution:
-    def longestCommonSubsequence1(self, text1: str, text2: str) -> int:
-        """DP题解: https://www.bilibili.com/video/BV1TM4y1o7ug"""
-        n1 = len(text1)
-        n2 = len(text2)
-
-        def dfs(i, j):
-            if i<0 or j<0: return 0
-
-            if text1[i] == text2[j]:
-                return dfs(i-1, j-1) +1
-            return max(dfs(i-1,j), dfs(i, j-1))
-        
-        return dfs(n1-1, n2-1)
-
-    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
-        # 递归改递推
-        n1 = len(text1)
-        n2 = len(text2)
-
-        f = [[0]*(n2+1) for _ in range(n1+1)]
-        for i in range(n1):
-            for j in range(n2):
-                if text1[i] == text2[j]:
-                    f[i][j] = f[i-1][j-1] + 1
-                else:
-                    f[i][j] = max(f[i-1][j], f[i][j-1])
-                """
-                [[1, 1, 1, 0, 0], 
-                [1, 1, 1, 0, 0], 
-                [1, 2, 2, 0, 0], 
-                [1, 2, 2, 0, 0], 
-                [1, 2, 3, 0, 0], 
-                [0, 0, 0, 0, 0], 
-                [0, 0, 0, 0, 0]]
-                """
-
-                # if text1[i] == text2[j]:
-                #     f[i+1][j+1] = f[i][j] + 1
-                # else:
-                #     f[i+1][j+1] = max(f[i][j+1], f[i+1][j])
-                """
-                [
-                [0, 0, 0, 0, 0], 
-                [0, 1, 1, 1, 0], 
-                [0, 1, 1, 1, 0], 
-                [0, 1, 2, 2, 0], 
-                [0, 1, 2, 2, 0], 
-                [0, 1, 2, 3, 0], 
-                [0, 0, 0, 0, 0]]
-                """
-        print(f)
-        return f[n1-1][n2-1]
-```
-
 
 ### [300. 最长递增子序列LIS](https://leetcode.cn/problems/longest-increasing-subsequence/)
 
@@ -4662,10 +4603,17 @@ class Solution:
 
 ## 多维动态规划
 
-### []()
+### [62. 不同路径](https://leetcode.cn/problems/unique-paths/)
 
 ```python
-
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        # f(i,j) = f(i-1, j) + f(i, j-1) 走到(i, j)要么从左边走过来要么从上面走下来
+        f = [[1]*n] + [[1] + [0] * (n-1) for _ in range(m-1)] # 第一排与第一列都是1（只能从左到右或从上到下一个维度）
+        for i in range(1, m):
+            for j in range(1, n):
+                f[i][j] = f[i-1][j] + f[i][j-1]
+        return f[m-1][n-1]
 ```
 
 
@@ -4675,18 +4623,72 @@ class Solution:
 
 ```
 
-### []()
-
-```python
-
-```
-
 
 ### []()
 
 ```python
 
 ```
+
+
+### [1143. 最长公共子序列LCS](https://leetcode.cn/problems/longest-common-subsequence/)
+
+```python
+class Solution:
+    def longestCommonSubsequence1(self, text1: str, text2: str) -> int:
+        """DP题解: https://www.bilibili.com/video/BV1TM4y1o7ug"""
+        n1 = len(text1)
+        n2 = len(text2)
+
+        def dfs(i, j):
+            if i<0 or j<0: return 0
+
+            if text1[i] == text2[j]:
+                return dfs(i-1, j-1) +1
+            return max(dfs(i-1,j), dfs(i, j-1))
+        
+        return dfs(n1-1, n2-1)
+
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        # 递归改递推
+        n1 = len(text1)
+        n2 = len(text2)
+
+        f = [[0]*(n2+1) for _ in range(n1+1)]
+        for i in range(n1):
+            for j in range(n2):
+                if text1[i] == text2[j]:
+                    f[i][j] = f[i-1][j-1] + 1
+                else:
+                    f[i][j] = max(f[i-1][j], f[i][j-1])
+                """
+                [[1, 1, 1, 0, 0], 
+                [1, 1, 1, 0, 0], 
+                [1, 2, 2, 0, 0], 
+                [1, 2, 2, 0, 0], 
+                [1, 2, 3, 0, 0], 
+                [0, 0, 0, 0, 0], 
+                [0, 0, 0, 0, 0]]
+                """
+
+                # if text1[i] == text2[j]:
+                #     f[i+1][j+1] = f[i][j] + 1
+                # else:
+                #     f[i+1][j+1] = max(f[i][j+1], f[i+1][j])
+                """
+                [
+                [0, 0, 0, 0, 0], 
+                [0, 1, 1, 1, 0], 
+                [0, 1, 1, 1, 0], 
+                [0, 1, 2, 2, 0], 
+                [0, 1, 2, 2, 0], 
+                [0, 1, 2, 3, 0], 
+                [0, 0, 0, 0, 0]]
+                """
+        print(f)
+        return f[n1-1][n2-1]
+```
+
 
 ### []()
 
