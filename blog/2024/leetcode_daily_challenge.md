@@ -4,6 +4,34 @@
 
 [TOC]
 
+## 20240522 Medium [2225. 找出输掉零场或一场比赛的玩家](https://leetcode.cn/problems/find-players-with-zero-or-one-losses/)
+
+```python
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        # 哈希+排序
+        winners = set()
+        lose_once = set()
+        lose_only_once = set()
+
+        for winner, loser in matches:
+            # print(winner, loser)
+            if winner not in lose_once:
+                winners.add(winner)
+            
+            if loser in winners:
+                winners.remove(loser)
+
+            if loser not in lose_once:
+                lose_once.add(loser)
+                lose_only_once.add(loser)
+            elif loser in lose_only_once:
+                lose_only_once.remove(loser)
+
+        return [sorted(winners), sorted(lose_only_once)]
+```
+
+
 ## 20240521 Easy [2769. 找出最大的可达成数字](https://leetcode.cn/problems/find-the-maximum-achievable-number/)
 
 谢谢，让我睡个好觉。
