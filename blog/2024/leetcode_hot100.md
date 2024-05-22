@@ -68,10 +68,11 @@
     - [236. 二叉树的最近公共祖先](#236-二叉树的最近公共祖先)
     - [124. 二叉树中的最大路径和\*\*](#124-二叉树中的最大路径和)
   - [图论](#图论)
-    - [](#)
+    - [200. 岛屿数量](#200-岛屿数量)
+    - [463. 岛屿的周长](#463-岛屿的周长)
     - [994. 腐烂的橘子](#994-腐烂的橘子)
+    - [](#)
     - [](#-1)
-    - [](#-2)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
     - [78. 子集](#78-子集)
@@ -2700,10 +2701,75 @@ class Solution:
 ## 图论
 
 
-### []()
+### [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/)
 
 ```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        # 题解（非常清晰）：https://leetcode.cn/problems/number-of-islands/solutions/211211/dao-yu-lei-wen-ti-de-tong-yong-jie-fa-dfs-bian-li-
+        
+        # m 行 n 列
+        m = len(grid)
+        n = len(grid[0])
 
+        def dfs(r, c):
+            # 边界判断
+            if c < 0 or n <= c or r < 0 or m <= r:
+                return
+
+            # 岛屿判断
+            if grid[r][c] != "1":
+                return
+            
+            grid[r][c] = "2"
+
+            dfs(r-1, c)
+            dfs(r+1, c)
+            dfs(r, c-1)
+            dfs(r, c+1)
+        
+        ans = 0
+        for i in range(m):
+            for j in range(n):
+                # print(i, j,grid[i][j], grid)
+                if grid[i][j] == '1':
+                    dfs(i, j)
+                    ans += 1
+        return ans
+```
+
+### [463. 岛屿的周长](https://leetcode.cn/problems/island-perimeter/)
+
+继上一题岛屿数量，DFS代码可以复用。
+
+```python
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+        # m 行 n 列
+        m = len(grid)
+        n = len(grid[0])
+
+        def dfs(r, c):
+            # 边界判断，遇到边界确认一条边
+            if c < 0 or n <= c or r < 0 or m <= r:
+                return 1
+
+            # 海洋判断，遇到海洋确认一条边
+            if grid[r][c] == 0:
+                return 1
+            
+            # 对结果无影响的节点返回
+            if grid[r][c] != 1:
+                return 0
+
+            grid[r][c] = 2
+
+            return dfs(r-1, c) + dfs(r+1, c) + dfs(r, c-1) + dfs(r, c+1)
+        
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    return dfs(i, j)
 ```
 
 
