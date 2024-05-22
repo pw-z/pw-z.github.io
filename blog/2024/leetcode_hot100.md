@@ -71,8 +71,8 @@
     - [200. 岛屿数量](#200-岛屿数量)
     - [463. 岛屿的周长](#463-岛屿的周长)
     - [994. 腐烂的橘子](#994-腐烂的橘子)
+    - [207. 课程表](#207-课程表)
     - [](#)
-    - [](#-1)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
     - [78. 子集](#78-子集)
@@ -2831,10 +2831,38 @@ class Solution:
 ```
 
 
-### []()
+### [207. 课程表](https://leetcode.cn/problems/course-schedule/)
 
 ```python
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        # BFS：https://leetcode.cn/problems/course-schedule/solutions/18806/course-schedule-tuo-bu-pai-xu-bfsdfsliang-chong-fa
 
+        indegrees = [0] * numCourses
+        adj = [[] for _ in range(numCourses)]
+        q = collections.deque()
+
+        # 统计每个课程的入度 && 初始化邻接表
+        for a, b in prerequisites:
+            indegrees[a] += 1
+            adj[b].append(a)
+
+        # 初始化任务队列，所有入度为0的入队
+        for i in range(numCourses):
+            if indegrees[i] == 0:
+                q.append(i)
+        
+        while q:
+            pre = q.popleft()
+            numCourses -= 1
+            # 每次学完一门课将相关后置课程入度-1
+            for course in adj[pre]:
+                indegrees[course] -= 1
+                # 若入度减到0则可以开始学习，入队
+                if indegrees[course] == 0:
+                    q.append(course)
+
+        return numCourses == 0
 ```
 
 
