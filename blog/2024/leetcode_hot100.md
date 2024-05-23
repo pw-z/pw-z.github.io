@@ -72,7 +72,7 @@
     - [463. 岛屿的周长](#463-岛屿的周长)
     - [994. 腐烂的橘子](#994-腐烂的橘子)
     - [207. 课程表](#207-课程表)
-    - [](#)
+    - [208. 实现 Trie (前缀树)](#208-实现-trie-前缀树)
   - [回溯](#回溯)
     - [46. 全排列](#46-全排列)
     - [78. 子集](#78-子集)
@@ -2866,10 +2866,49 @@ class Solution:
 ```
 
 
-### []()
+### [208. 实现 Trie (前缀树)](https://leetcode.cn/problems/implement-trie-prefix-tree/)
 
 ```python
+class Trie:
 
+    def __init__(self):
+        self.children = [None]*26
+        self.is_end = False
+
+    def insert(self, word: str) -> None:
+        cur = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if not cur.children[idx]:
+                cur.children[idx] = Trie()
+            cur = cur.children[idx]
+        cur.is_end = True
+
+    def search(self, word: str) -> bool:
+        cur = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if not cur.children[idx]:
+                return False
+            cur = cur.children[idx]
+        return cur.is_end
+
+
+    def startsWith(self, prefix: str) -> bool:
+        cur = self
+        for c in prefix:
+            idx = ord(c) - ord('a')
+            if not cur.children[idx]:
+                return False
+            cur = cur.children[idx]
+        return True
+
+
+# Your Trie object will be instantiated and called as such:
+# obj = Trie()
+# obj.insert(word)
+# param_2 = obj.search(word)
+# param_3 = obj.startsWith(prefix)
 ```
 
 ## 回溯
