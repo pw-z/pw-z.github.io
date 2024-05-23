@@ -4,6 +4,30 @@
 
 [TOC]
 
+## 20240523 Medium [2831. 找出最长等值子数组](https://leetcode.cn/problems/find-the-longest-equal-subarray/)
+
+```python
+class Solution:
+    def longestEqualSubarray(self, nums: List[int], k: int) -> int:
+        pos = {}
+        for i in range(len(nums)):
+            if nums[i] in pos:
+                pos[nums[i]].append(i)
+            else:
+                pos[nums[i]] = [i]
+        # print(pos)
+
+        ans = 0
+        for poss in pos.values():
+            l = 0
+            for r in range(len(poss)):
+                while poss[r] - poss[l] - (r - l) > k:
+                    l += 1
+                ans = max(ans, r-l+1)
+        return ans
+```
+
+
 ## 20240522 Medium [2225. 找出输掉零场或一场比赛的玩家](https://leetcode.cn/problems/find-players-with-zero-or-one-losses/)
 
 ```python
