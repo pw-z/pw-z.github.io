@@ -4,6 +4,22 @@
 
 [TOC]
 
+## 20240524 Medium [1673. 找出最具竞争力的子序列](https://leetcode.cn/problems/find-the-most-competitive-subsequence/)
+
+```python
+class Solution:
+    def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
+        n = len(nums)
+        q = []
+        for i in range(n):
+            while q and nums[i] < q[-1] and (len(q)+(n-i))>k:
+                q.pop()
+            if len(q) < k:
+                q.append(nums[i])
+        return q
+```
+
+
 ## 20240523 Medium [2831. 找出最长等值子数组](https://leetcode.cn/problems/find-the-longest-equal-subarray/)
 
 ```python
