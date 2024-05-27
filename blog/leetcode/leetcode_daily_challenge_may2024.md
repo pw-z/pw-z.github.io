@@ -1,8 +1,65 @@
-# LeetCode Daily Challenge
+# LeetCode Daily Challenge May 2024
 
 这篇文档记录每日一题的解题记录，尽可能的理解好每一道题，总结相关经验。
 
 [TOC]
+
+## 20240526 Medium [2028. 找出缺失的观测数据](https://leetcode.cn/problems/find-missing-observations/)
+
+```python
+class Solution:
+    def missingRolls(self, rolls: List[int], mean: int, n: int) -> List[int]:
+        # 注意给出的答案，每个数字只能是1～6
+        m = len(rolls)
+        total = (m+n)*mean
+        target = total - sum(rolls)
+        ans = []
+        # print(target)
+        if target < n or target > n*6:
+            return ans
+        else:
+            # 题解：https://leetcode.cn/problems/find-missing-observations/solutions/2791593/shu-xue-gou-zao-pythonjavaccgojsrust-by-5tzv0
+            avg = target // n
+            ext = target % n
+            return [avg+1]*ext + [avg]*(n-ext)
+```
+
+
+## 20240526 Medium [1738. 找出第 K 大的异或坐标值](https://leetcode.cn/problems/find-kth-largest-xor-coordinate-value/)
+
+```python
+
+```
+
+
+## 20240525 Easy [2903. 找出满足差值条件的下标 I](https://leetcode.cn/problems/find-indices-with-index-and-value-difference-i/)
+
+```python
+class Solution:
+    def findIndices1(self, nums: List[int], indexDifference: int, valueDifference: int) -> List[int]:
+        # O(n^2)
+        n = len(nums)
+        if n < indexDifference:
+            return [-1, -1]
+        
+        for i in range(n-indexDifference):
+            for j in range(i+indexDifference, n):
+                if abs(nums[i] - nums[j]) >= valueDifference:
+                    return [i, j]
+        return [-1, -1]
+    
+    def findIndices(self, nums: List[int], indexDifference: int, valueDifference: int) -> List[int]:
+        # O(n)
+        max_idx, min_idx = 0, 0
+        for j in range(indexDifference, len(nums)):
+            i = j - indexDifference
+            if nums[i] < nums[min_idx]: min_idx = i
+            if nums[j] - nums[min_idx] >= valueDifference: return [min_idx, j]
+            if nums[i] > nums[max_idx]: max_idx = i
+            if nums[max_idx] - nums[j] >= valueDifference: return [max_idx, j]
+        return [-1, -1]
+```
+
 
 ## 20240524 Medium [1673. 找出最具竞争力的子序列](https://leetcode.cn/problems/find-the-most-competitive-subsequence/)
 
