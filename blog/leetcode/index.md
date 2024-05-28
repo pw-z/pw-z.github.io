@@ -1,4 +1,4 @@
-# 算法
+# Leetcode Stuff
 
-1. [LeetCode Hot100 Note](./leetcode_hot100_once.md)
-2. [LeetCode Daily Challenge May 2024](./leetcode_daily_challenge_may2024.md)
+1. [Leetcode Hot100 Note](./20240525-leetcode-hot100-once.md)
+2. [Leetcode Daily Challenge May 2024](./20240531-leetcode-daily-challenge-may2024.md)

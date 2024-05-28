@@ -1,4 +1,4 @@
-# LeetCode Daily Challenge May 2024
+# Leetcode Daily Challenge May 2024
 
 
 这篇文档记录每日一题的解题记录，尽可能的理解好每一道题，总结相关经验。

@@ -1,13 +1,13 @@
-# LeetCode Hot100 Note
+# Leetcode Hot100 Note
 
 *Posted on 2024.05.25 by [Zhang Pengwei](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)* 
 
-[LeetCode Hot100](https://leetcode.cn/studyplan/top-100-liked/) ，`2024.04.01 ~ 2024.05.24`，时间跨度将近两个月，每天三两道题如此做完了一遍。有很多题目非常经典，引申出一系列变型问题，期间翻看到很多大佬的题解与总结，关于这些题目，有一部分并没有理解透彻，很多专题还需要深入学习，这个阶段就当是个引子。
+[Leetcode Hot100](https://leetcode.cn/studyplan/top-100-liked/) ，`2024.04.01 ~ 2024.05.24`，时间跨度将近两个月，每天三两道题如此做完了一遍。有很多题目非常经典，引申出一系列变型问题，期间翻看到很多大佬的题解与总结，关于这些题目，有一部分并没有理解透彻，很多专题还需要深入学习，这个阶段就当是个引子。
 
 这篇文档的初衷只是刷题过程的电子草稿纸，后来成了某种进度条、打卡记录，刷算法题的最终目标是提高算法能力，在实际的问题场景下快速给出高效的解，记录这样一篇文档本身如何能对达成这个目标产生积极作用？要么做严谨的总结，要么就别把这太当作一回事，回归它草稿纸的本质就好。
 
 
-- [LeetCode Hot100 Note](#leetcode-hot100-note)
+- [Leetcode Hot100 Note](#leetcode-hot100-note)
   - [哈希](#哈希)
     - [1. 两数之和\*](#1-两数之和)
     - [49. 字母异位词分组](#49-字母异位词分组)
