@@ -1,4 +1,4 @@
-# Leetcode Hot100 Note
+# Leetcode Hot100 Once Note
 
 *Posted on 2024.05.25 by [Zhang Pengwei](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)* 
 
@@ -7,7 +7,7 @@
 这篇文档的初衷只是刷题过程的电子草稿纸，后来成了某种进度条、打卡记录，刷算法题的最终目标是提高算法能力，在实际的问题场景下快速给出高效的解，记录这样一篇文档本身如何能对达成这个目标产生积极作用？要么做严谨的总结，要么就别把这太当作一回事，回归它草稿纸的本质就好。
 
 
-- [Leetcode Hot100 Note](#leetcode-hot100-note)
+- [Leetcode Hot100 Once Note](#leetcode-hot100-once-note)
   - [哈希](#哈希)
     - [1. 两数之和\*](#1-两数之和)
     - [49. 字母异位词分组](#49-字母异位词分组)
