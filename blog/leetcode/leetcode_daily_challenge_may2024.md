@@ -4,7 +4,24 @@
 
 [TOC]
 
-## 20240526 Medium [2028. 找出缺失的观测数据](https://leetcode.cn/problems/find-missing-observations/)
+## 20240528 Easy [2951. 找出峰值](https://leetcode.cn/problems/find-the-peaks/)
+
+```python
+class Solution:
+    def findPeaks1(self, mountain: List[int]) -> List[int]:
+        ans = []
+        for i in range(1, len(mountain)-1):
+            if mountain[i-1] < mountain[i] > mountain[i+1]:
+                ans.append(i)
+        return ans
+    
+    def findPeaks(self, mountain: List[int]) -> List[int]:
+        # pythonic
+        return [i for i in range(1, len(mountain)-1) if mountain[i-1] < mountain[i] > mountain[i+1]]
+```
+
+
+## 20240527 Medium [2028. 找出缺失的观测数据](https://leetcode.cn/problems/find-missing-observations/)
 
 ```python
 class Solution:
