@@ -45,7 +45,17 @@ class Solution:
 ## 20240526 Medium [1738. 找出第 K 大的异或坐标值](https://leetcode.cn/problems/find-kth-largest-xor-coordinate-value/)
 
 ```python
-
+class Solution:
+    def kthLargestValue(self, matrix: List[List[int]], k: int) -> int:
+        # 题解：https://leetcode.cn/problems/find-kth-largest-xor-coordinate-value/solutions/2790359/liang-chong-fang-fa-er-wei-qian-zhui-yi-689bf
+        m, n = len(matrix), len(matrix[0])
+        s = [[0] * (n+1) for _ in range(m+1)]
+        for i in range(m):
+            for j in range(n):
+                s[i+1][j+1] = s[i+1][j] ^ s[i][j+1] ^ s[i][j] ^ matrix[i][j]
+        
+        # 列表生成式嵌套
+        return sorted([x for r in s[1:] for x in r[1:]], reverse=True)[k-1]
 ```
 
 
