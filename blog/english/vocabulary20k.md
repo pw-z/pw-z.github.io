@@ -48,96 +48,97 @@ The intro stop here.
 
 > "Tom's Diner" is a song written in 1982 by American singer and songwriter Suzanne Vega. It was first released as a track on the January 1984 issue of Fast Folk Musical Magazine. When first featured on one of her own studio albums, it appeared as the first track of her 1987 album Solitude Standing. It was later used as the basis for a remix by the British group DNA in 1990, which reached number 1 in Austria, Germany, Greece and Switzerland. The 1991 compilation Tom's Album includes the DNA version as well as cover versions by such artists as After One, Nikki D and Bingo Hand Job (R. E. M. and Billy Bragg). It was also used as the background soundtrack for the opening scene of the 1993 film Untamed Heart.
 
-
-I am sitting In the morning
+```
+I am sitting In the morning  
 At the diner On the corner
 
-I am waiting At the counter
+I am waiting At the counter  
 For the man To pour the coffee
 
-And he fills it Only halfway
+And he fills it Only halfway  
 And before I even argue
 
-He is looking Out the window
+He is looking Out the window  
 At somebody Coming in
 
-"It is always Nice to see you"
+"It is always Nice to see you"  
 Says the man Behind the counter
 
-To the woman Who has come in
+To the woman Who has come in  
 She is shaking Her umbrella
 
-And I look The other way
+And I look The other way  
 As they are kissing Their hellos
 
-I'm pretending Not to see them
+I'm pretending Not to see them  
 And Instead I pour the milk
 
-I open Up the paper
+I open Up the paper  
 There's a story Of an actor
 
-Who had died While he was drinking
+Who had died While he was drinking  
 He was no one I had heard of
 
-And I'm turning To the ***horoscope***
+And I'm turning To the ***horoscope***  
 And looking For the funnies
 
-When I'm feeling Someone watching me
+When I'm feeling Someone watching me  
 And so I raise my head
 
-There's a woman On the outside
+There's a woman On the outside  
 Looking inside Does she see me?
 
-No she does not Really see me
+No she does not Really see me  
 Cause she sees Her own reflection
 
-And I'm trying Not to notice
+And I'm trying Not to notice  
 That she's hitching Up her skirt
 
-And while she's ***Straightening*** her stockings
+And while she's ***Straightening*** her stockings  
 Her hair Is getting wet
 
-Oh, this rain It will continue
+Oh, this rain It will continue  
 Through the morning As I'm listening
 
-To the bells Of the ***cathedral***
+To the bells Of the ***cathedral***  
 I am thinking Of your voice
 
-And of the midnight picnic Once upon a time
+And of the midnight picnic Once upon a time  
 Before the rain began
 
-I finish up my coffee
+I finish up my coffee  
 It's time to catch the train
+```
 
 *The vocabulary size up to now, as of 2024.05.05, is **183**.*
 
 
 ## [Song] Freedom *250
-
-(with Elayna Boynton)
-(from "Django Unchained" soundtrack)
-(Writer(s): Anthony Cornelius Hamilton, Kelvin L. Wooten, Elayna Lajean Boynton)
-
-Ooh
+```
+(with Elayna Boynton)  
+(from "Django Unchained" soundtrack)  
+(Writer(s): Anthony Cornelius Hamilton, Kelvin L. Wooten, Elayna Lajean Boynton)  
 
 Ooh
 
-Felt like the weight of the world was on my shoulders…
-Pressure to break or retreat at every turn;
-Facing the fear that the truth I discovered;
-No telling how all this will work out;
-But I've come too far to go back now.
+Ooh
 
-~I am looking for freedom,
-Looking for freedom…
-And to find it cost me everything I have.
-Well I am looking for freedom,
-Looking for freedom...
-And to find it may take everything I have!
+Felt like the weight of the world was on my shoulders…  
+Pressure to break or retreat at every turn;  
+Facing the fear that the truth I discovered;  
+No telling how all this will work out;  
+But I've come too far to go back now.  
 
-I know all too well it don’t come easy;
-The chains of the world they seem to move in tight;
-I try to walk around it,
+~I am looking for freedom,  
+Looking for freedom…  
+And to find it cost me everything I have.  
+Well I am looking for freedom,  
+Looking for freedom...  
+And to find it may take everything I have!  
+
+I know all too well it don’t come easy;  
+The chains of the world they seem to move in tight;  
+I try to walk around it,  
 But ***stumbling***’s so familiar;
 Try to get up but the doubt is so strong;
 There’s gotta be a wind in my bones...
@@ -167,6 +168,7 @@ And to find it, cost me everything I have.
 Well I’m looking for freedom,
 I’m looking for freedom...
 And to find it may take everything I have! 
+```
 
 *The vocabulary size up to now, as of 2024.05.12, is **250**.*
 
@@ -181,6 +183,7 @@ And to find it may take everything I have!
 > 
 > https://genius.com/Queen-love-of-my-life-lyrics
 
+```
 [Intro]
 
 [Verse 1]
@@ -227,6 +230,7 @@ What it means to me (means to me)
 Love of my life
 Love of my life
 Ooh, ooh
+```
 
 *The vocabulary size up to now, as of 2024.05.12, is **299**.*
 
@@ -238,6 +242,7 @@ Ooh, ooh
 > https://en.wikipedia.org/wiki/When_I%27m_Sixty-Four
 
 
+```
 When I get older losing my hair
 Many years from now
 Will you still be sending me a ***Valentine***
@@ -277,6 +282,7 @@ Give me your answer, fill in a form
 Mine for ***evermore***
 Will you still need me, will you still feed me
 When I'm sixty-four
+```
 
 *The vocabulary size up to now, as of 2024.05.14, is **376**.*
 
@@ -288,6 +294,7 @@ When I'm sixty-four
 > Friendly Fire is the second studio album by Sean Lennon, released on 2 October 2006 by Capitol Records in the US, and Parlophone in the UK. It reached #152 on the US Billboard 200 chart and #5 in the Top Heatseekers chart. It stayed on the French album chart for 43 weeks and was certified silver. 
 > 
 
+```
 Love is like an aeroplane
 Jump and then you pray
 Lucky ones remain
@@ -331,12 +338,14 @@ Cut the parachute before you die
 Baby don't you cry
 You had to bring me down
 We had some fun before we hit the ground
+```
 
 *The vocabulary size up to now, as of 2024.05.14, is **412**.*
 
 
 ## [Song] Like I'm Gonna Lose You *451
 
+```
 [Verse 1: Meghan Trainor]
 I found myself dreaming in silver and gold
 Like a scene from a movie that every broken heart knows
@@ -384,6 +393,7 @@ Wherever we're standin', I won't take you for granted
 'Cause we'll never know when, when we'll run out of time
 So I'm gonna love you (I'm gonna love you, baby) like I'm gonna lose you (Like I'm gonna lose you)
 I'm gonna love you (Oh) like I'm gonna lose you
+```
 
 *The vocabulary size up to now, as of 2024.05.15, is **451**.*
 
