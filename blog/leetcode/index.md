@@ -1,5 +1,6 @@
 # Leetcode Stuff
 
 1. [Leetcode Hot100 Once Note](./20240401-leetcode-hot100-once-note.md)
-2. [Leetcode Daily Challenge May 2024](./20240503-leetcode-daily-challenge-may2024.md)
+2. [Leetcode Daily Challenge May 2024](./20240503-leetcode-daily-challenge-may-2024.md)
 3. [Leetcode Study Plan LeetCode-75 Scratch Paper](./20240528-leetcode-studyplan-leetcode75.md)
+4. [Leetcode Daily Challenge June 2024](./20240601-leetcode-daily-challenge-june-2024.md)
