@@ -1,9 +1,38 @@
 # Leetcode Daily Challenge May 2024
 
+*Updated and archived on 2024.06.01 by [Pengwei](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)* 
 
-这篇文档记录每日一题的解题记录，尽可能的理解好每一道题，总结相关经验。
 
-[TOC]
+这篇文档记录2024年5月力扣每日一题的解题记录。
+
+- [Leetcode Daily Challenge May 2024](#leetcode-daily-challenge-may-2024)
+  - [20240528 Easy 2951. 找出峰值](#20240528-easy-2951-找出峰值)
+  - [20240527 Medium 2028. 找出缺失的观测数据](#20240527-medium-2028-找出缺失的观测数据)
+  - [20240526 Medium 1738. 找出第 K 大的异或坐标值](#20240526-medium-1738-找出第-k-大的异或坐标值)
+  - [20240525 Easy 2903. 找出满足差值条件的下标 I](#20240525-easy-2903-找出满足差值条件的下标-i)
+  - [20240524 Medium 1673. 找出最具竞争力的子序列](#20240524-medium-1673-找出最具竞争力的子序列)
+  - [20240523 Medium 2831. 找出最长等值子数组](#20240523-medium-2831-找出最长等值子数组)
+  - [20240522 Medium 2225. 找出输掉零场或一场比赛的玩家](#20240522-medium-2225-找出输掉零场或一场比赛的玩家)
+  - [20240521 Easy 2769. 找出最大的可达成数字](#20240521-easy-2769-找出最大的可达成数字)
+  - [20240520 Hard 1542. 找出最长的超赞子字符串](#20240520-hard-1542-找出最长的超赞子字符串)
+  - [20240519 Medium 1535. 找出数组游戏的赢家](#20240519-medium-1535-找出数组游戏的赢家)
+  - [20240518 Easy 2644. 找出可整除性得分最大的整数](#20240518-easy-2644-找出可整除性得分最大的整数)
+  - [20240517 Medium 826. 安排工作以达到最大收益](#20240517-medium-826-安排工作以达到最大收益)
+  - [20240516 Medium 1953. 你可以工作的最大周数](#20240516-medium-1953-你可以工作的最大周数)
+  - [20240515 Hard 2589. 完成所有任务的最少时间](#20240515-hard-2589-完成所有任务的最少时间)
+  - [20240514 Medium 2244. 完成所有任务需要的最少轮数](#20240514-medium-2244-完成所有任务需要的最少轮数)
+  - [20240513 Medium 994. 腐烂的橘子](#20240513-medium-994-腐烂的橘子)
+  - [20240512 Hard 1553. 吃掉 N 个橘子的最少天数](#20240512-hard-1553-吃掉-n-个橘子的最少天数)
+  - [20240511 Medium 2391. 收集垃圾的最少总时间](#20240511-medium-2391-收集垃圾的最少总时间)
+  - [20240510 Easy 2960. 统计已测试设备](#20240510-easy-2960-统计已测试设备)
+  - [20240509 Medium 2105. 给植物浇水 II](#20240509-medium-2105-给植物浇水-ii)
+  - [20240508 Medium 2079. 给植物浇水](#20240508-medium-2079-给植物浇水)
+  - [20240507 Hard 1463. 摘樱桃 II](#20240507-hard-1463-摘樱桃-ii)
+  - [20240506 Hard 741. 摘樱桃](#20240506-hard-741-摘樱桃)
+  - [20240505 Easy 1652. 拆炸弹](#20240505-easy-1652-拆炸弹)
+  - [20240504 Hard 1235. 规划兼职工作](#20240504-hard-1235-规划兼职工作)
+  - [20240503 Easy 1491. 去掉最低工资和最高工资后的工资平均值](#20240503-easy-1491-去掉最低工资和最高工资后的工资平均值)
+
 
 ## 20240528 Easy [2951. 找出峰值](https://leetcode.cn/problems/find-the-peaks/)
 
@@ -576,7 +605,7 @@ class Solution:
         return ans
 ```
 
-## 2024050 Medium [2079. 给植物浇水](https://leetcode.cn/problems/watering-plants/)
+## 20240508 Medium [2079. 给植物浇水](https://leetcode.cn/problems/watering-plants/)
 
 ```python
 class Solution:
@@ -821,7 +850,7 @@ class Solution:
 ```
 
 
-## 20240510 Easy [1491. 去掉最低工资和最高工资后的工资平均值](https://leetcode.cn/problems/average-salary-excluding-the-minimum-and-maximum-salary/)
+## 20240503 Easy [1491. 去掉最低工资和最高工资后的工资平均值](https://leetcode.cn/problems/average-salary-excluding-the-minimum-and-maximum-salary/)
 
 补卡。
 

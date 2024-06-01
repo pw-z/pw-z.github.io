@@ -2,12 +2,51 @@
 
 *Created on 2024.05.28 by [Zhang Pengwei](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)* 
 
+这是刷题的草稿纸，随笔写写思路，没有阅读价值。
 
 题单地址：https://leetcode.cn/studyplan/leetcode-75/
 
 简单：`*`  
 中等：`**`  
 困难：`***`
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [Leetcode Study Plan Leetcode-75 Scratch Paper](#leetcode-study-plan-leetcode-75-scratch-paper)
+  - [数组/字符串](#数组字符串)
+      - [1768. Merge Strings Alternately*](#1768-merge-strings-alternatelyhttpsleetcodecnproblemsmerge-strings-alternately)
+      - [](#)
+      - [](#-1)
+      - [](#-2)
+      - [](#-3)
+      - [](#-4)
+  - [双指针](#双指针)
+      - [](#-5)
+      - [](#-6)
+      - [](#-7)
+  - [滑动窗口](#滑动窗口)
+      - [](#-8)
+      - [](#-9)
+      - [](#-10)
+  - [前缀和](#前缀和)
+      - [](#-11)
+      - [](#-12)
+      - [](#-13)
+  - [哈希](#哈希)
+      - [](#-14)
+      - [](#-15)
+      - [](#-16)
+  - [栈](#栈)
+      - [](#-17)
+      - [](#-18)
+      - [](#-19)
+
+<!-- /code_chunk_output -->
+
+
 
 ## 数组/字符串
 
