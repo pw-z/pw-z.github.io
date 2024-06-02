@@ -39,6 +39,7 @@
       - [2215. 找出两数组的不同](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
       - [1207. 独一无二的出现次数](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
       - [1657. 确定两个字符串是否接近](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
+      - [2352. 相等行列对](#2352-相等行列对httpsleetcodecnproblemsequal-row-and-column-pairs)
   - [栈](#栈)
       - [](#-10)
       - [](#-11)
@@ -321,6 +322,7 @@ class Solution:
         return [list(set1-set2), list(set2-set1)]
 ```
 
+
 #### [1207. 独一无二的出现次数](https://leetcode.cn/problems/unique-number-of-occurrences/)
 
 ```python
@@ -333,7 +335,10 @@ class Solution:
         return len(set(count.values())) == len(count.values())
 ```
 
+
 #### [1657. 确定两个字符串是否接近](https://leetcode.cn/problems/determine-if-two-strings-are-close/)
+
+Python 的 collections 模块中的 Counter 类是一个字典子类，用于计数可哈希对象。它是一个集合，元素是存储在字典中的键，而每个键的值是该键出现的次数。
 
 Python 中的 `Counter` 对象可以直接进行比较。`Counter` 是一个可哈希（hashable）的对象，这意味着两个 `Counter` 对象可以直接使用比较运算符（如 `==`, `!=`, `<`, `>`, `<=`, `>=`）来进行比较。
 
@@ -381,6 +386,7 @@ else:
 ```python
 class Solution:
     def closeStrings(self, word1: str, word2: str) -> bool:
+        # O(m+n), O(26)
         m, n = len(word1), len(word2)
         if m != n: return False
         
@@ -396,6 +402,26 @@ class Solution:
         # print(count1.values() == count2.values())
         
         return count1.keys() == count2.keys() and Counter(count1.values()) == Counter(count2.values())
+```
+
+
+#### [2352. 相等行列对](https://leetcode.cn/problems/equal-row-and-column-pairs/)
+
+```python
+class Solution:
+    def equalPairs(self, grid: List[List[int]]) -> int:
+        # O(n^2), O(n)
+        n = len(grid)
+        ans = 0
+        cache = defaultdict(int)
+        for r in grid:
+            cache[tuple(r)] += 1
+        for c in range(n):
+            k = []
+            for r in range(n):
+                k.append(grid[r][c])
+            ans += cache[tuple(k)]
+        return ans
 ```
 
 
