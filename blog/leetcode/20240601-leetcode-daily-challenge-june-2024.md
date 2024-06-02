@@ -1,7 +1,7 @@
 # Leetcode Daily Challenge June 2024
 
 
-## **Easy**|Medium|Hard [2928. 给小朋友们分糖果 I](https://leetcode.cn/problems/distribute-candies-among-children-i/)
+## Easy[x]|Medium|Hard [2928. 给小朋友们分糖果 I](https://leetcode.cn/problems/distribute-candies-among-children-i/)
 
 ```python
 class Solution:
@@ -16,7 +16,7 @@ class Solution:
 ```
 
 
-## **Easy**|Medium|Hard [575. 分糖果](https://leetcode.cn/problems/distribute-candies)
+## Easy[x]|Medium|Hard [575. 分糖果](https://leetcode.cn/problems/distribute-candies)
 
 ```python
 class Solution:
