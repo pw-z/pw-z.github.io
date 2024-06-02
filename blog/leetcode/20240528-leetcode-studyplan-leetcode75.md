@@ -37,12 +37,12 @@
       - [](#-9)
   - [哈希](#哈希)
       - [2215. 找出两数组的不同](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
+      - [1207. 独一无二的出现次数](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
       - [](#-10)
-      - [](#-11)
   - [栈](#栈)
+      - [](#-11)
       - [](#-12)
       - [](#-13)
-      - [](#-14)
 
 <!-- /code_chunk_output -->
 
@@ -321,13 +321,17 @@ class Solution:
         return [list(set1-set2), list(set2-set1)]
 ```
 
-
-#### []()
+#### [1207. 独一无二的出现次数](https://leetcode.cn/problems/unique-number-of-occurrences/)
 
 ```python
-
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        # O(n), O(n)
+        count = collections.defaultdict(int)
+        for num in arr:
+            count[num] += 1
+        return len(set(count.values())) == len(count.values())
 ```
-
 
 #### []()
 
