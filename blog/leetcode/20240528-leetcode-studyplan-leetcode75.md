@@ -46,17 +46,17 @@
       - [](#-12)
   - [位运算](#位运算)
       - [338. 比特位计数](#338-比特位计数httpsleetcodecnproblemscounting-bits)
+      - [136. 只出现一次的数字](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
       - [](#-13)
-      - [](#-14)
   - [前缀树](#前缀树)
+      - [](#-14)
       - [](#-15)
-      - [](#-16)
   - [区间集合](#区间集合)
+      - [](#-16)
       - [](#-17)
-      - [](#-18)
   - [单调栈](#单调栈)
+      - [](#-18)
       - [](#-19)
-      - [](#-20)
 
 <!-- /code_chunk_output -->
 
@@ -521,10 +521,17 @@ class Solution:
 ```
 
 
-#### []()
+#### [136. 只出现一次的数字](https://leetcode.cn/problems/single-number/)
 
 ```python
-
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        # O(n), O(1)
+        # 异或运算满足交换律
+        ans = nums[0]
+        for i in range(1, len(nums)):
+            ans = ans ^ nums[i]
+        return ans
 ```
 
 
