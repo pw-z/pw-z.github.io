@@ -17,32 +17,32 @@
 
 - [Leetcode Study Plan Leetcode-75 Scratch Paper](#leetcode-study-plan-leetcode-75-scratch-paper)
   - [数组/字符串](#数组字符串)
-      - [1768. 交替合并字符串\*](#1768-交替合并字符串)
+      - [1768. 交替合并字符串*](#1768-交替合并字符串httpsleetcodecnproblemsmerge-strings-alternately)
       - [](#)
       - [](#-1)
       - [](#-2)
       - [](#-3)
       - [](#-4)
   - [双指针](#双指针)
-      - [283. 移动零\*](#283-移动零)
+      - [283. 移动零*](#283-移动零httpsleetcodecnproblemsmove-zeroes)
       - [](#-5)
       - [](#-6)
   - [滑动窗口](#滑动窗口)
-      - [643. 子数组最大平均数 I\*](#643-子数组最大平均数-i)
+      - [643. 子数组最大平均数 I*](#643-子数组最大平均数-ihttpsleetcodecnproblemsmaximum-average-subarray-i)
       - [](#-7)
       - [](#-8)
   - [前缀和](#前缀和)
-      - [1732. 找到最高海拔\*](#1732-找到最高海拔)
-      - [724. 寻找数组的中心下标\*](#724-寻找数组的中心下标)
+      - [1732. 找到最高海拔*](#1732-找到最高海拔httpsleetcodecnproblemsfind-the-highest-altitude)
+      - [724. 寻找数组的中心下标*](#724-寻找数组的中心下标httpsleetcodecnproblemsfind-pivot-index)
       - [](#-9)
   - [哈希](#哈希)
+      - [2215. 找出两数组的不同](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
       - [](#-10)
       - [](#-11)
-      - [](#-12)
   - [栈](#栈)
+      - [](#-12)
       - [](#-13)
       - [](#-14)
-      - [](#-15)
 
 <!-- /code_chunk_output -->
 
@@ -272,10 +272,53 @@ class Solution:
 
 ## 哈希
 
-#### []()
+#### [2215. 找出两数组的不同](https://leetcode.cn/problems/find-the-difference-of-two-arrays/)
+
+在Python中，`set` 类型提供了一个方便的方法来执行集合之间的减法操作，即计算两个集合的差集。差集是指第一个集合中存在而第二个集合中不存在的所有元素组成的集合。
+
+语法：
+```python
+set1.difference(set2)
+```
+或者使用更现代的语法：
+```python
+set1 - set2
+```
+
+示例：
+```python
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+
+# 使用 difference 方法
+difference_set = set1.difference(set2)
+print(difference_set)  # 输出: {1, 2}
+
+# 使用 - 运算符
+difference_set = set1 - set2
+print(difference_set)  # 输出: {1, 2}
+```
+
+说明：  
+- `difference()` 方法返回一个新集合，包含 `set1` 中所有不在 `set2` 中的元素。
+- `-` 运算符也执行相同的操作，返回 `set1` 和 `set2` 的差集。
+- 这些操作都是不可变的，意味着原始集合 `set1` 和 `set2` 不会被修改。
+- 如果想要从原始集合中直接移除与另一个集合相同的元素，可以使用 `difference_update()` 方法：
+  ```python
+  set1.difference_update(set2)
+  ```
+  这会直接修改 `set1`，移除那些在 `set2` 中的元素。
+
+时间复杂度:  
+集合的差集操作的时间复杂度是 O(len(set2))，这是因为它需要遍历第二个集合 `set2` 中的每个元素，并检查它们是否在第一个集合 `set1` 中。由于集合是基于哈希表实现的，每个查找操作的平均时间复杂度是 O(1)，因此总的时间复杂度与 `set2` 中元素的数量成正比。
+
 
 ```python
-
+class Solution:
+    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        # O(n), O(n)
+        set1, set2 = set(nums1), set(nums2)
+        return [list(set1-set2), list(set2-set1)]
 ```
 
 
