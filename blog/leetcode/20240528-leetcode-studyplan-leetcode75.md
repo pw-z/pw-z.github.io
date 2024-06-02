@@ -38,11 +38,11 @@
   - [哈希](#哈希)
       - [2215. 找出两数组的不同](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
       - [1207. 独一无二的出现次数](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
-      - [](#-10)
+      - [1657. 确定两个字符串是否接近](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
   - [栈](#栈)
+      - [](#-10)
       - [](#-11)
       - [](#-12)
-      - [](#-13)
 
 <!-- /code_chunk_output -->
 
@@ -333,10 +333,69 @@ class Solution:
         return len(set(count.values())) == len(count.values())
 ```
 
-#### []()
+#### [1657. 确定两个字符串是否接近](https://leetcode.cn/problems/determine-if-two-strings-are-close/)
+
+Python 中的 `Counter` 对象可以直接进行比较。`Counter` 是一个可哈希（hashable）的对象，这意味着两个 `Counter` 对象可以直接使用比较运算符（如 `==`, `!=`, `<`, `>`, `<=`, `>=`）来进行比较。
+
+比较两个 `Counter` 对象时，它们会根据它们的元素及其计数进行比较。两个 `Counter` 对象相等（`==`）当且仅当它们的键（元素类型）相同，并且每个键的计数也相同。
+
+示例代码：
+```python
+from collections import Counter
+
+# 创建两个 Counter 对象
+counter1 = Counter(['apple', 'banana', 'apple'])
+counter2 = Counter(['banana', 'apple', 'apple'])
+
+# 比较两个 Counter 对象
+print(counter1 == counter2)  # 输出: True，因为它们有相同的元素和计数
+
+# 改变 counter2 的一个元素的计数
+counter2['banana'] += 1
+
+# 再次比较
+print(counter1 == counter2)  # 输出: False，因为现在它们的计数不同
+```
+
+在这个示例中，`counter1` 和 `counter2` 最初是相等的，因为它们包含相同的元素和计数。当我们改变 `counter2` 中 `banana` 的计数后，这两个 `Counter` 对象就不相等了。
+
+这种比较非常有用，特别是在你需要检查两个数据集中元素的出现频率是否相同时。
+
+另外在Python中，你可以直接比较两个字典的键（keys）集合。由于字典的键在Python中是无序的，并且它们是基于哈希的集合，因此比较两个字典的键是否相同通常意味着比较它们的键集合是否相等。
+
+你可以使用集合（set）的相等性比较来做到这一点，因为集合是无序的，并且只包含唯一的元素。你可以通过将字典的键转换为集合，然后比较这两个集合来比较字典的键。
+
+以下是一个示例：
+```python
+dict1 = {'a': 1, 'b': 2, 'c': 3}  
+dict2 = {'c': 3, 'b': 2, 'a': 1}  
+  
+# 使用set来比较字典的键  
+if set(dict1.keys()) == set(dict2.keys()):  
+    print("两个字典的键相同")  
+else:  
+    print("两个字典的键不同")
+```
+在这个例子中，尽管dict1和dict2的键的顺序不同，但它们的键集合是相同的，因此输出将是“两个字典的键相同”。
 
 ```python
-
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        m, n = len(word1), len(word2)
+        if m != n: return False
+        
+        # count1, count2 = defaultdict(int), defaultdict(int)
+        # for c1, c2 in zip(word1, word2):
+        #     count1[c1] += 1
+        #     count2[c2] += 1
+        count1, count2 = collections.Counter(word1), collections.Counter(word2)
+        # print(count1, count2)
+        # print(count1.keys(), count2.keys())
+        # print(count1.keys()== count2.keys())
+        # print(count1.values(), count2.values())
+        # print(count1.values() == count2.values())
+        
+        return count1.keys() == count2.keys() and Counter(count1.values()) == Counter(count2.values())
 ```
 
 
