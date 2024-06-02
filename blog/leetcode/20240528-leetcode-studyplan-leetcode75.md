@@ -18,45 +18,45 @@
 - [Leetcode Study Plan Leetcode-75 Scratch Paper](#leetcode-study-plan-leetcode-75-scratch-paper)
   - [数组/字符串](#数组字符串)
       - [1768. 交替合并字符串*](#1768-交替合并字符串httpsleetcodecnproblemsmerge-strings-alternately)
+      - [1071. 字符串的最大公因子](#1071-字符串的最大公因子httpsleetcodecnproblemsgreatest-common-divisor-of-strings)
       - [](#)
       - [](#-1)
       - [](#-2)
       - [](#-3)
-      - [](#-4)
   - [双指针](#双指针)
       - [283. 移动零*](#283-移动零httpsleetcodecnproblemsmove-zeroes)
+      - [](#-4)
       - [](#-5)
-      - [](#-6)
   - [滑动窗口](#滑动窗口)
       - [643. 子数组最大平均数 I*](#643-子数组最大平均数-ihttpsleetcodecnproblemsmaximum-average-subarray-i)
+      - [](#-6)
       - [](#-7)
-      - [](#-8)
   - [前缀和](#前缀和)
       - [1732. 找到最高海拔*](#1732-找到最高海拔httpsleetcodecnproblemsfind-the-highest-altitude)
       - [724. 寻找数组的中心下标*](#724-寻找数组的中心下标httpsleetcodecnproblemsfind-pivot-index)
-      - [](#-9)
+      - [](#-8)
   - [哈希](#哈希)
       - [2215. 找出两数组的不同*](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
       - [1207. 独一无二的出现次数*](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
       - [1657. 确定两个字符串是否接近**](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
       - [2352. 相等行列对**](#2352-相等行列对httpsleetcodecnproblemsequal-row-and-column-pairs)
   - [栈](#栈)
+      - [](#-9)
       - [](#-10)
       - [](#-11)
-      - [](#-12)
   - [位运算](#位运算)
       - [338. 比特位计数*](#338-比特位计数httpsleetcodecnproblemscounting-bits)
       - [136. 只出现一次的数字*](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
       - [1318. 或运算的最小翻转次数**](#1318-或运算的最小翻转次数httpsleetcodecnproblemsminimum-flips-to-make-a-or-b-equal-to-c)
   - [前缀树](#前缀树)
+      - [](#-12)
       - [](#-13)
-      - [](#-14)
   - [区间集合](#区间集合)
+      - [](#-14)
       - [](#-15)
-      - [](#-16)
   - [单调栈](#单调栈)
+      - [](#-16)
       - [](#-17)
-      - [](#-18)
 
 <!-- /code_chunk_output -->
 
@@ -84,10 +84,45 @@ class Solution:
 ```
 
 
-#### []()
+#### [1071. 字符串的最大公因子](https://leetcode.cn/problems/greatest-common-divisor-of-strings)
+
+辗转相除法，也称为欧几里得算法（Euclidean Algorithm），是用于求解两个整数（a 和 b）的最大公约数（GCD）的一种算法。它的基本思想是：用较大的数除以较小的数，再用出现的余数（第一余数）去除除数，再用出现的余数（第二余数）去除第一余数，如此反复，直到最后余数为0为止。那么，最后一个除数就是所求的最大公约数。
+
+具体步骤如下：
+
+    初始化 a 和 b，假设 a > b。
+    计算 a 除以 b 的余数，记作 r。
+    将 b 的值赋给 a，将 r 的值赋给 b。
+    重复步骤 2 和 3，直到 r 为 0。
+    当 r 为 0 时，b 就是 a 和 b 的最大公约数。
+
+用数学符号表示，算法可以描述为：
+
+GCD(a, b) = GCD(b, a mod b)
+
+其中 "mod" 表示取余操作。
+
+下面是一个简单的 Python 实现：
 
 ```python
+def gcd(a, b):  
+    while b != 0:  
+        a, b = b, a % b  
+    return a  
+  
+# 示例  
+print(gcd(48, 18))  # 输出 6
+```
+在这个例子中，48 和 18 的最大公约数是 6。
 
+```python
+class Solution:
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        # O(n), O(n)
+        if str1+str2 == str2+str1:
+            _gcd = math.gcd(len(str1), len(str2))
+            return str1[:_gcd]
+        return ""
 ```
 
 
