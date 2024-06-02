@@ -36,14 +36,27 @@
       - [724. 寻找数组的中心下标*](#724-寻找数组的中心下标httpsleetcodecnproblemsfind-pivot-index)
       - [](#-9)
   - [哈希](#哈希)
-      - [2215. 找出两数组的不同](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
-      - [1207. 独一无二的出现次数](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
-      - [1657. 确定两个字符串是否接近](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
-      - [2352. 相等行列对](#2352-相等行列对httpsleetcodecnproblemsequal-row-and-column-pairs)
+      - [2215. 找出两数组的不同*](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
+      - [1207. 独一无二的出现次数*](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
+      - [1657. 确定两个字符串是否接近**](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
+      - [2352. 相等行列对**](#2352-相等行列对httpsleetcodecnproblemsequal-row-and-column-pairs)
   - [栈](#栈)
       - [](#-10)
       - [](#-11)
       - [](#-12)
+  - [位运算](#位运算)
+      - [338. 比特位计数](#338-比特位计数httpsleetcodecnproblemscounting-bits)
+      - [](#-13)
+      - [](#-14)
+  - [前缀树](#前缀树)
+      - [](#-15)
+      - [](#-16)
+  - [区间集合](#区间集合)
+      - [](#-17)
+      - [](#-18)
+  - [单调栈](#单调栈)
+      - [](#-19)
+      - [](#-20)
 
 <!-- /code_chunk_output -->
 
@@ -273,7 +286,7 @@ class Solution:
 
 ## 哈希
 
-#### [2215. 找出两数组的不同](https://leetcode.cn/problems/find-the-difference-of-two-arrays/)
+#### [2215. 找出两数组的不同*](https://leetcode.cn/problems/find-the-difference-of-two-arrays/)
 
 在Python中，`set` 类型提供了一个方便的方法来执行集合之间的减法操作，即计算两个集合的差集。差集是指第一个集合中存在而第二个集合中不存在的所有元素组成的集合。
 
@@ -323,7 +336,7 @@ class Solution:
 ```
 
 
-#### [1207. 独一无二的出现次数](https://leetcode.cn/problems/unique-number-of-occurrences/)
+#### [1207. 独一无二的出现次数*](https://leetcode.cn/problems/unique-number-of-occurrences/)
 
 ```python
 class Solution:
@@ -336,7 +349,7 @@ class Solution:
 ```
 
 
-#### [1657. 确定两个字符串是否接近](https://leetcode.cn/problems/determine-if-two-strings-are-close/)
+#### [1657. 确定两个字符串是否接近**](https://leetcode.cn/problems/determine-if-two-strings-are-close/)
 
 Python 的 collections 模块中的 Counter 类是一个字典子类，用于计数可哈希对象。它是一个集合，元素是存储在字典中的键，而每个键的值是该键出现的次数。
 
@@ -405,7 +418,7 @@ class Solution:
 ```
 
 
-#### [2352. 相等行列对](https://leetcode.cn/problems/equal-row-and-column-pairs/)
+#### [2352. 相等行列对**](https://leetcode.cn/problems/equal-row-and-column-pairs/)
 
 ```python
 class Solution:
@@ -433,6 +446,129 @@ class Solution:
 
 ```
 
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+## 位运算
+
+Python支持常见的位运算符，这些运算符对整数类型进行位级操作。以下是Python支持的位运算符：
+
+1. **按位与** (`&`): 对应二进制位进行逻辑与操作，只有两个位都是1时，结果位才为1。
+2. **按位或** (`|`): 对应二进制位进行逻辑或操作，只要两个位中有一个为1，结果位就为1。
+3. **按位异或** (`^`): 对应二进制位进行逻辑异或操作，只有两个位不同的时候，结果位才为1。
+4. **按位取反** (`~`): 对一个数进行按位取反操作，将所有的1变成0，0变成1。
+5. **左移** (`<<`): 将一个数的所有位向左移动指定位数，右边空出的位填充0。
+6. **右移** (`>>`): 将一个数的所有位向右移动指定位数，左边空出的位根据符号位进行填充（正数补0，负数补1）。
+
+示例代码：
+
+```python
+# 定义两个整数
+a = 60  # 在二进制中表示为 111100
+b = 13  # 在二进制中表示为 0011001
+
+# 按位与
+print(a & b)  # 输出 12，二进制为 001100
+
+# 按位或
+print(a | b)  # 输出 61，二进制为 111101
+
+# 按位异或
+print(a ^ b)  # 输出 49，二进制为 110001
+
+# 按位取反
+print(~a)     # 输出 -61，二进制为 0000...0010111（取决于整数的大小）
+
+# 左移
+print(a << 1) # 输出 120，二进制为 11100000
+
+# 右移
+print(b >> 1) # 输出 6，二进制为 00110
+```
+
+位运算在处理二进制数据、优化算法性能（如某些加密算法、哈希函数）、硬件编程等方面非常有用。Python中的整数类型是任意精度的，这意味着位运算可以应用于非常大的整数，而不仅仅是固定大小的整数。
+
+#### [338. 比特位计数](https://leetcode.cn/problems/counting-bits/)
+
+```python
+class Solution:
+    def countBits(self, n: int) -> List[int]:
+        # O(n), O(1)
+        # >>> 10 & 9  
+        # 8  
+        # >>> bin(10)  
+        # '0b1010'  
+        # >>> bin(9)  
+        # '0b1001'  
+        # >>> bin(8)  
+        # '0b1000'  
+        ans = [0]
+        for i in range(1, n+1):
+            ans.append(ans[i&(i-1)]+1)
+        return ans
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+## 前缀树
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+
+## 区间集合
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+## 单调栈
 
 #### []()
 
