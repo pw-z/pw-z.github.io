@@ -45,18 +45,18 @@
       - [](#-11)
       - [](#-12)
   - [位运算](#位运算)
-      - [338. 比特位计数](#338-比特位计数httpsleetcodecnproblemscounting-bits)
-      - [136. 只出现一次的数字](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
-      - [](#-13)
+      - [338. 比特位计数*](#338-比特位计数httpsleetcodecnproblemscounting-bits)
+      - [136. 只出现一次的数字*](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
+      - [1318. 或运算的最小翻转次数**](#1318-或运算的最小翻转次数httpsleetcodecnproblemsminimum-flips-to-make-a-or-b-equal-to-c)
   - [前缀树](#前缀树)
+      - [](#-13)
       - [](#-14)
-      - [](#-15)
   - [区间集合](#区间集合)
+      - [](#-15)
       - [](#-16)
-      - [](#-17)
   - [单调栈](#单调栈)
+      - [](#-17)
       - [](#-18)
-      - [](#-19)
 
 <!-- /code_chunk_output -->
 
@@ -500,7 +500,7 @@ print(b >> 1) # 输出 6，二进制为 00110
 
 位运算在处理二进制数据、优化算法性能（如某些加密算法、哈希函数）、硬件编程等方面非常有用。Python中的整数类型是任意精度的，这意味着位运算可以应用于非常大的整数，而不仅仅是固定大小的整数。
 
-#### [338. 比特位计数](https://leetcode.cn/problems/counting-bits/)
+#### [338. 比特位计数*](https://leetcode.cn/problems/counting-bits/)
 
 ```python
 class Solution:
@@ -521,7 +521,7 @@ class Solution:
 ```
 
 
-#### [136. 只出现一次的数字](https://leetcode.cn/problems/single-number/)
+#### [136. 只出现一次的数字*](https://leetcode.cn/problems/single-number/)
 
 ```python
 class Solution:
@@ -535,10 +535,16 @@ class Solution:
 ```
 
 
-#### []()
+#### [1318. 或运算的最小翻转次数**](https://leetcode.cn/problems/minimum-flips-to-make-a-or-b-equal-to-c/)
 
 ```python
-
+class Solution:
+    def minFlips(self, a: int, b: int, c: int) -> int:
+        ans = 0
+        for i in range(32): # 2**32 = 4 294 967 296
+            x,y,z = (a>>i)&1,  (b>>i)&1,  (c>>i)&1
+            ans += (x+y) if z == 0 else int((x+y)==0)
+        return ans
 ```
 
 
