@@ -17,46 +17,46 @@
 
 - [Leetcode Study Plan Leetcode-75 Scratch Paper](#leetcode-study-plan-leetcode-75-scratch-paper)
   - [数组/字符串](#数组字符串)
-      - [1768. 交替合并字符串*](#1768-交替合并字符串httpsleetcodecnproblemsmerge-strings-alternately)
-      - [1071. 字符串的最大公因子](#1071-字符串的最大公因子httpsleetcodecnproblemsgreatest-common-divisor-of-strings)
+      - [1768. 交替合并字符串\*](#1768-交替合并字符串)
+      - [1071. 字符串的最大公因子\*](#1071-字符串的最大公因子)
+      - [1431. 拥有最多糖果的孩子\*](#1431-拥有最多糖果的孩子)
       - [](#)
       - [](#-1)
       - [](#-2)
-      - [](#-3)
   - [双指针](#双指针)
-      - [283. 移动零*](#283-移动零httpsleetcodecnproblemsmove-zeroes)
+      - [283. 移动零\*](#283-移动零)
+      - [](#-3)
       - [](#-4)
-      - [](#-5)
   - [滑动窗口](#滑动窗口)
-      - [643. 子数组最大平均数 I*](#643-子数组最大平均数-ihttpsleetcodecnproblemsmaximum-average-subarray-i)
+      - [643. 子数组最大平均数 I\*](#643-子数组最大平均数-i)
+      - [](#-5)
       - [](#-6)
-      - [](#-7)
   - [前缀和](#前缀和)
-      - [1732. 找到最高海拔*](#1732-找到最高海拔httpsleetcodecnproblemsfind-the-highest-altitude)
-      - [724. 寻找数组的中心下标*](#724-寻找数组的中心下标httpsleetcodecnproblemsfind-pivot-index)
-      - [](#-8)
+      - [1732. 找到最高海拔\*](#1732-找到最高海拔)
+      - [724. 寻找数组的中心下标\*](#724-寻找数组的中心下标)
+      - [](#-7)
   - [哈希](#哈希)
-      - [2215. 找出两数组的不同*](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
-      - [1207. 独一无二的出现次数*](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
-      - [1657. 确定两个字符串是否接近**](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
-      - [2352. 相等行列对**](#2352-相等行列对httpsleetcodecnproblemsequal-row-and-column-pairs)
+      - [2215. 找出两数组的不同\*](#2215-找出两数组的不同)
+      - [1207. 独一无二的出现次数\*](#1207-独一无二的出现次数)
+      - [1657. 确定两个字符串是否接近\*\*](#1657-确定两个字符串是否接近)
+      - [2352. 相等行列对\*\*](#2352-相等行列对)
   - [栈](#栈)
+      - [](#-8)
       - [](#-9)
       - [](#-10)
-      - [](#-11)
   - [位运算](#位运算)
-      - [338. 比特位计数*](#338-比特位计数httpsleetcodecnproblemscounting-bits)
-      - [136. 只出现一次的数字*](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
-      - [1318. 或运算的最小翻转次数**](#1318-或运算的最小翻转次数httpsleetcodecnproblemsminimum-flips-to-make-a-or-b-equal-to-c)
+      - [338. 比特位计数\*](#338-比特位计数)
+      - [136. 只出现一次的数字\*](#136-只出现一次的数字)
+      - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
+      - [](#-11)
       - [](#-12)
-      - [](#-13)
   - [区间集合](#区间集合)
+      - [](#-13)
       - [](#-14)
-      - [](#-15)
   - [单调栈](#单调栈)
+      - [](#-15)
       - [](#-16)
-      - [](#-17)
 
 <!-- /code_chunk_output -->
 
@@ -84,7 +84,7 @@ class Solution:
 ```
 
 
-#### [1071. 字符串的最大公因子](https://leetcode.cn/problems/greatest-common-divisor-of-strings)
+#### [1071. 字符串的最大公因子*](https://leetcode.cn/problems/greatest-common-divisor-of-strings)
 
 辗转相除法，也称为欧几里得算法（Euclidean Algorithm），是用于求解两个整数（a 和 b）的最大公约数（GCD）的一种算法。它的基本思想是：用较大的数除以较小的数，再用出现的余数（第一余数）去除除数，再用出现的余数（第二余数）去除第一余数，如此反复，直到最后余数为0为止。那么，最后一个除数就是所求的最大公约数。
 
@@ -126,10 +126,18 @@ class Solution:
 ```
 
 
-#### []()
+#### [1431. 拥有最多糖果的孩子*](https://leetcode.cn/problems/kids-with-the-greatest-number-of-candies)
 
 ```python
-
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        # O(n), O(1)
+        _max = max(candies)
+        # ans = []
+        # for i in candies:
+        #     ans.append(i + extraCandies >= _max)
+        # return ans
+        return [i + extraCandies >= _max for i in candies]
 ```
 
 
