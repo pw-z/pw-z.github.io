@@ -1,13 +1,14 @@
 # JAVA基础
 
-
 *trivial summaries*  
+[20240603 独立开发原型应用涉及的基础技术栈回顾][trivial03]
 [20220807 关于架构分层及缩写名称的主题阅读与随笔][trivial02]  
 [20220807 JavaWeb技术栈概览与小结][trivial01]
 
 <!-- links -------------------------------->
 [trivial01]:./trivial/20220807-java-web-fundamentals-coding-and-summary/blog/mindmap.html
 [trivial02]:./trivial/20220807-project-architect-and-java-bean-acronyms
+[trivial03]:./trivial/20240603-mvp-web-app-tech-stack
 <!-- links -------------------------------->
 
 
