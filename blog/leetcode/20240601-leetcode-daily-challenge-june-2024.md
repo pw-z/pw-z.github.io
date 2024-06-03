@@ -1,7 +1,7 @@
 # Leetcode Daily Challenge June 2024
 
 
-## Easy[x]|Medium|Hard [2928. 给小朋友们分糖果 I](https://leetcode.cn/problems/distribute-candies-among-children-i/)
+## 20240601 Easy [2928. 给小朋友们分糖果 I](https://leetcode.cn/problems/distribute-candies-among-children-i/)
 
 ```python
 class Solution:
@@ -16,7 +16,7 @@ class Solution:
 ```
 
 
-## Easy[x]|Medium|Hard [575. 分糖果](https://leetcode.cn/problems/distribute-candies)
+## 20240602 Easy [575. 分糖果](https://leetcode.cn/problems/distribute-candies)
 
 ```python
 class Solution:
@@ -31,10 +31,32 @@ class Solution:
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240603 Easy [1103. 分糖果 II](https://leetcode.cn/problems/distribute-candies-to-people/)
 
 ```python
+class Solution:
+    def distributeCandies(self, candies: int, num_people: int) -> List[int]:
+        
+        # WA，第二轮不是又从1开始分的，不好好读题
+        # # 1轮分配消耗的糖果
+        # one_round_count = (1+num_people)*(num_people//2) + (1+num_people)//2*(num_people%2)
+        # # 能分配几轮？最后一轮还剩几个？
+        # rounds, remains = candies // one_round_count, candies % one_round_count
+        # # print(one_round_count, rounds, remains)
+        # ans = list()
+        # for i in range(1, num_people+1):
+        #     ans.append(i * rounds + (i if remains >= i else remains))
+        #     remains = max(remains - i, 0)
+        # return ans
 
+        # 暴力模拟， O(max(G,N))\mathcal{O}(max(\sqrt{G}, N))O(max(G​,N))， O(1)
+        i = 1
+        ans = [0]*num_people
+        while candies > 0:
+            ans[i % num_people -1] += min(i, candies)
+            candies -= i
+            i += 1
+        return ans
 ```
 
 
