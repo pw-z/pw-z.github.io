@@ -47,19 +47,22 @@
       - [](#-8)
       - [](#-9)
       - [](#-10)
+  - [队列](#队列)
+      - [933. 最近的请求次数](#933-最近的请求次数)
+      - [](#-11)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
       - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
-      - [](#-11)
       - [](#-12)
-  - [区间集合](#区间集合)
       - [](#-13)
+  - [区间集合](#区间集合)
       - [](#-14)
-  - [单调栈](#单调栈)
       - [](#-15)
+  - [单调栈](#单调栈)
       - [](#-16)
+      - [](#-17)
 
 <!-- /code_chunk_output -->
 
@@ -557,6 +560,36 @@ class Solution:
 
 ```python
 
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+## 队列
+
+#### [933. 最近的请求次数](https://leetcode.cn/problems/number-of-recent-calls)
+
+```python
+class RecentCounter:
+
+    def __init__(self):
+        self.dq = collections.deque()
+
+
+    def ping(self, t: int) -> int:
+        self.dq.append(t)
+        while t - 3000 > self.dq[0]:
+            self.dq.popleft()
+        return len(self.dq)
+        
+# Your RecentCounter object will be instantiated and called as such:
+# obj = RecentCounter()
+# param_1 = obj.ping(t)
 ```
 
 
