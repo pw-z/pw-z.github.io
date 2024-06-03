@@ -8,7 +8,7 @@ Hi, this is Pengwei.
 
 [*understanding-sketch*](./blog/understanding-sketch/index.md)  
 [*data-structure-from-scratch*](./blog/data-structure-from-scratch/index.md)  
-[*java-basic-knowledge-review*](./blog/java-basic-knowledge-review/index.md)  
+[*java-basic*](./blog/java-basic/index.md)  
 [*guitar-related*](./blog/guitar/readme.md)  
 [*leetcode-related*](./blog/leetcode/index.md)  
 [*trivial-blogs*](./blog/trivial/readme.md)  
