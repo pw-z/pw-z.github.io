@@ -60,56 +60,87 @@ class Solution:
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240604 Medium [3067. 在带权树网络中统计可连接服务器对数目](https://leetcode.cn/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network/)
+
+今天是CV大师。
+
+```python
+class Solution:
+    def countPairsOfConnectableServers(self, edges: List[List[int]], signalSpeed: int) -> List[int]:
+        n = len(edges) + 1
+        g = [[] for _ in range(n)]
+        for x, y, wt in edges:
+            g[x].append((y, wt))
+            g[y].append((x, wt))
+
+        def dfs(x: int, fa: int, s: int) -> int:
+            cnt = 0 if s % signalSpeed else 1
+            for y, wt in g[x]:
+                if y != fa:
+                    cnt += dfs(y, x, s + wt)
+            return cnt
+
+        ans = [0] * n
+        for i, gi in enumerate(g):
+            if len(gi) == 1:
+                continue
+            s = 0
+            for y, wt in gi:
+                cnt = dfs(y, i, wt)
+                ans[i] += cnt * s
+                s += cnt
+        return ans
+
+作者：灵茶山艾府
+链接：https://leetcode.cn/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network/solutions/2664330/mei-ju-gen-dfs-cheng-fa-yuan-li-pythonja-ivw5/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+
+## 20240604 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240604 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240604 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240604 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240604 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240604 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
-
-```python
-
-```
-
-
-## Easy|Medium|Hard []()
+## 20240604 Easy|Medium|Hard []()
 
 ```python
 
