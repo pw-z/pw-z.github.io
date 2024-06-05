@@ -160,6 +160,58 @@ class Solution:
         return a + b
 ```
 
+`bisect_left` 是 Python 标准库 `bisect` 模块中的一个函数，它用于在一个已排序的列表中进行高效的插入位置查找。具体来说，`bisect_left` 函数返回应该插入 `x` 以保持列表排序的索引，假设列表是已排序的。如果 `x` 已经存在于列表中，`bisect_left` 会返回 `x` 的最左边（即最小索引）的插入点。
+
+这是它的基本用法：
+
+```python
+import bisect
+
+# 假设我们有一个已排序的列表
+lst = [1, 3, 5, 7, 9]
+
+# 我们想找到3应该插入的位置（如果它不在列表中）
+index = bisect.bisect_left(lst, 3)
+print(index)  # 输出：1
+
+# 如果我们查找一个不在列表中的数，比如4
+index = bisect.bisect_left(lst, 4)
+print(index)  # 输出：2
+
+# 注意，如果我们查找的数是列表中的一个元素，它会返回该元素的最左边索引
+index = bisect.bisect_left(lst, 5)
+print(index)  # 输出：2
+```
+这个函数在需要保持列表排序的同时频繁插入元素的场景中非常有用。与简单地遍历列表以找到插入位置相比，`bisect_left` 提供了更快的查找速度，因为它利用了列表的已排序性质。
+
+另外，`bisect` 模块还提供了一个类似的函数 `bisect_right`（或 `bisect`，它们是等价的），该函数与 `bisect_left` 的主要区别在于，当 `x` 存在于列表中时，`bisect_right` 会返回 `x` 的最右边（即最大索引）的插入点。
+
+
+`bisect` 是 Python 的一个内置模块，它提供了支持维护已排序列表的函数。这个模块主要用于在不破坏列表排序的情况下高效地插入新元素或查找元素的插入位置。
+
+`bisect` 模块主要提供了以下几个函数：
+
+1. **bisect_left(a, x, lo=0, hi=len(a))**:
+   这个函数返回应该插入元素 `x` 到已排序列表 `a` 中的索引，以保持列表的排序。如果 `x` 已经存在于 `a` 中，则返回 `x` 的最左边（即最小索引）的插入点。`lo` 和 `hi` 参数可以指定搜索的范围，默认搜索整个列表。
+
+2. **bisect_right(a, x, lo=0, hi=len(a))** (也称为 **bisect(a, x, lo=0, hi=len(a))**):
+   这个函数与 `bisect_left` 类似，但是如果 `x` 已经存在于 `a` 中，则返回 `x` 的最右边（即最大索引）的插入点。在 Python 3.3 版本之前，`bisect` 函数就是 `bisect_right` 的别名。
+
+3. **insort_left(a, x, lo=0, hi=len(a))**:
+   这个函数将元素 `x` 插入到已排序列表 `a` 的适当位置，以保持列表的排序。它与 `a.insert(bisect_left(a, x, lo, hi), x)` 的效果相同，但是更加高效。
+
+4. **insort_right(a, x, lo=0, hi=len(a))**:
+   这个函数与 `insort_left` 类似，但是将 `x` 插入到 `a` 的最右边（如果存在相同元素的话）。它与 `a.insert(bisect_right(a, x, lo, hi), x)` 的效果相同。
+
+5. **bisect_key(func, a, x, lo=0, hi=len(a))**:
+   这个函数与 `bisect_left` 类似，但是允许你指定一个函数 `func` 来计算列表 `a` 中每个元素的排序键。然后，`bisect_key` 会根据这些键来查找 `x` 的插入位置。
+
+6. **insort_key(func, a, x, lo=0, hi=len(a))**:
+   这个函数与 `insort_left` 类似，但是允许你指定一个函数 `func` 来计算列表 `a` 中每个元素的排序键。然后，`insort_key` 会根据这些键来将 `x` 插入到适当的位置。
+
+这些函数在需要频繁对列表进行插入操作，同时又希望保持列表排序的情况下非常有用。它们提供了比简单的线性搜索和插入更高效的方法。
+
+
 
 ## 20240606 Hard []()
 
