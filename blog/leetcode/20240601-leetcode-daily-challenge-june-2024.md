@@ -98,35 +98,91 @@ class Solution:
 ```
 
 
-## 20240604 Easy|Medium|Hard []()
+## 20240605 Hard [3072. 将元素分配到两个数组中 II](https://leetcode.cn/problems/distribute-elements-into-two-arrays-ii/)
+
+树状数组！
+
+```python
+class Fenwick:
+    def __init__(self, n):
+        self.tree = [0]*n
+    
+    def add(self, i):
+        while i < len(self.tree):
+            self.tree[i] += 1
+            i += i & -i
+    
+    def pre(self, i):
+        res = 0
+        while i > 0:
+            res += self.tree[i]
+            i &= i-1
+        return res
+
+class Solution:
+    def resultArray1(self, nums: List[int]) -> List[int]:
+        # 暴力模拟，超时
+        arr1, arr2 = [nums[0]], [nums[1]]
+        for i in range(2, len(nums)):
+            cur = nums[i]
+            greaterCount1 = sum([1 if cur < x else 0 for x in arr1])
+            greaterCount2 = sum([1 if cur < x else 0 for x in arr2])
+            if greaterCount1 > greaterCount2:
+                arr1.append(cur)
+            elif greaterCount1 < greaterCount2:
+                arr2.append(cur)
+            else:
+                if len(arr2) < len(arr1):
+                    arr2.append(cur)
+                else:
+                    arr1.append(cur)
+        return arr1 + arr2
+
+
+    def resultArray(self, nums: List[int]) -> List[int]:
+        # 题解：https://leetcode.cn/problems/distribute-elements-into-two-arrays-ii/solutions/2664646/chi-san-hua-shu-zhuang-shu-zu-pythonjava-3bb2
+        sorted_nums = sorted(set(nums))
+        m = len(sorted_nums)
+        a, b = [nums[0]], [nums[1]]
+        t1, t2 = Fenwick(m+1), Fenwick(m+1)
+        t1.add(bisect_left(sorted_nums, nums[0]) + 1)
+        t2.add(bisect_left(sorted_nums, nums[1]) + 1)
+        for x in nums[2:]:
+            v = bisect_left(sorted_nums, x) + 1
+            gc1 = len(a) - t1.pre(v)
+            gc2 = len(b) - t2.pre(v)
+            if gc1 > gc2 or gc1 == gc2 and len(a) <= len(b):
+                a.append(x)
+                t1.add(v)
+            else:
+                b.append(x)
+                t2.add(v)
+        return a + b
+```
+
+
+## 20240606 Hard []()
 
 ```python
 
 ```
 
 
-## 20240604 Easy|Medium|Hard []()
+## 20240607 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## 20240604 Easy|Medium|Hard []()
+## 20240608 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## 20240604 Easy|Medium|Hard []()
-
-```python
-
-```
-
-
-## 20240604 Easy|Medium|Hard []()
+## 20240609 Easy|Medium|Hard []()
 
 ```python
 
