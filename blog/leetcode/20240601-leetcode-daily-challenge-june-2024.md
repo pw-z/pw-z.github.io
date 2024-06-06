@@ -213,10 +213,39 @@ print(index)  # 输出：2
 
 
 
-## 20240606 Hard []()
+## 20240606 Medium [2938. 区分黑球与白球](https://leetcode.cn/problems/separate-black-and-white-balls/)
 
 ```python
+class Solution:
+    def minimumSteps1(self, s: str) -> int:
+        # O(n), O(1)
+        # 冒泡排序？每一个0冒泡到最左边消耗的步骤 = 0当前位置 - 左边第一个1的位置
+        # 0111010111
+        first_one = r = 0
+        n = len(s)
+        while first_one < n and s[first_one] == '0':
+            first_one += 1
+        
+        # 没有1的情况
+        if first_one >= n:
+            return 0
 
+        ans = 0
+        cnt = 0 # 已经冒泡过几个0，对应的最左边的1也就往右挪过几个位置
+        for r in range(first_one+1, n):
+            # print(first_one, r, s[r], s[r]=='0', cnt)
+            if s[r] == '0':
+                ans += r - first_one - cnt
+                cnt += 1
+        return ans
+            
+    def minimumSteps(self, s: str) -> int:
+        # O(n), O(1)
+        ans = cnt = 0
+        for n in s:
+            if n == '1': cnt += 1
+            else: ans += cnt
+        return ans
 ```
 
 
