@@ -27,41 +27,42 @@
       - [443. 压缩字符串\*\*](#443-压缩字符串)
   - [双指针](#双指针)
       - [283. 移动零\*](#283-移动零)
+      - [392. 判断子序列\*](#392-判断子序列)
+      - [11. 盛最多水的容器\*](#11-盛最多水的容器)
       - [](#)
-      - [](#-1)
   - [滑动窗口](#滑动窗口)
       - [643. 子数组最大平均数 I\*](#643-子数组最大平均数-i)
+      - [](#-1)
       - [](#-2)
-      - [](#-3)
   - [前缀和](#前缀和)
       - [1732. 找到最高海拔\*](#1732-找到最高海拔)
       - [724. 寻找数组的中心下标\*](#724-寻找数组的中心下标)
-      - [](#-4)
+      - [](#-3)
   - [哈希](#哈希)
       - [2215. 找出两数组的不同\*](#2215-找出两数组的不同)
       - [1207. 独一无二的出现次数\*](#1207-独一无二的出现次数)
       - [1657. 确定两个字符串是否接近\*\*](#1657-确定两个字符串是否接近)
       - [2352. 相等行列对\*\*](#2352-相等行列对)
   - [栈](#栈)
+      - [](#-4)
       - [](#-5)
       - [](#-6)
-      - [](#-7)
   - [队列](#队列)
       - [933. 最近的请求次数](#933-最近的请求次数)
-      - [](#-8)
+      - [](#-7)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
       - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
+      - [](#-8)
       - [](#-9)
-      - [](#-10)
   - [区间集合](#区间集合)
+      - [](#-10)
       - [](#-11)
-      - [](#-12)
   - [单调栈](#单调栈)
+      - [](#-12)
       - [](#-13)
-      - [](#-14)
 
 <!-- /code_chunk_output -->
 
@@ -329,10 +330,49 @@ class Solution:
 ```
 
 
-#### []()
+#### [392. 判断子序列*](https://leetcode.cn/problems/is-subsequence/)
 
 ```python
+class Solution:
+    def isSubsequence1(self, s: str, t: str) -> bool:
+        # O(n), O(1)
+        ps = pt = 0
+        ls, lt = len(s), len(t)
+        while ps < ls and pt < lt:
+            if s[ps] == t[pt]:
+                ps += 1
+            pt += 1
+        return ps == ls
 
+    def isSubsequence(self, s: str, t: str) -> bool:
+        # O(n), O(1)
+        if not s: return True
+        p = 0
+        for c in t:
+            if s[p] == c:
+                p += 1
+                if p == len(s):
+                    return True
+        return False
+```
+
+
+#### [11. 盛最多水的容器*](https://leetcode.cn/problems/container-with-most-water/)
+
+```python
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        # O(n), O(1)
+        l, r = 0, len(height)-1
+        max_area = 0
+        while l < r:
+            cur_area = min(height[l], height[r]) * (r - l)
+            max_area = max(max_area, cur_area)
+            if height[l] < height[r]:
+                l += 1
+            else:
+                r -= 1
+        return max_area
 ```
 
 
