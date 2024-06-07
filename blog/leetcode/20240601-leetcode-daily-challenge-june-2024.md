@@ -249,10 +249,24 @@ class Solution:
 ```
 
 
-## 20240607 Easy|Medium|Hard []()
+## 20240607 Easy [3038. 相同分数的最大操作数目 I](https://leetcode.cn/problems/maximum-number-of-operations-with-the-same-score-i)
 
 ```python
-
+class Solution:
+    def maxOperations(self, nums: List[int]) -> int:
+        # O(n), O(1)
+        ans = 0
+        for i in range(1,len(nums), 2):
+            score = nums[i-1] + nums[i]
+            if i == 1:
+                first = score
+                ans += 1
+            else:
+                if score == first:
+                    ans += 1
+                else:
+                    break
+        return ans
 ```
 
 
