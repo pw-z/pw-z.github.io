@@ -17,52 +17,52 @@
 
 - [Leetcode Study Plan Leetcode-75 Scratch Paper](#leetcode-study-plan-leetcode-75-scratch-paper)
   - [数组/字符串](#数组字符串)
-      - [1768. 交替合并字符串*](#1768-交替合并字符串httpsleetcodecnproblemsmerge-strings-alternately)
-      - [1071. 字符串的最大公因子*](#1071-字符串的最大公因子httpsleetcodecnproblemsgreatest-common-divisor-of-strings)
-      - [1431. 拥有最多糖果的孩子*](#1431-拥有最多糖果的孩子httpsleetcodecnproblemskids-with-the-greatest-number-of-candies)
-      - [605. 种花问题*](#605-种花问题httpsleetcodecnproblemscan-place-flowers)
-      - [345. 反转字符串中的元音字母*](#345-反转字符串中的元音字母httpsleetcodecnproblemsreverse-vowels-of-a-string)
-      - [151. 反转字符串中的单词**](#151-反转字符串中的单词httpsleetcodecnproblemsreverse-words-in-a-string)
-      - [238. 除自身以外数组的乘积**](#238-除自身以外数组的乘积httpsleetcodecnproblemsproduct-of-array-except-self)
-      - [443. 压缩字符串**](#443-压缩字符串httpsleetcodecnproblemsstring-compression)
+      - [1768. 交替合并字符串\*](#1768-交替合并字符串)
+      - [1071. 字符串的最大公因子\*](#1071-字符串的最大公因子)
+      - [1431. 拥有最多糖果的孩子\*](#1431-拥有最多糖果的孩子)
+      - [605. 种花问题\*](#605-种花问题)
+      - [345. 反转字符串中的元音字母\*](#345-反转字符串中的元音字母)
+      - [151. 反转字符串中的单词\*\*](#151-反转字符串中的单词)
+      - [238. 除自身以外数组的乘积\*\*](#238-除自身以外数组的乘积)
+      - [443. 压缩字符串\*\*](#443-压缩字符串)
   - [双指针](#双指针)
-      - [283. 移动零*](#283-移动零httpsleetcodecnproblemsmove-zeroes)
-      - [392. 判断子序列*](#392-判断子序列httpsleetcodecnproblemsis-subsequence)
-      - [11. 盛最多水的容器*](#11-盛最多水的容器httpsleetcodecnproblemscontainer-with-most-water)
-      - [1679. K 和数对的最大数目**](#1679-k-和数对的最大数目httpsleetcodecnproblemsmax-number-of-k-sum-pairs)
+      - [283. 移动零\*](#283-移动零)
+      - [392. 判断子序列\*](#392-判断子序列)
+      - [11. 盛最多水的容器\*](#11-盛最多水的容器)
+      - [1679. K 和数对的最大数目\*\*](#1679-k-和数对的最大数目)
   - [滑动窗口](#滑动窗口)
-      - [643. 子数组最大平均数 I*](#643-子数组最大平均数-ihttpsleetcodecnproblemsmaximum-average-subarray-i)
-      - [1456. 定长子串中元音的最大数目**](#1456-定长子串中元音的最大数目httpsleetcodecnproblemsmaximum-number-of-vowels-in-a-substring-of-given-length)
-      - [1004. 最大连续1的个数 III**](#1004-最大连续1的个数-iiihttpsleetcodecnproblemsmax-consecutive-ones-iii)
-      - [1493. 删掉一个元素以后全为 1 的最长子数组**](#1493-删掉一个元素以后全为-1-的最长子数组httpsleetcodecnproblemslongest-subarray-of-1s-after-deleting-one-element)
+      - [643. 子数组最大平均数 I\*](#643-子数组最大平均数-i)
+      - [1456. 定长子串中元音的最大数目\*\*](#1456-定长子串中元音的最大数目)
+      - [1004. 最大连续1的个数 III\*\*](#1004-最大连续1的个数-iii)
+      - [1493. 删掉一个元素以后全为 1 的最长子数组\*\*](#1493-删掉一个元素以后全为-1-的最长子数组)
   - [前缀和](#前缀和)
-      - [1732. 找到最高海拔*](#1732-找到最高海拔httpsleetcodecnproblemsfind-the-highest-altitude)
-      - [724. 寻找数组的中心下标*](#724-寻找数组的中心下标httpsleetcodecnproblemsfind-pivot-index)
+      - [1732. 找到最高海拔\*](#1732-找到最高海拔)
+      - [724. 寻找数组的中心下标\*](#724-寻找数组的中心下标)
   - [哈希](#哈希)
-      - [2215. 找出两数组的不同*](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
-      - [1207. 独一无二的出现次数*](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
-      - [1657. 确定两个字符串是否接近**](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
-      - [2352. 相等行列对**](#2352-相等行列对httpsleetcodecnproblemsequal-row-and-column-pairs)
+      - [2215. 找出两数组的不同\*](#2215-找出两数组的不同)
+      - [1207. 独一无二的出现次数\*](#1207-独一无二的出现次数)
+      - [1657. 确定两个字符串是否接近\*\*](#1657-确定两个字符串是否接近)
+      - [2352. 相等行列对\*\*](#2352-相等行列对)
   - [栈](#栈)
-      - [2390. 从字符串中移除星号**](#2390-从字符串中移除星号httpsleetcodecnproblemsremoving-stars-from-a-string)
-      - [735. 小行星碰撞**](#735-小行星碰撞httpsleetcodecnproblemsasteroid-collision)
-      - [394. 字符串解码**](#394-字符串解码httpsleetcodecnproblemsdecode-string)
+      - [2390. 从字符串中移除星号\*\*](#2390-从字符串中移除星号)
+      - [735. 小行星碰撞\*\*](#735-小行星碰撞)
+      - [394. 字符串解码\*\*](#394-字符串解码)
   - [队列](#队列)
-      - [933. 最近的请求次数](#933-最近的请求次数httpsleetcodecnproblemsnumber-of-recent-calls)
-      - [](#)
+      - [933. 最近的请求次数\*](#933-最近的请求次数)
+      - [649. Dota2 参议院\*\*](#649-dota2-参议院)
   - [位运算](#位运算)
-      - [338. 比特位计数*](#338-比特位计数httpsleetcodecnproblemscounting-bits)
-      - [136. 只出现一次的数字*](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
-      - [1318. 或运算的最小翻转次数**](#1318-或运算的最小翻转次数httpsleetcodecnproblemsminimum-flips-to-make-a-or-b-equal-to-c)
+      - [338. 比特位计数\*](#338-比特位计数)
+      - [136. 只出现一次的数字\*](#136-只出现一次的数字)
+      - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
+      - [](#)
       - [](#-1)
-      - [](#-2)
   - [区间集合](#区间集合)
+      - [](#-2)
       - [](#-3)
-      - [](#-4)
   - [单调栈](#单调栈)
+      - [](#-4)
       - [](#-5)
-      - [](#-6)
 
 <!-- /code_chunk_output -->
 
@@ -915,7 +915,7 @@ class Solution:
 
 ## 队列
 
-#### [933. 最近的请求次数](https://leetcode.cn/problems/number-of-recent-calls)
+#### [933. 最近的请求次数*](https://leetcode.cn/problems/number-of-recent-calls)
 
 ```python
 class RecentCounter:
@@ -936,10 +936,28 @@ class RecentCounter:
 ```
 
 
-#### []()
+#### [649. Dota2 参议院**](https://leetcode.cn/problems/dota2-senate/)
 
 ```python
+class Solution:
+    def predictPartyVictory(self, senate: str) -> str:
+        # O(N)不会超过N次投票就可以决出胜负, O(N)
+        q = deque(senate)
+        cnt = Counter(senate)
+        ban_cnt = {'R':0, 'D':0} # 当前每一方有多少被ban的票数
+        convert_map = {'R':'D', 'D':'R'}
+        ans_map = {'R': 'Radiant', 'D':'Dire'}
+        while q:
+            cur = q.popleft()
+            if ban_cnt[cur] > 0: # 若被ban票数>0，则直接跳过，消耗一个被ban名额
+                ban_cnt[cur] -= 1
+            else: # 否则就是给对方阵营ban一票，并将对方阵营人员总数-1
+                ban_cnt[convert_map[cur]] += 1
+                q.append(cur)
+                cnt.subtract(convert_map[cur])
 
+            if cnt[convert_map[cur]] <= 0: # 任意一方的人员总数被ban到小于等于0时则投票结束
+                return ans_map[cur]
 ```
 
 
