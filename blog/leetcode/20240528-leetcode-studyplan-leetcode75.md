@@ -29,40 +29,40 @@
       - [283. 移动零\*](#283-移动零)
       - [392. 判断子序列\*](#392-判断子序列)
       - [11. 盛最多水的容器\*](#11-盛最多水的容器)
-      - [](#)
+      - [1679. K 和数对的最大数目\*\*](#1679-k-和数对的最大数目)
   - [滑动窗口](#滑动窗口)
       - [643. 子数组最大平均数 I\*](#643-子数组最大平均数-i)
+      - [](#)
       - [](#-1)
-      - [](#-2)
   - [前缀和](#前缀和)
       - [1732. 找到最高海拔\*](#1732-找到最高海拔)
       - [724. 寻找数组的中心下标\*](#724-寻找数组的中心下标)
-      - [](#-3)
+      - [](#-2)
   - [哈希](#哈希)
       - [2215. 找出两数组的不同\*](#2215-找出两数组的不同)
       - [1207. 独一无二的出现次数\*](#1207-独一无二的出现次数)
       - [1657. 确定两个字符串是否接近\*\*](#1657-确定两个字符串是否接近)
       - [2352. 相等行列对\*\*](#2352-相等行列对)
   - [栈](#栈)
+      - [](#-3)
       - [](#-4)
       - [](#-5)
-      - [](#-6)
   - [队列](#队列)
       - [933. 最近的请求次数](#933-最近的请求次数)
-      - [](#-7)
+      - [](#-6)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
       - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
+      - [](#-7)
       - [](#-8)
-      - [](#-9)
   - [区间集合](#区间集合)
+      - [](#-9)
       - [](#-10)
-      - [](#-11)
   - [单调栈](#单调栈)
+      - [](#-11)
       - [](#-12)
-      - [](#-13)
 
 <!-- /code_chunk_output -->
 
@@ -376,10 +376,38 @@ class Solution:
 ```
 
 
-#### []()
+#### [1679. K 和数对的最大数目**](https://leetcode.cn/problems/max-number-of-k-sum-pairs/)
 
 ```python
+class Solution:
+    def maxOperations1(self, nums: List[int], k: int) -> int:
+        # 哈希
+        # O(N), O(N)
+        hashmap = defaultdict(int)
+        for i in nums:
+            hashmap[i] += 1
+        
+        ans = 0
+        for i in nums:
+            if (hashmap[i] > 0 and hashmap[k-i] > 0 and i != (k-i)) or (i == (k-i) and hashmap[i]>1):
+                hashmap[k-i] = hashmap[k-i]-1
+                hashmap[i] = hashmap[i]-1
+                ans += 1
+        return ans
 
+    def maxOperations2(self, nums: List[int], k: int) -> int:
+        # 哈希，逻辑简化 Refer：https://leetcode.cn/problems/max-number-of-k-sum-pairs/solutions/2701378/on-yi-ci-bian-li-pythonjavacgojsrust-by-r7obc
+        # O(N), O(N)
+        hashmap = defaultdict(int)
+
+        ans = 0
+        for i in nums:
+            if hashmap[k-i]:
+                hashmap[k-i] -= 1
+                ans += 1
+            else:
+                hashmap[i] += 1 # 边遍历边初始化哈希表
+        return ans
 ```
 
 
