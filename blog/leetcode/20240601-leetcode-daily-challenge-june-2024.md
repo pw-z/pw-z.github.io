@@ -270,70 +270,156 @@ class Solution:
 ```
 
 
-## 20240608 Easy|Medium|Hard []()
+## 20240608 Medium [3040. 相同分数的最大操作数目 II](https://leetcode.cn/problems/maximum-number-of-operations-with-the-same-score-ii/)
+
+```python
+class Solution:
+    def maxOperations1(self, nums: List[int]) -> int:
+        # O(n^2), O(1)
+        # 题解：https://leetcode.cn/problems/maximum-number-of-operations-with-the-same-score-ii/solutions/2643756/qu-jian-dp-de-tao-lu-pythonjavacgo-by-en-nynz
+        @cache
+        def dfs(i, j, target):
+            if i >= j: return 0
+            res = 0
+            if nums[i] + nums[i+1] == target:
+                res = max(res, dfs(i+2, j, target)+1)
+            if nums[j-1] + nums[j] == target:
+                res = max(res, dfs(i, j-2, target)+1)
+            if nums[i] + nums[j] == target:
+                res = max(res, dfs(i+1, j-1, target)+1)
+            return res
+        
+        n = len(nums)
+        return max(dfs(2, n-1, nums[0]+nums[1]), dfs(1, n-2, nums[0]+nums[-1]), dfs(0, n-3, nums[-2]+nums[-1]))+1        
+```
+
+
+## 20240609 Hard [312. 戳气球](https://leetcode.cn/problems/burst-balloons/)
+
+```python
+class Solution:
+    def maxCoins(self, nums: List[int]) -> int:
+        # O(n^3), O(n^2)
+        # 区间DP
+        # 题解：https://leetcode.cn/problems/burst-balloons/solutions/1930450/by-ac_oier-9r9c
+        # f[l][r] = max(f[l][k] + f[k][r] + nums[l]*nums[k]*nums[r]),  l < k < r
+        n = len(nums)
+        nums = [1] + nums + [1]
+        f = [[0] * (n+2) for _ in range(n+2)]
+        for length in range(3, n+3):
+            for l in range(n+1 -length+1 +1):
+                r = l + length -1
+                for k in range(l+1, r):
+                    f[l][r] = max(f[l][r], f[l][k]+f[k][r]+ nums[l]*nums[k]*nums[r])
+        return f[0][n+1]
+```
+
+区间DP（Dynamic Programming）算法是一种特殊的动态规划方法，它用于解决涉及区间（连续子数组或子序列）的优化问题。与传统的动态规划不同，区间DP通常处理的是区间上的问题，而不是单个元素。以下是区间DP的一些关键概念和特点：
+
+1. 问题类型
+区间DP通常用于解决以下类型的问题：
+- 最小化或最大化区间内元素的总和或乘积。
+- 区间内的子问题可能依赖于区间的起始点和结束点。
+
+2. 状态定义
+在区间DP中，状态通常定义为与区间相关的某种属性。例如，对于一个数组`A`，状态可以定义为`dp[i][j]`，表示从索引`i`到`j`的区间的某种最优值。
+
+3. 状态转移
+区间DP的状态转移通常涉及将一个或多个较小的区间合并为一个较大的区间。状态转移方程需要考虑如何将较小区间的最优解组合起来，以得到较大区间的最优解。
+
+4. 初始化
+区间DP的初始化通常涉及计算单个元素或最小区间的最优解。例如，如果问题涉及最小化区间和，那么初始化可能只是将数组中的每个元素视为一个单独的区间。
+
+5. 计算顺序
+区间DP的计算顺序通常从最小的区间开始，逐步合并区间以计算更大区间的最优解。这可能涉及到嵌套循环或递归。
+
+6. 优化技巧
+区间DP可能需要一些优化技巧，如：
+- **单调队列**：用于处理区间最小/最大值问题，保持单调性以优化查询。
+- **树状数组（Binary Indexed Tree, BIT)**：用于快速更新和查询区间的累积值。
+- **线段树**：用于处理更复杂的区间操作，如区间加法或区间查询。
+
+7. 示例问题
+一个典型的区间DP问题是“区间加和最大化”问题，即在一个数组中找到一个子区间，使得该区间的元素和最大。
+
+示例代码（Python）：
+```python
+def max_sum_subarray(arr):
+    n = len(arr)
+    # 初始化dp数组，每个元素自身是一个区间的最大和
+    dp = [[0] * 2 for _ in range(n)]
+    dp[0][1] = arr[0]
+    
+    for i in range(1, n):
+        # 当前元素作为区间的开始
+        dp[i][0] = max(dp[i-1][0], 0) + arr[i]
+        # 当前元素作为区间的结束
+        dp[i][1] = max(dp[i-1][1], dp[i-1][0]) + arr[i]
+    
+    # 最大的区间和
+    return max(max(dp[i][0] for i in range(n)), max(dp[i][1] for i in range(n)))
+
+# 测试代码
+arr = [1, -2, 3, 4, -1, 2, 1, -5, 4]
+print(max_sum_subarray(arr))  # 输出最大区间和
+```
+
+在这个示例中，`dp[i][0]`表示以`arr[i]`为结束的区间的最大和，`dp[i][1]`表示以`arr[i]`为开始的区间的最大和。通过这种方式，我们可以逐步构建出整个数组的最大区间和。
+
+区间DP是一种强大的技术，可以解决许多涉及区间的复杂问题。掌握它需要对动态规划有深入的理解以及对问题特性的洞察。
+
+
+
+## 20240610 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## 20240609 Easy|Medium|Hard []()
+## 20240611 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## 20240604 Easy|Medium|Hard []()
+## 20240612 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## 20240604 Easy|Medium|Hard []()
+## 20240613 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240614 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240615 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240616 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
-
-```python
-
-```
-
-
-## Easy|Medium|Hard []()
-
-```python
-
-```
-
-
-## Easy|Medium|Hard []()
+## 20240617 Easy|Medium|Hard []()
 
 ```python
 
