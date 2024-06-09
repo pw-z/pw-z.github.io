@@ -46,23 +46,23 @@
   - [栈](#栈)
       - [2390. 从字符串中移除星号\*\*](#2390-从字符串中移除星号)
       - [735. 小行星碰撞\*\*](#735-小行星碰撞)
-      - [](#)
+      - [394. 字符串解码\*\*](#394-字符串解码)
   - [队列](#队列)
       - [933. 最近的请求次数](#933-最近的请求次数)
-      - [](#-1)
+      - [](#)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
       - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
+      - [](#-1)
       - [](#-2)
-      - [](#-3)
   - [区间集合](#区间集合)
+      - [](#-3)
       - [](#-4)
-      - [](#-5)
   - [单调栈](#单调栈)
+      - [](#-5)
       - [](#-6)
-      - [](#-7)
 
 <!-- /code_chunk_output -->
 
@@ -856,10 +856,30 @@ class Solution:
 ```
 
 
-#### []()
+#### [394. 字符串解码**](https://leetcode.cn/problems/decode-string/)
 
 ```python
+class Solution:
+    def decodeString(self, s: str) -> str:
+        # O(N), O(N)
+        st = []
+        for c in s:
+            if c != ']':
+                st.append(c)
+            else:
+                patten = ""
+                while st and st[-1] != '[':
+                    patten = st.pop() + patten
+                st.pop() # pop '['
+                # print("got patten: ", patten)
 
+                number = ""
+                while st and st[-1] in "0123456789":
+                    number = st.pop() + number
+                # print("got number: ", number)
+                st.append(patten * int(number))
+
+        return ''.join(st)
 ```
 
 
