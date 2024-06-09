@@ -17,43 +17,43 @@
 
 - [Leetcode Study Plan Leetcode-75 Scratch Paper](#leetcode-study-plan-leetcode-75-scratch-paper)
   - [数组/字符串](#数组字符串)
-      - [1768. 交替合并字符串\*](#1768-交替合并字符串)
-      - [1071. 字符串的最大公因子\*](#1071-字符串的最大公因子)
-      - [1431. 拥有最多糖果的孩子\*](#1431-拥有最多糖果的孩子)
-      - [605. 种花问题\*](#605-种花问题)
-      - [345. 反转字符串中的元音字母\*](#345-反转字符串中的元音字母)
-      - [151. 反转字符串中的单词\*\*](#151-反转字符串中的单词)
-      - [238. 除自身以外数组的乘积\*\*](#238-除自身以外数组的乘积)
-      - [443. 压缩字符串\*\*](#443-压缩字符串)
+      - [1768. 交替合并字符串*](#1768-交替合并字符串httpsleetcodecnproblemsmerge-strings-alternately)
+      - [1071. 字符串的最大公因子*](#1071-字符串的最大公因子httpsleetcodecnproblemsgreatest-common-divisor-of-strings)
+      - [1431. 拥有最多糖果的孩子*](#1431-拥有最多糖果的孩子httpsleetcodecnproblemskids-with-the-greatest-number-of-candies)
+      - [605. 种花问题*](#605-种花问题httpsleetcodecnproblemscan-place-flowers)
+      - [345. 反转字符串中的元音字母*](#345-反转字符串中的元音字母httpsleetcodecnproblemsreverse-vowels-of-a-string)
+      - [151. 反转字符串中的单词**](#151-反转字符串中的单词httpsleetcodecnproblemsreverse-words-in-a-string)
+      - [238. 除自身以外数组的乘积**](#238-除自身以外数组的乘积httpsleetcodecnproblemsproduct-of-array-except-self)
+      - [443. 压缩字符串**](#443-压缩字符串httpsleetcodecnproblemsstring-compression)
   - [双指针](#双指针)
-      - [283. 移动零\*](#283-移动零)
-      - [392. 判断子序列\*](#392-判断子序列)
-      - [11. 盛最多水的容器\*](#11-盛最多水的容器)
-      - [1679. K 和数对的最大数目\*\*](#1679-k-和数对的最大数目)
+      - [283. 移动零*](#283-移动零httpsleetcodecnproblemsmove-zeroes)
+      - [392. 判断子序列*](#392-判断子序列httpsleetcodecnproblemsis-subsequence)
+      - [11. 盛最多水的容器*](#11-盛最多水的容器httpsleetcodecnproblemscontainer-with-most-water)
+      - [1679. K 和数对的最大数目**](#1679-k-和数对的最大数目httpsleetcodecnproblemsmax-number-of-k-sum-pairs)
   - [滑动窗口](#滑动窗口)
-      - [643. 子数组最大平均数 I\*](#643-子数组最大平均数-i)
-      - [1456. 定长子串中元音的最大数目\*\*](#1456-定长子串中元音的最大数目)
-      - [1004. 最大连续1的个数 III\*\*](#1004-最大连续1的个数-iii)
-      - [1493. 删掉一个元素以后全为 1 的最长子数组\*\*](#1493-删掉一个元素以后全为-1-的最长子数组)
+      - [643. 子数组最大平均数 I*](#643-子数组最大平均数-ihttpsleetcodecnproblemsmaximum-average-subarray-i)
+      - [1456. 定长子串中元音的最大数目**](#1456-定长子串中元音的最大数目httpsleetcodecnproblemsmaximum-number-of-vowels-in-a-substring-of-given-length)
+      - [1004. 最大连续1的个数 III**](#1004-最大连续1的个数-iiihttpsleetcodecnproblemsmax-consecutive-ones-iii)
+      - [1493. 删掉一个元素以后全为 1 的最长子数组**](#1493-删掉一个元素以后全为-1-的最长子数组httpsleetcodecnproblemslongest-subarray-of-1s-after-deleting-one-element)
   - [前缀和](#前缀和)
-      - [1732. 找到最高海拔\*](#1732-找到最高海拔)
-      - [724. 寻找数组的中心下标\*](#724-寻找数组的中心下标)
+      - [1732. 找到最高海拔*](#1732-找到最高海拔httpsleetcodecnproblemsfind-the-highest-altitude)
+      - [724. 寻找数组的中心下标*](#724-寻找数组的中心下标httpsleetcodecnproblemsfind-pivot-index)
   - [哈希](#哈希)
-      - [2215. 找出两数组的不同\*](#2215-找出两数组的不同)
-      - [1207. 独一无二的出现次数\*](#1207-独一无二的出现次数)
-      - [1657. 确定两个字符串是否接近\*\*](#1657-确定两个字符串是否接近)
-      - [2352. 相等行列对\*\*](#2352-相等行列对)
+      - [2215. 找出两数组的不同*](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
+      - [1207. 独一无二的出现次数*](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
+      - [1657. 确定两个字符串是否接近**](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
+      - [2352. 相等行列对**](#2352-相等行列对httpsleetcodecnproblemsequal-row-and-column-pairs)
   - [栈](#栈)
-      - [2390. 从字符串中移除星号\*\*](#2390-从字符串中移除星号)
-      - [735. 小行星碰撞\*\*](#735-小行星碰撞)
-      - [394. 字符串解码\*\*](#394-字符串解码)
+      - [2390. 从字符串中移除星号**](#2390-从字符串中移除星号httpsleetcodecnproblemsremoving-stars-from-a-string)
+      - [735. 小行星碰撞**](#735-小行星碰撞httpsleetcodecnproblemsasteroid-collision)
+      - [394. 字符串解码**](#394-字符串解码httpsleetcodecnproblemsdecode-string)
   - [队列](#队列)
-      - [933. 最近的请求次数](#933-最近的请求次数)
+      - [933. 最近的请求次数](#933-最近的请求次数httpsleetcodecnproblemsnumber-of-recent-calls)
       - [](#)
   - [位运算](#位运算)
-      - [338. 比特位计数\*](#338-比特位计数)
-      - [136. 只出现一次的数字\*](#136-只出现一次的数字)
-      - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
+      - [338. 比特位计数*](#338-比特位计数httpsleetcodecnproblemscounting-bits)
+      - [136. 只出现一次的数字*](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
+      - [1318. 或运算的最小翻转次数**](#1318-或运算的最小翻转次数httpsleetcodecnproblemsminimum-flips-to-make-a-or-b-equal-to-c)
   - [前缀树](#前缀树)
       - [](#-1)
       - [](#-2)
@@ -805,6 +805,36 @@ class Solution:
 
 
 ## 栈
+
+数据结构中的栈（Stack）是一种线性数据结构，其特点是只允许在数据结构的一端进行插入和删除操作。这一端被称为栈顶（Top），而另一端固定不变，被称为栈底（Bottom）。栈的操作遵循“后进先出”（Last In, First Out, LIFO）的原则，即最后存入栈中的元素最先被取出。
+
+栈的基本概念
+
+- **栈顶（Top）**：栈中允许进行插入和删除操作的一端，新元素总是被添加到这里，同时这里也是移除元素的地方。
+- **栈底（Bottom）**：栈的另一端，通常不允许进行插入和删除操作，用于标记栈的起始位置。
+- **空栈**：不含任何元素的栈。
+- **压栈（Push）**：向栈顶添加一个元素的操作，相当于入栈。
+- **弹栈（Pop）**：从栈顶移除一个元素的操作，同时可以返回这个元素，相当于出栈。
+- **栈顶元素（Top Element）**：最后一次压栈的元素，它位于栈顶，是下一个将要被弹出的元素。
+
+栈的实现方式
+
+栈可以通过两种主要方式实现：
+- **基于数组的栈**：使用数组作为底层存储结构，通过索引追踪栈顶位置，入栈时增加索引，出栈时减少索引。
+- **基于链表的栈**：使用链表结构，其中每个节点包含数据和指向下一个节点的指针。栈顶节点是最容易访问的节点，入栈和出栈操作通过修改链表的头部指针来完成。
+
+栈的应用
+
+栈因其独特的LIFO特性，在多个领域和算法中有广泛应用：
+- **函数调用和递归**：在程序运行时，调用栈用来存储函数的返回地址和局部变量。
+- **表达式求值**：用于解析和计算算术表达式，如中缀转后缀表达式或直接计算后缀表达式。
+- **括号匹配**：验证括号序列是否合法，如编程语言中的圆括号、方括号等。
+- **深度优先搜索（DFS）**：在图和树的遍历中，栈用于实现递归或非递归的深度优先搜索策略。
+- **回溯算法**：解决约束满足问题时，栈用来存储状态，以便在探索失败时回溯到前一状态。
+- **内存管理**：操作系统和编程语言运行时环境使用栈来管理函数调用栈和局部变量的内存分配。
+
+总之，栈作为一种基础且强大的数据结构，在计算机科学的许多方面都扮演着重要角色。
+
 
 #### [2390. 从字符串中移除星号**](https://leetcode.cn/problems/removing-stars-from-a-string/)
 
