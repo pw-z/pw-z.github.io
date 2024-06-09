@@ -38,32 +38,31 @@
   - [前缀和](#前缀和)
       - [1732. 找到最高海拔\*](#1732-找到最高海拔)
       - [724. 寻找数组的中心下标\*](#724-寻找数组的中心下标)
-      - [](#)
   - [哈希](#哈希)
       - [2215. 找出两数组的不同\*](#2215-找出两数组的不同)
       - [1207. 独一无二的出现次数\*](#1207-独一无二的出现次数)
       - [1657. 确定两个字符串是否接近\*\*](#1657-确定两个字符串是否接近)
       - [2352. 相等行列对\*\*](#2352-相等行列对)
   - [栈](#栈)
-      - [](#-1)
-      - [](#-2)
-      - [](#-3)
+      - [2390. 从字符串中移除星号\*\*](#2390-从字符串中移除星号)
+      - [735. 小行星碰撞\*\*](#735-小行星碰撞)
+      - [](#)
   - [队列](#队列)
       - [933. 最近的请求次数](#933-最近的请求次数)
-      - [](#-4)
+      - [](#-1)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
       - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
-      - [](#-5)
-      - [](#-6)
+      - [](#-2)
+      - [](#-3)
   - [区间集合](#区间集合)
-      - [](#-7)
-      - [](#-8)
+      - [](#-4)
+      - [](#-5)
   - [单调栈](#单调栈)
-      - [](#-9)
-      - [](#-10)
+      - [](#-6)
+      - [](#-7)
 
 <!-- /code_chunk_output -->
 
@@ -650,12 +649,6 @@ class Solution:
         return -1
 ```
 
-#### []()
-
-```python
-
-```
-
 
 ## 哈希
 
@@ -813,17 +806,53 @@ class Solution:
 
 ## 栈
 
-#### []()
+#### [2390. 从字符串中移除星号**](https://leetcode.cn/problems/removing-stars-from-a-string/)
 
 ```python
-
+class Solution:
+    def removeStars(self, s: str) -> str:
+        # O(N), O(N)
+        # stack = deque()
+        stack = []
+        for c in s:
+            if c != '*':
+                stack.append(c)
+            else:
+                stack.pop()
+        return ''.join(stack)
 ```
 
 
-#### []()
+#### [735. 小行星碰撞**](https://leetcode.cn/problems/asteroid-collision/)
 
 ```python
+class Solution:
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        st = []
+        for cur in asteroids:
 
+            # 不是符号相反就一定会碰撞的，要具体看方向是否相对
+            # 本题的方向来看，一定是前面有向右的，当前是向左的才会碰撞
+            # if not st or (cur * st[-1] > 0):
+            #     st.append(cur)
+            # else:
+            #     # 所有比当前小的都爆炸
+            #     while st and abs(st[-1]) < abs(cur):
+            #         st.pop()
+            #     # 要么栈空了，要么遇到更大的了，要么遇到同等大小的了
+            #     if not st:
+            #         st.append(cur)
+            #     elif abs(st[-1]) == abs(cur):
+            #         st.pop()
+
+            alive = True
+            while alive and cur < 0 and st and st[-1] > 0:
+                alive = st[-1] < -cur 
+                if st[-1] <= -cur:
+                    st.pop()
+            if alive:
+                st.append(cur)
+        return st
 ```
 
 
