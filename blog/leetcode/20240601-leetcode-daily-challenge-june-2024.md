@@ -370,10 +370,21 @@ print(max_sum_subarray(arr))  # 输出最大区间和
 
 
 
-## 20240610 Easy|Medium|Hard []()
+## 20240610 Medium [881. 救生艇](https://leetcode.cn/problems/boats-to-save-people/)
 
 ```python
-
+class Solution:
+    def numRescueBoats(self, people: List[int], limit: int) -> int:
+        # O(nlogn), O(logn) 时间与空间主要都消耗在排序上
+        people.sort()
+        l, r = 0, len(people)-1
+        ans = 0
+        while l <= r:
+            if people[l] + people[r] <= limit:
+                l += 1
+            r -= 1
+            ans += 1
+        return ans
 ```
 
 
