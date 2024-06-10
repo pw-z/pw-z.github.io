@@ -52,22 +52,22 @@
       - [649. Dota2 参议院\*\*](#649-dota2-参议院)
   - [链表](#链表)
       - [2095. 删除链表的中间节点\*\*](#2095-删除链表的中间节点)
+      - [328. 奇偶链表\*\*](#328-奇偶链表)
       - [](#)
       - [](#-1)
-      - [](#-2)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
       - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
+      - [](#-2)
       - [](#-3)
-      - [](#-4)
   - [区间集合](#区间集合)
+      - [](#-4)
       - [](#-5)
-      - [](#-6)
   - [单调栈](#单调栈)
+      - [](#-6)
       - [](#-7)
-      - [](#-8)
 
 <!-- /code_chunk_output -->
 
@@ -1008,10 +1008,28 @@ class Solution:
 ```
 
 
-#### []()
+#### [328. 奇偶链表**](https://leetcode.cn/problems/odd-even-linked-list/)
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return head
+            
+        even_head = head.next
+        odd, even = head, even_head
+        while even and even.next:
+            odd.next = even.next
+            odd = odd.next
+            even.next = odd.next
+            even = even.next
+        odd.next = even_head
+        return head
 ```
 
 
