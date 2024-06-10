@@ -1,6 +1,16 @@
 # Vocabulary 20k
 
-[TOC]
+
+- [Vocabulary 20k](#vocabulary-20k)
+  - [Intro \*41](#intro-41)
+  - [\[Song\] Tom's Diner \*183](#song-toms-diner-183)
+  - [\[Song\] Freedom \*250](#song-freedom-250)
+  - [\[Song\] Love of My Life \*299](#song-love-of-my-life-299)
+  - [\[Song\] When I'm Sixty-Four \*376](#song-when-im-sixty-four-376)
+  - [\[Song\] Parachute \*412](#song-parachute-412)
+  - [\[Song\] Like I'm Gonna Lose You \*451](#song-like-im-gonna-lose-you-451)
+  - [\[Book\] Content by ChatGPT3.5 \*574](#book-content-by-chatgpt35-574)
+
 
 ## Intro *41
 
@@ -474,4 +484,5 @@ Of course! Here are more wonderful excerpts from classic English books:
 These timeless excerpts continue to ***resonate*** with readers across generations, showcasing the enduring power of classic English literature.
 
 *The vocabulary size up to now, as of 2024.05.17, is **574**.*
+
 

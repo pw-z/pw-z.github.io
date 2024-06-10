@@ -11,7 +11,7 @@ CAGED：[ How to use the CAGED system to play a SOLO ](https://youtu.be/0Qp26KcD
 
 ## 总结
 
-[一些最基本的乐理](./music-theory-basic.md)
+* [一些最基本的乐理](./20230712-music-theory-basic.md)
 
 ## 歌单
 

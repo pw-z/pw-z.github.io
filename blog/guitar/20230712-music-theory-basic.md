@@ -2,7 +2,7 @@
 
 *Posted on 2023.07.12 by [Zhang Pengwei](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)* 
 
-目标：初步理解音程、音阶、和弦概念，支撑在吉他指板上的实践练习  
+目标：理解音程、音阶、和弦概念，支撑在吉他指板上的实践练习  
 参考书：The Musician's Guide to Theory and Analysis (Third Edition) 
 
 <!-- [TOC] -->
