@@ -62,17 +62,17 @@
   - [二分查找](#二分查找)
       - [374. 猜数字大小*](#374-猜数字大小httpsleetcodecnproblemsguess-number-higher-or-lower)
       - [2300. 咒语和药水的成功对数**](#2300-咒语和药水的成功对数httpsleetcodecnproblemssuccessful-pairs-of-spells-and-potions)
+      - [162. 寻找峰值**](#162-寻找峰值httpsleetcodecnproblemsfind-peak-element)
+      - [875. 爱吃香蕉的珂珂**](#875-爱吃香蕉的珂珂httpsleetcodecnproblemskoko-eating-bananas)
+  - [前缀树](#前缀树)
       - [](#)
       - [](#-1)
-  - [前缀树](#前缀树)
+  - [区间集合](#区间集合)
       - [](#-2)
       - [](#-3)
-  - [区间集合](#区间集合)
+  - [单调栈](#单调栈)
       - [](#-4)
       - [](#-5)
-  - [单调栈](#单调栈)
-      - [](#-6)
-      - [](#-7)
 
 <!-- /code_chunk_output -->
 
@@ -1299,17 +1299,43 @@ print(f"插入值5的位置（右侧插入）: {insert_pos}")
 这段代码会输出：`插入值5的位置（右侧插入）: 4`，意味着数值5应当插入在索引为4的位置，以保持列表的升序排列。
 
 
-#### []()
+#### [162. 寻找峰值**](https://leetcode.cn/problems/find-peak-element)
 
 ```python
-
+class Solution:
+    def findPeakElement(self, nums: List[int]) -> int:
+        # O(logn), O(1)
+        n = len(nums)
+        l, r = 0, n-1
+        while l < r:
+            mid = (l + r)//2
+            # print(l, r, mid, nums[mid], nums[mid+1])
+            if nums[mid] > nums[mid+1]:
+                r = mid
+            else: l = mid + 1
+        return l
 ```
 
 
-#### []()
+#### [875. 爱吃香蕉的珂珂**](https://leetcode.cn/problems/koko-eating-bananas)
 
 ```python
-
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        # 题解：https://leetcode.cn/problems/koko-eating-bananas/solutions/2710324/er-fen-da-an-fu-ti-dan-pythonjavacgojsru-eb18
+        # O(len(piles)log max(piles)), O(1)
+        n = len(piles)
+        if n == h:
+            return max(piles)
+        
+        l, r = 0, max(piles)
+        while l + 1 < r:
+            mid = (l + r)//2
+            if sum((p-1)//mid for p in piles) <= h-n:
+                r = mid
+            else:
+                l = mid
+        return r
 ```
 
 
