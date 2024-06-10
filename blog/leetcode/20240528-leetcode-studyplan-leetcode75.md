@@ -51,23 +51,23 @@
       - [933. 最近的请求次数\*](#933-最近的请求次数)
       - [649. Dota2 参议院\*\*](#649-dota2-参议院)
   - [链表](#链表)
+      - [2095. 删除链表的中间节点\*\*](#2095-删除链表的中间节点)
       - [](#)
       - [](#-1)
       - [](#-2)
-      - [](#-3)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
       - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
+      - [](#-3)
       - [](#-4)
-      - [](#-5)
   - [区间集合](#区间集合)
+      - [](#-5)
       - [](#-6)
-      - [](#-7)
   - [单调栈](#单调栈)
+      - [](#-7)
       - [](#-8)
-      - [](#-9)
 
 <!-- /code_chunk_output -->
 
@@ -969,10 +969,42 @@ class Solution:
 ## 链表
 
 
-#### []()
+#### [2095. 删除链表的中间节点**](https://leetcode.cn/problems/delete-the-middle-node-of-a-linked-list/)
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteMiddle1(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # 快慢指针，O(N), O(1)
+        _head = ListNode()
+        _head.next = head
+        slow = _head
+        fast = _head
+        while fast and fast.next:
+            fast = fast.next.next
+            if fast:
+                slow = slow.next
+            else:
+                slow.next = slow.next.next
+                break
+        # fast在偶数情况走到最后一个节点会跳出上面的while循环
+        if fast:
+            slow.next = slow.next.next
+        return _head.next
 
+    def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # 代码简化
+        slow, fast, pre = head, head, None
+        while fast and fast.next:
+            fast = fast.next.next
+            pre = slow
+            slow = slow.next
+        pre.next = pre.next.next
+        return head
 ```
 
 
