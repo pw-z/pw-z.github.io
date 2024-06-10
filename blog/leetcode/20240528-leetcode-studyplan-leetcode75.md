@@ -59,15 +59,20 @@
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
       - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
-  - [前缀树](#前缀树)
+  - [二分查找](#二分查找)
+      - [374. 猜数字大小\*](#374-猜数字大小)
       - [](#)
       - [](#-1)
-  - [区间集合](#区间集合)
       - [](#-2)
+  - [前缀树](#前缀树)
       - [](#-3)
-  - [单调栈](#单调栈)
       - [](#-4)
+  - [区间集合](#区间集合)
       - [](#-5)
+      - [](#-6)
+  - [单调栈](#单调栈)
+      - [](#-7)
+      - [](#-8)
 
 <!-- /code_chunk_output -->
 
@@ -1183,6 +1188,53 @@ class Solution:
             x,y,z = (a>>i)&1,  (b>>i)&1,  (c>>i)&1
             ans += (x+y) if z == 0 else int((x+y)==0)
         return ans
+```
+
+
+## 二分查找
+
+
+#### [374. 猜数字大小*](https://leetcode.cn/problems/guess-number-higher-or-lower/)
+
+```python
+# The guess API is already defined for you.
+# @param num, your guess
+# @return -1 if num is higher than the picked number
+#          1 if num is lower than the picked number
+#          otherwise return 0
+# def guess(num: int) -> int:
+
+class Solution:
+    def guessNumber(self, n: int) -> int:
+        low, high = 1, n
+        while low < high:
+            num = (high + low)//2
+            if guess(num) <= 0:
+                high = num
+            else:
+                low = num + 1
+        return low
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
 ```
 
 
