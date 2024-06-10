@@ -17,62 +17,62 @@
 
 - [Leetcode Study Plan Leetcode-75 Scratch Paper](#leetcode-study-plan-leetcode-75-scratch-paper)
   - [数组/字符串](#数组字符串)
-      - [1768. 交替合并字符串\*](#1768-交替合并字符串)
-      - [1071. 字符串的最大公因子\*](#1071-字符串的最大公因子)
-      - [1431. 拥有最多糖果的孩子\*](#1431-拥有最多糖果的孩子)
-      - [605. 种花问题\*](#605-种花问题)
-      - [345. 反转字符串中的元音字母\*](#345-反转字符串中的元音字母)
-      - [151. 反转字符串中的单词\*\*](#151-反转字符串中的单词)
-      - [238. 除自身以外数组的乘积\*\*](#238-除自身以外数组的乘积)
-      - [443. 压缩字符串\*\*](#443-压缩字符串)
+      - [1768. 交替合并字符串*](#1768-交替合并字符串httpsleetcodecnproblemsmerge-strings-alternately)
+      - [1071. 字符串的最大公因子*](#1071-字符串的最大公因子httpsleetcodecnproblemsgreatest-common-divisor-of-strings)
+      - [1431. 拥有最多糖果的孩子*](#1431-拥有最多糖果的孩子httpsleetcodecnproblemskids-with-the-greatest-number-of-candies)
+      - [605. 种花问题*](#605-种花问题httpsleetcodecnproblemscan-place-flowers)
+      - [345. 反转字符串中的元音字母*](#345-反转字符串中的元音字母httpsleetcodecnproblemsreverse-vowels-of-a-string)
+      - [151. 反转字符串中的单词**](#151-反转字符串中的单词httpsleetcodecnproblemsreverse-words-in-a-string)
+      - [238. 除自身以外数组的乘积**](#238-除自身以外数组的乘积httpsleetcodecnproblemsproduct-of-array-except-self)
+      - [443. 压缩字符串**](#443-压缩字符串httpsleetcodecnproblemsstring-compression)
   - [双指针](#双指针)
-      - [283. 移动零\*](#283-移动零)
-      - [392. 判断子序列\*](#392-判断子序列)
-      - [11. 盛最多水的容器\*](#11-盛最多水的容器)
-      - [1679. K 和数对的最大数目\*\*](#1679-k-和数对的最大数目)
+      - [283. 移动零*](#283-移动零httpsleetcodecnproblemsmove-zeroes)
+      - [392. 判断子序列*](#392-判断子序列httpsleetcodecnproblemsis-subsequence)
+      - [11. 盛最多水的容器*](#11-盛最多水的容器httpsleetcodecnproblemscontainer-with-most-water)
+      - [1679. K 和数对的最大数目**](#1679-k-和数对的最大数目httpsleetcodecnproblemsmax-number-of-k-sum-pairs)
   - [滑动窗口](#滑动窗口)
-      - [643. 子数组最大平均数 I\*](#643-子数组最大平均数-i)
-      - [1456. 定长子串中元音的最大数目\*\*](#1456-定长子串中元音的最大数目)
-      - [1004. 最大连续1的个数 III\*\*](#1004-最大连续1的个数-iii)
-      - [1493. 删掉一个元素以后全为 1 的最长子数组\*\*](#1493-删掉一个元素以后全为-1-的最长子数组)
+      - [643. 子数组最大平均数 I*](#643-子数组最大平均数-ihttpsleetcodecnproblemsmaximum-average-subarray-i)
+      - [1456. 定长子串中元音的最大数目**](#1456-定长子串中元音的最大数目httpsleetcodecnproblemsmaximum-number-of-vowels-in-a-substring-of-given-length)
+      - [1004. 最大连续1的个数 III**](#1004-最大连续1的个数-iiihttpsleetcodecnproblemsmax-consecutive-ones-iii)
+      - [1493. 删掉一个元素以后全为 1 的最长子数组**](#1493-删掉一个元素以后全为-1-的最长子数组httpsleetcodecnproblemslongest-subarray-of-1s-after-deleting-one-element)
   - [前缀和](#前缀和)
-      - [1732. 找到最高海拔\*](#1732-找到最高海拔)
-      - [724. 寻找数组的中心下标\*](#724-寻找数组的中心下标)
+      - [1732. 找到最高海拔*](#1732-找到最高海拔httpsleetcodecnproblemsfind-the-highest-altitude)
+      - [724. 寻找数组的中心下标*](#724-寻找数组的中心下标httpsleetcodecnproblemsfind-pivot-index)
   - [哈希](#哈希)
-      - [2215. 找出两数组的不同\*](#2215-找出两数组的不同)
-      - [1207. 独一无二的出现次数\*](#1207-独一无二的出现次数)
-      - [1657. 确定两个字符串是否接近\*\*](#1657-确定两个字符串是否接近)
-      - [2352. 相等行列对\*\*](#2352-相等行列对)
+      - [2215. 找出两数组的不同*](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
+      - [1207. 独一无二的出现次数*](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
+      - [1657. 确定两个字符串是否接近**](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
+      - [2352. 相等行列对**](#2352-相等行列对httpsleetcodecnproblemsequal-row-and-column-pairs)
   - [栈](#栈)
-      - [2390. 从字符串中移除星号\*\*](#2390-从字符串中移除星号)
-      - [735. 小行星碰撞\*\*](#735-小行星碰撞)
-      - [394. 字符串解码\*\*](#394-字符串解码)
+      - [2390. 从字符串中移除星号**](#2390-从字符串中移除星号httpsleetcodecnproblemsremoving-stars-from-a-string)
+      - [735. 小行星碰撞**](#735-小行星碰撞httpsleetcodecnproblemsasteroid-collision)
+      - [394. 字符串解码**](#394-字符串解码httpsleetcodecnproblemsdecode-string)
   - [队列](#队列)
-      - [933. 最近的请求次数\*](#933-最近的请求次数)
-      - [649. Dota2 参议院\*\*](#649-dota2-参议院)
+      - [933. 最近的请求次数*](#933-最近的请求次数httpsleetcodecnproblemsnumber-of-recent-calls)
+      - [649. Dota2 参议院**](#649-dota2-参议院httpsleetcodecnproblemsdota2-senate)
   - [链表](#链表)
-      - [2095. 删除链表的中间节点\*\*](#2095-删除链表的中间节点)
-      - [328. 奇偶链表\*\*](#328-奇偶链表)
-      - [206. 反转链表\*](#206-反转链表)
-      - [2130. 链表最大孪生和\*\*](#2130-链表最大孪生和)
+      - [2095. 删除链表的中间节点**](#2095-删除链表的中间节点httpsleetcodecnproblemsdelete-the-middle-node-of-a-linked-list)
+      - [328. 奇偶链表**](#328-奇偶链表httpsleetcodecnproblemsodd-even-linked-list)
+      - [206. 反转链表*](#206-反转链表httpsleetcodecnproblemsreverse-linked-list)
+      - [2130. 链表最大孪生和**](#2130-链表最大孪生和httpsleetcodecnproblemsmaximum-twin-sum-of-a-linked-list)
   - [位运算](#位运算)
-      - [338. 比特位计数\*](#338-比特位计数)
-      - [136. 只出现一次的数字\*](#136-只出现一次的数字)
-      - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
+      - [338. 比特位计数*](#338-比特位计数httpsleetcodecnproblemscounting-bits)
+      - [136. 只出现一次的数字*](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
+      - [1318. 或运算的最小翻转次数**](#1318-或运算的最小翻转次数httpsleetcodecnproblemsminimum-flips-to-make-a-or-b-equal-to-c)
   - [二分查找](#二分查找)
-      - [374. 猜数字大小\*](#374-猜数字大小)
+      - [374. 猜数字大小*](#374-猜数字大小httpsleetcodecnproblemsguess-number-higher-or-lower)
+      - [2300. 咒语和药水的成功对数**](#2300-咒语和药水的成功对数httpsleetcodecnproblemssuccessful-pairs-of-spells-and-potions)
       - [](#)
       - [](#-1)
-      - [](#-2)
   - [前缀树](#前缀树)
+      - [](#-2)
       - [](#-3)
-      - [](#-4)
   - [区间集合](#区间集合)
+      - [](#-4)
       - [](#-5)
-      - [](#-6)
   - [单调栈](#单调栈)
+      - [](#-6)
       - [](#-7)
-      - [](#-8)
 
 <!-- /code_chunk_output -->
 
@@ -1193,6 +1193,27 @@ class Solution:
 
 ## 二分查找
 
+二分查找（Binary Search），也称为折半搜索，是一种在有序数组中查找特定元素的搜索算法。其基本思想是将数组分成两半，比较中间元素与目标值的大小，然后根据比较结果缩小搜索范围，重复这个过程直到找到目标值或搜索范围为空。
+
+以下是二分查找算法的基本步骤：
+
+1. **初始化**：设置两个指针，一个指向数组的起始位置（low），另一个指向数组的结束位置（high）。初始时，low = 0，high = 数组长度 - 1。
+
+2. **循环条件**：只要low小于等于high，就继续循环。
+
+3. **查找中间位置**：计算中间位置mid，mid = low + (high - low) / 2。注意使用整数除法以避免小数。
+
+4. **比较中间元素**：比较数组中mid位置的元素与目标值。
+   - 如果中间元素等于目标值，搜索成功，返回mid。
+   - 如果中间元素大于目标值，说明目标值位于数组的左半部分，更新high = mid - 1。
+   - 如果中间元素小于目标值，说明目标值位于数组的右半部分，更新low = mid + 1。
+
+5. **循环结束**：如果low > high，说明目标值不在数组中，搜索失败，返回-1或相应的失败标志。
+
+二分查找算法的时间复杂度为O(log n)，其中n是数组的长度。这使得它在大规模数据集上非常高效。然而，二分查找要求数组必须是有序的，如果数组无序，需要先进行排序，这可能会增加额外的时间开销。
+
+二分查找可以应用于各种问题，如查找特定元素、查找最小值或最大值、查找满足特定条件的元素等。它是一种非常实用且强大的搜索技术。
+
 
 #### [374. 猜数字大小*](https://leetcode.cn/problems/guess-number-higher-or-lower/)
 
@@ -1217,11 +1238,65 @@ class Solution:
 ```
 
 
-#### []()
+#### [2300. 咒语和药水的成功对数**](https://leetcode.cn/problems/successful-pairs-of-spells-and-potions/)
 
 ```python
+class Solution:
+    def successfulPairs1(self, spells: List[int], potions: List[int], success: int) -> List[int]:
+        # O((n+m)logm),n=len(spells),m=len(potions), O(1)
+        potions.sort()
+        n = len(potions)
+        ans = []
+        for s in spells:
+            l, h = 0, n-1
+            # 先判断下最后一个药水是否符合要求
+            if potions[-1] * s < success:
+                ans.append(0)
+                continue
 
+            while l < h:
+                mid = (h+l)//2
+                if potions[mid] * s >= success:
+                    h = mid
+                else:
+                    l = mid + 1
+            # 结束循环后，l == r == 第一个可以成功的药水下标
+            ans.append(n - l)
+        return ans
+
+    def successfulPairs(self, spells: List[int], potions: List[int], success: int) -> List[int]:
+        # 利用库函数
+        # 作者：灵茶山艾府
+        # 链接：https://leetcode.cn/problems/successful-pairs-of-spells-and-potions/solutions/1595712/by-endlesscheng-1kbp/
+        # 来源：力扣（LeetCode）
+        # 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+        potions.sort()
+        m = len(potions)
+        success -= 1
+        return [m - bisect_right(potions, success // x) for x in spells]
 ```
+
+`bisect_right`是Python标准库中的一个函数，位于`bisect`模块里。这个函数主要用于在有序列表中查找插入位置，以保持列表的有序状态。具体来说，`bisect_right(a, x, lo=0, hi=len(a))`函数的作用是在有序列表`a`中找到第一个大于或等于`x`的元素的位置。如果`x`已经存在于列表中，则返回的是`x`之后（右侧）第一个元素的位置，即插入点不会重复元素。如果列表中所有元素都小于`x`，则返回列表的长度，意味着新元素将被追加在列表的末尾。
+
+参数解释：
+- `a`：一个已排序的列表。
+- `x`：需要插入的元素或者用于比较的值。
+- `lo`：搜索范围的起始下标，默认为0。
+- `hi`：搜索范围的结束下标，默认为列表长度。
+
+示例代码：
+```python
+from bisect import bisect_right
+
+# 已排序的列表
+sorted_list = [1, 2, 4, 4, 6, 8]
+
+# 查找插入位置
+insert_pos = bisect_right(sorted_list, 5)
+
+print(f"插入值5的位置（右侧插入）: {insert_pos}")
+```
+这段代码会输出：`插入值5的位置（右侧插入）: 4`，意味着数值5应当插入在索引为4的位置，以保持列表的升序排列。
 
 
 #### []()
