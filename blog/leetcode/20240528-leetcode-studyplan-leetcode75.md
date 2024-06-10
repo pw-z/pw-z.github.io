@@ -53,21 +53,21 @@
   - [链表](#链表)
       - [2095. 删除链表的中间节点\*\*](#2095-删除链表的中间节点)
       - [328. 奇偶链表\*\*](#328-奇偶链表)
+      - [206. 反转链表\*](#206-反转链表)
       - [](#)
-      - [](#-1)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
       - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
+      - [](#-1)
       - [](#-2)
-      - [](#-3)
   - [区间集合](#区间集合)
+      - [](#-3)
       - [](#-4)
-      - [](#-5)
   - [单调栈](#单调栈)
+      - [](#-5)
       - [](#-6)
-      - [](#-7)
 
 <!-- /code_chunk_output -->
 
@@ -1033,10 +1033,24 @@ class Solution:
 ```
 
 
-#### []()
+#### [206. 反转链表*](https://leetcode.cn/problems/reverse-linked-list/)
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # O(N), O(1)
+        cur, last = head, None
+        while cur:
+            tmp = cur.next
+            cur.next = last
+            last = cur
+            cur = tmp
+        return last
 ```
 
 
