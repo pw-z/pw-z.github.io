@@ -54,20 +54,20 @@
       - [2095. 删除链表的中间节点\*\*](#2095-删除链表的中间节点)
       - [328. 奇偶链表\*\*](#328-奇偶链表)
       - [206. 反转链表\*](#206-反转链表)
-      - [](#)
+      - [2130. 链表最大孪生和\*\*](#2130-链表最大孪生和)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
       - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
   - [前缀树](#前缀树)
+      - [](#)
       - [](#-1)
-      - [](#-2)
   - [区间集合](#区间集合)
+      - [](#-2)
       - [](#-3)
-      - [](#-4)
   - [单调栈](#单调栈)
+      - [](#-4)
       - [](#-5)
-      - [](#-6)
 
 <!-- /code_chunk_output -->
 
@@ -1054,10 +1054,47 @@ class Solution:
 ```
 
 
-#### []()
+#### [2130. 链表最大孪生和**](https://leetcode.cn/problems/maximum-twin-sum-of-a-linked-list/)
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def pairSum(self, head: Optional[ListNode]) -> int:
+        # 先把一半反转掉，然后从中间向两侧扩散，最后再把反转恢复
+        ans = 0
+        slow, fast, pre = head, head, None
+        while fast and fast.next:
+            fast = fast.next.next
+            tmp = slow.next
+            slow.next = pre
+            pre = slow
+            slow = tmp
+        # print(slow, pre)
 
+        mid_start = pre # 上半段的终点，等会还原用
+        post_part = slow # 下半段的起点
+        while pre and slow:
+            ans = max(ans, pre.val + slow.val)
+            slow = slow.next
+            pre = pre.next
+        # 还原前半段链表（非必要，仅仅出于规范）
+        # print(mid_start, post_part)
+        slow, fast, pre = mid_start, mid_start, post_part
+        while fast and fast.next:
+            fast = fast.next.next
+            tmp = slow.next
+            slow.next = pre
+            pre = slow
+            slow = tmp
+        slow.next = pre
+        head = slow
+        # print(head) # 确认还原成功
+
+        return ans
 ```
 
 
