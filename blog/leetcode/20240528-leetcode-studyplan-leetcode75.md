@@ -55,6 +55,15 @@
       - [328. 奇偶链表**](#328-奇偶链表httpsleetcodecnproblemsodd-even-linked-list)
       - [206. 反转链表*](#206-反转链表httpsleetcodecnproblemsreverse-linked-list)
       - [2130. 链表最大孪生和**](#2130-链表最大孪生和httpsleetcodecnproblemsmaximum-twin-sum-of-a-linked-list)
+  - [二叉树DFS](#二叉树dfs)
+      - [104. 二叉树的最大深度*](#104-二叉树的最大深度httpsleetcodecnproblemsmaximum-depth-of-binary-tree)
+      - [](#)
+      - [](#-1)
+      - [](#-2)
+      - [](#-3)
+      - [](#-4)
+  - [二叉树BFS](#二叉树bfs)
+  - [二叉树BST](#二叉树bst)
   - [位运算](#位运算)
       - [338. 比特位计数*](#338-比特位计数httpsleetcodecnproblemscounting-bits)
       - [136. 只出现一次的数字*](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
@@ -65,14 +74,14 @@
       - [162. 寻找峰值**](#162-寻找峰值httpsleetcodecnproblemsfind-peak-element)
       - [875. 爱吃香蕉的珂珂**](#875-爱吃香蕉的珂珂httpsleetcodecnproblemskoko-eating-bananas)
   - [前缀树](#前缀树)
-      - [](#)
-      - [](#-1)
-  - [区间集合](#区间集合)
-      - [](#-2)
-      - [](#-3)
-  - [单调栈](#单调栈)
-      - [](#-4)
       - [](#-5)
+      - [](#-6)
+  - [区间集合](#区间集合)
+      - [](#-7)
+      - [](#-8)
+  - [单调栈](#单调栈)
+      - [](#-9)
+      - [](#-10)
 
 <!-- /code_chunk_output -->
 
@@ -1101,6 +1110,72 @@ class Solution:
 
         return ans
 ```
+
+
+## 二叉树DFS
+
+
+#### [104. 二叉树的最大深度*](https://leetcode.cn/problems/maximum-depth-of-binary-tree)
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        # O(N), O(N)
+
+        def dfs(_root, cur_depth):
+            if not _root:
+                return cur_depth
+            return max(dfs(_root.left, cur_depth+1), dfs(_root.right, cur_depth+1))
+           
+        return dfs(root, 0)
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+## 二叉树BFS
+
+
+## 二叉树BST
 
 
 
