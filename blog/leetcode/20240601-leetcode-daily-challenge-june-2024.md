@@ -388,10 +388,17 @@ class Solution:
 ```
 
 
-## 20240611 Easy|Medium|Hard []()
+## 20240611 Medium [419. 甲板上的战舰](https://leetcode.cn/problems/battleships-in-a-board)
 
 ```python
-
+class Solution:
+    def countBattleships(self, board: List[List[str]]) -> int:
+        ans = 0
+        for row in range(len(board)):
+            for col in range(len(board[0])):
+                if board[row][col] == 'X' and (row == 0 or board[row-1][col] =='.') and (col == 0 or board[row][col-1]=='.'):
+                    ans += 1
+        return ans
 ```
 
 
