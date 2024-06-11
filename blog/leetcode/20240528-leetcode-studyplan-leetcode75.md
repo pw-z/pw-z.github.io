@@ -57,11 +57,11 @@
       - [2130. 链表最大孪生和**](#2130-链表最大孪生和httpsleetcodecnproblemsmaximum-twin-sum-of-a-linked-list)
   - [二叉树DFS](#二叉树dfs)
       - [104. 二叉树的最大深度*](#104-二叉树的最大深度httpsleetcodecnproblemsmaximum-depth-of-binary-tree)
+      - [872. 叶子相似的树](#872-叶子相似的树httpsleetcodecnproblemsleaf-similar-trees)
       - [](#)
       - [](#-1)
       - [](#-2)
       - [](#-3)
-      - [](#-4)
   - [二叉树BFS](#二叉树bfs)
   - [二叉树BST](#二叉树bst)
   - [位运算](#位运算)
@@ -74,14 +74,14 @@
       - [162. 寻找峰值**](#162-寻找峰值httpsleetcodecnproblemsfind-peak-element)
       - [875. 爱吃香蕉的珂珂**](#875-爱吃香蕉的珂珂httpsleetcodecnproblemskoko-eating-bananas)
   - [前缀树](#前缀树)
+      - [](#-4)
       - [](#-5)
-      - [](#-6)
   - [区间集合](#区间集合)
+      - [](#-6)
       - [](#-7)
-      - [](#-8)
   - [单调栈](#单调栈)
+      - [](#-8)
       - [](#-9)
-      - [](#-10)
 
 <!-- /code_chunk_output -->
 
@@ -1137,10 +1137,27 @@ class Solution:
 ```
 
 
-#### []()
+#### [872. 叶子相似的树](https://leetcode.cn/problems/leaf-similar-trees)
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        # O(n+m), O(n+m)
+        def dfs(node):
+            if not node:
+                return []
+            if not node.left and not node.right:
+                # print('this is a leaf: ', node.val)
+                return [node.val]
+            return dfs(node.left) + dfs(node.right)
+        
+        return dfs(root1) == dfs(root2)
 ```
 
 
