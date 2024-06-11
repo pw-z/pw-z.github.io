@@ -58,10 +58,10 @@
   - [二叉树DFS](#二叉树dfs)
       - [104. 二叉树的最大深度*](#104-二叉树的最大深度httpsleetcodecnproblemsmaximum-depth-of-binary-tree)
       - [872. 叶子相似的树](#872-叶子相似的树httpsleetcodecnproblemsleaf-similar-trees)
+      - [1448. 统计二叉树中好节点的数目**](#1448-统计二叉树中好节点的数目httpsleetcodecnproblemscount-good-nodes-in-binary-tree)
       - [](#)
       - [](#-1)
       - [](#-2)
-      - [](#-3)
   - [二叉树BFS](#二叉树bfs)
   - [二叉树BST](#二叉树bst)
   - [位运算](#位运算)
@@ -74,14 +74,14 @@
       - [162. 寻找峰值**](#162-寻找峰值httpsleetcodecnproblemsfind-peak-element)
       - [875. 爱吃香蕉的珂珂**](#875-爱吃香蕉的珂珂httpsleetcodecnproblemskoko-eating-bananas)
   - [前缀树](#前缀树)
+      - [](#-3)
       - [](#-4)
-      - [](#-5)
   - [区间集合](#区间集合)
+      - [](#-5)
       - [](#-6)
-      - [](#-7)
   - [单调栈](#单调栈)
+      - [](#-7)
       - [](#-8)
-      - [](#-9)
 
 <!-- /code_chunk_output -->
 
@@ -1161,10 +1161,30 @@ class Solution:
 ```
 
 
-#### []()
+#### [1448. 统计二叉树中好节点的数目**](https://leetcode.cn/problems/count-good-nodes-in-binary-tree)
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def goodNodes(self, root: TreeNode) -> int:
+        # O(N), O(N)
 
+        def dfs(node, maxever):
+            if not node:
+                return 0
+
+            goodcnt = 0
+            if node.val >= maxever:
+                goodcnt += 1
+            maxever = max(maxever, node.val)
+            return goodcnt + dfs(node.left, maxever) + dfs(node.right, maxever)
+        
+        return dfs(root, root.val)
 ```
 
 
