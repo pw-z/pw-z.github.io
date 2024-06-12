@@ -402,10 +402,13 @@ class Solution:
 ```
 
 
-## 20240612 Easy|Medium|Hard []()
+## 20240612 Easy [2806. 取整购买后的账户余额](https://leetcode.cn/problems/account-balance-after-rounded-purchase/)
 
 ```python
-
+class Solution:
+    def accountBalanceAfterPurchase(self, purchaseAmount: int) -> int:
+        # return 100 - (10 * (purchaseAmount//10 + int(purchaseAmount % 10 > 4)))
+        return 100 - (purchaseAmount+5)//10 * 10
 ```
 
 
