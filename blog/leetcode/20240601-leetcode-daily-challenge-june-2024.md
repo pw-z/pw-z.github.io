@@ -412,10 +412,27 @@ class Solution:
 ```
 
 
-## 20240613 Easy|Medium|Hard []()
+## 20240613 Hard [2813. 子序列最大优雅度](https://leetcode.cn/problems/maximum-elegance-of-a-k-length-subsequence/)
 
 ```python
-
+class Solution:
+    def findMaximumElegance(self, items: List[List[int]], k: int) -> int:
+        items.sort(key = lambda it: -it[0])
+        categories = set()
+        stack = []
+        ans = profit = 0
+        for i, item in enumerate(items):
+            if i < k:
+                profit += item[0]
+                if item[1] in categories:
+                    stack.append(item[0])
+                else:
+                    categories.add(item[1])
+            elif item[1] not in categories and len(stack) > 0:
+                profit += item[0]-stack.pop()
+                categories.add(item[1])
+            ans = max(ans, profit + len(categories)**2)
+        return ans
 ```
 
 
