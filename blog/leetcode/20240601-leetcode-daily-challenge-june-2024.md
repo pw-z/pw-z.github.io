@@ -436,10 +436,22 @@ class Solution:
 ```
 
 
-## 20240614 Easy|Medium|Hard []()
+## 20240614 Medium [2786. 访问数组中的位置使分数最大](https://leetcode.cn/problems/visit-array-positions-to-maximize-score/)
 
 ```python
-
+class Solution:
+    def maxScore(self, nums: List[int], x: int) -> int:
+        # https://leetcode.cn/problems/visit-array-positions-to-maximize-score/solutions/2810386/jiao-ni-yi-bu-bu-si-kao-dpcong-ji-yi-hua-jhvr
+        # O(N), O(N)
+        @cache
+        def dfs(i, j):
+            if i == len(nums):
+                return 0
+            if nums[i] % 2 != j:
+                return dfs(i+1, j)
+            return max(dfs(i+1, j), dfs(i+1, j^1)-x) + nums[i]
+            
+        return dfs(0, nums[0]%2)
 ```
 
 
