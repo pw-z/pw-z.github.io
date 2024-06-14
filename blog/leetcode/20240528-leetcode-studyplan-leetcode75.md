@@ -59,9 +59,9 @@
       - [104. 二叉树的最大深度*](#104-二叉树的最大深度httpsleetcodecnproblemsmaximum-depth-of-binary-tree)
       - [872. 叶子相似的树](#872-叶子相似的树httpsleetcodecnproblemsleaf-similar-trees)
       - [1448. 统计二叉树中好节点的数目**](#1448-统计二叉树中好节点的数目httpsleetcodecnproblemscount-good-nodes-in-binary-tree)
+      - [437. 路径总和 III**](#437-路径总和-iiihttpsleetcodecnproblemspath-sum-iii)
       - [](#)
-      - [](#-1)
-      - [](#-2)
+      - [236. 二叉树的最近公共祖先](#236-二叉树的最近公共祖先httpsleetcodecnproblemslowest-common-ancestor-of-a-binary-tree)
   - [二叉树BFS](#二叉树bfs)
   - [二叉树BST](#二叉树bst)
   - [位运算](#位运算)
@@ -74,14 +74,14 @@
       - [162. 寻找峰值**](#162-寻找峰值httpsleetcodecnproblemsfind-peak-element)
       - [875. 爱吃香蕉的珂珂**](#875-爱吃香蕉的珂珂httpsleetcodecnproblemskoko-eating-bananas)
   - [前缀树](#前缀树)
+      - [](#-1)
+      - [](#-2)
+  - [区间集合](#区间集合)
       - [](#-3)
       - [](#-4)
-  - [区间集合](#区间集合)
+  - [单调栈](#单调栈)
       - [](#-5)
       - [](#-6)
-  - [单调栈](#单调栈)
-      - [](#-7)
-      - [](#-8)
 
 <!-- /code_chunk_output -->
 
@@ -1188,10 +1188,36 @@ class Solution:
 ```
 
 
-#### []()
+#### [437. 路径总和 III**](https://leetcode.cn/problems/path-sum-iii)
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+        # 题解：https://leetcode.cn/problems/path-sum-iii/solutions/2784856/zuo-fa-he-560-ti-shi-yi-yang-de-pythonja-fmzo
+        # O(N), O(N)
+        ans = 0
+        cnt = collections.defaultdict(int)
+        cnt[0] = 1
 
+        def dfs(node, s):
+            if not node:
+                return
+            nonlocal ans
+            s += node.val
+            ans += cnt[s - targetSum]
+            cnt[s] += 1
+            dfs(node.left, s)
+            dfs(node.right, s)
+            cnt[s] -= 1
+
+        dfs(root, 0)
+        return ans
 ```
 
 
@@ -1202,10 +1228,32 @@ class Solution:
 ```
 
 
-#### []()
+#### [236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree)
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        # O(N), O(N)
+        def dfs(node):
+            if not node:
+                return
+            
+            if node.val == p.val or node.val == q.val:
+                return node
+            else:
+                l = dfs(node.left)
+                r = dfs(node.right)
+                if not l: return r
+                if not r: return l
+                return node
+        return dfs(root) 
 ```
 
 
