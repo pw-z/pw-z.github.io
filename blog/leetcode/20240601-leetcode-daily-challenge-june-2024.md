@@ -455,10 +455,25 @@ class Solution:
 ```
 
 
-## 20240615 Easy|Medium|Hard []()
+## 20240615 Medium [2779. 数组的最大美丽值](https://leetcode.cn/problems/maximum-beauty-of-an-array-after-applying-operation)
 
 ```python
-
+class Solution:
+    def maximumBeauty(self, nums: List[int], k: int) -> int:
+        # https://leetcode.cn/problems/maximum-beauty-of-an-array-after-applying-operation/solutions/2345805/pai-xu-shuang-zhi-zhen-by-endlesscheng-hbqx
+        # O(nlogn), O(1)
+        nums.sort()
+        # top, bot = [], []
+        # for n in nums:
+        #     top.append(n + k)
+        #     bot.append(n - k)
+        # print(nums, bot, top)
+        ans = l = 0
+        for r, n in enumerate(nums):
+            while n - nums[l] > k*2:
+                l += 1
+            ans = max(ans, r-l+1)
+        return ans
 ```
 
 
@@ -476,107 +491,92 @@ class Solution:
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240618 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240619 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240620 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240621 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240622 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240623 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240624 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240625 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240626 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240627 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240628 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240629 Easy|Medium|Hard []()
 
 ```python
 
 ```
 
 
-## Easy|Medium|Hard []()
+## 20240630 Easy|Medium|Hard []()
 
 ```python
 
 ```
-
-
-## Easy|Medium|Hard []()
-
-```python
-
-```
-
-
-## Easy|Medium|Hard []()
-
-```python
-
-```
-
