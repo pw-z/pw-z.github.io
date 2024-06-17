@@ -3,14 +3,14 @@
 
 - [Vocabulary 20k](#vocabulary-20k)
   - [Intro \*41](#intro-41)
-  - [\[Song\] Tom's Diner \*183](#song-toms-diner-183)
-  - [\[Song\] Freedom \*250](#song-freedom-250)
-  - [\[Song\] Love of My Life \*299](#song-love-of-my-life-299)
-  - [\[Song\] When I'm Sixty-Four \*376](#song-when-im-sixty-four-376)
-  - [\[Song\] Parachute \*412](#song-parachute-412)
-  - [\[Song\] Like I'm Gonna Lose You \*451](#song-like-im-gonna-lose-you-451)
-  - [\[Book\] Content by ChatGPT3.5 \*574](#book-content-by-chatgpt35-574)
-  - [\[Book\] 1984 Part1 Chapter1](#book-1984-part1-chapter1)
+  - [Tom's Diner \*183](#toms-diner-183)
+  - [Freedom \*250](#freedom-250)
+  - [Love of My Life \*299](#love-of-my-life-299)
+  - [When I'm Sixty-Four \*376](#when-im-sixty-four-376)
+  - [Parachute \*412](#parachute-412)
+  - [Like I'm Gonna Lose You \*451](#like-im-gonna-lose-you-451)
+  - [Excerpts form ChatGPT3.5 \*574](#excerpts-form-chatgpt35-574)
+  - [BARREN SPRING \*755](#barren-spring-755)
 
 
 ## Intro *41
@@ -55,7 +55,7 @@ The intro stop here.
 *The vocabulary size up to now, as of 2024.05.05, is **41**.*
 
 
-## [Song] Tom's Diner *183
+## Tom's Diner *183
 
 > "Tom's Diner" is a song written in 1982 by American singer and songwriter Suzanne Vega. It was first released as a track on the January 1984 issue of Fast Folk Musical Magazine. When first featured on one of her own studio albums, it appeared as the first track of her 1987 album Solitude Standing. It was later used as the basis for a remix by the British group DNA in 1990, which reached number 1 in Austria, Germany, Greece and Switzerland. The 1991 compilation Tom's Album includes the DNA version as well as cover versions by such artists as After One, Nikki D and Bingo Hand Job (R. E. M. and Billy Bragg). It was also used as the background soundtrack for the opening scene of the 1993 film Untamed Heart.
 
@@ -124,11 +124,12 @@ It's time to catch the train
 *The vocabulary size up to now, as of 2024.05.05, is **183**.*
 
 
-## [Song] Freedom *250
+## Freedom *250
 ```
-(with Elayna Boynton)  
-(from "Django Unchained" soundtrack)  
-(Writer(s): Anthony Cornelius Hamilton, Kelvin L. Wooten, Elayna Lajean Boynton)  
+
+from "Django Unchained" soundtrack
+
+Writer(s): Anthony Cornelius Hamilton, Kelvin L. Wooten, Elayna Lajean Boynton
 
 Ooh
 
@@ -184,7 +185,7 @@ And to find it may take everything I have!
 *The vocabulary size up to now, as of 2024.05.12, is **250**.*
 
 
-## [Song] Love of My Life *299
+## Love of My Life *299
 
 > Queen - Track 9 on A Night at the Opera
 > 
@@ -193,6 +194,7 @@ And to find it may take everything I have!
 > Austin and Mercury lived together for seven years and remained best friends until his death. In Mercury’s later life, she became his personal assistant, and after his death was the inheritor of the bulk of his estate.
 > 
 > https://genius.com/Queen-love-of-my-life-lyrics
+
 
 ```
 [Intro]
@@ -246,7 +248,7 @@ Ooh, ooh
 *The vocabulary size up to now, as of 2024.05.12, is **299**.*
 
 
-## [Song] When I'm Sixty-Four *376
+## When I'm Sixty-Four *376
 
 > "When I'm Sixty-Four" is a song by the English rock band The Beatles, written by Paul McCartney (credited to Lennon–McCartney) and released on their 1967 album Sgt. Pepper's Lonely Hearts Club Band. It was one of the first songs McCartney wrote; he was about 14, probably in April or May 1956. The song was recorded in a key different from the final recording; it was sped up at the request of McCartney to make his voice sound younger. It prominently features a trio of clarinets (two B♭ clarinets and one bass clarinet) throughout. 
 >
@@ -298,7 +300,7 @@ When I'm sixty-four
 *The vocabulary size up to now, as of 2024.05.14, is **376**.*
 
 
-## [Song] Parachute *412
+## Parachute *412
 
 > Track 3 on Friendly Fire (Sean Lennon album)
 > 
@@ -354,7 +356,7 @@ We had some fun before we hit the ground
 *The vocabulary size up to now, as of 2024.05.14, is **412**.*
 
 
-## [Song] Like I'm Gonna Lose You *451
+## Like I'm Gonna Lose You *451
 
 ```
 [Verse 1: Meghan Trainor]
@@ -409,7 +411,7 @@ I'm gonna love you (Oh) like I'm gonna lose you
 *The vocabulary size up to now, as of 2024.05.15, is **451**.*
 
 
-## [Book] Content by ChatGPT3.5 *574
+## Excerpts form ChatGPT3.5 *574
 
 Give me some wonderful ***excerpts*** from classic English books.
 
@@ -487,11 +489,24 @@ These timeless excerpts continue to ***resonate*** with readers across generatio
 *The vocabulary size up to now, as of 2024.05.17, is **574**.*
 
 
-## [Book] 1984 Part1 Chapter1
+## BARREN SPRING *755
 
-It was a bright cold day in April, and the clocks were striking thirteen. Winston Smith, his chin ***nuzzled*** into his breast in an effort to escape the ***vile*** wind, slipped quickly through the glass doors of Victory ***Mansions***, though not quickly enough to prevent a ***swirl*** of ***gritty*** dust from entering along with him.
+> Pearl Sydenstricken Buck (1892-1973), American novelist. Her parents were ***missionaries*** in China, so she was brought up in our country. She was married, first, to John Lossing Buck, at one time professor of Rural Economics at the University of Nanking. This early part of her life she included in her ***biography*** of her mother, in her novel The Exile, published in 1935. In the same year she divorced her husband to marry her present husband Richard J. Walsh, owner of the John Day Publishing House. She still writes under the name of Mrs. Pearl S. Buck. The Good Earth, generally considered as her best novel on China, was awarded the Pulitzer Prize in 1931 for being the best novel published for that year in America.
 
-The hallway smelt of boiled cabbage and old rag ***mats***. At one end of it a coloured poster, too large for indoor display, had been ***tacked*** to the wall. It ***depicted*** simply an enormous face, more than a metre wide: the face of a man of about forty-five, with a heavy black moustache and ruggedly handsome features. Winston made for the stairs. It was no use trying the lift. Even at the best of times it was seldom working, and at present the electric current was cut off during daylight hours. It was part of the economy drive in preparation for Hate Week. The flat was seven flights up, and Winston, who was thirty-nine and had a varicose ulcer above his right ankle, went slowly, resting several times on the way. On each landing, opposite the lift-shaft, the poster with the enormous face gazed from the wall. It was one of those pictures which are so contrived that the eyes follow you about when you move. BIG BROTHER IS WATCHING YOU, the caption beneath it ran.
+Liu, the farmer, sat at the door of his one-room house. It was a warm evening in late February, and in his thin body he felt the coming of spring. How he knew that the time had now come when ***sap*** should stir in trees and life begin to move in the soil he could not have told himself. In other years it would have been easy enough. He could have pointed to the ***willow*** trees about the house, and shown the swelling buds. But there were no more trees now. He had cut them off during the bitter winter when they were starving for food and he had sold them one by one. Or he might have pointed to the pink-tipped buds of his three peach trees and his six ***apricot*** trees that his father had planted in his day so that now, being at the height of their time, they bore a load of fruit every year. But these trees were also gone. Most of all, in any other year than this he might have pointed to his wheat fields, where he planted wheat in the winter when the land was not needed for rice, and where, when spring was moving into summer, he planted the good rice, for rice was his chief crop. But the land told nothing, this year. There was no wheat on it, for the flood had covered it long after wheat should have been planted, and it lay there ***cracked*** and like ***clay*** but newly dried.
 
+Well, on such a day as this, if he had his buffalo and his ***plow*** as he had always had in other years, he would have gone out and plowed up that cracked soil. He ***ached to*** plow it up and make it look like a field again, yes, even though he had not so much as one seed to put in it. But he had no buffalo. If anyone had told him that he would eat his own water buffalo that plowed the good land for him, and year after year pulled the stone roller over the grain and ***threshed*** it at harvest he would have called that man idiot. Yet it was what he had done. He had eaten his own water buffalo, he and his wife and his parents and his four children, they had all eaten the buffalo together.
 
+But what else could they do on that dark winter's day when the last of their store of grain was gone, when the trees were cut and sold, when he had sold everything, even the little they had saved from the flood, and there was nothing left except the ***rafters*** of the house they had and the ***garments*** they wore? Was there sense in stripping the coat off one's back to feed one's belly? Besides, the beast was starving also, since the water had covered even the grass lands, and they had had to go far afield to gather even enough to cook its bones and flesh. On that day when he had seen the faces of his old parents set as though dead, on that day when he had heard the crying of his children and seen his little daughter dying, such a despair had ***seized*** him as made him like a man without his reason, so that he had gathered together his feeble strength and he had done what he said he never would; he had taken the kitchen knife and gone out and killed his own beast. When he did it, even in his despair, he groaned, for it was as though he killed his own brother. To him it was the last sacrifice.
 
+Yet it was not enough. No, they grew hungry again and there was nothing left to kill. Many of the villagers went south to other places, or they went down the river to beg in the great cities. But he, Liu the farmer, had never begged. Moreover, it seemed to him then that they must all die and the only comfort left was to die on their own land. His neighbor had come and begged him to set forth with them; yes, he had even said he would carry one of the old parents on his back so that Liu might carry the other, seeing that his own old father was already dead. But Liu had refused, and it was well, for in the next two days the old mother was dead, and if she had died on the way he could only have cast her by the roadside lest the others be delayed and more of them die. As it was he could put her safely into their own ground, although he had been so weak that it had taken him three days to dig a hole deep enough for her little old ***withered*** body. And then before he could get her buried he and his wife had ***quarreled*** over the poor few clothes on the old body. His wife was a hard woman and she would have buried the old mother naked, if he had let her, so as to have the clothes for the children. But he made her leave on the inner coat and trousers; although they were only rags after all, and when he saw the cold earth against his old mother's flesh—well, that was sorrow for a man, but it could not be helped. Three more he had buried somehow, his old father and his baby daughter and the little boy who had never been strong.
+
+That was what the winter's famine had taken from them. It would have taken them all except that in the great pools lying everywhere, which were left from the flood, there were shrimps, and these they had eaten raw and were still eating, although they were all sick with a ***dysentery*** that would not get well. In the last day or so his wife had crawled out and dug a few sprouting ***dandelions***. But there was no fuel and so they also were eaten raw. But the bitterness was good after the tasteless flesh of the raw shrimps. Yes, spring was coming.
+
+He sat on heavily, looking out over his land. If he had his buffalo back, if he had his plow that they had burned for fuel, he could plow the land. But when he thought of this as he did many times every day, he felt helpless as a leaf tossed upon the flood. The buffalo was gone; gone also his plow and every implement of wood and bamboo, and what other had he? Sometimes in the winter he had felt grateful that at least the flood had not taken all the house as it had so many other houses. But now suddenly it came to him that he could be grateful for nothing, no, not even that he had his life left him and the life of his wife and the two older children. He felt tears come into his eyes slowly as they had not even come when he buried his old mother and saw the earth fall against her flesh, bared by the rags which had comforted him that day. But now he was comforted by nothing. He muttered to himself.
+
+“I have no seed to plant in the land. There the land lies! I could go and claw it up with my hands if I had the seed and the land would bear. I know my good land. But I have no seed and the land is empty. Yes, even though spring comes, we must still starve!”
+
+And he looked, hopeless, into the barren spring.
+
+*The vocabulary size up to now, as of 2024.06.17, is **755**.*
