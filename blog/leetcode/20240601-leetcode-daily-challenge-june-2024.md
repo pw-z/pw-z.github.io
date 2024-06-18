@@ -477,10 +477,15 @@ class Solution:
 ```
 
 
-## 20240616 Easy|Medium|Hard []()
+## 20240616 Easy [521. 最长特殊序列 Ⅰ](https://leetcode.cn/problems/longest-uncommon-subsequence-i/)
 
 ```python
-
+class Solution:
+    def findLUSlength(self, a: str, b: str) -> int:
+        # O(n), O(1)
+        if a == b:
+            return -1
+        return max(len(a), len(b))
 ```
 
 
