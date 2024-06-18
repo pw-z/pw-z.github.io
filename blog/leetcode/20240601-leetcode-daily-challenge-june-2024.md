@@ -491,10 +491,28 @@ class Solution:
 ```
 
 
-## 20240618 Easy|Medium|Hard []()
+## 20240618 Medium [2288. 价格减免](https://leetcode.cn/problems/apply-discount-to-prices)
 
 ```python
+class Solution:
+    def discountPrices(self, sentence: str, discount: int) -> str:
+        # O(N + 单词数*单词长度) ~ O(N), O(N)
+        words = sentence.split(" ")
+        # print(words)
+        for i in range(len(words)):
+            w = words[i]
+            if w.startswith("$") and len(w) > 1:
+                flag = True
+                for _ in w[1:]:
+                    if _ not in "0123456789":
+                        flag = False
+                        break
+                if flag:
+                    # print(w[1:])
+                    words[i] = f"${int(w[1:]) * (100-discount)/100:.2f}"
+        return " ".join(words)
 
+        # Note: 判断数字可以用`.isdigit()`
 ```
 
 
