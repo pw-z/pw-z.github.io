@@ -489,10 +489,32 @@ class Solution:
 ```
 
 
-## 20240617 Easy|Medium|Hard []()
+## 20240617 Medium [522. 最长特殊序列 II](https://leetcode.cn/problems/longest-uncommon-subsequence-ii/)
 
 ```python
-
+class Solution:
+    def findLUSlength(self, strs: List[str]) -> int:
+        # https://leetcode.cn/problems/longest-uncommon-subsequence-ii/solutions/1623415/zui-chang-te-shu-xu-lie-ii-by-leetcode-s-bo2e
+        ans = -1
+        n = len(strs)
+        for i in range(n):
+            s = strs[i]
+            flag = True
+            for j in range(n):
+                t = strs[j]
+                if i != j:
+                    # 判断s是否为t的子序列
+                    ps = pt = 0
+                    while ps < len(s) and pt < len(t):
+                        if s[ps] == t[pt]:
+                            ps += 1
+                        pt += 1
+                    if ps == len(s):
+                        flag = False
+                        break
+            if flag:
+                ans = max(ans, len(s))
+        return ans
 ```
 
 
@@ -521,10 +543,28 @@ class Solution:
 ```
 
 
-## 20240619 Easy|Medium|Hard []()
+## 20240619 Hard [2713. 矩阵中严格递增的单元格数](https://leetcode.cn/problems/maximum-strictly-increasing-cells-in-a-matrix/)
 
 ```python
+class Solution:
+    def maxIncreasingCells(self, mat: List[List[int]]) -> int:
+        # https://leetcode.cn/problems/maximum-strictly-increasing-cells-in-a-matrix/solutions/2809597/ju-zhen-zhong-yan-ge-di-zeng-de-dan-yuan-ff4v
+        m, n = len(mat), len(mat[0])
+        mp = defaultdict(list)
+        row = [0]*m
+        col = [0]*n
 
+        for i in range(m):
+            for j in range(n):
+                mp[mat[i][j]].append((i, j))
+
+        for _, pos in sorted(mp.items(), key=lambda k: k[0]):
+            res = [max(row[i], col[j])+1 for i, j in pos]
+            for (i, j), d in zip(pos, res):
+                row[i] = max(row[i], d)
+                col[j] = max(col[j], d)
+
+        return max(row)
 ```
 
 
