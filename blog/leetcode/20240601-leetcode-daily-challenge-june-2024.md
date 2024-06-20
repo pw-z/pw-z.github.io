@@ -568,10 +568,17 @@ class Solution:
 ```
 
 
-## 20240620 Easy|Medium|Hard []()
+## 20240620 Easy [2748. 美丽下标对的数目](https://leetcode.cn/problems/number-of-beautiful-pairs/)
 
 ```python
-
+class Solution:
+    def countBeautifulPairs(self, nums: List[int]) -> int:
+        ans = 0
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if gcd(int(str(nums[i])[0]), nums[j]%10) == 1:
+                    ans += 1
+        return ans
 ```
 
 
