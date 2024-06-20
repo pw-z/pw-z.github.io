@@ -60,7 +60,7 @@
       - [872. 叶子相似的树](#872-叶子相似的树httpsleetcodecnproblemsleaf-similar-trees)
       - [1448. 统计二叉树中好节点的数目**](#1448-统计二叉树中好节点的数目httpsleetcodecnproblemscount-good-nodes-in-binary-tree)
       - [437. 路径总和 III**](#437-路径总和-iiihttpsleetcodecnproblemspath-sum-iii)
-      - [](#)
+      - [1372. 二叉树中的最长交错路径**](#1372-二叉树中的最长交错路径httpsleetcodecnproblemslongest-zigzag-path-in-a-binary-tree)
       - [236. 二叉树的最近公共祖先](#236-二叉树的最近公共祖先httpsleetcodecnproblemslowest-common-ancestor-of-a-binary-tree)
   - [二叉树BFS](#二叉树bfs)
   - [二叉树BST](#二叉树bst)
@@ -74,14 +74,14 @@
       - [162. 寻找峰值**](#162-寻找峰值httpsleetcodecnproblemsfind-peak-element)
       - [875. 爱吃香蕉的珂珂**](#875-爱吃香蕉的珂珂httpsleetcodecnproblemskoko-eating-bananas)
   - [前缀树](#前缀树)
+      - [](#)
       - [](#-1)
-      - [](#-2)
   - [区间集合](#区间集合)
+      - [](#-2)
       - [](#-3)
-      - [](#-4)
   - [单调栈](#单调栈)
+      - [](#-4)
       - [](#-5)
-      - [](#-6)
 
 <!-- /code_chunk_output -->
 
@@ -1114,6 +1114,12 @@ class Solution:
 
 ## 二叉树DFS
 
+二叉树的深度优先搜索（Depth-First Search, DFS）是一种遍历策略，旨在访问二叉树中的所有节点。这种遍历方法沿着树的深度方向进行，尽可能深地探索每一条分支，然后再回溯。在二叉树中，DFS主要有三种常见的遍历顺序：前序遍历、中序遍历和后序遍历。
+
+深度优先搜索通常采用递归实现，因为递归天然符合深度优先的探索逻辑。在递归过程中，函数调用自身来处理子树，直到遇到叶子节点（无子节点的节点），然后逐级返回。递归算法简洁明了，但需要注意的是，对于极深的树可能会导致栈溢出的问题。此外，也可以使用栈来实现非递归的深度优先搜索，这种方式更加灵活，可以避免栈溢出的问题。
+
+深度优先搜索在解决诸如查找、统计、验证等涉及树或图结构的问题时非常有用。例如，它可以用来计算树的深度、检查树中是否存在某个值、确定两个节点间是否存在路径等。此外，DFS也是许多图算法的基础，如图的连通性分析、拓扑排序等。
+
 
 #### [104. 二叉树的最大深度*](https://leetcode.cn/problems/maximum-depth-of-binary-tree)
 
@@ -1221,10 +1227,37 @@ class Solution:
 ```
 
 
-#### []()
+#### [1372. 二叉树中的最长交错路径**](https://leetcode.cn/problems/longest-zigzag-path-in-a-binary-tree/)
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def longestZigZag(self, root: Optional[TreeNode]) -> int:
+        # https://leetcode.cn/problems/longest-zigzag-path-in-a-binary-tree/solutions/147425/er-cha-shu-zhong-de-zui-chang-jiao-cuo-lu-jing-b-2
+        # O(n), O(1)
+        ans = 0
 
+        def dfs(node, dir, length):
+            # 0左1右
+            if not node:
+                return
+            nonlocal ans
+            ans = max(ans, length)
+            if dir == 0:
+                dfs(node.left, 1, length+1)
+                dfs(node.right, 0, 1)
+            else:
+                dfs(node.right, 0, length+1)
+                dfs(node.left, 1, 1)
+        
+        dfs(root, 0, 0)
+        dfs(root, 1, 0)
+        return ans
 ```
 
 
