@@ -582,10 +582,22 @@ class Solution:
 ```
 
 
-## 20240621 Easy|Medium|Hard []()
+## 20240621 Easy [LCP 61. 气温变化趋势](https://leetcode.cn/problems/6CE719)
 
 ```python
-
+class Solution:
+    def temperatureTrend(self, temperatureA: List[int], temperatureB: List[int]) -> int:
+        # O(n), O(1)
+        ans = tmp = 0
+        for i in range(1, len(temperatureA)):
+            a = temperatureA[i] - temperatureA[i-1]
+            b = temperatureB[i] - temperatureB[i-1]
+            if (a > 0 and b > 0) or (a<0 and b < 0) or (a == 0 and b == 0):
+                tmp += 1
+            else:
+                ans = max(ans, tmp)
+                tmp = 0
+        return max(ans, tmp)
 ```
 
 
