@@ -71,11 +71,13 @@
   - [图DFS/BFS](#图dfsbfs)
       - [841. 钥匙和房间\*\*](#841-钥匙和房间)
       - [547. 省份数量\*\*](#547-省份数量)
+      - [1466. 重新规划路线\*\*](#1466-重新规划路线)
       - [](#)
       - [](#-1)
-  - [堆/优先队列](#堆优先队列)
       - [](#-2)
+  - [堆/优先队列](#堆优先队列)
       - [](#-3)
+      - [](#-4)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
@@ -86,14 +88,14 @@
       - [162. 寻找峰值\*\*](#162-寻找峰值)
       - [875. 爱吃香蕉的珂珂\*\*](#875-爱吃香蕉的珂珂)
   - [前缀树](#前缀树)
-      - [](#-4)
       - [](#-5)
-  - [区间集合](#区间集合)
       - [](#-6)
+  - [区间集合](#区间集合)
       - [](#-7)
-  - [单调栈](#单调栈)
       - [](#-8)
+  - [单调栈](#单调栈)
       - [](#-9)
+      - [](#-10)
 
 <!-- /code_chunk_output -->
 
@@ -1567,6 +1569,49 @@ class Solution:
                                 visited.add(idx)
                                 stack.append(idx)
         return ans
+```
+
+
+#### [1466. 重新规划路线**](https://leetcode.cn/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/)
+
+```python
+class Solution:
+    # 题解：https://leetcode.cn/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/solutions/2553195/zhong-xin-gui-hua-lu-xian-by-leetcode-so-psl6
+    # O(N), O(N)
+    def dfs(self, x, parent, e):
+        res = 0
+        for edge in e[x]:
+            if edge[0] == parent:
+                continue
+            res += edge[1] + self.dfs(edge[0], x, e)
+        return res
+            
+    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+        e = [[] for _ in range(n)]
+        for ee in connections:
+            e[ee[0]].append([ee[1], 1])
+            e[ee[1]].append([ee[0], 0])
+        # print(e)
+        return self.dfs(0, -1, e)
+
+        # 输入：n = 6, connections = [[0,1],[1,3],[2,3],[4,0],[4,5]]
+        # 输出：3
+        # 解释：更改以红色显示的路线的方向，使每个城市都可以到达城市 0 。
+        # [
+        #     [[1, 1], [4, 0]], 
+        #     [[0, 0], [3, 1]], 
+        #     [[3, 1]], 
+        #     [[1, 0], [2, 0]], 
+        #     [[0, 1], [5, 1]], 
+        #     [[4, 0]]
+        # ]
+```
+
+
+#### []()
+
+```python
+
 ```
 
 
