@@ -601,10 +601,31 @@ class Solution:
 ```
 
 
-## 20240622 Easy|Medium|Hard []()
+## 20240622 Hard [2663. 字典序最小的美丽字符串](https://leetcode.cn/problems/lexicographically-smallest-beautiful-string/)
 
 ```python
-
+class Solution:
+    def smallestBeautifulString(self, s: str, k: int) -> str:
+        # 斗宗强者恐怖如斯：https://leetcode.cn/problems/lexicographically-smallest-beautiful-string/solutions/2251229/tan-xin-pythonjavacgo-by-endlesscheng-yix5
+        # O(n), O(n)
+        a = ord('a')
+        k += a
+        s = list(map(ord, s))
+        n = len(s)
+        i = n-1
+        s[i] += 1
+        while i < n:
+            if s[i] == k: # 处理进位
+                if i==0:
+                    return ""
+                s[i] = a
+                i -= 1
+                s[i] += 1
+            elif i and s[i] == s[i-1] or i > 1 and s[i] == s[i-2]: # 处理回文
+                s[i] += 1
+            else:
+                i += 1
+        return ''.join(map(chr, s))
 ```
 
 
