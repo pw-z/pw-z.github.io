@@ -66,8 +66,8 @@
       - [199. 二叉树的右视图\*\*](#199-二叉树的右视图)
       - [1161. 最大层内元素和\*\*](#1161-最大层内元素和)
   - [二叉树BST](#二叉树bst)
-      - [](#)
-      - [](#-1)
+      - [700. 二叉搜索树中的搜索\*](#700-二叉搜索树中的搜索)
+      - [450. 删除二叉搜索树中的节点\*\*](#450-删除二叉搜索树中的节点)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
@@ -78,14 +78,14 @@
       - [162. 寻找峰值\*\*](#162-寻找峰值)
       - [875. 爱吃香蕉的珂珂\*\*](#875-爱吃香蕉的珂珂)
   - [前缀树](#前缀树)
+      - [](#)
+      - [](#-1)
+  - [区间集合](#区间集合)
       - [](#-2)
       - [](#-3)
-  - [区间集合](#区间集合)
+  - [单调栈](#单调栈)
       - [](#-4)
       - [](#-5)
-  - [单调栈](#单调栈)
-      - [](#-6)
-      - [](#-7)
 
 <!-- /code_chunk_output -->
 
@@ -1420,17 +1420,84 @@ class Solution:
 
 BST不必是完全二叉树，必须是完全二叉树的数据结构通常是堆（Heap），特别是二叉堆。二叉堆是一种特殊的完全二叉树，其中每个父节点的值都小于（或等于）其子节点的值（在最小堆中）或大于（或等于）其子节点的值（在最大堆中）。
 
-#### []()
+#### [700. 二叉搜索树中的搜索*](https://leetcode.cn/problems/search-in-a-binary-search-tree)
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        # O(n), O(1)
+        node = root
+        while node:
+            if node.val == val:
+                return node
+            if val < node.val:
+                node = node.left
+            else:
+                node = node.right
 ```
 
 
-#### []()
+#### [450. 删除二叉搜索树中的节点**](https://leetcode.cn/problems/delete-node-in-a-bst)
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
+        
+        # try to find the key
+        node = root
+        parent = None
+        while node and node.val != key:
+            parent = node
+            if node.val > key:
+                node = node.left
+            else:
+                node = node.right
 
+        # found node that match the key
+        if node:
+            # put left to the most left pos of right
+            if node.right and node.left:
+                tmp = node.right
+                while tmp.left:
+                    tmp = tmp.left
+                tmp.left = node.left
+
+            # handle the child of the node
+            if node.right:
+                if not parent: # node == root
+                    root = node.right
+                elif parent.left and parent.left.val == key:
+                    parent.left = node.right
+                else:
+                    parent.right = node.right
+            elif node.left:
+                if not parent: # node == root
+                    root = node.left
+                elif parent.left and parent.left.val == key:
+                    parent.left = node.left
+                else:
+                    parent.right = node.left
+            else: # the node has no child
+                if not parent: # node == root
+                    root = None
+                elif parent.left and parent.left.val == key:
+                    parent.left = None
+                else:
+                    parent.right = None
+                
+        return root
 ```
 
 
