@@ -70,12 +70,12 @@
       - [450. 删除二叉搜索树中的节点\*\*](#450-删除二叉搜索树中的节点)
   - [图DFS/BFS](#图dfsbfs)
       - [841. 钥匙和房间\*\*](#841-钥匙和房间)
+      - [547. 省份数量\*\*](#547-省份数量)
       - [](#)
       - [](#-1)
-      - [](#-2)
   - [堆/优先队列](#堆优先队列)
+      - [](#-2)
       - [](#-3)
-      - [](#-4)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
@@ -86,14 +86,14 @@
       - [162. 寻找峰值\*\*](#162-寻找峰值)
       - [875. 爱吃香蕉的珂珂\*\*](#875-爱吃香蕉的珂珂)
   - [前缀树](#前缀树)
+      - [](#-4)
       - [](#-5)
-      - [](#-6)
   - [区间集合](#区间集合)
+      - [](#-6)
       - [](#-7)
-      - [](#-8)
   - [单调栈](#单调栈)
+      - [](#-8)
       - [](#-9)
-      - [](#-10)
 
 <!-- /code_chunk_output -->
 
@@ -1542,10 +1542,31 @@ class Solution:
 ```
 
 
-#### []()
+#### [547. 省份数量**](https://leetcode.cn/problems/number-of-provinces/)
 
 ```python
-
+class Solution:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        # DFS O(N^2), O(N)
+        visited = set()
+        stack = []
+        n = len(isConnected)
+        ans = 0
+        for i in range(n):
+            if i not in visited:
+                ans += 1
+                stack.append(i)
+                # print("handle i= ", i, " stack = ", stack)
+                while stack:
+                    cur = stack.pop()
+                    conn = isConnected[cur]
+                    for idx in range(n):
+                        if idx not in visited:
+                            isConn = conn[idx]
+                            if isConn == 1:
+                                visited.add(idx)
+                                stack.append(idx)
+        return ans
 ```
 
 
