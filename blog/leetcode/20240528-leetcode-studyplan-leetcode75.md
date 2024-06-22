@@ -68,6 +68,14 @@
   - [二叉树BST](#二叉树bst)
       - [700. 二叉搜索树中的搜索\*](#700-二叉搜索树中的搜索)
       - [450. 删除二叉搜索树中的节点\*\*](#450-删除二叉搜索树中的节点)
+  - [图DFS/BFS](#图dfsbfs)
+      - [841. 钥匙和房间\*\*](#841-钥匙和房间)
+      - [](#)
+      - [](#-1)
+      - [](#-2)
+  - [堆/优先队列](#堆优先队列)
+      - [](#-3)
+      - [](#-4)
   - [位运算](#位运算)
       - [338. 比特位计数\*](#338-比特位计数)
       - [136. 只出现一次的数字\*](#136-只出现一次的数字)
@@ -78,14 +86,14 @@
       - [162. 寻找峰值\*\*](#162-寻找峰值)
       - [875. 爱吃香蕉的珂珂\*\*](#875-爱吃香蕉的珂珂)
   - [前缀树](#前缀树)
-      - [](#)
-      - [](#-1)
-  - [区间集合](#区间集合)
-      - [](#-2)
-      - [](#-3)
-  - [单调栈](#单调栈)
-      - [](#-4)
       - [](#-5)
+      - [](#-6)
+  - [区间集合](#区间集合)
+      - [](#-7)
+      - [](#-8)
+  - [单调栈](#单调栈)
+      - [](#-9)
+      - [](#-10)
 
 <!-- /code_chunk_output -->
 
@@ -1499,6 +1507,79 @@ class Solution:
                 
         return root
 ```
+
+
+## 图DFS/BFS
+
+
+#### [841. 钥匙和房间**](https://leetcode.cn/problems/keys-and-rooms/)
+
+DFS/BFS 样板间；
+
+```python
+class Solution:
+    def canVisitAllRooms1(self, rooms: List[List[int]]) -> bool:
+        # BFS O(n), O(n)
+        visit, q = set([0]), collections.deque([0])
+        while q:
+            cur = q.popleft()
+            for k in rooms[cur]:
+                if k not in visit:
+                    q.append(k)
+                    visit.add(k)
+        return len(visit) == len(rooms)
+    
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        # DFS O(n), O(n)
+        visit, s = set([0]), [0]
+        while s:
+            cur = s.pop()
+            for k in rooms[cur]:
+                if k not in visit:
+                    visit.add(k)
+                    s.append(k)
+        return len(visit) == len(rooms)
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
+## 堆/优先队列
+
+
+#### []()
+
+```python
+
+```
+
+
+#### []()
+
+```python
+
+```
+
+
 
 
 ## 位运算
