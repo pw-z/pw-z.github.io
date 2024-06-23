@@ -629,10 +629,34 @@ class Solution:
 ```
 
 
-## 20240623 Easy|Medium|Hard []()
+## 20240623 Easy [520. 检测大写字母](https://leetcode.cn/problems/detect-capital/)
 
 ```python
+class Solution:
+    def detectCapitalUse1(self, word: str) -> bool:
+        # O(n), O(1)
+        if len(word) < 2:
+            return True
+        lowL, lowR = ord("a"), ord("z")
+        highL, highR = ord("A"), ord("Z")
 
+        isFirstCapital = highL <= ord(word[0]) <= highR
+        countCapital = 0
+        countNonCaptial = 0
+        for c in word:
+            curIsCapital = highL <= ord(c) <= highR
+            countCapital += curIsCapital
+            countNonCaptial += not curIsCapital
+            if not isFirstCapital and curIsCapital:
+                return False
+            if isFirstCapital and (countCapital-isFirstCapital) and countNonCaptial:
+                return False
+        return True
+
+    def detectCapitalUse(self, word: str) -> bool:
+        # O(n), O(1)
+        cnt = sum([c.isupper() for c in word])
+        return cnt==0 or cnt==len(word) or cnt==1 and word[0].isupper()
 ```
 
 
