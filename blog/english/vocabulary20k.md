@@ -11,6 +11,7 @@
   - [Like I'm Gonna Lose You \*451](#like-im-gonna-lose-you-451)
   - [Excerpts form ChatGPT3.5 \*574](#excerpts-form-chatgpt35-574)
   - [BARREN SPRING \*755](#barren-spring-755)
+  - [“THE BEAST OF BURDEN” \*914](#the-beast-of-burden-914)
 
 
 ## Intro *41
@@ -510,3 +511,23 @@ He sat on heavily, looking out over his land. If he had his buffalo back, if he 
 And he looked, hopeless, into the barren spring.
 
 *The vocabulary size up to now, as of 2024.06.17, is **755**.*
+
+
+## “THE BEAST OF BURDEN” *914
+
+> “THE BEAST OF BURDEN, from On a Chinese Screen, by William Somerset Maugham, New York, George H. Doran Company, 1922, pp. 77-79.
+> William Somerset Maugham （1874-1965）, English dramatist and novelist. In 1921, Mr. Maugham traveled through China. His impressions of places and persons he recorded in his book of delightful sketches On a Chinese Screen, from which book THE BEAST OF BURDEN and THE SONG OF THE RIVER were taken.
+
+At first when you see the coolie on the road, bearing his load, it is as a pleasing object that he strikes the eye. In his blue rags, a blue of all colors from indigo to turquoise and then to the paleness of a milky sky, he fits the landscape. He seems exactly right as he trudges along the narrow causeway between the rice fields or climbs a green hill. His clothing consists of no more than a short coat and a pair of trousers; and if he had a suit which was at the beginning all of a piece, he never thinks when it comes to patching to choose a bit of stuff of the same color. He takes anything that comes handy. From sun and rain he protects his head with a straw hat shaped like an extinguisher with a preposterously wide, flat brim.
+
+You see a string of coolies come along, one after the other, each with a pole on his shoulders from the ends of which hang two great bales, and they make an agreeable pattern. It is amusing to watch their hurrying reflections in the padi water. You watch their faces as they pass you. They are good-natured faces and frank, you would have said, if it had not been drilled into you that the oriental is inscrutable; and when you see them lying down with their loads under a banyan tree by a wayside shrine, smoking and chatting gaily, if you have tried to lift the bales they carry for thirty miles or more a day, it seems natural to feel admiration for their endurance and their spirit. But you will be thought somewhat absurd if you mention your admiration to the old residents of China. You will be told with a tolerant shrug of the shoulders that the coolies are animals and for two thousand years from father to son have carried burdens, so it is no wonder if they do it cheerfully. And indeed you can see for yourself that they begin early, for you will encounter little children with a yoke on their shoulders staggering under the weight of vegetable baskets.
+
+The day wears on and it grows warmer. The coolies take off their coats and walk stripped to the waist. Then sometimes in a man resting for an instant, his load on the ground but the pole still on his shoulders so that he has to rest slightly crouched, you see the poor tired heart beating against the ribs: you see it as plainly as in some cases of heart disease in the out-patients' room of a hospital. It is strangely distressing to watch. Then also you see the coolies' backs. The pressure of the pole for long years, day after day, has made hard red scars, and sometimes even there are open sores, great sores without bandages or dressing that rub against the wood; but the strangest thing of all is that sometimes, as though nature sought to adapt man for these cruel uses to which he is put, an odd malformation seems to have arisen so that there is a sort of hump, like a camel's, against which the pole rests. But beating heart or angry sore, bitter rain or burning sun notwithstanding, they go on eternally, from dawn till dusk, year in year out, from childhood to the extreme of age. You see old men without an ounce of fat on their bodies, their skin loose on their bones, wizened, their little faces wrinkled and apelike, with hair thin and grey; and they totter under their burdens to the edge of the grave in which at last they shall have rest. And still the coolies go, not exactly running, but not walking either, sidling quickly, with their eyes on the ground to choose the spot to place their feet, and on their faces a strained, anxious expression. You can make no longer a pattern of them as they wend their way. Their effort oppresses you. You are filled with a useless compassion.
+
+In China it is man that is the beast of burden.
+
+“To be harassed by the wear and tear of life, and to pass rapidly through it without the possibility of arresting one's course, —is not this pitiful indeed? To labor without ceasing, and then, without living to enjoy the fruit, worn out, to depart, suddenly, one knows not whither, —is not that a just cause for grief?”
+
+So wrote the Chinese mystic.
+
+*The vocabulary size up to now, as of 2024.06.24, is **914**.*
