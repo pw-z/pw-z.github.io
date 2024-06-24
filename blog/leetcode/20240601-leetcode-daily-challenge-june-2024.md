@@ -660,10 +660,23 @@ class Solution:
 ```
 
 
-## 20240624 Easy|Medium|Hard []()
+## 20240624 Medium [503. 下一个更大元素 II](https://leetcode.cn/problems/next-greater-element-ii)
 
 ```python
+class Solution:
+    def nextGreaterElements(self, nums: List[int]) -> List[int]:
+        l = len(nums)
+        ans = [-1] * l
+        stack = []
+        for i in range(l*2):
+            p = nums[i%l]
+            while stack and p > nums[stack[-1]]:
+                ans[stack.pop()] = p
+            
+            if i < l:
+                stack.append(i)
 
+        return ans
 ```
 
 
