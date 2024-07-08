@@ -17,85 +17,85 @@
 
 - [Leetcode Study Plan Leetcode-75 Scratch Paper](#leetcode-study-plan-leetcode-75-scratch-paper)
   - [数组/字符串](#数组字符串)
-      - [1768. 交替合并字符串\*](#1768-交替合并字符串)
-      - [1071. 字符串的最大公因子\*](#1071-字符串的最大公因子)
-      - [1431. 拥有最多糖果的孩子\*](#1431-拥有最多糖果的孩子)
-      - [605. 种花问题\*](#605-种花问题)
-      - [345. 反转字符串中的元音字母\*](#345-反转字符串中的元音字母)
-      - [151. 反转字符串中的单词\*\*](#151-反转字符串中的单词)
-      - [238. 除自身以外数组的乘积\*\*](#238-除自身以外数组的乘积)
-      - [443. 压缩字符串\*\*](#443-压缩字符串)
+      - [1768. 交替合并字符串*](#1768-交替合并字符串httpsleetcodecnproblemsmerge-strings-alternately)
+      - [1071. 字符串的最大公因子*](#1071-字符串的最大公因子httpsleetcodecnproblemsgreatest-common-divisor-of-strings)
+      - [1431. 拥有最多糖果的孩子*](#1431-拥有最多糖果的孩子httpsleetcodecnproblemskids-with-the-greatest-number-of-candies)
+      - [605. 种花问题*](#605-种花问题httpsleetcodecnproblemscan-place-flowers)
+      - [345. 反转字符串中的元音字母*](#345-反转字符串中的元音字母httpsleetcodecnproblemsreverse-vowels-of-a-string)
+      - [151. 反转字符串中的单词**](#151-反转字符串中的单词httpsleetcodecnproblemsreverse-words-in-a-string)
+      - [238. 除自身以外数组的乘积**](#238-除自身以外数组的乘积httpsleetcodecnproblemsproduct-of-array-except-self)
+      - [443. 压缩字符串**](#443-压缩字符串httpsleetcodecnproblemsstring-compression)
   - [双指针](#双指针)
-      - [283. 移动零\*](#283-移动零)
-      - [392. 判断子序列\*](#392-判断子序列)
-      - [11. 盛最多水的容器\*](#11-盛最多水的容器)
-      - [1679. K 和数对的最大数目\*\*](#1679-k-和数对的最大数目)
+      - [283. 移动零*](#283-移动零httpsleetcodecnproblemsmove-zeroes)
+      - [392. 判断子序列*](#392-判断子序列httpsleetcodecnproblemsis-subsequence)
+      - [11. 盛最多水的容器*](#11-盛最多水的容器httpsleetcodecnproblemscontainer-with-most-water)
+      - [1679. K 和数对的最大数目**](#1679-k-和数对的最大数目httpsleetcodecnproblemsmax-number-of-k-sum-pairs)
   - [滑动窗口](#滑动窗口)
-      - [643. 子数组最大平均数 I\*](#643-子数组最大平均数-i)
-      - [1456. 定长子串中元音的最大数目\*\*](#1456-定长子串中元音的最大数目)
-      - [1004. 最大连续1的个数 III\*\*](#1004-最大连续1的个数-iii)
-      - [1493. 删掉一个元素以后全为 1 的最长子数组\*\*](#1493-删掉一个元素以后全为-1-的最长子数组)
+      - [643. 子数组最大平均数 I*](#643-子数组最大平均数-ihttpsleetcodecnproblemsmaximum-average-subarray-i)
+      - [1456. 定长子串中元音的最大数目**](#1456-定长子串中元音的最大数目httpsleetcodecnproblemsmaximum-number-of-vowels-in-a-substring-of-given-length)
+      - [1004. 最大连续1的个数 III**](#1004-最大连续1的个数-iiihttpsleetcodecnproblemsmax-consecutive-ones-iii)
+      - [1493. 删掉一个元素以后全为 1 的最长子数组**](#1493-删掉一个元素以后全为-1-的最长子数组httpsleetcodecnproblemslongest-subarray-of-1s-after-deleting-one-element)
   - [前缀和](#前缀和)
-      - [1732. 找到最高海拔\*](#1732-找到最高海拔)
-      - [724. 寻找数组的中心下标\*](#724-寻找数组的中心下标)
+      - [1732. 找到最高海拔*](#1732-找到最高海拔httpsleetcodecnproblemsfind-the-highest-altitude)
+      - [724. 寻找数组的中心下标*](#724-寻找数组的中心下标httpsleetcodecnproblemsfind-pivot-index)
   - [哈希](#哈希)
-      - [2215. 找出两数组的不同\*](#2215-找出两数组的不同)
-      - [1207. 独一无二的出现次数\*](#1207-独一无二的出现次数)
-      - [1657. 确定两个字符串是否接近\*\*](#1657-确定两个字符串是否接近)
-      - [2352. 相等行列对\*\*](#2352-相等行列对)
+      - [2215. 找出两数组的不同*](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
+      - [1207. 独一无二的出现次数*](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
+      - [1657. 确定两个字符串是否接近**](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
+      - [2352. 相等行列对**](#2352-相等行列对httpsleetcodecnproblemsequal-row-and-column-pairs)
   - [栈](#栈)
-      - [2390. 从字符串中移除星号\*\*](#2390-从字符串中移除星号)
-      - [735. 小行星碰撞\*\*](#735-小行星碰撞)
-      - [394. 字符串解码\*\*](#394-字符串解码)
+      - [2390. 从字符串中移除星号**](#2390-从字符串中移除星号httpsleetcodecnproblemsremoving-stars-from-a-string)
+      - [735. 小行星碰撞**](#735-小行星碰撞httpsleetcodecnproblemsasteroid-collision)
+      - [394. 字符串解码**](#394-字符串解码httpsleetcodecnproblemsdecode-string)
   - [队列](#队列)
-      - [933. 最近的请求次数\*](#933-最近的请求次数)
-      - [649. Dota2 参议院\*\*](#649-dota2-参议院)
+      - [933. 最近的请求次数*](#933-最近的请求次数httpsleetcodecnproblemsnumber-of-recent-calls)
+      - [649. Dota2 参议院**](#649-dota2-参议院httpsleetcodecnproblemsdota2-senate)
   - [链表](#链表)
-      - [2095. 删除链表的中间节点\*\*](#2095-删除链表的中间节点)
-      - [328. 奇偶链表\*\*](#328-奇偶链表)
-      - [206. 反转链表\*](#206-反转链表)
-      - [2130. 链表最大孪生和\*\*](#2130-链表最大孪生和)
+      - [2095. 删除链表的中间节点**](#2095-删除链表的中间节点httpsleetcodecnproblemsdelete-the-middle-node-of-a-linked-list)
+      - [328. 奇偶链表**](#328-奇偶链表httpsleetcodecnproblemsodd-even-linked-list)
+      - [206. 反转链表*](#206-反转链表httpsleetcodecnproblemsreverse-linked-list)
+      - [2130. 链表最大孪生和**](#2130-链表最大孪生和httpsleetcodecnproblemsmaximum-twin-sum-of-a-linked-list)
   - [二叉树DFS](#二叉树dfs)
-      - [104. 二叉树的最大深度\*](#104-二叉树的最大深度)
-      - [872. 叶子相似的树](#872-叶子相似的树)
-      - [1448. 统计二叉树中好节点的数目\*\*](#1448-统计二叉树中好节点的数目)
-      - [437. 路径总和 III\*\*](#437-路径总和-iii)
-      - [1372. 二叉树中的最长交错路径\*\*](#1372-二叉树中的最长交错路径)
-      - [236. 二叉树的最近公共祖先](#236-二叉树的最近公共祖先)
+      - [104. 二叉树的最大深度*](#104-二叉树的最大深度httpsleetcodecnproblemsmaximum-depth-of-binary-tree)
+      - [872. 叶子相似的树](#872-叶子相似的树httpsleetcodecnproblemsleaf-similar-trees)
+      - [1448. 统计二叉树中好节点的数目**](#1448-统计二叉树中好节点的数目httpsleetcodecnproblemscount-good-nodes-in-binary-tree)
+      - [437. 路径总和 III**](#437-路径总和-iiihttpsleetcodecnproblemspath-sum-iii)
+      - [1372. 二叉树中的最长交错路径**](#1372-二叉树中的最长交错路径httpsleetcodecnproblemslongest-zigzag-path-in-a-binary-tree)
+      - [236. 二叉树的最近公共祖先](#236-二叉树的最近公共祖先httpsleetcodecnproblemslowest-common-ancestor-of-a-binary-tree)
   - [二叉树BFS](#二叉树bfs)
-      - [199. 二叉树的右视图\*\*](#199-二叉树的右视图)
-      - [1161. 最大层内元素和\*\*](#1161-最大层内元素和)
+      - [199. 二叉树的右视图**](#199-二叉树的右视图httpsleetcodecnproblemsbinary-tree-right-side-view)
+      - [1161. 最大层内元素和**](#1161-最大层内元素和httpsleetcodecnproblemsmaximum-level-sum-of-a-binary-tree)
   - [二叉树BST](#二叉树bst)
-      - [700. 二叉搜索树中的搜索\*](#700-二叉搜索树中的搜索)
-      - [450. 删除二叉搜索树中的节点\*\*](#450-删除二叉搜索树中的节点)
+      - [700. 二叉搜索树中的搜索*](#700-二叉搜索树中的搜索httpsleetcodecnproblemssearch-in-a-binary-search-tree)
+      - [450. 删除二叉搜索树中的节点**](#450-删除二叉搜索树中的节点httpsleetcodecnproblemsdelete-node-in-a-bst)
   - [图DFS/BFS](#图dfsbfs)
-      - [841. 钥匙和房间\*\*](#841-钥匙和房间)
-      - [547. 省份数量\*\*](#547-省份数量)
-      - [1466. 重新规划路线\*\*](#1466-重新规划路线)
+      - [841. 钥匙和房间**](#841-钥匙和房间httpsleetcodecnproblemskeys-and-rooms)
+      - [547. 省份数量**](#547-省份数量httpsleetcodecnproblemsnumber-of-provinces)
+      - [1466. 重新规划路线**](#1466-重新规划路线httpsleetcodecnproblemsreorder-routes-to-make-all-paths-lead-to-the-city-zero)
+      - [399. 除法求值**](#399-除法求值httpsleetcodecnproblemsevaluate-division)
       - [](#)
       - [](#-1)
-      - [](#-2)
   - [堆/优先队列](#堆优先队列)
+      - [](#-2)
       - [](#-3)
-      - [](#-4)
   - [位运算](#位运算)
-      - [338. 比特位计数\*](#338-比特位计数)
-      - [136. 只出现一次的数字\*](#136-只出现一次的数字)
-      - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
+      - [338. 比特位计数*](#338-比特位计数httpsleetcodecnproblemscounting-bits)
+      - [136. 只出现一次的数字*](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
+      - [1318. 或运算的最小翻转次数**](#1318-或运算的最小翻转次数httpsleetcodecnproblemsminimum-flips-to-make-a-or-b-equal-to-c)
   - [二分查找](#二分查找)
-      - [374. 猜数字大小\*](#374-猜数字大小)
-      - [2300. 咒语和药水的成功对数\*\*](#2300-咒语和药水的成功对数)
-      - [162. 寻找峰值\*\*](#162-寻找峰值)
-      - [875. 爱吃香蕉的珂珂\*\*](#875-爱吃香蕉的珂珂)
+      - [374. 猜数字大小*](#374-猜数字大小httpsleetcodecnproblemsguess-number-higher-or-lower)
+      - [2300. 咒语和药水的成功对数**](#2300-咒语和药水的成功对数httpsleetcodecnproblemssuccessful-pairs-of-spells-and-potions)
+      - [162. 寻找峰值**](#162-寻找峰值httpsleetcodecnproblemsfind-peak-element)
+      - [875. 爱吃香蕉的珂珂**](#875-爱吃香蕉的珂珂httpsleetcodecnproblemskoko-eating-bananas)
   - [前缀树](#前缀树)
+      - [](#-4)
       - [](#-5)
-      - [](#-6)
   - [区间集合](#区间集合)
+      - [](#-6)
       - [](#-7)
-      - [](#-8)
   - [单调栈](#单调栈)
+      - [](#-8)
       - [](#-9)
-      - [](#-10)
 
 <!-- /code_chunk_output -->
 
@@ -1608,7 +1608,31 @@ class Solution:
 ```
 
 
-#### []()
+#### [399. 除法求值**](https://leetcode.cn/problems/evaluate-division)
+
+并查集（Disjoint Set Union, DSU）是一种高效的数据结构，用于处理不相交集合的合并（Union）和查询（Find）问题。它常用于解决诸如判断两个元素是否属于同一个集合、统计集合的数量、合并两个集合等问题。并查集的核心在于通过“并”（Union）操作将多个集合合并成一个集合，同时通过“查”（Find）操作快速判断元素的归属关系。
+
+数据结构
+
+并查集通常使用一个数组（称为parent数组或father数组）来表示集合关系，数组的索引代表集合中的元素，数组的值指向该元素所在集合的代表元素（通常是该集合的根节点）。初始时，每个元素都自成一个集合，parent数组中每个元素都指向自己。
+
+基本操作
+
+- **查找（Find）**：确定一个元素所属集合的代表元素。通常使用递归或路径压缩的方式来优化查找效率，其中路径压缩可以在查找过程中将路径上的所有节点直接连接到根节点，从而减少后续查找的时间。
+- **合并（Union）**：将两个集合合并为一个集合。具体操作是找到两个集合的代表元素，将其中一个集合的代表元素指向另一个集合的代表元素，实际操作中可能还需要考虑两个集合的大小，以便高效平衡树的高度。
+
+实现技巧
+
+- **路径压缩**：在执行Find操作的过程中，将沿途访问的所有节点的parent指针直接指向根节点，这样下次查询时路径会更短。
+- **按秩合并**（Rank-based Union）：维护一个额外的rank数组来记录树的高度或节点数量，合并时总是将rank较小的集合连接到rank较大的集合上，以此来尽量保持树的平衡，减少Find操作的深度。
+
+时间复杂度
+
+- 不采用任何优化时，查找和合并操作的时间复杂度均为O(n)，其中n是集合中元素的数量。
+- 使用路径压缩和按秩合并后，Find和Union操作的平均时间复杂度可以降低到接近O(α(n))，其中α(n)是一个缓慢增长的函数，对于实际的n值来说，α(n)几乎是一个常数，大约为4左右。
+
+并查集广泛应用于各种场景，如社交网络的朋友圈判断、图的连通性判断、最小生成树算法中的优化、赛事调度等。
+
 
 ```python
 
