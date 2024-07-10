@@ -18,3 +18,10 @@ CAGED：[ How to use the CAGED system to play a SOLO ](https://youtu.be/0Qp26KcD
 [songbook](./songbook.md)
 
 
+
+
+
+
+Jimi Hendrix
+
+Eric Clapton
