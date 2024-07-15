@@ -17,91 +17,91 @@
 
 - [Leetcode Study Plan Leetcode-75 Scratch Paper](#leetcode-study-plan-leetcode-75-scratch-paper)
   - [数组/字符串](#数组字符串)
-      - [1768. 交替合并字符串\*](#1768-交替合并字符串)
-      - [1071. 字符串的最大公因子\*](#1071-字符串的最大公因子)
-      - [1431. 拥有最多糖果的孩子\*](#1431-拥有最多糖果的孩子)
-      - [605. 种花问题\*](#605-种花问题)
-      - [345. 反转字符串中的元音字母\*](#345-反转字符串中的元音字母)
-      - [151. 反转字符串中的单词\*\*](#151-反转字符串中的单词)
-      - [238. 除自身以外数组的乘积\*\*](#238-除自身以外数组的乘积)
-      - [443. 压缩字符串\*\*](#443-压缩字符串)
+      - [1768. 交替合并字符串*](#1768-交替合并字符串httpsleetcodecnproblemsmerge-strings-alternately)
+      - [1071. 字符串的最大公因子*](#1071-字符串的最大公因子httpsleetcodecnproblemsgreatest-common-divisor-of-strings)
+      - [1431. 拥有最多糖果的孩子*](#1431-拥有最多糖果的孩子httpsleetcodecnproblemskids-with-the-greatest-number-of-candies)
+      - [605. 种花问题*](#605-种花问题httpsleetcodecnproblemscan-place-flowers)
+      - [345. 反转字符串中的元音字母*](#345-反转字符串中的元音字母httpsleetcodecnproblemsreverse-vowels-of-a-string)
+      - [151. 反转字符串中的单词**](#151-反转字符串中的单词httpsleetcodecnproblemsreverse-words-in-a-string)
+      - [238. 除自身以外数组的乘积**](#238-除自身以外数组的乘积httpsleetcodecnproblemsproduct-of-array-except-self)
+      - [443. 压缩字符串**](#443-压缩字符串httpsleetcodecnproblemsstring-compression)
   - [双指针](#双指针)
-      - [283. 移动零\*](#283-移动零)
-      - [392. 判断子序列\*](#392-判断子序列)
-      - [11. 盛最多水的容器\*](#11-盛最多水的容器)
-      - [1679. K 和数对的最大数目\*\*](#1679-k-和数对的最大数目)
+      - [283. 移动零*](#283-移动零httpsleetcodecnproblemsmove-zeroes)
+      - [392. 判断子序列*](#392-判断子序列httpsleetcodecnproblemsis-subsequence)
+      - [11. 盛最多水的容器*](#11-盛最多水的容器httpsleetcodecnproblemscontainer-with-most-water)
+      - [1679. K 和数对的最大数目**](#1679-k-和数对的最大数目httpsleetcodecnproblemsmax-number-of-k-sum-pairs)
   - [滑动窗口](#滑动窗口)
-      - [643. 子数组最大平均数 I\*](#643-子数组最大平均数-i)
-      - [1456. 定长子串中元音的最大数目\*\*](#1456-定长子串中元音的最大数目)
-      - [1004. 最大连续1的个数 III\*\*](#1004-最大连续1的个数-iii)
-      - [1493. 删掉一个元素以后全为 1 的最长子数组\*\*](#1493-删掉一个元素以后全为-1-的最长子数组)
+      - [643. 子数组最大平均数 I*](#643-子数组最大平均数-ihttpsleetcodecnproblemsmaximum-average-subarray-i)
+      - [1456. 定长子串中元音的最大数目**](#1456-定长子串中元音的最大数目httpsleetcodecnproblemsmaximum-number-of-vowels-in-a-substring-of-given-length)
+      - [1004. 最大连续1的个数 III**](#1004-最大连续1的个数-iiihttpsleetcodecnproblemsmax-consecutive-ones-iii)
+      - [1493. 删掉一个元素以后全为 1 的最长子数组**](#1493-删掉一个元素以后全为-1-的最长子数组httpsleetcodecnproblemslongest-subarray-of-1s-after-deleting-one-element)
   - [前缀和](#前缀和)
-      - [1732. 找到最高海拔\*](#1732-找到最高海拔)
-      - [724. 寻找数组的中心下标\*](#724-寻找数组的中心下标)
+      - [1732. 找到最高海拔*](#1732-找到最高海拔httpsleetcodecnproblemsfind-the-highest-altitude)
+      - [724. 寻找数组的中心下标*](#724-寻找数组的中心下标httpsleetcodecnproblemsfind-pivot-index)
   - [哈希](#哈希)
-      - [2215. 找出两数组的不同\*](#2215-找出两数组的不同)
-      - [1207. 独一无二的出现次数\*](#1207-独一无二的出现次数)
-      - [1657. 确定两个字符串是否接近\*\*](#1657-确定两个字符串是否接近)
-      - [2352. 相等行列对\*\*](#2352-相等行列对)
+      - [2215. 找出两数组的不同*](#2215-找出两数组的不同httpsleetcodecnproblemsfind-the-difference-of-two-arrays)
+      - [1207. 独一无二的出现次数*](#1207-独一无二的出现次数httpsleetcodecnproblemsunique-number-of-occurrences)
+      - [1657. 确定两个字符串是否接近**](#1657-确定两个字符串是否接近httpsleetcodecnproblemsdetermine-if-two-strings-are-close)
+      - [2352. 相等行列对**](#2352-相等行列对httpsleetcodecnproblemsequal-row-and-column-pairs)
   - [栈](#栈)
-      - [2390. 从字符串中移除星号\*\*](#2390-从字符串中移除星号)
-      - [735. 小行星碰撞\*\*](#735-小行星碰撞)
-      - [394. 字符串解码\*\*](#394-字符串解码)
+      - [2390. 从字符串中移除星号**](#2390-从字符串中移除星号httpsleetcodecnproblemsremoving-stars-from-a-string)
+      - [735. 小行星碰撞**](#735-小行星碰撞httpsleetcodecnproblemsasteroid-collision)
+      - [394. 字符串解码**](#394-字符串解码httpsleetcodecnproblemsdecode-string)
   - [队列](#队列)
-      - [933. 最近的请求次数\*](#933-最近的请求次数)
-      - [649. Dota2 参议院\*\*](#649-dota2-参议院)
+      - [933. 最近的请求次数*](#933-最近的请求次数httpsleetcodecnproblemsnumber-of-recent-calls)
+      - [649. Dota2 参议院**](#649-dota2-参议院httpsleetcodecnproblemsdota2-senate)
   - [链表](#链表)
-      - [2095. 删除链表的中间节点\*\*](#2095-删除链表的中间节点)
-      - [328. 奇偶链表\*\*](#328-奇偶链表)
-      - [206. 反转链表\*](#206-反转链表)
-      - [2130. 链表最大孪生和\*\*](#2130-链表最大孪生和)
+      - [2095. 删除链表的中间节点**](#2095-删除链表的中间节点httpsleetcodecnproblemsdelete-the-middle-node-of-a-linked-list)
+      - [328. 奇偶链表**](#328-奇偶链表httpsleetcodecnproblemsodd-even-linked-list)
+      - [206. 反转链表*](#206-反转链表httpsleetcodecnproblemsreverse-linked-list)
+      - [2130. 链表最大孪生和**](#2130-链表最大孪生和httpsleetcodecnproblemsmaximum-twin-sum-of-a-linked-list)
   - [二叉树DFS](#二叉树dfs)
-      - [104. 二叉树的最大深度\*](#104-二叉树的最大深度)
-      - [872. 叶子相似的树](#872-叶子相似的树)
-      - [1448. 统计二叉树中好节点的数目\*\*](#1448-统计二叉树中好节点的数目)
-      - [437. 路径总和 III\*\*](#437-路径总和-iii)
-      - [1372. 二叉树中的最长交错路径\*\*](#1372-二叉树中的最长交错路径)
-      - [236. 二叉树的最近公共祖先](#236-二叉树的最近公共祖先)
+      - [104. 二叉树的最大深度*](#104-二叉树的最大深度httpsleetcodecnproblemsmaximum-depth-of-binary-tree)
+      - [872. 叶子相似的树](#872-叶子相似的树httpsleetcodecnproblemsleaf-similar-trees)
+      - [1448. 统计二叉树中好节点的数目**](#1448-统计二叉树中好节点的数目httpsleetcodecnproblemscount-good-nodes-in-binary-tree)
+      - [437. 路径总和 III**](#437-路径总和-iiihttpsleetcodecnproblemspath-sum-iii)
+      - [1372. 二叉树中的最长交错路径**](#1372-二叉树中的最长交错路径httpsleetcodecnproblemslongest-zigzag-path-in-a-binary-tree)
+      - [236. 二叉树的最近公共祖先](#236-二叉树的最近公共祖先httpsleetcodecnproblemslowest-common-ancestor-of-a-binary-tree)
   - [二叉树BFS](#二叉树bfs)
-      - [199. 二叉树的右视图\*\*](#199-二叉树的右视图)
-      - [1161. 最大层内元素和\*\*](#1161-最大层内元素和)
+      - [199. 二叉树的右视图**](#199-二叉树的右视图httpsleetcodecnproblemsbinary-tree-right-side-view)
+      - [1161. 最大层内元素和**](#1161-最大层内元素和httpsleetcodecnproblemsmaximum-level-sum-of-a-binary-tree)
   - [二叉树BST](#二叉树bst)
-      - [700. 二叉搜索树中的搜索\*](#700-二叉搜索树中的搜索)
-      - [450. 删除二叉搜索树中的节点\*\*](#450-删除二叉搜索树中的节点)
+      - [700. 二叉搜索树中的搜索*](#700-二叉搜索树中的搜索httpsleetcodecnproblemssearch-in-a-binary-search-tree)
+      - [450. 删除二叉搜索树中的节点**](#450-删除二叉搜索树中的节点httpsleetcodecnproblemsdelete-node-in-a-bst)
   - [图DFS/BFS](#图dfsbfs)
-      - [841. 钥匙和房间\*\*](#841-钥匙和房间)
-      - [547. 省份数量\*\*](#547-省份数量)
-      - [1466. 重新规划路线\*\*](#1466-重新规划路线)
-      - [399. 除法求值\*\*](#399-除法求值)
+      - [841. 钥匙和房间**](#841-钥匙和房间httpsleetcodecnproblemskeys-and-rooms)
+      - [547. 省份数量**](#547-省份数量httpsleetcodecnproblemsnumber-of-provinces)
+      - [1466. 重新规划路线**](#1466-重新规划路线httpsleetcodecnproblemsreorder-routes-to-make-all-paths-lead-to-the-city-zero)
+      - [399. 除法求值**](#399-除法求值httpsleetcodecnproblemsevaluate-division)
+      - [1926. 迷宫中离入口最近的出口**](#1926-迷宫中离入口最近的出口httpsleetcodecnproblemsnearest-exit-from-entrance-in-maze)
+      - [994. 腐烂的橘子**](#994-腐烂的橘子httpsleetcodecnproblemsrotting-oranges)
+  - [堆/优先队列](#堆优先队列)
       - [](#)
       - [](#-1)
-  - [堆/优先队列](#堆优先队列)
-      - [](#-2)
-      - [](#-3)
   - [动态规划·一维](#动态规划一维)
-      - [1137. 第 N 个泰波那契数\*](#1137-第-n-个泰波那契数)
-      - [](#-4)
+      - [1137. 第 N 个泰波那契数*](#1137-第-n-个泰波那契数httpsleetcodecnproblemsn-th-tribonacci-number)
+      - [](#-2)
   - [动态规划·多维](#动态规划多维)
+      - [](#-3)
+      - [](#-4)
+  - [位运算](#位运算)
+      - [338. 比特位计数*](#338-比特位计数httpsleetcodecnproblemscounting-bits)
+      - [136. 只出现一次的数字*](#136-只出现一次的数字httpsleetcodecnproblemssingle-number)
+      - [1318. 或运算的最小翻转次数**](#1318-或运算的最小翻转次数httpsleetcodecnproblemsminimum-flips-to-make-a-or-b-equal-to-c)
+  - [二分查找](#二分查找)
+      - [374. 猜数字大小*](#374-猜数字大小httpsleetcodecnproblemsguess-number-higher-or-lower)
+      - [2300. 咒语和药水的成功对数**](#2300-咒语和药水的成功对数httpsleetcodecnproblemssuccessful-pairs-of-spells-and-potions)
+      - [162. 寻找峰值**](#162-寻找峰值httpsleetcodecnproblemsfind-peak-element)
+      - [875. 爱吃香蕉的珂珂**](#875-爱吃香蕉的珂珂httpsleetcodecnproblemskoko-eating-bananas)
+  - [前缀树](#前缀树)
       - [](#-5)
       - [](#-6)
-  - [位运算](#位运算)
-      - [338. 比特位计数\*](#338-比特位计数)
-      - [136. 只出现一次的数字\*](#136-只出现一次的数字)
-      - [1318. 或运算的最小翻转次数\*\*](#1318-或运算的最小翻转次数)
-  - [二分查找](#二分查找)
-      - [374. 猜数字大小\*](#374-猜数字大小)
-      - [2300. 咒语和药水的成功对数\*\*](#2300-咒语和药水的成功对数)
-      - [162. 寻找峰值\*\*](#162-寻找峰值)
-      - [875. 爱吃香蕉的珂珂\*\*](#875-爱吃香蕉的珂珂)
-  - [前缀树](#前缀树)
+  - [区间集合](#区间集合)
       - [](#-7)
       - [](#-8)
-  - [区间集合](#区间集合)
+  - [单调栈](#单调栈)
       - [](#-9)
       - [](#-10)
-  - [单调栈](#单调栈)
-      - [](#-11)
-      - [](#-12)
 
 <!-- /code_chunk_output -->
 
@@ -1645,17 +1645,83 @@ class Solution:
 ```
 
 
-#### []()
+#### [1926. 迷宫中离入口最近的出口**](https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze)
+
+广度优先搜索（Breadth-First Search, BFS）是一种遍历或搜索树和图的算法，它从一个节点开始，逐层遍历所有节点。在图的BFS算法中，通常遵循以下步骤：
+
+1. 初始化：选择一个起始节点，将其标记为已访问，并将其加入到一个队列中。
+2. 遍历队列：当队列不为空时，执行以下操作：
+   * 从队列中取出一个节点，称为当前节点。
+   * 遍历当前节点的所有未访问邻居节点：
+     * 如果邻居节点未被访问，将其标记为已访问，并将其加入队列中。
+3. 记录层级：在访问每个节点时，可以记录它与起始节点的距离，这通常通过一个距离数组来实现。
+4. 处理特殊需求：根据题目的具体要求，可能需要记录最短路径、搜索特定节点或解决其他问题。
+5. 结束条件：当队列为空时，BFS遍历结束。
+
+BFS算法通常用于以下场景：
+* 寻找最短路径。
+* 确定节点之间的连通性。
+* 搜索特定节点。
+
 
 ```python
-
+class Solution:
+    def nearestExit(self, maze: List[List[str]], entrance: List[int]) -> int:
+        # 队列, O(mn), O(1)
+        m, n = len(maze), len(maze[0])
+        q = collections.deque()
+        q.append((entrance[0],entrance[1],0))
+        maze[entrance[0]][entrance[1]] = '+'
+        while q:
+            cur = q.popleft()
+            x, y, d = cur[0], cur[1], cur[2]
+            for dx, dy in zip([1, 0, -1, 0], [0, 1, 0, -1]):
+                xx = x + dx
+                yy = y + dy
+                if 0 <= xx < m and 0 <= yy < n and maze[xx][yy] == '.':
+                    if xx == 0 or xx == m-1 or yy == 0 or yy == n-1:
+                        return d+1
+                    q.append((xx, yy, d+1))
+                    maze[xx][yy] = '+'
+        return -1
 ```
 
 
-#### []()
+#### [994. 腐烂的橘子**](https://leetcode.cn/problems/rotting-oranges)
 
 ```python
+class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        # O(mn), O(1)
+        # 初始化队列为所有的腐烂橘子坐标，每轮将队列处理完毕后再将下一波的腐烂橘子入队，最后一波处理完检查是否还有好橘子
+        m, n = len(grid), len(grid[0])
+        q = deque() # 当前波次的烂橘子队列
+        mid_q = deque() # 下一波烂橘子，区分波次方便记录时间
+        good = 0
+        ans = 0
 
+        # 统计橘子
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    good += 1
+                elif  grid[i][j] == 2:
+                    q.append((i, j))
+        
+        while q:
+            cur = q.popleft()
+            x, y = cur[0], cur[1]
+            for (x, y) in [(x+1, y), (x, y+1), (x-1, y), (x, y-1)]:
+                if 0 <= x < m and 0 <= y < n and grid[x][y] == 1:
+                    grid[x][y] = 2;
+                    good -= 1
+                    mid_q.append((x, y))
+            if not q and mid_q:
+                ans += 1
+                q = mid_q
+                mid_q = deque()
+        
+        return ans if good == 0 else -1
 ```
 
 
