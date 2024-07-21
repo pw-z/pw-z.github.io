@@ -1,47 +1,76 @@
 # Song Book
 
 - [Song Book](#song-book)
-  - [Layla - Eric Clapton](#layla---eric-clapton)
-  - [Promise - 山岡晃](#promise---山岡晃)
-  - [Wish You Were Here - Pink Floyd](#wish-you-were-here---pink-floyd)
-  - [Tom's Diner - Suzanne Vega](#toms-diner---suzanne-vega)
+  - [Stevie Ray Vaughan](#stevie-ray-vaughan)
+    - [Scuttle Buttin'](#scuttle-buttin)
+  - [Eric Clapton](#eric-clapton)
+    - [Layla](#layla)
+  - [山岡晃](#山岡晃)
+    - [Promise](#promise)
+  - [Pink Floyd](#pink-floyd)
+    - [Wish You Were Here](#wish-you-were-here)
+  - [Suzanne Vega](#suzanne-vega)
+    - [Tom's Diner](#toms-diner)
   - [LIKE I'M GONNA LOSE YOU - Meghan Trainor](#like-im-gonna-lose-you---meghan-trainor)
 
 
+## Stevie Ray Vaughan
+
+* [Stevie Ray Vaughan](https://en.wikipedia.org/wiki/Stevie_Ray_Vaughan)
+* [Stevie Ray Vaughan discography](https://en.wikipedia.org/wiki/Stevie_Ray_Vaughan_discography)
+
+* Texas Flood (1983)
+* Couldn't Stand the Weather (1984)
+* Soul to Soul (1985)
+* In Step (1989)
+* Family Style (1990)
+* The Sky Is Crying (1991)
+
+### Scuttle Buttin'
 
 
-## Layla - Eric Clapton
+
+
+## Eric Clapton
+
+### Layla
 
 
 
-
-## Promise - 山岡晃
+## 山岡晃
 
 Akira Yamaoka
 
-Promise Tab: https://www.songsterr.com/a/wsa/akira-yamaoka-promise-tab-s34008
 
----
+<iframe width="560" height="315"  src="//player.bilibili.com/player.html?isOutside=true&aid=639054242&bvid=BV1ZY4y1r7Mk&cid=719300765&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 [【游戏杂谈】于寂静岭处听惊雷！- 游戏作曲家 山冈晃 - 游戏作曲家列传 EP3](https://www.bilibili.com/video/BV1ZY4y1r7Mk)
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=639054242&bvid=BV1ZY4y1r7Mk&cid=719300765&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+### Promise
+
+Promise Tab: https://www.songsterr.com/a/wsa/akira-yamaoka-promise-tab-s34008
 
 
 
-
-
-## Wish You Were Here - Pink Floyd
+## Pink Floyd
 
 Em7 -> G -> Em7 -> G
 DUD-DU-U
 Em7 -> A7sus4 -> Em7 -> A7sus4
 
+
+### Wish You Were Here
+
 [Pink Floyd "Wish You Were Here" Complete Guitar Lesson](https://www.youtube.com/watch?v=4m1T4v9bIds)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4m1T4v9bIds?si=9LVdKqbHGFlaTddA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-## Tom's Diner - Suzanne Vega
+## Suzanne Vega
+
+
+### Tom's Diner
 
 >"Tom's Diner" is a song written in 1982 by American singer and songwriter Suzanne Vega. It was first released as a track on the January 1984 issue of Fast Folk Musical Magazine. When first featured on one of her own studio albums, it appeared as the first track of her 1987 album Solitude Standing. It was later used as the basis for a remix by the British group DNA in 1990, which reached number 1 in Austria, Germany, Greece and Switzerland. The 1991 compilation Tom's Album includes the DNA version as well as cover versions by such artists as After One, Nikki D and Bingo Hand Job (R. E. M. and Billy Bragg). It was also used as the background soundtrack for the opening scene of the 1993 film Untamed Heart.
 
@@ -108,9 +137,9 @@ It's time to catch the train
 
 
 
-[Suzanne Vega - Live at the Duo Music Exchange - 1st April 2005](https://www.youtube.com/watch?v=TSi6LJck_bQ)
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSi6LJck_bQ?si=Jwb8bnUOQ5mXJEyx&amp;start=3122" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+[Suzanne Vega - Live at the Duo Music Exchange - 1st April 2005](https://www.youtube.com/watch?v=TSi6LJck_bQ)
 
 
 
