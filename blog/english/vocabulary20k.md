@@ -2,19 +2,19 @@
 
 
 - [Vocabulary 20k](#vocabulary-20k)
-  - [Intro \*41](#intro-41)
-  - [Tom's Diner \*183](#toms-diner-183)
-  - [Freedom \*250](#freedom-250)
-  - [Love of My Life \*299](#love-of-my-life-299)
-  - [When I'm Sixty-Four \*376](#when-im-sixty-four-376)
-  - [Parachute \*412](#parachute-412)
-  - [Like I'm Gonna Lose You \*451](#like-im-gonna-lose-you-451)
-  - [Excerpts form ChatGPT3.5 \*574](#excerpts-form-chatgpt35-574)
-  - [BARREN SPRING \*755](#barren-spring-755)
-  - [“THE BEAST OF BURDEN” \*914](#the-beast-of-burden-914)
+  - [Intro](#intro)
+  - [Tom's Diner](#toms-diner)
+  - [Freedom](#freedom)
+  - [Love of My Life](#love-of-my-life)
+  - [When I'm Sixty-Four](#when-im-sixty-four)
+  - [Parachute](#parachute)
+  - [Like I'm Gonna Lose You](#like-im-gonna-lose-you)
+  - [Excerpts form ChatGPT3.5](#excerpts-form-chatgpt35)
+  - [BARREN SPRING](#barren-spring)
+  - [THE BEAST OF BURDEN](#the-beast-of-burden)
 
 
-## Intro *41
+## Intro
 
 Here's a simple idea for predicting my vocabulary size. I'm going to put my favorite content here and then count them. A simple script for counting is as follows, the `2+2+3lem` from the [12Dicts Package](http://wordlist.aspell.net/12dicts/) is used for lemmatization.
 
@@ -56,7 +56,7 @@ The intro stop here.
 *The vocabulary size up to now, as of 2024.05.05, is **41**.*
 
 
-## Tom's Diner *183
+## Tom's Diner
 
 > "Tom's Diner" is a song written in 1982 by American singer and songwriter Suzanne Vega. It was first released as a track on the January 1984 issue of Fast Folk Musical Magazine. When first featured on one of her own studio albums, it appeared as the first track of her 1987 album Solitude Standing. It was later used as the basis for a remix by the British group DNA in 1990, which reached number 1 in Austria, Germany, Greece and Switzerland. The 1991 compilation Tom's Album includes the DNA version as well as cover versions by such artists as After One, Nikki D and Bingo Hand Job (R. E. M. and Billy Bragg). It was also used as the background soundtrack for the opening scene of the 1993 film Untamed Heart.
 
@@ -125,7 +125,7 @@ It's time to catch the train
 *The vocabulary size up to now, as of 2024.05.05, is **183**.*
 
 
-## Freedom *250
+## Freedom
 ```
 
 from "Django Unchained" soundtrack
@@ -186,7 +186,7 @@ And to find it may take everything I have!
 *The vocabulary size up to now, as of 2024.05.12, is **250**.*
 
 
-## Love of My Life *299
+## Love of My Life
 
 > Queen - Track 9 on A Night at the Opera
 > 
@@ -249,7 +249,7 @@ Ooh, ooh
 *The vocabulary size up to now, as of 2024.05.12, is **299**.*
 
 
-## When I'm Sixty-Four *376
+## When I'm Sixty-Four
 
 > "When I'm Sixty-Four" is a song by the English rock band The Beatles, written by Paul McCartney (credited to Lennon–McCartney) and released on their 1967 album Sgt. Pepper's Lonely Hearts Club Band. It was one of the first songs McCartney wrote; he was about 14, probably in April or May 1956. The song was recorded in a key different from the final recording; it was sped up at the request of McCartney to make his voice sound younger. It prominently features a trio of clarinets (two B♭ clarinets and one bass clarinet) throughout. 
 >
@@ -301,7 +301,7 @@ When I'm sixty-four
 *The vocabulary size up to now, as of 2024.05.14, is **376**.*
 
 
-## Parachute *412
+## Parachute
 
 > Track 3 on Friendly Fire (Sean Lennon album)
 > 
@@ -357,7 +357,7 @@ We had some fun before we hit the ground
 *The vocabulary size up to now, as of 2024.05.14, is **412**.*
 
 
-## Like I'm Gonna Lose You *451
+## Like I'm Gonna Lose You
 
 ```
 [Verse 1: Meghan Trainor]
@@ -412,7 +412,7 @@ I'm gonna love you (Oh) like I'm gonna lose you
 *The vocabulary size up to now, as of 2024.05.15, is **451**.*
 
 
-## Excerpts form ChatGPT3.5 *574
+## Excerpts form ChatGPT3.5
 
 Give me some wonderful ***excerpts*** from classic English books.
 
@@ -490,7 +490,7 @@ These timeless excerpts continue to ***resonate*** with readers across generatio
 *The vocabulary size up to now, as of 2024.05.17, is **574**.*
 
 
-## BARREN SPRING *755
+## BARREN SPRING
 
 > Pearl Sydenstricken Buck (1892-1973), American novelist. Her parents were ***missionaries*** in China, so she was brought up in our country. She was married, first, to John Lossing Buck, at one time professor of Rural Economics at the University of Nanking. This early part of her life she included in her ***biography*** of her mother, in her novel The Exile, published in 1935. In the same year she divorced her husband to marry her present husband Richard J. Walsh, owner of the John Day Publishing House. She still writes under the name of Mrs. Pearl S. Buck. The Good Earth, generally considered as her best novel on China, was awarded the Pulitzer Prize in 1931 for being the best novel published for that year in America.
 
@@ -513,7 +513,7 @@ And he looked, hopeless, into the barren spring.
 *The vocabulary size up to now, as of 2024.06.17, is **755**.*
 
 
-## “THE BEAST OF BURDEN” *914
+## THE BEAST OF BURDEN
 
 > “THE BEAST OF BURDEN, from On a Chinese Screen, by William Somerset Maugham, New York, George H. Doran Company, 1922, pp. 77-79.
 > William Somerset Maugham （1874-1965）, English dramatist and novelist. In 1921, Mr. Maugham traveled through China. His impressions of places and persons he recorded in his book of delightful sketches On a Chinese Screen, from which book THE BEAST OF BURDEN and THE SONG OF THE RIVER were taken.
