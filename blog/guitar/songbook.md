@@ -18,6 +18,7 @@
 
 ### Layla
 
+[Layla-Eric Clapton 歌曲分析](https://www.bilibili.com/video/BV1mF411Z7FN)
 
 
 
