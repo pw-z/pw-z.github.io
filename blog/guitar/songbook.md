@@ -18,7 +18,10 @@
 
 ### Layla
 
-[Layla-Eric Clapton 歌曲分析](https://www.bilibili.com/video/BV1mF411Z7FN)
+* [Layla-Eric Clapton 歌曲分析 - 流浪亚冬](https://www.bilibili.com/video/BV1mF411Z7FN)
+* [Stealing And Simplifying Clapton : Layla Unplugged Guitar Solo Improvisation Lesson - StichMethod Guitar](https://www.youtube.com/watch?v=ebNiS580vfo)
+* [Eric Clapton Layla Electric Guitar Lesson + Tutorial - Marty Music](https://www.youtube.com/watch?v=21E-FFLtuvQ)
+* [Layla Guitar Lesson (Eric Clapton - Jon MacLennan)](https://www.youtube.com/watch?v=FLqH4iAS9Z8)
 
 
 
