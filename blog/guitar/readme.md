@@ -31,4 +31,6 @@ Notes by me.
 
 * [一些最基本的乐理](./20230712-music-theory-basic.md)
 * [Songbook](./songbook.md)
+* [Fretboard?](./fretboard.md)
+
 
