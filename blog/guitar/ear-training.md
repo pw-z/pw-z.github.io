@@ -1,9 +1,4 @@
-# 音程练耳～理解并能够通过耳朵辨认音程
-
-工具：https://www.musicca.com/exercises
-
-
-## 旋律音程
+# Ear Training?
 
 
 
