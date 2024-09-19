@@ -12,7 +12,7 @@ Hi, this is Pengwei.
 [*guitar-related*](./blog/guitar/readme.md)  
 [*leetcode-related*](./blog/leetcode/index.md)  
 [*trivial-blogs*](./blog/trivial/readme.md)  
-[*english-vocabulary*](./blog/english/vocabulary20k.md)  
+[*english-related*](./blog/english/index.md)  
 
 
 ## CODE
