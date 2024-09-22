@@ -2,7 +2,7 @@
 
 ## 参考资料
 
-* [IELTS Homepage](https://ielts.org/)
+* [雅思考试(IELTS)中文官方网站](https://www.chinaielts.org/)
 * [**EthanLin-TWer/ielts**](https://github.com/EthanLin-TWer/ielts)
 * [程序员学英语：我是如何60天突破雅思的](https://kb.cnblogs.com/page/152269/)
 * [ucatal/awesome-ielts](https://github.com/ucatal/awesome-ielts)

@@ -8,7 +8,14 @@ Reference:
 
 Table of Contents:
 - [The Oxford 3000 by CEFR level](#the-oxford-3000-by-cefr-level)
+  - [A1](#a1)
+  - [A2](#a2)
+  - [B1](#b1)
+  - [B2](#b2)
 - [Oxford 5000 excluding Oxford 3000](#oxford-5000-excluding-oxford-3000)
+  - [B2](#b2-1)
+  - [C1](#c1)
+
 
 ## The Oxford 3000 by CEFR level
 
