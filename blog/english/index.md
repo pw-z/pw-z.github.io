@@ -1,7 +1,7 @@
 # English Related
 
+* [ielts](./ielts.md)
 * [vocabulary20k.proj](./vocabulary20k.md)
 * [dictionaries](./dictionaries.md)
-* [ielts](./ielts.md)
-* [ielts.words](./itlts.words.md)
+* [vocabulary-list](./vocabulary-list.md)
 
