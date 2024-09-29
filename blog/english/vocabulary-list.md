@@ -47,7 +47,7 @@ core crust mantle
 longitude latitude horizon altitude  
 disaster mishap catastrophic calamity  
 endanger jeopardise destructive  
-El greenhouse phenomenon  
+El Nino  greenhouse phenomenon  
 pebble magnet ore mineral  
 marble quartz granite  
 gust breeze monsoon gale  
