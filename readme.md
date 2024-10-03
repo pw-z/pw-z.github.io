@@ -13,6 +13,7 @@ Hi, this is Pengwei.
 [*leetcode-related*](./blog/leetcode/index.md)  
 [*trivial-blogs*](./blog/trivial/readme.md)  
 [*english-related*](./blog/english/index.md)  
+[*人物、书籍、音乐、电影*](./blog/stars.md)
 
 
 ## CODE

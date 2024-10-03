@@ -1,17 +1,16 @@
 # Songbook
 
-- [Songbook](#songbook)
-  - [Eric Clapton](#eric-clapton)
-    - [Layla](#layla)
-  - [Stevie Ray Vaughan](#stevie-ray-vaughan)
-    - [Scuttle Buttin'](#scuttle-buttin)
-  - [山岡晃](#山岡晃)
-    - [Promise](#promise)
-  - [Pink Floyd](#pink-floyd)
-    - [Wish You Were Here](#wish-you-were-here)
-  - [Suzanne Vega](#suzanne-vega)
-    - [Tom's Diner](#toms-diner)
-  - [LIKE I'M GONNA LOSE YOU - Meghan Trainor](#like-im-gonna-lose-you---meghan-trainor)
+- [Eric Clapton](#eric-clapton)
+  - [Layla](#layla)
+- [Stevie Ray Vaughan](#stevie-ray-vaughan)
+  - [Scuttle Buttin'](#scuttle-buttin)
+- [山岡晃](#山岡晃)
+  - [Promise](#promise)
+- [Pink Floyd](#pink-floyd)
+  - [Wish You Were Here](#wish-you-were-here)
+- [Suzanne Vega](#suzanne-vega)
+  - [Tom's Diner](#toms-diner)
+- [LIKE I'M GONNA LOSE YOU - Meghan Trainor](#like-im-gonna-lose-you---meghan-trainor)
 
 
 ## Eric Clapton
