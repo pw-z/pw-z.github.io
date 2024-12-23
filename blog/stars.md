@@ -5,8 +5,38 @@
 ## 音乐
 
 **Queen (皇后乐队)**
-* *[电影]Bohemian Rhapsody (波希米亚狂想曲)*
-* A Night At The Opera
+* *[电影] [2018] Bohemian Rhapsody (波希米亚狂想曲)*
+* *[电影] [2024] Queen Rock Montreal（皇后乐队蒙特利尔现场演唱会）*
+
+*Studio Albums*  
+1. *Queen (1973)*
+2. *Queen II (1974)*
+3. *Sheer Heart Attack (1974)*
+   1. *Killer Queen✨*
+4. *A Night at the Opera (1975)*
+   1. *Love of My Life✨*
+   2. *Bohemian Rhapsody✨*
+5. *A Day at the Races (1976)*
+6. *News of the World (1977)*
+   1. *We Will Rock You✨*
+   2. *We Are the Champions✨*
+   3. *All Dead, All Dead*
+   4. *Get Down, Make Love*
+7. *Jazz (1978)*
+8. *The Game (1980)*
+   1. *Another One Bites the Dust*
+9.  *Flash Gordon (1980)*
+10. *Hot Space (1982)*
+    1. *Under Pressure✨*
+11. *The Works (1984)*
+    1. *Radio Ga Ga*
+12. *A Kind of Magic (1986)*
+13. *The Miracle (1989)*
+14. *Innuendo (1991)*
+    1. *These Are the Days of Our Lives*
+    2. *The Show Must Go On✨*
+15. *Made in Heaven (1995)*
+
 
 **Eric Clapton (埃里克·克莱普顿)**
 * *Layla*
