@@ -1,41 +1,107 @@
 # Songbook
 
+- [曾经的你 - 许巍](#曾经的你---许巍)
 - [華 - 松本孝弘](#華---松本孝弘)
 - [Layla - Eric Clapton](#layla---eric-clapton)
 
+
+
+## 曾经的你 - 许巍
+
+```
+A      E       A      E 
+曾梦想仗剑走天涯  看一看世界的繁华
+B     #Cm       B    #Cm
+年少的心总有些轻狂 如今你四海为家
+A             E A             E
+曾让你心疼的姑娘 如今已悄然无踪影
+B                   #Cm B           #Cm
+爱情总让你渴望又感到烦脑 曾让你遍体鳞伤
+
+
+B                   A 
+DiLiLiDiDiLiLiDiDengDai
+B                 E
+DiLiLiDiDiLiLiDiDaDai
+#Cm                #Fm
+DiLiLiDiDiLiLiDiDaiDai
+
+B           E
+走在勇往直前的路上
+B                   A 
+DiLiLiDiDiLiLiDiDengDai
+B                 E
+DiLiLiDiDiLiLiDiDaDai
+#Cm                #Fm
+DiLiLiDiDiLiLiDiDaiDai
+E   B
+有难过也有精彩
+
+E
+每一次难过的时候
+A             E
+就独自看一看大海
+B                     #Cm
+总想起身边走在路上的朋友
+B           #Cm
+有多少正在疗伤
+B                   A 
+DiLiLiDiDiLiLiDiDengDai
+B                 E
+DiLiLiDiDiLiLiDiDaDai
+#Cm                #Fm
+DiLiLiDiDiLiLiDiDaiDai
+    B           E
+不知多少孤独的夜晚
+B                   A 
+DiLiLiDiDiLiLiDiDengDai
+B                 E
+DiLiLiDiDiLiLiDiDaDai
+#Cm                #Fm
+DiLiLiDiDiLiLiDiDaiDai
+      E     B 
+从昨夜酒醉醒来
+              E
+每一次难过的时候
+A             E
+就独自看一看大海
+B                     #Cm
+总想起身边走在路上的朋友
+B           #Cm
+有多少正在醒来
+A             E
+让我们干了这杯酒
+A             E
+好男儿胸怀像大海
+B                     #Cm
+经历了人生百态世间的冷暖
+B           #Cm
+这笑容温暖纯真
+```
+
+
+
+
 ## 華 - 松本孝弘
 
+⭐段落划分
+～\*8
 
+A1\*8 + A2\*8 + A3\*8
 
+～\*1
 
+A1\*8 + A2\*8 + A3\*8
 
+B1\*4 + 二胡\*8
 
+C1\*4 + C2\*5
 
+A3\*8 + A3p\*8
 
+~\*4
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+A1\*8
 
 
 
