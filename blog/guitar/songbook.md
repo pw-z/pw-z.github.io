@@ -8,34 +8,44 @@
 
 ## 曾经的你 - 许巍
 
-```
-A      E       A      E 
-曾梦想仗剑走天涯  看一看世界的繁华
-B     #Cm       B    #Cm
-年少的心总有些轻狂 如今你四海为家
-A             E A             E
-曾让你心疼的姑娘 如今已悄然无踪影
-B                   #Cm B           #Cm
-爱情总让你渴望又感到烦脑 曾让你遍体鳞伤
+```shell
+原调 = E
+
+E大调音阶
+---
+又名： E Ionian scale | E伊奥尼亚音阶 | E伊奥尼亚调式
+音： E F♯ G♯ A B C♯ D♯ E
+音程：1 2 3 4 5 6 7 1
+公式：全全半全全全半 2-2-1-2-2-2-1
 
 
-B                   A 
-DiLiLiDiDiLiLiDiDengDai
-B                 E
-DiLiLiDiDiLiLiDiDaDai
-#Cm                #Fm
-DiLiLiDiDiLiLiDiDaiDai
+4 1  4 1
+5 6m 5 6m
+---
+A      E        A             E 
+曾梦想仗剑走天涯   看一看世界的繁华
+B           #Cm   B           #Cm
+年少的心总有些轻狂  如今你四海为家
+A            E  A             E
+曾让你心疼的姑娘  如今已悄然无踪影
+B           #Cm        B           #Cm
+爱情总让你渴望又感到烦脑  曾让你遍体鳞伤
 
-B           E
-走在勇往直前的路上
-B                   A 
-DiLiLiDiDiLiLiDiDengDai
-B                 E
-DiLiLiDiDiLiLiDiDaDai
-#Cm                #Fm
-DiLiLiDiDiLiLiDiDaiDai
-E   B
-有难过也有精彩
+
+5  4  5 1
+6m 2m 5 1
+5  4  5 1
+6m 2m 1 5
+---
+B              A   B               E
+DiLiLiLi……denda ​    DiLiLiLi……denda
+#Cm           #Fm       B          E
+​DiLiLiLi……denda     走在勇往直前的路上
+B              A   B               E
+DiLiLiLi……denda ​    DiLiLiLi……denda
+#Cm           #Fm           E   B
+​DiLiLiLi……denda     有难过也有精彩
+
 
 E
 每一次难过的时候
