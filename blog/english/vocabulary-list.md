@@ -42,12 +42,12 @@
 ### Natural Geography *241
 
 atmosphere hydrosphere lithosphere  
-oxygen oxide carbon hydrogen  
+oxygen oxide carbon_dioxide hydrogen  
 core crust mantle  
-longitude latitude horizon altitude  
+longitude latitude horizon on_the_horizon altitude  
 disaster mishap catastrophic calamity  
 endanger jeopardise destructive  
-El Nino  greenhouse phenomenon  
+El_Nino greenhouse phenomenon  
 pebble magnet ore mineral  
 marble quartz granite  
 gust breeze monsoon gale  
@@ -56,6 +56,7 @@ volcano erupt magma thermodynamic
 smog fume mist  
 tsunami drought flooding torrent  
 earthquake seismic avalanche  
+
 terrain landscape continent  
 cave cliff glacier swamp  
 delta plain plateau oasis  

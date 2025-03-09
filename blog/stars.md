@@ -167,7 +167,7 @@ REFERENCE
   * [Board Game Geek](https://boardgamegeek.com)
   * [Board Game Arena](https://boardgamearena.com/)
 * 正版盗版：
-  * [深扒184款盗版桌游，哪家正版出版社是盗版最大受害者？| 航仔](https://www.bilibili.com/video/BV1S7wEecEez)
+  * [深扒184款盗版桌游，哪家正版出版社是盗版最大受害者？](https://www.bilibili.com/video/BV1S7wEecEez)
 * 桌游机制
   * [Board Game Mechanics: An Overview](https://makecraftgame.com/2025/02/28/board-game-mechanics-an-overview/)
   * [Board Game Mechanics](https://boardgamegeek.com/browse/boardgamemechanic)
