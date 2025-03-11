@@ -62,14 +62,15 @@ cave cliff glacier swamp
 delta plain plateau oasis  
 globe hemisphere equator  
 arctic Antarctic pole polar axis  
-deteriorate aggravate degrade upgrade erode  
 Mediterranean Atlantic pacific  
+deteriorate aggravate degrade upgrade erode  
 ocean marine navigation  
 gulf beach coast  
 shore tide current  
 brook stream source shallow  
 superficial flat smooth rough sandy stony  
-vertical steep parallel narrow  
+vertical steep parallel narrow 
+
 Oceania mainland peninsula  
 climate weather meteorology  
 mild heating moderate warm  
