@@ -6,14 +6,15 @@ Hi, this is Pengwei.
 
 ## BLOG
 
+[*~~书籍、音乐、电影~~ 精神食粮*](./blog/preference/mental.md)  
+[*~~咖啡、精酿、烹饪~~ 人间烟火*](./blog/preference/physical.md)  
+[*english-related*](./blog/english/index.md)  
+[*leetcode-related*](./blog/leetcode/index.md)  
 [*understanding-sketch*](./blog/understanding-sketch/index.md)  
 [*data-structure-from-scratch*](./blog/data-structure-from-scratch/index.md)  
 [*java-basic*](./blog/java-basic/index.md)  
 [*guitar-related*](./blog/guitar/readme.md)  
-[*leetcode-related*](./blog/leetcode/index.md)  
 [*trivial-blogs*](./blog/trivial/readme.md)  
-[*english-related*](./blog/english/index.md)  
-[*~~人物、书籍、音乐、电影~~ 精神食粮*](./blog/stars.md)
 
 
 ## CODE
