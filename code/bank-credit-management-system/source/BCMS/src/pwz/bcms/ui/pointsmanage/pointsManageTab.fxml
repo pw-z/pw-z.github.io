@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pwz.bcms.ui.pointsmanage.PointsManageController">
+   <children>
+      <VBox HBox.hgrow="ALWAYS">
+         <children>
+            <HBox alignment="TOP_RIGHT" VBox.vgrow="NEVER">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <ChoiceBox fx:id="note_flag" layoutX="1004.0" prefHeight="23.0" prefWidth="80.0" />
+                        <Button fx:id="searchButton" layoutX="1098.0" mnemonicParsing="false" onAction="#searchCsr" prefHeight="23.0" prefWidth="80.0" text="搜索" />
+                        <Label layoutX="701.0" prefHeight="23.0" prefWidth="57.0" text="身份证号" />
+                        <Label layoutX="947.0" prefHeight="23.0" prefWidth="57.0" text="兑换标识" />
+                        <TextField fx:id="searchInfo" layoutX="758.0" prefHeight="23.0" prefWidth="176.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" right="30.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="tableView" prefHeight="900.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="id" prefWidth="38.0" text="序号" />
+                      <TableColumn fx:id="csr_name" prefWidth="59.0" text="客户姓名" />
+                        <TableColumn fx:id="card_number" prefWidth="143.0" text="身份证号" />
+                        <TableColumn fx:id="account" prefWidth="148.0" text="账号" />
+                        <TableColumn fx:id="product_name" minWidth="0.0" prefWidth="87.0" text="产品名称" />
+                        <TableColumn fx:id="product_points" minWidth="0.0" prefWidth="61.0" text="单位积分" />
+                        <TableColumn fx:id="value" prefWidth="51.0" text="金额" />
+                        <TableColumn fx:id="date" prefWidth="128.0" text="业务办理时间" />
+                        <TableColumn fx:id="type" prefWidth="40.0" text="渠道" />
+                        <TableColumn fx:id="points" minWidth="0.0" prefWidth="56.0" text="积分数" />
+                        <TableColumn fx:id="intro_cardnumber" minWidth="0.0" prefWidth="154.0" text="转介绍人身份证号" />
+                        <TableColumn fx:id="note" minWidth="0.0" prefWidth="59.0" text="兑换标识" />
+                        <TableColumn fx:id="intro_flag" minWidth="0.0" prefWidth="76.0" text="转介绍标识" />
+                        <TableColumn fx:id="useFlag" minWidth="0.0" prefWidth="64.0" text="兑换选项" />
+                    </columns>
+                  </TableView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="30.0" right="30.0" />
+               </VBox.margin>
+            </VBox>
+            <HBox alignment="CENTER" VBox.vgrow="NEVER">
+               <children>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="43.0" prefWidth="304.0">
+                     <children>
+                        <Label layoutX="8.0" layoutY="12.0" prefHeight="23.0" prefWidth="89.0" text="当前所选积分：" />
+                        <Label fx:id="totalPoints" layoutX="103.0" layoutY="10.0" prefHeight="23.0" prefWidth="97.0" text="0" />
+                        <Button fx:id="exchangeButton" layoutX="233.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleExchangeButton" prefHeight="23.0" prefWidth="57.0" text="兑换" />
+                     </children>
+                  </AnchorPane>
+                  <Label fx:id="warning" prefHeight="32.0" prefWidth="1006.0" />
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="43.0" prefWidth="295.0">
+                     <children>
+                         <Button fx:id="newButton" layoutX="215.0" mnemonicParsing="false" onAction="#newRecord" prefHeight="43.0" prefWidth="80.0" text="新增" />
+                        <Button fx:id="manageButton" layoutX="6.0" mnemonicParsing="false" onAction="#manageRecord" prefHeight="43.0" prefWidth="80.0" text="管理" />
+                        <Button fx:id="reloadButton" layoutX="108.0" mnemonicParsing="false" onAction="#reloadTab" prefHeight="43.0" prefWidth="80.0" text="刷新" />
+                     </children>
+                  </AnchorPane>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" right="30.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

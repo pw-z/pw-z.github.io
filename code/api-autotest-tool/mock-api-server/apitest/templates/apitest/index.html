@@ -1,0 +1,9 @@
+{% if mockapi_list %}
+    <ul>
+    {% for api in mockapi_list %}
+       <li>{{ api.api_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No mockapi are available.</p>
+{% endif %}

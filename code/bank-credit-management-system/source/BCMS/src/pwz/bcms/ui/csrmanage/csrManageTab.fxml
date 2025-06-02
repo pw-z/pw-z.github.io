@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<HBox alignment="CENTER_RIGHT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pwz.bcms.ui.csrmanage.CSRManageController">
+   <children>
+      <TableView fx:id="tableView" prefHeight="715.0" prefWidth="774.0" HBox.hgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="id" prefWidth="60.0" text="序号" />
+            <TableColumn fx:id="name" prefWidth="83.0" text="姓名" />
+            <TableColumn fx:id="gender" prefWidth="39.0" text="性别" />
+<!--            <TableColumn fx:id="card_type" prefWidth="75.0" text="证件类型" /> -->
+            <TableColumn fx:id="card_number" prefWidth="143.0" text="身份证号" />
+            <TableColumn fx:id="phone" prefWidth="116.0" text="联系方式" />
+            <TableColumn fx:id="company" prefWidth="116.0" text="工作单位" />
+            <TableColumn fx:id="homelocation" prefWidth="109.0" text="家庭住址" />
+            <TableColumn fx:id="note" prefWidth="107.0" text="备注" />
+        </columns>
+         <HBox.margin>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </HBox.margin>
+      </TableView>
+      <VBox>
+         <children>
+            <HBox AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <Label layoutX="806.0" layoutY="26.0" prefHeight="23.0" prefWidth="119.0" text="搜索客户(身份证号)：" />
+                  <TextField fx:id="searchInfo" layoutX="923.0" layoutY="26.0" prefHeight="23.0" prefWidth="190.0" />
+                  <Button fx:id="searchButton" layoutX="1116.0" layoutY="26.0" mnemonicParsing="false" onAction="#searchCsr" prefHeight="23.0" prefWidth="55.0" text="搜索" />
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="946.0" prefWidth="374.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e3e300" height="642.0" stroke="#00000031" strokeType="INSIDE" width="363.0" />
+                        <Group fx:id="r_group" layoutX="-783.0" layoutY="-41.0">
+                           <children>
+                              <Text layoutX="824.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="信息处理区：" wrappingWidth="78.0" />
+                              <Label layoutX="863.0" layoutY="157.0" prefHeight="28.0" prefWidth="64.0" text="姓名*" />
+                              <TextField fx:id="r_name" layoutX="927.0" layoutY="160.0" prefHeight="25.0" prefWidth="190.0" />
+                              <Label layoutX="864.0" layoutY="198.0" prefHeight="28.0" prefWidth="64.0" text="性别*" />
+                              <ChoiceBox fx:id="r_gender" layoutX="927.0" layoutY="201.0" prefWidth="190.0" />
+                              <Label layoutX="864.0" layoutY="241.0" prefHeight="28.0" prefWidth="64.0" text="身份证号*" />
+                              <TextField fx:id="r_card_number" layoutX="928.0" layoutY="244.0" prefHeight="25.0" prefWidth="190.0" />
+                              <Label layoutX="864.0" layoutY="286.0" prefHeight="28.0" prefWidth="64.0" text="手机*" />
+                              <TextField fx:id="r_phone" layoutX="928.0" layoutY="289.0" prefHeight="25.0" prefWidth="190.0" />
+                              <Label layoutX="864.0" layoutY="331.0" prefHeight="28.0" prefWidth="64.0" text="工作单位" />
+                              <TextField fx:id="r_company" layoutX="928.0" layoutY="332.0" prefHeight="25.0" prefWidth="190.0" />
+                              <Label layoutX="863.0" layoutY="385.0" prefHeight="28.0" prefWidth="64.0" text="家庭住址" />
+                              <TextField fx:id="r_homelocation" layoutX="928.0" layoutY="387.0" prefHeight="25.0" prefWidth="190.0" />
+                              <Label layoutX="863.0" layoutY="434.0" prefHeight="28.0" prefWidth="64.0" text="备注" />
+                              <TextArea fx:id="r_note" layoutX="927.0" layoutY="436.0" prefHeight="196.0" prefWidth="190.0" wrapText="true" />
+                              <Label disable="true" layoutX="863.0" layoutY="120.0" prefHeight="28.0" prefWidth="55.0" text="ID" visible="false" />
+                              <TextField fx:id="r_id" disable="true" editable="false" layoutX="928.0" layoutY="122.0" prefHeight="23.0" prefWidth="150.0" visible="false" />
+                           </children>
+                        </Group>
+                        <Label fx:id="r_warning" alignment="CENTER" layoutX="67.0" layoutY="594.0" prefHeight="34.0" prefWidth="254.0" textAlignment="CENTER" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <HBox layoutX="2.0" layoutY="688.0" prefHeight="58.0" prefWidth="362.0">
+               <children>
+                   <Button fx:id="manageButton" layoutX="808.0" layoutY="714.0" mnemonicParsing="false" onAction="#manageCsr" prefHeight="28.0" prefWidth="64.0" text="编辑" />
+                  <Button fx:id="deleteButton" layoutX="874.0" layoutY="714.0" mnemonicParsing="false" onAction="#deleteCsr" prefHeight="28.0" prefWidth="64.0" text="删除" />
+                  <Button fx:id="saveButton" layoutX="941.0" layoutY="714.0" mnemonicParsing="false" onAction="#saveCsr" prefHeight="28.0" prefWidth="64.0" text="保存" />
+                  <Button fx:id="reloadButton" layoutX="1007.0" layoutY="714.0" mnemonicParsing="false" onAction="#reloadPage" prefHeight="28.0" prefWidth="57.0" text="重置" />
+                  <Button disable="true" mnemonicParsing="false" text="Button" visible="false" />
+                   <Button fx:id="newButton" layoutX="1107.0" layoutY="714.0" mnemonicParsing="false" onAction="#newCsr" prefHeight="28.0" prefWidth="60.0" text="新增" />
+               </children>
+               <padding>
+                  <Insets bottom="30.0" />
+               </padding>
+            </HBox>
+         </children>
+         <HBox.margin>
+            <Insets right="30.0" />
+         </HBox.margin>
+      </VBox>
+   </children>
+</HBox>

@@ -1,0 +1,16 @@
+.idea/
+out/
+target/
+*.iml
+*.db
+.temp/
+venv/
+
+.vscode/
+*.exe
+*.gch
+__pycache__/
+python_lesson/
+
+allure-report/
+allure-results/

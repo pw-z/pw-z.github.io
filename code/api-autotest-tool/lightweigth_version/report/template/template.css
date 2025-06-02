@@ -1,0 +1,125 @@
+/* --------------------------- basic setting --------------------------- */
+.report_body {
+    max-width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+h1 {
+    padding-bottom: 2px;
+    border-bottom: 3px solid #eaecef;
+    background-color: #ffffff;
+}
+
+h2 {
+    padding-bottom: 3px;
+    border-bottom: 1px solid #f5f3f3;
+    background-color: #ffffff;
+}
+/* --------------------------- basic setting --------------------------- */
+
+/* --------------------------- report summary -------------------------- */
+.report_summary {
+    width: 98%;
+    margin: 20px auto;
+    height: 400px;
+}
+
+.summary_text {
+    width: 98%;
+    text-align: center;
+    height: 100%;
+}
+
+.summary_chart {
+    height: 60%;
+}
+
+#pie_chart {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+}
+/* --------------------------- report summary -------------------------- */
+
+
+/* --------------------------- report detail --------------------------- */
+.report_detail {
+    width: 98%;
+    margin: 40px auto;
+}
+
+.case_info,
+.step_info{
+    padding: 3px;
+    border: 2px solid #ffffff;
+}
+.case_info:hover,
+.step_info:hover{
+    border-bottom: 1px solid #6d6d6d;
+    cursor: pointer;
+}
+.case_info .status {
+    float: right;
+}
+
+.pass_case,
+.fail_case,
+.error_case {
+    border: 2px;
+    padding: 3px;
+    margin: 8px;
+}
+
+.pass_case .case_info { background-color: #f7f7f7; }
+
+.fail_case .case_info { background-color: #f7f7f7; color: red;}
+
+.error_case .case_info { background-color: #d55858; }
+
+.step_list {
+    display: none;
+    width: 95%;
+    margin: auto;
+}
+
+.pass_step,
+.fail_step,
+.error_step {
+    padding: 3px;
+    margin: 8px;
+    font-size: 16px;
+}
+
+.fail_step .step_info {
+     color: #ff0032;
+}
+
+.error_step .step_info {
+    color: #cc0000;
+}
+
+.step_start_time,
+.step_end_time,
+.step_duration{
+    float: right;
+    margin:auto;
+    font-size: 14px;
+}
+
+.step_detail {
+    font-size: 14px;
+    line-height: 1.2;
+    width: 98%;
+    margin: 4px auto;
+    padding: 4px;
+    border: 1px solid rgba(138, 176, 187, 0.25);
+    white-space: pre-line;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+/* --------------------------- report detail --------------------------- */
