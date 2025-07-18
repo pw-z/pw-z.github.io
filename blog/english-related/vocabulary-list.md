@@ -1,37 +1,38 @@
 # Vocabulary List
 
-- [雅思词汇真经 \*3500+](#雅思词汇真经-3500)
-  - [Natural Geography \*241](#natural-geography-241)
-  - [Plant Research \*130](#plant-research-130)
-  - [Animal Protection \*168](#animal-protection-168)
-  - [Space Exploration \*75](#space-exploration-75)
-  - [School Education \*401](#school-education-401)
-  - [Technological Invention \*122](#technological-invention-122)
-  - [Cultural History \*79](#cultural-history-79)
-  - [Language Evolution \*68](#language-evolution-68)
-  - [Entertainment and Sports \*176](#entertainment-and-sports-176)
-  - [Objects and Materials \*152](#objects-and-materials-152)
-  - [Fashion Trends \*113](#fashion-trends-113)
-  - [Diet and Health \*173](#diet-and-health-173)
-  - [Architectural Sites \*134](#architectural-sites-134)
-  - [Transportation and Travel \*134](#transportation-and-travel-134)
-  - [National Government \*149](#national-government-149)
-  - [Social Economy \*171](#social-economy-171)
-  - [Laws and Regulations \*117](#laws-and-regulations-117)
-  - [Battlefield Competition \*213](#battlefield-competition-213)
-  - [Social Roles \*121](#social-roles-121)
-  - [Behaviors and Actions \*268](#behaviors-and-actions-268)
-  - [Physical and Mental \*417](#physical-and-mental-417)
-  - [Time and Date \*52](#time-and-date-52)
-- [四六级词汇 \*8000](#四六级词汇-8000)
-- [The Oxford 3000 by CEFR level](#the-oxford-3000-by-cefr-level)
-  - [A1](#a1)
-  - [A2](#a2)
-  - [B1](#b1)
-  - [B2](#b2)
-- [Oxford 5000 excluding Oxford 3000](#oxford-5000-excluding-oxford-3000)
-  - [B2](#b2-1)
-  - [C1](#c1)
+- [Vocabulary List](#vocabulary-list)
+  - [雅思词汇真经 \*3500+](#雅思词汇真经-3500)
+    - [Natural Geography \*241](#natural-geography-241)
+    - [Plant Research \*130](#plant-research-130)
+    - [Animal Protection \*168](#animal-protection-168)
+    - [Space Exploration \*75](#space-exploration-75)
+    - [School Education \*401](#school-education-401)
+    - [Technological Invention \*122](#technological-invention-122)
+    - [Cultural History \*79](#cultural-history-79)
+    - [Language Evolution \*68](#language-evolution-68)
+    - [Entertainment and Sports \*176](#entertainment-and-sports-176)
+    - [Objects and Materials \*152](#objects-and-materials-152)
+    - [Fashion Trends \*113](#fashion-trends-113)
+    - [Diet and Health \*173](#diet-and-health-173)
+    - [Architectural Sites \*134](#architectural-sites-134)
+    - [Transportation and Travel \*134](#transportation-and-travel-134)
+    - [National Government \*149](#national-government-149)
+    - [Social Economy \*171](#social-economy-171)
+    - [Laws and Regulations \*117](#laws-and-regulations-117)
+    - [Battlefield Competition \*213](#battlefield-competition-213)
+    - [Social Roles \*121](#social-roles-121)
+    - [Behaviors and Actions \*268](#behaviors-and-actions-268)
+    - [Physical and Mental \*417](#physical-and-mental-417)
+    - [Time and Date \*52](#time-and-date-52)
+  - [四六级词汇 \*8000](#四六级词汇-8000)
+  - [The Oxford 3000 by CEFR level](#the-oxford-3000-by-cefr-level)
+    - [A1](#a1)
+    - [A2](#a2)
+    - [B1](#b1)
+    - [B2](#b2)
+  - [Oxford 5000 excluding Oxford 3000](#oxford-5000-excluding-oxford-3000)
+    - [B2](#b2-1)
+    - [C1](#c1)
 
 
 
@@ -90,6 +91,7 @@ sediment silt muddy clay dirt
 rural suburb outskirts  
 remote desolate distant adjacent  
 toxic pollution pollutant contaminate  
+
 geology border margin fringe  
 plate debris crack gap  
 splendid grand magnificent  
@@ -233,10 +235,11 @@ instil cram emphasise enhance
 enable inspire motive motivate  
 stimulate spur impetus  
 indulge spoil abuse  
-intelligent clever smart all  
+intelligent clever smart all-round  
 genius elite idiot  
 wisdom wit aptitude capable  
-excellent outstanding brilliant  
+excellent outstanding brilliant  *51  
+
 prestige reputation eminent notorious  
 esteem respect diligent painstaking  
 skill approach scheme  
@@ -350,14 +353,16 @@ multimedia network browser dial
 microcomputer laptop software  
 keyboard screen loudspeaker  
 microphone cassette tape  
-binary digital wireless high  
-audio vision fantasy science  
+binary digital wireless high-definition  
+audio vision fantasy science_fiction  
 pump generator gear pivot  
 hydraulic drainage sewage ventilation  
 compress condense refine simplify  
-purify filter distil mode mould prototype  
+purify filter distil  
+mode mould prototype  
 framework aspect phase  
-operate facilitate transform convert alter shift  
+operate facilitate  
+transform convert alter shift  
 turn adapt adjust  
 pinpoint accurate precise correct  
 error mistake flaw wrong fault  
