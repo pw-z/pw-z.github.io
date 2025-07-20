@@ -2,14 +2,14 @@
 
 - [IELTS Vocabulary List](#ielts-vocabulary-list)
   - [VOCABULARY FOR IELTS](#vocabulary-for-ielts)
-    - [Natural Geography \*241](#natural-geography-241)
-    - [Plant Research \*130](#plant-research-130)
-    - [Animal Protection \*168](#animal-protection-168)
-    - [Space Exploration \*75](#space-exploration-75)
-    - [School Education \*401](#school-education-401)
-    - [Technological Invention \*122](#technological-invention-122)
-    - [Cultural History \*79](#cultural-history-79)
-    - [Language Evolution \*68](#language-evolution-68)
+    - [1. Natural Geography \*241](#1-natural-geography-241)
+    - [2. Plant Research \*130](#2-plant-research-130)
+    - [3. Animal Protection \*168](#3-animal-protection-168)
+    - [4. Space Exploration \*75](#4-space-exploration-75)
+    - [5. School Education \*401](#5-school-education-401)
+    - [6. Technological Invention \*122](#6-technological-invention-122)
+    - [7. Cultural History \*79](#7-cultural-history-79)
+    - [8. Language Evolution \*68](#8-language-evolution-68)
     - [Entertainment and Sports \*176](#entertainment-and-sports-176)
     - [Objects and Materials \*152](#objects-and-materials-152)
     - [Fashion Trends \*113](#fashion-trends-113)
@@ -29,7 +29,7 @@
 
 REF: [hefengxian/my-ielts](https://github.com/hefengxian/my-ielts)
 
-### Natural Geography *241
+### 1. Natural Geography *241
 
 atmosphere hydrosphere lithosphere  
 oxygen oxide carbon_dioxide hydrogen  
@@ -102,7 +102,7 @@ nature natural artificial synthetic
 petrol gas gasoline petroleum  
 
 
-### Plant Research *130
+### 2. Plant Research *130
 
 photosynthesis respire dioxide  
 vegetation herb perennial  
@@ -140,7 +140,7 @@ considerable massive immense
 maximal minimal optimal  
 
 
-### Animal Protection *168
+### 3. Animal Protection *168
 
 biologist zoologist ecologist botanist  
 mammal primate vertebrate reptile  
@@ -187,7 +187,7 @@ subsistence exist exterminate
 tame keeper shepherd   
 
 
-### Space Exploration *75
+### 4. Space Exploration *75
 
 galaxy cosmos universe interstellar  
 terrestrial celestial astronomy astrology astronaut  
@@ -211,7 +211,7 @@ collision squash fragment
 cataclysmic overwhelming despair desperate hopeless  
 
 
-### School Education *401
+### 5. School Education *401
 
 education primary secondary  
 university college institute academy  
@@ -227,8 +227,7 @@ indulge spoil abuse
 intelligent clever smart all-round  
 genius elite idiot  
 wisdom wit aptitude capable  
-excellent outstanding brilliant  *51  
-
+excellent outstanding brilliant  
 prestige reputation eminent notorious  
 esteem respect diligent painstaking  
 skill approach scheme  
@@ -241,7 +240,8 @@ pupil graduate ceremony
 bachelor master doctor  
 fresher sophomore junior senior alumni  
 campus orientation platform coed  
-register roster enrol matriculation  
+register roster enrol matriculation  *101  
+
 accommodation dorm dining canteen  
 laboratory experiment data quantity quality  
 library literature article author  
@@ -267,8 +267,9 @@ minus subtract multiply
 divide dividend remainder rational  
 parameter variable even odd mean  
 double triple quadruple multiple  
-maximum minimum approximately  
-chart graph diagram table matrix  
+maximum minimum approximately  *99  
+
+chart graph diagram table matrix  -
 rectangle cube angle triangle diagonal straight  
 circle round dot sphere cone  
 extent width length  
@@ -323,7 +324,7 @@ apply fellowship scholarship reward
 award prize fee  
 
 
-### Technological Invention *122
+### 6. Technological Invention *122
 
 technology technique polytechnic engineer mechanic  
 advance innovate breakthrough  
@@ -358,7 +359,7 @@ error mistake flaw wrong fault
 stumble contingency circumstance  
 
 
-### Cultural History *79
+### 7. Cultural History *79
 
 culture civilisation renaissance epic ideology  
 tradition convention custom  
@@ -384,7 +385,7 @@ anecdote accident incident
 thrive prosperity setback adversity  
 
 
-### Language Evolution *68
+### 8. Language Evolution *68
 
 language symbol sign gesture handwriting  
 pictograph wedge knot  
@@ -422,22 +423,24 @@ perform imitate mimic simulate
 circus magic drama  
 concert symphony orchestra ballet opera  
 comedy tragedy animation  
-film movie X  
-artist craftsman painter  
+film movie X-rated  
+artist craftsman painter  *52  
+
 role scene stage  
 gallery exhibition aesthetic  
 collect select opt  
 photograph portrait painting sculpture  
 draw sketch depict describe  
 carve improvise musical classical  
-jazz rock hip pop lyric  
+jazz rock hip-pop lyric  
 band solo melody rhythm  
 tone tune disc  
 piano violin cello guitar  
 harmonica trumpet drum flute  
 competition tournament Olympic sponsor patron  
 athlete champion spectator volunteer  
-famous well energetic vigorous  
+famous well-known energetic vigorous  *53  
+
 stadium gym training  
 exercise indoor outdoor  
 motion mobile movement  
@@ -450,7 +453,7 @@ pitch throw toss
 slide slip glide tumble  
 ski skate cycling  
 dive drift jump  
-leap plunge spring hop bounce  
+**leap plunge spring hop bounce**  
 tent camp picnic hunt  
 race marathon pedestrian pace step  
 excursion cruise trip vacation hike  
