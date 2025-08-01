@@ -1,29 +1,28 @@
 # IELTS Vocabulary List
 
-- [IELTS Vocabulary List](#ielts-vocabulary-list)
-  - [VOCABULARY FOR IELTS](#vocabulary-for-ielts)
-    - [1. Natural Geography \*241](#1-natural-geography-241)
-    - [2. Plant Research \*130](#2-plant-research-130)
-    - [3. Animal Protection \*168](#3-animal-protection-168)
-    - [4. Space Exploration \*75](#4-space-exploration-75)
-    - [5. School Education \*401](#5-school-education-401)
-    - [6. Technological Invention \*122](#6-technological-invention-122)
-    - [7. Cultural History \*79](#7-cultural-history-79)
-    - [8. Language Evolution \*68](#8-language-evolution-68)
-    - [Entertainment and Sports \*176](#entertainment-and-sports-176)
-    - [Objects and Materials \*152](#objects-and-materials-152)
-    - [Fashion Trends \*113](#fashion-trends-113)
-    - [Diet and Health \*173](#diet-and-health-173)
-    - [Architectural Sites \*134](#architectural-sites-134)
-    - [Transportation and Travel \*134](#transportation-and-travel-134)
-    - [National Government \*149](#national-government-149)
-    - [Social Economy \*171](#social-economy-171)
-    - [Laws and Regulations \*117](#laws-and-regulations-117)
-    - [Battlefield Competition \*213](#battlefield-competition-213)
-    - [Social Roles \*121](#social-roles-121)
-    - [Behaviors and Actions \*268](#behaviors-and-actions-268)
-    - [Physical and Mental \*417](#physical-and-mental-417)
-    - [Time and Date \*52](#time-and-date-52)
+- [VOCABULARY FOR IELTS](#vocabulary-for-ielts)
+  - [1. Natural Geography \*241](#1-natural-geography-241)
+  - [2. Plant Research \*130](#2-plant-research-130)
+  - [3. Animal Protection \*168](#3-animal-protection-168)
+  - [4. Space Exploration \*75](#4-space-exploration-75)
+  - [5. School Education \*401](#5-school-education-401)
+  - [✅6. Technological Invention \*122](#6-technological-invention-122)
+  - [7. Cultural History \*79](#7-cultural-history-79)
+  - [8. Language Evolution \*68](#8-language-evolution-68)
+  - [9. Entertainment and Sports \*176](#9-entertainment-and-sports-176)
+  - [10. Objects and Materials \*152](#10-objects-and-materials-152)
+  - [11. Fashion Trends \*113](#11-fashion-trends-113)
+  - [12. Diet and Health \*173](#12-diet-and-health-173)
+  - [13. Architectural Sites \*134](#13-architectural-sites-134)
+  - [14. Transportation and Travel \*134](#14-transportation-and-travel-134)
+  - [15. National Government \*149](#15-national-government-149)
+  - [16. Social Economy \*171](#16-social-economy-171)
+  - [17. Laws and Regulations \*117](#17-laws-and-regulations-117)
+  - [18. Battlefield Competition \*213](#18-battlefield-competition-213)
+  - [19. Social Roles \*121](#19-social-roles-121)
+  - [20. Behaviors and Actions \*268](#20-behaviors-and-actions-268)
+  - [21. Physical and Mental \*417](#21-physical-and-mental-417)
+  - [✅22. Time and Date \*52](#22-time-and-date-52)
 
 ## VOCABULARY FOR IELTS
 
@@ -324,7 +323,7 @@ apply fellowship scholarship reward
 award prize fee  
 
 
-### 6. Technological Invention *122
+### ✅6. Technological Invention *122
 
 technology technique polytechnic engineer mechanic  
 advance innovate breakthrough  
@@ -408,7 +407,7 @@ communicate discussion brainstorm
 debate commentary negotiate contention  
 
 
-### Entertainment and Sports *176
+### 9. Entertainment and Sports *176
 
 medium press journalist  
 critic commentator exponent  
@@ -461,7 +460,7 @@ jog stride wander linger lag
 climb pull drag bend bow  
 
 
-### Objects and Materials *152
+### 10. Objects and Materials *152
 
 stuff item merchandise souvenir artifact  
 material raw crude  
@@ -505,7 +504,7 @@ inferior counterfeit fake
 fragile miniature available durable  
 
 
-### Fashion Trends *113
+### 11. Fashion Trends *113
 
 fashion style trend tendency current  
 popularity vogue prevail  
@@ -540,7 +539,7 @@ fade stain blot
 figure slender slight  
 
 
-### Diet and Health *173
+### 12. Diet and Health *173
 
 food diet appetite  
 treat cater provision edible recipe  
@@ -589,7 +588,7 @@ soak dip squeeze
 stir grind slice   
 
 
-### Architectural Sites *134
+### 13. Architectural Sites *134
 
 architecture erection structure construct obstruct  
 establish build found  
@@ -630,7 +629,7 @@ outside outward exterior external
 inner interior inward internal  
 
 
-### Transportation and Travel *134
+### 14. Transportation and Travel *134
 
 navigate voyage aviation  
 journey travel safari parade haunt  
@@ -673,7 +672,7 @@ transfer transmit transit
 deliver convey speed velocity swift  
 
 
-### National Government *149
+### 15. National Government *149
 
 republic Marxism socialism communism  
 regime government authority political hierarchy  
@@ -717,7 +716,7 @@ Australia New Canada
 Britain France Germany  
 
 
-### Social Economy *171
+### 16. Social Economy *171
 
 economy trade market industry  
 merchant financial fund donate endow  
@@ -744,6 +743,7 @@ acquisition goods cargo
 insure guarantee reliable  
 negotiation attend absent  
 sale wholesale auction bid  
+
 deal transaction turnover dump  
 export import quota  
 share benefit interest dividend stock  
@@ -769,7 +769,7 @@ manage regulate sanction
 coordinate cooperate collaborate  
 
 
-### Laws and Regulations *117
+### 17. Laws and Regulations *117
 
 law legal rule regulation  
 item treaty agreement charter protocol  
@@ -801,7 +801,7 @@ demand request require
 petition command instruct  
 
 
-### Battlefield Competition *213
+### 18. Battlefield Competition *213
 
 violence conflict raid enormity  
 campaign battle struggle  
@@ -863,7 +863,7 @@ patrol guard camouflage obstacle burrow
 spy scout general soldier veteran  
 
 
-### Social Roles *121
+### 19. Social Roles *121
 
 pioneer prophet herald heir successor  
 generation surname gender sex female  
@@ -901,7 +901,7 @@ fisherman butcher groom
 hostage toil beggar slave coward  
 
 
-### Behaviors and Actions *268
+### 20. Behaviors and Actions *268
 
 act behave deed accustom  
 react respond reflect  
@@ -972,11 +972,11 @@ surmount mortify pervade
 replace substitute distinguish differentiate  
 incline lean sideways   
 
-### Physical and Mental *417
+### 21. Physical and Mental *417
 
 feel mood emotion  
 temper manner attitude  
-character personality trait  
+character personality trait(portrait)  
 virtue feature stature  
 flesh mankind human  
 bone backbone skeleton  
@@ -1000,7 +1000,8 @@ dumb aural dental
 awake yawn nap doze quiet asleep  
 cripple lame dwarf  
 pregnancy born condom clone  
-symptom disease illness  
+symptom disease illness  *101  
+
 moan infection detriment  
 broken disable invalid patient dysfunction  
 diabetes obesity overweight hypertension paralyse  
@@ -1085,21 +1086,22 @@ naughty greedy obtrusive
 slothful sluggish impulse  
 rigid stubborn stereotype   
 
-### Time and Date *52
+### ✅22. Time and Date *52
 
 daily monthly quarterly  
 annual yearly anniversary  
 era present contemporary  
-medieval century millennium  
+medieval century millennium(millennia)  
 million billion dozen  
 dawn midday midnight overnight night  
-modern recent up  
+modern recent up-to-date  
 first secondly finally finish  
 immediately instant moment minute  
 prior former preceding  
 precedent foremost opening initially  
-intermediate midst meantime  
-meanwhile simultaneous ongoing  
-everlasting permanent punctual duration consecutive  
-periodically imminent incidentally  
+intermediate(rudimentary/beginner/elementary/~/advanced) midst meantime  
+meanwhile simultaneous(~ translation;concurrent;synchronous) ongoing  
+everlasting permanent(perpetual) punctual(on time) duration consecutive  
+periodically(periodic) imminent incidentally  
 
+[The Evolution of Timekeeping: Classic vs. Modern Timepieces](https://www.clockshop.com.au/blog/our-blog/the-evolution-of-timekeeping-classic-vs.-modern-ti/)
