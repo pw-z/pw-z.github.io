@@ -1,7 +1,7 @@
 # IELTS Vocabulary List
 
 - [VOCABULARY FOR IELTS](#vocabulary-for-ielts)
-  - [1. Natural Geography \*241](#1-natural-geography-241)
+  - [✅1. Natural Geography \*241](#1-natural-geography-241)
   - [2. Plant Research \*130](#2-plant-research-130)
   - [3. Animal Protection \*168](#3-animal-protection-168)
   - [4. Space Exploration \*75](#4-space-exploration-75)
@@ -12,11 +12,11 @@
   - [9. Entertainment and Sports \*176](#9-entertainment-and-sports-176)
   - [10. Objects and Materials \*152](#10-objects-and-materials-152)
   - [11. Fashion Trends \*113](#11-fashion-trends-113)
-  - [12. Diet and Health \*173](#12-diet-and-health-173)
+  - [✅12. Diet and Health \*173](#12-diet-and-health-173)
   - [13. Architectural Sites \*134](#13-architectural-sites-134)
   - [14. Transportation and Travel \*134](#14-transportation-and-travel-134)
   - [15. National Government \*149](#15-national-government-149)
-  - [16. Social Economy \*171](#16-social-economy-171)
+  - [✅16. Social Economy \*171](#16-social-economy-171)
   - [17. Laws and Regulations \*117](#17-laws-and-regulations-117)
   - [18. Battlefield Competition \*213](#18-battlefield-competition-213)
   - [19. Social Roles \*121](#19-social-roles-121)
@@ -28,7 +28,7 @@
 
 REF: [hefengxian/my-ielts](https://github.com/hefengxian/my-ielts)
 
-### 1. Natural Geography *241
+### ✅1. Natural Geography *241
 
 atmosphere hydrosphere lithosphere  
 oxygen oxide carbon_dioxide hydrogen  
@@ -539,14 +539,14 @@ fade stain blot
 figure slender slight  
 
 
-### 12. Diet and Health *173
+### ✅12. Diet and Health *173
 
 food diet appetite  
-treat cater provision edible recipe  
+treat cater(~ to/for) provision edible recipe(<>receipt)  
 restaurant refectory bar cafeteria  
 buffet barbecue supper banquet  
-refreshment snack appetiser cuisine menu order takeaway  
-chief gourmet vegetarian  
+refreshment snack appetiser cuisine menu order takeaway(eat-in/~/to go)  
+chief gourmet vegetarian(vegan)  
 cutlery silver ceramic porcelain  
 bowl dish saucer tray  
 fork knife spoon glass mug  
@@ -716,7 +716,7 @@ Australia New Canada
 Britain France Germany  
 
 
-### 16. Social Economy *171
+### ✅16. Social Economy *171
 
 economy trade market industry  
 merchant financial fund donate endow  
