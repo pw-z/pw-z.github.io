@@ -1,28 +1,29 @@
 # IELTS Vocabulary List
 
-- [VOCABULARY FOR IELTS](#vocabulary-for-ielts)
-  - [✅1. Natural Geography \*241](#1-natural-geography-241)
-  - [2. Plant Research \*130](#2-plant-research-130)
-  - [3. Animal Protection \*168](#3-animal-protection-168)
-  - [4. Space Exploration \*75](#4-space-exploration-75)
-  - [5. School Education \*401](#5-school-education-401)
-  - [✅6. Technological Invention \*122](#6-technological-invention-122)
-  - [7. Cultural History \*79](#7-cultural-history-79)
-  - [8. Language Evolution \*68](#8-language-evolution-68)
-  - [9. Entertainment and Sports \*176](#9-entertainment-and-sports-176)
-  - [10. Objects and Materials \*152](#10-objects-and-materials-152)
-  - [11. Fashion Trends \*113](#11-fashion-trends-113)
-  - [✅12. Diet and Health \*173](#12-diet-and-health-173)
-  - [13. Architectural Sites \*134](#13-architectural-sites-134)
-  - [14. Transportation and Travel \*134](#14-transportation-and-travel-134)
-  - [15. National Government \*149](#15-national-government-149)
-  - [✅16. Social Economy \*171](#16-social-economy-171)
-  - [17. Laws and Regulations \*117](#17-laws-and-regulations-117)
-  - [18. Battlefield Competition \*213](#18-battlefield-competition-213)
-  - [19. Social Roles \*121](#19-social-roles-121)
-  - [20. Behaviors and Actions \*268](#20-behaviors-and-actions-268)
-  - [21. Physical and Mental \*417](#21-physical-and-mental-417)
-  - [✅22. Time and Date \*52](#22-time-and-date-52)
+1. [IELTS Vocabulary List](#ielts-vocabulary-list)
+   1. [VOCABULARY FOR IELTS](#vocabulary-for-ielts)
+      1. [✅1. Natural Geography \*241](#1-natural-geography-241)
+      2. [2. Plant Research \*130](#2-plant-research-130)
+      3. [3. Animal Protection \*168](#3-animal-protection-168)
+      4. [4. Space Exploration \*75](#4-space-exploration-75)
+      5. [5. School Education \*401](#5-school-education-401)
+      6. [✅6. Technological Invention \*122](#6-technological-invention-122)
+      7. [7. Cultural History \*79](#7-cultural-history-79)
+      8. [8. Language Evolution \*68](#8-language-evolution-68)
+      9. [9. Entertainment and Sports \*176](#9-entertainment-and-sports-176)
+      10. [10. Objects and Materials \*152](#10-objects-and-materials-152)
+      11. [11. Fashion Trends \*113](#11-fashion-trends-113)
+      12. [✅12. Diet and Health \*173](#12-diet-and-health-173)
+      13. [✅13. Architectural Sites \*134](#13-architectural-sites-134)
+      14. [✅14. Transportation and Travel \*134](#14-transportation-and-travel-134)
+      15. [✅15. National Government \*149](#15-national-government-149)
+      16. [✅16. Social Economy \*171](#16-social-economy-171)
+      17. [17. Laws and Regulations \*117](#17-laws-and-regulations-117)
+      18. [18. Battlefield Competition \*213](#18-battlefield-competition-213)
+      19. [19. Social Roles \*121](#19-social-roles-121)
+      20. [20. Behaviors and Actions \*268](#20-behaviors-and-actions-268)
+      21. [21. Physical and Mental \*417](#21-physical-and-mental-417)
+      22. [✅22. Time and Date \*52](#22-time-and-date-52)
 
 ## VOCABULARY FOR IELTS
 
@@ -541,54 +542,54 @@ figure slender slight
 
 ### ✅12. Diet and Health *173
 
-food diet appetite  
+food diet **appetite**  
 treat cater(~ to/for) provision edible recipe(<>receipt)  
 restaurant refectory bar cafeteria  
-buffet barbecue supper banquet  
-refreshment snack appetiser cuisine menu order takeaway(eat-in/~/to go)  
+buffet barbecue supper **banquet**  
+refreshment snack appetiser **cuisine** menu order takeaway(eat-in/~/to go)  
 chief gourmet vegetarian(vegan)  
 cutlery silver ceramic porcelain  
-bowl dish saucer tray  
-fork knife spoon glass mug  
-kettle pan pot  
-stove furnace oven  
-tin lid drink beverage  
+bowl(~of cereal) dish saucer tray  
+fork knife spoon glass **mug**  
+**kettle(kite)** pan pot  
+stove **furnace** oven  
+tin **lid** drink beverage  
 juice soda coffee  
 alcohol liquor whisky brandy drunk  
-tobacco cigarette sober  
+**tobacco** cigarette sober  
 vegetable tomato potato  
-pea bean cucumber  
+pea bean cucumber(pickle,vinegar)  
 cabbage onion mushroom eggplant  
 carrot turnip radish  
 fruit peel strip core hull  
-cherry berry grape papaya  
-peach pear plum  
+cherry berry grape **papaya**  
+peach pear plum(~wine,palm)  
 orange melon lemon kiwi  
 crop corn grain  
-wheat reap flour porridge paste  
-livestock chicken turkey  
-beef pork mutton sausage  
-fish pond rod  
+wheat reap flour **porridge** **paste**  
+**livestock** chicken turkey  
+beef pork **mutton** sausage  
+fish pond **rod**(rot)  
 dairy milk yogurt cream cheese  
 butter salad sandwich hamburger  
 loaf pie pizza  
-pasta spaghetti soup  
-pudding biscuit jam  
+*pasta* *spaghetti* soup  
+pudding biscuit **jam**  
 nut chocolate ice vanilla  
-mustard wasabi pepper  
-ginger garlic scallion  
+**mustard** wasabi pepper  
+ginger garlic **scallion**  
 vinegar salt sugar candy honey  
 flavor sour sweet bitter spicy  
 delicious yummy tasty hunger thirsty  
-spice sauce ketchup  
-perfume ingredient supplement digest  
+**spice** **sauce** **ketchup**  
+perfume ingredient supplement **digest**  
 cook bake fry roast toast  
-suck swallow lick chew gum  
+suck swallow lick chew **gum**  
 soak dip squeeze  
-stir grind slice   
+stir **grind** slice   
 
 
-### 13. Architectural Sites *134
+### ✅13. Architectural Sites *134
 
 architecture erection structure construct obstruct  
 establish build found  
@@ -629,7 +630,7 @@ outside outward exterior external
 inner interior inward internal  
 
 
-### 14. Transportation and Travel *134
+### ✅14. Transportation and Travel *134
 
 navigate voyage aviation  
 journey travel safari parade haunt  
@@ -672,7 +673,7 @@ transfer transmit transit
 deliver convey speed velocity swift  
 
 
-### 15. National Government *149
+### ✅15. National Government *149
 
 republic Marxism socialism communism  
 regime government authority political hierarchy  
