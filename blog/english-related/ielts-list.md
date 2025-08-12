@@ -7,9 +7,9 @@
       3. [3. Animal Protection \*168](#3-animal-protection-168)
       4. [4. Space Exploration \*75](#4-space-exploration-75)
       5. [5. School Education \*401](#5-school-education-401)
-      6. [✅6. Technological Invention \*122](#6-technological-invention-122)
+      6. [✅✅6. Technological Invention \*122](#6-technological-invention-122)
       7. [✅7. Cultural History \*79](#7-cultural-history-79)
-      8. [8. Language Evolution \*68](#8-language-evolution-68)
+      8. [✅8. Language Evolution \*68](#8-language-evolution-68)
       9. [9. Entertainment and Sports \*176](#9-entertainment-and-sports-176)
       10. [10. Objects and Materials \*152](#10-objects-and-materials-152)
       11. [11. Fashion Trends \*113](#11-fashion-trends-113)
@@ -324,39 +324,39 @@ apply fellowship scholarship reward
 award prize fee  
 
 
-### ✅6. Technological Invention *122
+### ✅✅6. Technological Invention *122
 
-technology technique polytechnic engineer mechanic  
-advance innovate breakthrough  
-gizmo patent devise invent discover  
-disclose reveal uncover expose  
+technology technique **polytechnic** engineer **mechanic**  
+advance **innovate** breakthrough  
+**gizmo** **patent(copyright)** devise invent discover  
+**disclose** reveal uncover expose  
 domain field realm foundation  
-specialise absorb concentrate focus utilise usage tester apply  
-device appliance facility equipment  
-instrument tool gauge measure calculate compute count estimate assess evaluate  
-accessory byproduct auxiliary versatile  
+**specialise** absorb concentrate focus utilise usage *tester* apply  
+device **appliance** facility equipment  
+instrument tool **gauge** measure calculate compute count estimate assess evaluate  
+**accessory** byproduct **auxiliary** **versatile**  
 add accumulate assemble  
 gather attach belong  
-optics microscope lens  
-radar echo sensor  
-multimedia network browser dial  
+**optics** microscope lens  
+radar(radius/diameter) echo sensor  
+multimedia network browser **dial**  
 microcomputer laptop software  
 keyboard screen loudspeaker  
-microphone cassette tape  
+microphone **cassette** tape  
 binary digital wireless high-definition  
 audio vision fantasy science_fiction  
-pump generator gear pivot  
-hydraulic drainage sewage ventilation  
-compress condense refine simplify  
+pump generator gear **pivot**  
+**hydraulic drainage sewage ventilation**  
+compress **condense** **refine** simplify  
 purify filter distil  
-mode mould prototype  
+mode **mould** **prototype**  
 framework aspect phase  
-operate facilitate  
+operate **facilitate**  
 transform convert alter shift  
 turn adapt adjust  
-pinpoint accurate precise correct  
+pinpoint **accurate** precise correct  
 error mistake flaw wrong fault  
-stumble contingency circumstance  
+stumble **contingency** **circumstance**  
 
 
 ### ✅7. Cultural History *79
@@ -367,7 +367,7 @@ feudalism slavery **ethical**(*ethnic*) moral
 tribe **aboriginal** inhabitant native local  
 exotic foreigner alien **anthropologist** **humanitarian**  
 **heritage** inherit **antique**  
-**archaeology** excavate museum  
+**archaeology** **excavate** museum  
 **pottery** **engrave** decorate  
 religion **ritual** **etiquette**  
 belief soul spirit  
@@ -385,23 +385,23 @@ nobility lord knight guardian
 thrive prosperity setback **adversity**  
 
 
-### 8. Language Evolution *68
+### ✅8. Language Evolution *68
 
 language symbol sign gesture handwriting  
 pictograph wedge knot  
-linguistics semantic syntax grammar  
-phonetics pronounce intonation inflection  
+**linguistics** **semantic** syntax grammar  
+**phonetics** pronounce **intonation** **inflection**  
 dialect accent utterance oral verbal  
-syllable phoneme vowel consonant  
-alphabet logogram vocabulary dictionary  
-idiom phrase clause expression tense  
+**syllable phoneme vowel consonant**  
+alphabet **logogram** vocabulary dictionary  
+idiom phrase **clause** expression tense  
 root prefix suffix  
-abbreviation synonym antonym  
+**abbreviation** synonym antonym  
 noun singular plural  
-pronoun verb adjective  
+**pronoun** verb adjective  
 adverb preposition conjunction  
-consistent complicated complex  
-compile version translate paraphrase  
+**consistent** complicated complex  
+compile version translate **paraphrase**  
 interpret narrate  
 illuminate decipher eloquence  
 communicate discussion brainstorm  
@@ -988,7 +988,7 @@ jaw neck beard
 shoulder limb elbow wrist  
 thumb palm finger fist  
 chest abdomen rib waist  
-organ liver stomach womb kidney  
+organ liver stomach **womb** kidney  
 lung gland chamber intestine  
 thigh joint knee lap  
 ankle heel toe  
