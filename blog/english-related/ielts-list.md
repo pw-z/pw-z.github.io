@@ -8,11 +8,11 @@
       4. [4. Space Exploration \*75](#4-space-exploration-75)
       5. [5. School Education \*401](#5-school-education-401)
       6. [✅✅6. Technological Invention \*122](#6-technological-invention-122)
-      7. [✅7. Cultural History \*79](#7-cultural-history-79)
+      7. [✅✅7. Cultural History \*79](#7-cultural-history-79)
       8. [✅8. Language Evolution \*68](#8-language-evolution-68)
       9. [9. Entertainment and Sports \*176](#9-entertainment-and-sports-176)
       10. [10. Objects and Materials \*152](#10-objects-and-materials-152)
-      11. [11. Fashion Trends \*113](#11-fashion-trends-113)
+      11. [✅11. Fashion Trends \*113](#11-fashion-trends-113)
       12. [✅✅12. Diet and Health \*173](#12-diet-and-health-173)
       13. [✅✅13. Architectural Sites \*134](#13-architectural-sites-134)
       14. [✅14. Transportation and Travel \*134](#14-transportation-and-travel-134)
@@ -359,11 +359,11 @@ error mistake flaw wrong fault
 stumble **contingency** **circumstance**  
 
 
-### ✅7. Cultural History *79
+### ✅✅7. Cultural History *79
 
-culture civilisation renaissance epic ideology  
-tradition convention custom  
-feudalism slavery **ethical**(*ethnic*) moral  
+culture civilisation renaissance epic **ideology**  
+tradition **convention** custom  
+feudalism slavery **ethical**(*ethnic*/**exotic**) moral  
 tribe **aboriginal** inhabitant native local  
 exotic foreigner alien **anthropologist** **humanitarian**  
 **heritage** inherit **antique**  
@@ -382,7 +382,7 @@ nobility lord knight guardian
 **nostalgia** homesick  
 **celebrity** status background experience  
 **anecdote** accident **incident**  
-thrive prosperity setback **adversity**  
+thrive prosperity **setback** **adversity**  
 
 
 ### ✅8. Language Evolution *68
@@ -505,39 +505,39 @@ inferior counterfeit fake
 fragile miniature available durable  
 
 
-### 11. Fashion Trends *113
+### ✅11. Fashion Trends *113
 
 fashion style trend tendency current  
-popularity vogue prevail  
+popularity vogue **prevail**  
 model icon idol  
-luxury extravagant jewelry  
-jewel gem jade  
-adorn ornament embellish embroider  
-hairdressing pigment dye  
+luxury **extravagant** jewelry  
+jewel gem **jade**  
+**adorn ornament embellish embroider**  
+**hairdressing** **pigment** **dye**  
 masquerade veil costume  
-fascinate decent exquisite  
+**fascinate** decent **exquisite**  
 grace elegance perfect  
-appearance cosmetics make  
+appearance **cosmetics** *make-up*  
 handsome charming pretty beautiful ugly  
 dress clothe uniform  
-garment laundry wardrobe  
-overall overcoat robe gown  
+**garment** laundry wardrobe  
+overall overcoat **robe** **gown**  
 sweater jacket skirt  
-jeans trousers clasp button  
-glove hat cap brim scarf  
-handkerchief purse wallet  
-vest wrap cloak collar sleeve  
+jeans **trousers** **clasp** button  
+glove hat cap **brim(eaves)** scarf  
+**handkerchief** purse wallet  
+**vest wrap cloak collar sleeve**  
 sock stocking slipper boot lace  
 tailor sew spin  
-stitch needle pin string thread  
-strap stripe ribbon  
-belt chain bracelet necklace bead  
-textile velvet wool  
+**stitch** needle pin string thread  
+**strap stripe ribbon**  
+belt chain **bracelet** necklace **bead**  
+**textile** **velvet** wool  
 patch rag shabby tight  
 colour white yellow brown  
 grey pink purple tan  
-fade stain blot  
-figure slender slight  
+fade **stain** **blot**  
+figure **slender** slight  
 
 
 ### ✅✅12. Diet and Health *173
