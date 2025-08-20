@@ -411,20 +411,20 @@ debate commentary negotiate contention
 ### 9. Entertainment and Sports *176
 
 medium press journalist  
-critic commentator exponent  
+**critic** commentator **exponent**(component,opponent)  
 announcer correspondent messenger editor typist  
 handout leaflet propaganda  
 publish disseminate foresee  
 anticipate expect await  
-pastime entertain recreation  
-amuse gossip rumour consensus  
-festival feast programme rehearsal  
-perform imitate mimic simulate  
-circus magic drama  
+pastime entertain **recreation**  
+amuse gossip rumour **consensus**  
+festival **feast** programme **rehearsal**  
+perform **imitate** **mimic** simulate  
+**circus(circle/bicycle)** magic drama  
 concert symphony orchestra ballet opera  
 comedy tragedy animation  
 film movie X-rated  
-artist craftsman painter  *52  
+artist **craftsman** painter  *52✅  
 
 role scene stage  
 gallery exhibition aesthetic  
