@@ -463,17 +463,17 @@ climb pull drag bend **bow**
 
 ### 10. Objects and Materials *152
 
-stuff item merchandise souvenir artifact  
-material raw crude  
-necessity outfit kit utensil  
+stuff item merchandise **souvenir** artifact  
+material raw **crude**  
+necessity **outfit** kit **utensil**  
 garbage rubbish trash recycle reuse  
-litter waste junk landfill sewerage  
-detergent lotion shampoo soap  
-tub plug tap pipe tube  
-mop broom sweep  
-mattress carpet rug mat cushion pad  
-blanket quilt sheet pillow sponge towel  
-staple nail razor shave  
+litter(bitter) waste junk **landfill** **sewerage(sewage)**  
+**detergent lotion shampoo** soap  
+**tub(a tub of ice cream)** plug tap pipe tube  
+**mop broom sweep**  
+**mattress carpet rug mat cushion pad**  
+blanket **quilt** sheet pillow sponge towel  
+**staple** nail razor shave  
 fuse cable cord strand  
 match candle wax  
 portfolio paperback pamphlet tissue cover  
@@ -483,6 +483,7 @@ shear edge rim
 element factor section  
 tag label badge  
 bolt knob handle  
+
 shutter curtain pane opacity  
 jar barrel bucket pail  
 phone bell camera portable  
