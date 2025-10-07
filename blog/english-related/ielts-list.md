@@ -20,7 +20,7 @@
       16. [✅16. Social Economy \*171](#16-social-economy-171)
       17. [17. Laws and Regulations \*117](#17-laws-and-regulations-117)
       18. [18. Battlefield Competition \*213](#18-battlefield-competition-213)
-      19. [19. Social Roles \*121](#19-social-roles-121)
+      19. [✅19. Social Roles \*121](#19-social-roles-121)
       20. [20. Behaviors and Actions \*268](#20-behaviors-and-actions-268)
       21. [21. Physical and Mental \*417](#21-physical-and-mental-417)
       22. [✅22. Time and Date \*52](#22-time-and-date-52)
@@ -865,42 +865,42 @@ patrol guard camouflage obstacle burrow
 spy scout general soldier veteran  
 
 
-### 19. Social Roles *121
+### ✅19. Social Roles *121
 
-pioneer prophet herald heir successor  
-generation surname gender sex female  
-couple spouse husband gay  
+**pioneer** **prophet** **herald** **heir** successor  
+generation surname(family name , last name, given name, forename) gender sex female  
+couple **spouse** husband gay  
 grandfather father sibling  
-cousin nephew niece twin  
-embryo infant orphan  
-juvenile youngster youth  
-gang teenager adolescence  
-kin folk relative  
-intimate dear darling lover beloved  
-madam hostess landlady mistress housewife  
-widow maid maiden  
+cousin nephew **niece** twin  
+**embryo** **infant** orphan  
+**juvenile** youngster youth  
+gang teenager **adolescence**  
+kin folk **relative**  
+**intimate** dear darling lover beloved  
+madam hostess **landlady** **mistress** housewife  
+widow maid **maiden**  
 household chore host  
-landlord tenant guest customer client  
+landlord **tenant** guest customer client  
 encounter chase miss  
-appointment accompany dependent  
-propose engagement marry  
+**appointment** accompany **dependent**  
+**propose** **engagement** marry  
 wedding honeymoon kiss  
 divorce separate single sole  
-respective each individual  
-commuter neighborhood member  
-boss manager supervisor subordinate  
-partner mate colleague  
-comrade acquaintance friendship affection  
-stranger apprentice deputy  
-hero heroine actress  
-chancellor commander director proponent  
-committee council delegate  
-specialist consultant veterinary  
-counsellor solicitor attorney umpire  
+**respective** each individual  
+**commuter** neighborhood member  
+boss manager **supervisor** **subordinate**  
+partner mate **colleague**  
+**comrade** **acquaintance** friendship affection  
+stranger **apprentice** **deputy**  
+hero heroine **actress**  
+**chancellor** commander director **proponent**  
+**committee** council **delegate**  
+specialist consultant **veterinary**  
+**counsellor** **solicitor** **attorney** **umpire**  
 cashier fireman nurse gardener  
-barber haircut  
-fisherman butcher groom  
-hostage toil beggar slave coward  
+**barber** haircut  
+fisherman **butcher** **groom**  
+**hostage** **toil** beggar slave coward  
 
 
 ### 20. Behaviors and Actions *268
