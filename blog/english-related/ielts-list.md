@@ -104,40 +104,40 @@ petrol gas gasoline petroleum
 
 ### 2. Plant Research *130
 
-photosynthesis respire dioxide  
-vegetation herb perennial  
-botany ecology ecosystem eco  
-horticulture organism genetics  
-mutation variation diversity hybridisation classify  
-reproduce evolve fluctuate  
-reclaim cultivate sow harvest  
-pluck pick yield rear arable  
-plough spade rake  
+**photosynthesis** **respire** dioxide  
+vegetation herb **perennial**  
+botany ecology ecosystem eco-friendly  
+**horticulture** **organism** **genetics**  
+**mutation** variation diversity hybridisation classify  
+reproduce evolve **fluctuate**  
+**reclaim** **cultivate** sow harvest  
+pluck pick yield **rear** **arable**  
+plough **spade** **rake**  
 stack heap bundle bunch vase  
-sunlight short shade fungus mould  
-pollen germinate seed burgeon bud  
-flower blossom bloom scent aromatic  
-ripen fruit wither decompose  
-rot decay stale  
-rainforest jungle plantation field terrace  
-timber charcoal log logo forestry  
-branch trunk bough root  
-hay straw reed thorn weed  
-grass meadow lawn  
-olive pine vine  
-violet tulip mint  
-reef alga enzyme catalyst  
-release emission absorb circulation  
-exceed uptake nutrient energy  
-surroundings mechanism counterbalance  
-protect preserve conservation  
-bush extinguish destruct ruin perish  
-demolish infringe undermine extinction  
-pattern outcome impact  
-seasonal experimental favourable  
+sunlight short-day shade-tolerant **fungus** **mould**  
+**pollen** **germinate** seed **burgeon** bud  
+flower blossom bloom **scent** **aromatic**  
+**ripen** fruit **wither** **decompose**  
+rot decay **stale**  
+rainforest jungle **plantation** field **terrace**  
+**timber** **charcoal** log logo **forestry**  
+branch trunk **bough** root  
+hay straw **reed** thorn **weed**  
+grass **meadow** **lawn**  
+olive **pine** **vine**  
+violet **tulip** **mint**  
+**reef alga enzyme catalyst**  
+release **emission** absorb circulation  
+exceed **uptake** nutrient energy  
+surroundings **mechanism** **counterbalance**  
+protect **preserve** **conservation**  
+bush_fire extinguish destruct ruin perish  
+**demolish** **infringe** **undermine** extinction  
+pattern **outcome** impact  
+**seasonal** experimental **favourable**  
 productive effective efficient  
-considerable massive immense  
-maximal minimal optimal  
+considerable massive **immense**  
+maximal minimal **optimal**  
 
 
 ### 3. Animal Protection *168
