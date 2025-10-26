@@ -2,7 +2,7 @@
 # [P.W. Z](https://www.pwz.wiki)
 
 ## blog
-[*preference*](./blog/preference/preference.md)  
+[*collection*](./blog/collection/collection.md)  
 [*guitar-related*](./blog/guitar-related/readme.md)  
 [*english-related*](./blog/english-related/index.md)  
 [*derivatives*](./blog/derivatives/readme.md)  
