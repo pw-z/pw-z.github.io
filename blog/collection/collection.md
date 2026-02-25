@@ -1,21 +1,22 @@
 # COLLECTION
 
-- [音乐](#音乐)
-  - [Queen (皇后乐队)](#queen-皇后乐队)
-  - [Eric Clapton (埃里克·克莱普顿)](#eric-clapton-埃里克克莱普顿)
-  - [Stevie Ray Vaughan](#stevie-ray-vaughan)
-  - [Bob Marley (鲍勃·马利)](#bob-marley-鲍勃马利)
-  - [Akira Yamaoka (山岡晃)](#akira-yamaoka-山岡晃)
-  - [Tak Matsumoto (松本孝弘)](#tak-matsumoto-松本孝弘)
-  - [Pink Floyd (平克·佛洛伊德)](#pink-floyd-平克佛洛伊德)
-- [书籍](#书籍)
-- [电影](#电影)
-- [游戏](#游戏)
-  - [桌游](#桌游)
-- [运动](#运动)
-  - [NB 99X](#nb-99x)
-  - [💡 如何挑选适合你的99X](#-如何挑选适合你的99x)
-  - [攀岩](#攀岩)
+1. [COLLECTION](#collection)
+   1. [音乐](#音乐)
+      1. [Queen (皇后乐队)](#queen-皇后乐队)
+      2. [Eric Clapton (埃里克·克莱普顿)](#eric-clapton-埃里克克莱普顿)
+      3. [Stevie Ray Vaughan](#stevie-ray-vaughan)
+      4. [Bob Marley (鲍勃·马利)](#bob-marley-鲍勃马利)
+      5. [Akira Yamaoka (山岡晃)](#akira-yamaoka-山岡晃)
+      6. [Tak Matsumoto (松本孝弘)](#tak-matsumoto-松本孝弘)
+      7. [Pink Floyd (平克·佛洛伊德)](#pink-floyd-平克佛洛伊德)
+   2. [书籍](#书籍)
+   3. [电影](#电影)
+   4. [游戏](#游戏)
+      1. [桌游](#桌游)
+   5. [运动](#运动)
+      1. [NB 99X](#nb-99x)
+      2. [💡 如何挑选适合你的99X](#-如何挑选适合你的99x)
+      3. [攀岩](#攀岩)
 
 ## 音乐
 
@@ -136,8 +137,11 @@
   * *功夫 (2004)*
   * *喜剧之王 (1999)*
   * *唐伯虎点秋香 (1993)*
-
-
+* [标签]*恐怖*
+  * 遗传厄运
+  * 迷雾
+  * 哭声
+  * 寂静岭
 
 ## 游戏
 
