@@ -1,0 +1,10 @@
+title: to see behind walls, draw closer
+browser_title: "Pengwei's Blog"
+description: Hi
+
+defaults:
+  - scope:
+      path: "readme.md"
+    values:
+      title: to see behind walls, draw closer
+      home: true

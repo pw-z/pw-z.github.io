@@ -1,0 +1,43 @@
+{
+  "conventions": [
+    "素材按原五个学习阶段管理，目录前缀表示阶段素材对应的年月区间；读书阶段再按书籍细分。",
+    "已有日期的习作文件名沿用原记录。照片的拍摄日期与习作完成日期不一定相同，不用 EXIF 拍摄时间覆盖练习日期。",
+    "原来没有日期的三张阅读照片已根据 EXIF 补充拍摄日期，精确到日。"
+  ],
+  "confirmed_photo_dates": [
+    {
+      "file": "assets/202207-202304/202302-202304/20230402-reading-at-home.jpeg",
+      "original_filename": "reading-at-home.jpeg",
+      "date_kind": "photo_capture",
+      "precision": "day",
+      "captured_at": "2023-04-02T12:50:13+08:00",
+      "source": "EXIF DateTimeOriginal + OffsetTimeOriginal"
+    },
+    {
+      "file": "assets/202207-202304/202302-202304/20230201-reading-on-plane.jpeg",
+      "original_filename": "reading-on-plane.jpeg",
+      "date_kind": "photo_capture",
+      "precision": "day",
+      "captured_at": "2023-02-01T15:50:02+08:00",
+      "source": "EXIF DateTimeOriginal + OffsetTimeOriginal",
+      "note": "拍摄日期为 2023-02-01；正文的读后小记标注 2023-04-02，两者分别保留，不将小记日期当作照片拍摄日期。"
+    },
+    {
+      "file": "assets/202207-202304/202302-202304/20230402-the-detail-color.jpeg",
+      "original_filename": "the-detail-color.jpeg",
+      "date_kind": "photo_capture",
+      "precision": "day",
+      "captured_at": "2023-04-02T19:11:42+08:00",
+      "source": "EXIF DateTimeOriginal + OffsetTimeOriginal"
+    }
+  ],
+  "unresolved_exercise_dates": [
+    {
+      "file": "assets/202304-202305/20230409-compressed.jpg",
+      "article_date": "2023-04-08",
+      "original_filename_date": "2023-04-09",
+      "exif_captured_at": "2024-05-12T21:24:12+08:00",
+      "note": "高尔基石膏像的正文日期与原文件名相差一天，确切完成日期待确认；保留原文件名与正文，按 2023-04 归档。EXIF 只能确认后来的拍摄时间。"
+    }
+  ]
+}
