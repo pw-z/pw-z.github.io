@@ -183,8 +183,9 @@
 /* Add space for the sidebar instead of taking it from the article/images. */
 @media (min-width: 1280px) {
   .site-shell.has-toc {
-    --toc-width: 260px;
-    --toc-gap: 64px;
+    /* Grow with the viewport, while keeping the article at its reading width. */
+    --toc-width: clamp(248px, calc(12.5vw + 88px), 360px);
+    --toc-gap: clamp(48px, calc(12.5vw - 112px), 160px);
     max-width: calc(1012px + var(--toc-width) + var(--toc-gap));
   }
 
