@@ -12,15 +12,33 @@
     {% endif %}
     {% seo title=false %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/custom.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
   </head>
   <body>
-    <div class="container-lg px-3 my-5 markdown-body">
+    <div class="site-shell container-lg px-3 my-5">
       {% unless page.home %}
-      <h1><a href="{{ '/' | absolute_url }}">{{ site.title | escape }}</a></h1>
+      <header class="site-header">
+        <p class="site-title"><a href="{{ '/' | absolute_url }}">{{ site.title | escape }}</a></p>
+      </header>
       {% endunless %}
 
-      {{ content }}
+      <main class="page-grid">
+        {% unless page.home %}
+        <aside class="article-toc" hidden>
+          <details class="toc-disclosure">
+            <summary>文章目录</summary>
+            <p class="toc-title" aria-hidden="true">文章目录</p>
+            <nav aria-label="文章目录">
+              <ol class="toc-list"></ol>
+            </nav>
+          </details>
+        </aside>
+        {% endunless %}
+        <article id="article-content" class="markdown-body{% if page.home %} home-content{% endif %}">
+          {{ content }}
+        </article>
+      </main>
       {% if site.github.private != true and site.github.license %}
       <div class="footer border-top border-gray-light mt-5 pt-3 text-right">
         This site is open source. {% github_edit_link "Improve this page" %}.
@@ -28,6 +46,9 @@
       {% endif %}
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script>anchors.add();</script>
+    <script>if (window.anchors) { anchors.add(); }</script>
+    {% unless page.home %}
+    <script src="{{ '/assets/js/toc.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+    {% endunless %}
   </body>
 </html>
