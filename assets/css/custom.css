@@ -180,23 +180,25 @@
   }
 }
 
-/* Add space for the sidebar instead of taking it from the article/images. */
-@media (min-width: 1280px) {
+/* Equal outer columns keep the article centered independently of the TOC. */
+@media screen and (min-width: 1664px) {
   .site-shell.has-toc {
-    /* Grow with the viewport, while keeping the article at its reading width. */
-    --toc-width: clamp(248px, calc(12.5vw + 88px), 360px);
-    --toc-gap: clamp(48px, calc(12.5vw - 112px), 160px);
-    max-width: calc(1012px + var(--toc-width) + var(--toc-gap));
+    --toc-width: clamp(248px, calc(12.5vw + 40px), 360px);
+    --toc-gap: clamp(48px, calc(12.5vw - 160px), 160px);
+    max-width: none;
   }
 
-  .has-toc .site-header {
-    margin-left: calc(var(--toc-width) + var(--toc-gap));
+  .has-toc .site-header,
+  .has-toc .footer {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .has-toc .page-grid {
     display: grid;
-    grid-template-columns: var(--toc-width) minmax(0, 1fr);
-    grid-template-areas: "toc article";
+    grid-template-columns: minmax(0, 1fr) minmax(0, 980px) minmax(0, 1fr);
+    grid-template-areas: "toc article .";
     column-gap: var(--toc-gap);
     align-items: start;
   }
@@ -207,6 +209,9 @@
 
   .article-toc {
     grid-area: toc;
+    justify-self: end;
+    width: 100%;
+    max-width: var(--toc-width);
     position: sticky;
     top: 32px;
     margin-bottom: 0;
@@ -233,10 +238,6 @@
 }
 
 @media print {
-  .has-toc .site-header {
-    margin-left: 0;
-  }
-
   .article-toc {
     display: none;
   }

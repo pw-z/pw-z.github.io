@@ -102,7 +102,7 @@
 
     if (!entries.length) return;
 
-    var wideScreen = window.matchMedia("(min-width: 1280px)");
+    var wideScreen = window.matchMedia("(min-width: 1664px)");
     var activeEntry = null;
     var activeSection = null;
     var updateQueued = false;
