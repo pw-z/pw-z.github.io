@@ -60,7 +60,7 @@
       section.toggle.className = "toc-toggle";
       section.toggle.setAttribute("aria-controls", section.children.id);
       section.row.insertBefore(section.toggle, section.link);
-      setExpanded(section, true);
+      setExpanded(section, false);
       section.toggle.addEventListener("click", function () {
         setExpanded(section, section.children.hidden);
         updateAllToggle();
@@ -172,7 +172,7 @@
 
     var restore = disclosure.querySelector("summary");
     var hide = disclosure.querySelector(".panel-hide");
-    disclosure.open = true;
+    disclosure.open = false;
     hide.addEventListener("click", function () {
       disclosure.open = false;
       restore.focus({ preventScroll: true });

@@ -99,16 +99,8 @@
   var disclosure = panel.querySelector("details");
   var restore = disclosure.querySelector("summary");
   var hide = disclosure.querySelector(".panel-hide");
-  var wideScreen = window.matchMedia("(min-width: 1664px)");
-  var userToggledPanel = false;
-  function updateDisclosure() {
-    if (!userToggledPanel) disclosure.open = wideScreen.matches;
-  }
-  updateDisclosure();
-  wideScreen.addEventListener("change", updateDisclosure);
-  restore.addEventListener("click", function () { userToggledPanel = true; });
+  disclosure.open = false;
   hide.addEventListener("click", function () {
-    userToggledPanel = true;
     disclosure.open = false;
     restore.focus({ preventScroll: true });
   });
