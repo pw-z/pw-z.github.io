@@ -172,7 +172,7 @@
 
     var restore = disclosure.querySelector("summary");
     var hide = disclosure.querySelector(".panel-hide");
-    disclosure.open = false;
+    disclosure.open = true;
     hide.addEventListener("click", function () {
       disclosure.open = false;
       restore.focus({ preventScroll: true });
