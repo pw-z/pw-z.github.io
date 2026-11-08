@@ -13,6 +13,9 @@
     {% seo title=false %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/custom.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% unless page.home %}
+    <link rel="stylesheet" href="{{ '/assets/css/reader.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% endunless %}
     {% include head-custom.html %}
   </head>
   <body>
@@ -26,12 +29,53 @@
       <main class="page-grid">
         {% unless page.home %}
         <aside class="article-toc" hidden>
-          <details class="toc-disclosure">
+          <details class="toc-disclosure" open>
             <summary>目录</summary>
             <p class="toc-title" aria-hidden="true">目录</p>
+            <div class="toc-toolbar">
+              <button class="toc-toggle-all" type="button" hidden>全部折叠</button>
+            </div>
             <nav aria-label="目录" tabindex="0">
               <ol class="toc-list"></ol>
             </nav>
+          </details>
+        </aside>
+        <aside class="reading-panel" aria-label="阅读面板" hidden>
+          <details class="reading-disclosure">
+            <summary>阅读设置与统计</summary>
+            <p class="reading-panel-title" aria-hidden="true">阅读</p>
+            <dl class="article-stats">
+              <div><dt title="汉字按字、其他文字按词统计，不计目录与代码">字数</dt><dd id="article-word-count">—</dd></div>
+              <div><dt title="按每分钟约 300 字／词估算，不含看图时间">预计阅读</dt><dd id="article-reading-time">—</dd></div>
+              <div><dt>配图</dt><dd id="article-image-count">—</dd></div>
+            </dl>
+            <div class="reading-controls">
+              <p class="reading-settings-title">阅读设置</p>
+              <div class="reading-control-row">
+                <span id="reading-font-label">字号</span>
+                <div class="font-size-control" role="group" aria-labelledby="reading-font-label">
+                  <button type="button" id="reading-font-smaller" aria-label="缩小正文字号">A−</button>
+                  <output id="reading-font-size" aria-label="正文字号" aria-live="polite">16px</output>
+                  <button type="button" id="reading-font-larger" aria-label="放大正文字号">A+</button>
+                </div>
+              </div>
+              <div class="reading-control-row">
+                <label for="reading-line-height">行距</label>
+                <select id="reading-line-height">
+                  <option value="1.5">标准</option>
+                  <option value="1.75">舒展</option>
+                  <option value="2">宽松</option>
+                </select>
+              </div>
+              <p class="reading-color-label">配色</p>
+              <div class="theme-options" role="group" aria-label="页面配色">
+                <button type="button" data-reading-palette="light" aria-pressed="true"><span class="theme-swatch swatch-light" aria-hidden="true"></span>素白</button>
+                <button type="button" data-reading-palette="paper" aria-pressed="false"><span class="theme-swatch swatch-paper" aria-hidden="true"></span>暖纸</button>
+                <button type="button" data-reading-palette="sage" aria-pressed="false"><span class="theme-swatch swatch-sage" aria-hidden="true"></span>青灰</button>
+                <button type="button" data-reading-palette="night" aria-pressed="false"><span class="theme-swatch swatch-night" aria-hidden="true"></span>夜读</button>
+              </div>
+              <button type="button" id="reading-reset" class="reading-reset">恢复默认</button>
+            </div>
           </details>
         </aside>
         {% endunless %}
@@ -45,6 +89,9 @@
       </div>
       {% endif %}
     </div>
+    {% unless page.home %}
+    <script src="{{ '/assets/js/reader.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+    {% endunless %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
     <script>if (window.anchors) { anchors.add(); }</script>
     {% unless page.home %}

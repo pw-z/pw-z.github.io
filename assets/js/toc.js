@@ -9,6 +9,7 @@
 
     var list = sidebar.querySelector(".toc-list");
     var disclosure = sidebar.querySelector(".toc-disclosure");
+    var toggleAll = sidebar.querySelector(".toc-toggle-all");
     var shell = sidebar.closest(".site-shell");
 
     if (!list || !disclosure || !shell) return;
@@ -32,6 +33,18 @@
       section.toggle.setAttribute("aria-label", (expanded ? "收起：" : "展开：") + section.title);
     }
 
+    function updateAllToggle() {
+      if (!toggleAll) return;
+      var branches = sections.filter(function (section) { return section.children; });
+      toggleAll.hidden = !branches.length;
+      toggleAll.textContent = branches.some(function (section) {
+        return !section.children.hidden;
+      }) ? "全部折叠" : "全部展开";
+      toggleAll.setAttribute("aria-controls", branches.map(function (section) {
+        return section.children.id;
+      }).join(" "));
+    }
+
     function addBranch(section) {
       section.children = document.createElement("ol");
       section.children.className = "toc-sublist";
@@ -44,12 +57,10 @@
       section.toggle.className = "toc-toggle";
       section.toggle.setAttribute("aria-controls", section.children.id);
       section.row.insertBefore(section.toggle, section.link);
-      setExpanded(section, false);
+      setExpanded(section, true);
       section.toggle.addEventListener("click", function () {
-        var expanded = section.children.hidden;
-        // Remember deliberate expansions when following the reader elsewhere.
-        section.manualOpen = expanded;
-        setExpanded(section, expanded);
+        setExpanded(section, section.children.hidden);
+        updateAllToggle();
       });
     }
 
@@ -107,13 +118,6 @@
     var activeSection = null;
     var updateQueued = false;
 
-    function revealSection(section) {
-      sections.forEach(function (candidate) {
-        if (candidate === section) setExpanded(candidate, true);
-        else if (!candidate.manualOpen) setExpanded(candidate, false);
-      });
-    }
-
     function markActive(entry) {
       if (entry === activeEntry) return;
       if (activeEntry) activeEntry.link.removeAttribute("aria-current");
@@ -124,8 +128,6 @@
         if (activeSection) activeSection.item.classList.remove("is-active-section");
         activeSection = entry.section;
         activeSection.item.classList.add("is-active-section");
-        // Expanding inline navigation during a mobile scroll would move the text.
-        if (wideScreen.matches) revealSection(activeSection);
       }
     }
 
@@ -167,10 +169,11 @@
     }
 
     function updateDisclosure() {
-      disclosure.open = wideScreen.matches;
-      if (wideScreen.matches && activeSection) revealSection(activeSection);
+      // Keep the user's branch choices; the wide layout requires the outer panel open.
+      if (wideScreen.matches) disclosure.open = true;
       queueUpdate();
     }
+    disclosure.open = true;
     updateDisclosure();
     wideScreen.addEventListener("change", updateDisclosure);
     disclosure.addEventListener("toggle", function () {
@@ -178,10 +181,16 @@
     });
 
     sidebar.hidden = false;
-    shell.classList.add("has-toc");
+    shell.classList.add("has-toc", "has-sidebars");
+    updateAllToggle();
+    if (toggleAll) toggleAll.addEventListener("click", function () {
+      var collapse = sections.some(function (section) {
+        return section.children && !section.children.hidden;
+      });
+      sections.forEach(function (section) { setExpanded(section, !collapse); });
+      updateAllToggle();
+    });
     markActive(entryForHash() || entries[0]);
-    // Also provide a useful starting branch inside the mobile disclosure.
-    revealSection(activeSection);
     window.addEventListener("scroll", queueUpdate, { passive: true });
     window.addEventListener("resize", queueUpdate);
     window.addEventListener("load", queueUpdate);

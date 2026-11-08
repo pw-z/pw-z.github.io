@@ -4,7 +4,7 @@
   margin: 0 0 20px;
   padding: 0;
   border: 0;
-  color: #586069;
+  color: var(--reading-muted, #586069);
   font-size: 20px;
   font-style: italic;
   font-weight: 400;
@@ -26,21 +26,42 @@
 
 .article-toc {
   margin-bottom: 24px;
-  color: #586069;
+  color: var(--reading-muted, #586069);
   font-size: 13px;
   line-height: 1.5;
 }
 
 .toc-disclosure {
   padding: 12px 0;
-  border-top: 1px solid #e1e4e8;
-  border-bottom: 1px solid #e1e4e8;
+  border-top: 1px solid var(--reading-border, #e1e4e8);
+  border-bottom: 1px solid var(--reading-border, #e1e4e8);
 }
 
 .toc-disclosure summary,
 .toc-title {
   font-size: 14px;
   font-weight: 600;
+}
+
+.toc-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 4px 0 12px;
+}
+
+.toc-toggle-all {
+  padding: 4px 8px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--reading-muted, #586069);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.toc-toggle-all:hover {
+  background: var(--reading-soft, #f6f8fa);
+  color: var(--reading-link, #0366d6);
 }
 
 .toc-disclosure summary {
@@ -51,7 +72,7 @@
   display: none;
   margin: 0 0 18px;
   padding-left: 26px;
-  color: #6a737d;
+  color: var(--reading-muted, #6a737d);
 }
 
 .article-toc nav {
@@ -68,7 +89,7 @@
 }
 
 .article-toc nav:focus-visible {
-  outline: 1px solid #9abce0;
+  outline: 1px solid var(--reading-focus, #9abce0);
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -83,7 +104,7 @@
 .toc-list ol {
   margin: 4px 0 10px 11px;
   padding-left: 26px;
-  border-left: 1px solid #eaecef;
+  border-left: 1px solid var(--reading-border, #eaecef);
 }
 
 .toc-list > li + li {
@@ -116,7 +137,7 @@
   border: 0;
   border-radius: 4px;
   background: transparent;
-  color: #8b949e;
+  color: var(--reading-muted, #8b949e);
   cursor: pointer;
 }
 
@@ -134,8 +155,8 @@
 }
 
 .toc-toggle:hover {
-  background: #f3f5f7;
-  color: #24292e;
+  background: var(--reading-soft, #f3f5f7);
+  color: var(--reading-text, #24292e);
 }
 
 .toc-list a {
@@ -144,32 +165,33 @@
   min-width: 0;
   padding: 6px 8px;
   border-radius: 4px;
-  color: #6a737d;
+  color: var(--reading-muted, #6a737d);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .toc-list > li > .toc-row > a {
-  color: #444d56;
+  color: var(--reading-strong, #444d56);
   font-weight: 500;
 }
 
 .toc-list .toc-link:hover,
 .toc-list .toc-link:focus-visible {
-  color: #0366d6;
-  background: #f6f8fa;
+  color: var(--reading-link, #0366d6);
+  background: var(--reading-soft, #f6f8fa);
   text-decoration: none;
 }
 
 .toc-list .toc-link[aria-current="location"] {
-  color: #0366d6;
-  background: #edf4fb;
+  color: var(--reading-link, #0366d6);
+  background: var(--reading-active, #edf4fb);
 }
 
 .toc-toggle:focus-visible,
+.toc-toggle-all:focus-visible,
 .toc-list a:focus-visible {
-  outline: 1px solid #9abce0;
+  outline: 1px solid var(--reading-focus, #9abce0);
   outline-offset: -1px;
 }
 
@@ -182,28 +204,28 @@
 
 /* Equal outer columns keep the article centered independently of the TOC. */
 @media screen and (min-width: 1664px) {
-  .site-shell.has-toc {
+  .site-shell.has-sidebars {
     --toc-width: clamp(248px, calc(12.5vw + 40px), 360px);
     --toc-gap: clamp(48px, calc(12.5vw - 160px), 160px);
     max-width: none;
   }
 
-  .has-toc .site-header,
-  .has-toc .footer {
+  .has-sidebars .site-header,
+  .has-sidebars .footer {
     max-width: 980px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .has-toc .page-grid {
+  .has-sidebars .page-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 980px) minmax(0, 1fr);
-    grid-template-areas: "toc article .";
+    grid-template-areas: "toc article reader";
     column-gap: var(--toc-gap);
     align-items: start;
   }
 
-  .has-toc #article-content {
+  .has-sidebars #article-content {
     grid-area: article;
   }
 
@@ -229,20 +251,22 @@
 
   .toc-title {
     display: block;
+    margin-bottom: 0;
   }
 
   .article-toc nav {
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 176px);
     margin-top: 0;
   }
 }
 
 @media print {
-  .article-toc {
+  .article-toc,
+  .reading-panel {
     display: none;
   }
 
-  .has-toc .page-grid {
+  .has-sidebars .page-grid {
     display: block;
   }
 }
