@@ -97,12 +97,23 @@
   });
 
   var disclosure = panel.querySelector("details");
+  var restore = disclosure.querySelector("summary");
+  var hide = disclosure.querySelector(".panel-hide");
   var wideScreen = window.matchMedia("(min-width: 1664px)");
-  function updateDisclosure() { disclosure.open = wideScreen.matches; }
+  var userToggledPanel = false;
+  function updateDisclosure() {
+    if (!userToggledPanel) disclosure.open = wideScreen.matches;
+  }
   updateDisclosure();
   wideScreen.addEventListener("change", updateDisclosure);
+  restore.addEventListener("click", function () { userToggledPanel = true; });
+  hide.addEventListener("click", function () {
+    userToggledPanel = true;
+    disclosure.open = false;
+    restore.focus({ preventScroll: true });
+  });
   disclosure.addEventListener("toggle", function () {
-    if (wideScreen.matches && !disclosure.open) disclosure.open = true;
+    if (disclosure.open && document.activeElement === restore) hide.focus({ preventScroll: true });
   });
 
   applyPreferences(false);

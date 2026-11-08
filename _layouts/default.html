@@ -28,12 +28,19 @@
 
       <main class="page-grid">
         {% unless page.home %}
-        <aside class="article-toc" hidden>
-          <details class="toc-disclosure" open>
-            <summary>目录</summary>
-            <p class="toc-title" aria-hidden="true">目录</p>
-            <div class="toc-toolbar">
-              <button class="toc-toggle-all" type="button" hidden>全部折叠</button>
+        <aside class="article-toc" aria-label="目录" hidden>
+          <details class="toc-disclosure" id="toc-disclosure" open>
+            <summary class="panel-restore" aria-label="显示目录" title="显示目录">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>
+            </summary>
+            <div class="toc-header">
+              <p class="toc-title">目录</p>
+              <button class="panel-hide" type="button" aria-label="隐藏目录" title="隐藏目录" aria-controls="toc-disclosure">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4v16m10-12-4 4 4 4"/></svg>
+              </button>
+              <button class="toc-toggle-all" type="button" aria-label="全部折叠" title="全部折叠" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path class="toc-collapse-icon" d="m7 5 5 5 5-5M7 19l5-5 5 5"/><path class="toc-expand-icon" d="m7 9 5-5 5 5M7 15l5 5 5-5"/></svg>
+              </button>
             </div>
             <nav aria-label="目录" tabindex="0">
               <ol class="toc-list"></ol>
@@ -41,9 +48,16 @@
           </details>
         </aside>
         <aside class="reading-panel" aria-label="阅读面板" hidden>
-          <details class="reading-disclosure">
-            <summary>阅读设置与统计</summary>
-            <p class="reading-panel-title" aria-hidden="true">阅读</p>
+          <details class="reading-disclosure" id="reading-disclosure">
+            <summary class="panel-restore" aria-label="显示阅读设置与统计" title="显示阅读设置与统计">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h5m4 0h7M4 17h9m4 0h3"/><circle cx="11" cy="7" r="2"/><circle cx="15" cy="17" r="2"/></svg>
+            </summary>
+            <div class="reading-panel-header">
+              <p class="reading-panel-title">阅读</p>
+              <button class="panel-hide" type="button" aria-label="隐藏阅读设置与统计" title="隐藏阅读设置与统计" aria-controls="reading-disclosure">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+              </button>
+            </div>
             <dl class="article-stats">
               <div><dt title="汉字按字、其他文字按词统计，不计目录与代码">字数</dt><dd id="article-word-count">—</dd></div>
               <div><dt title="按每分钟约 300 字／词估算，不含看图时间">预计阅读</dt><dd id="article-reading-time">—</dd></div>

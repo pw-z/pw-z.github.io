@@ -37,9 +37,12 @@
       if (!toggleAll) return;
       var branches = sections.filter(function (section) { return section.children; });
       toggleAll.hidden = !branches.length;
-      toggleAll.textContent = branches.some(function (section) {
+      var collapse = branches.some(function (section) {
         return !section.children.hidden;
-      }) ? "全部折叠" : "全部展开";
+      });
+      toggleAll.dataset.action = collapse ? "collapse" : "expand";
+      toggleAll.setAttribute("aria-label", collapse ? "全部折叠" : "全部展开");
+      toggleAll.title = collapse ? "全部折叠" : "全部展开";
       toggleAll.setAttribute("aria-controls", branches.map(function (section) {
         return section.children.id;
       }).join(" "));
@@ -113,7 +116,6 @@
 
     if (!entries.length) return;
 
-    var wideScreen = window.matchMedia("(min-width: 1664px)");
     var activeEntry = null;
     var activeSection = null;
     var updateQueued = false;
@@ -168,16 +170,16 @@
       return preceding;
     }
 
-    function updateDisclosure() {
-      // Keep the user's branch choices; the wide layout requires the outer panel open.
-      if (wideScreen.matches) disclosure.open = true;
-      queueUpdate();
-    }
+    var restore = disclosure.querySelector("summary");
+    var hide = disclosure.querySelector(".panel-hide");
     disclosure.open = true;
-    updateDisclosure();
-    wideScreen.addEventListener("change", updateDisclosure);
+    hide.addEventListener("click", function () {
+      disclosure.open = false;
+      restore.focus({ preventScroll: true });
+    });
     disclosure.addEventListener("toggle", function () {
-      if (wideScreen.matches && !disclosure.open) disclosure.open = true;
+      if (disclosure.open && document.activeElement === restore) hide.focus({ preventScroll: true });
+      queueUpdate();
     });
 
     sidebar.hidden = false;

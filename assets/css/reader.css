@@ -8,6 +8,7 @@
   --reading-active: #edf4fb;
   --reading-link: #0366d6;
   --reading-focus: #668fbb;
+  --reading-panel-text: #707780;
 }
 
 :root[data-reading-theme="paper"] {
@@ -20,6 +21,7 @@
   --reading-active: #e8ddc9;
   --reading-link: #825a27;
   --reading-focus: #997746;
+  --reading-panel-text: #756c61;
 }
 
 :root[data-reading-theme="sage"] {
@@ -32,6 +34,7 @@
   --reading-active: #d8e7df;
   --reading-link: #24604b;
   --reading-focus: #4d8169;
+  --reading-panel-text: #627268;
 }
 
 :root[data-reading-theme="night"] {
@@ -45,6 +48,7 @@
   --reading-active: #253d51;
   --reading-link: #83baff;
   --reading-focus: #83baff;
+  --reading-panel-text: #8995a1;
 }
 
 body {
@@ -116,8 +120,8 @@ body {
 
 .reading-panel {
   margin-bottom: 24px;
-  color: var(--reading-muted);
-  font-size: 13px;
+  color: var(--reading-panel-text);
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -127,21 +131,31 @@ body {
   border-bottom: 1px solid var(--reading-border);
 }
 
-.reading-disclosure summary {
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
+.reading-disclosure:not([open]) {
+  padding: 0;
+  border: 0;
+}
+
+.reading-disclosure > summary {
+  margin-left: auto;
+  color: inherit;
+}
+
+.reading-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .reading-panel-title {
-  display: none;
-  margin: 0 0 18px;
-  font-size: 14px;
-  font-weight: 600;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .article-stats {
-  margin: 18px 0 0;
+  margin: 0;
 }
 
 .article-stats > div,
@@ -150,7 +164,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .article-stats dt {
@@ -159,20 +173,20 @@ body {
 
 .article-stats dd {
   margin: 0;
-  color: var(--reading-strong);
+  color: inherit;
   font-variant-numeric: tabular-nums;
 }
 
 .reading-controls {
-  margin-top: 24px;
-  padding-top: 20px;
+  margin-top: 20px;
+  padding-top: 16px;
   border-top: 1px solid var(--reading-border);
 }
 
 .reading-settings-title {
   margin: 0 0 16px;
-  color: var(--reading-strong);
-  font-weight: 600;
+  color: inherit;
+  font-weight: 500;
 }
 
 .reading-panel button,
@@ -180,7 +194,7 @@ body {
   border: 1px solid var(--reading-border);
   border-radius: 5px;
   background: transparent;
-  color: var(--reading-strong);
+  color: inherit;
   font: inherit;
   cursor: pointer;
 }
@@ -188,6 +202,7 @@ body {
 .reading-panel button:hover:not(:disabled),
 .reading-panel select:hover {
   background: var(--reading-soft);
+  color: var(--reading-strong);
 }
 
 .reading-panel button:focus-visible,
@@ -244,9 +259,9 @@ body {
 }
 
 .theme-options button[aria-pressed="true"] {
-  border-color: var(--reading-link);
-  color: var(--reading-link);
-  background: var(--reading-active);
+  border-color: var(--reading-panel-text);
+  color: var(--reading-muted);
+  background: var(--reading-soft);
 }
 
 .theme-swatch {
@@ -265,7 +280,7 @@ body {
   margin-top: 18px;
   padding: 4px 0;
   border: 0;
-  color: var(--reading-muted);
+  color: inherit;
   font-size: 12px;
 }
 
@@ -275,15 +290,19 @@ body {
   text-decoration: underline;
 }
 
+.reading-panel .panel-hide {
+  border: 0;
+}
+
 @media screen and (min-width: 1664px) {
   .reading-panel {
-    grid-area: reader;
-    justify-self: start;
-    position: sticky;
-    top: 32px;
-    width: 100%;
-    max-width: 248px;
+    position: fixed;
+    right: max(32px, calc((100vw - 980px) / 2 - var(--toc-gap) - 248px));
+    bottom: 32px;
+    width: 248px;
+    max-width: calc((100vw - 980px) / 2 - var(--toc-gap) - 32px);
     max-height: calc(100vh - 64px);
+    max-height: calc(100dvh - 64px);
     margin-bottom: 0;
     padding: 6px 3px 3px;
     overflow-y: auto;
@@ -293,9 +312,6 @@ body {
   .reading-panel::-webkit-scrollbar { display: none; }
 
   .reading-disclosure { padding: 0; border: 0; }
-  .reading-disclosure summary { display: none; }
-  .reading-panel-title { display: block; }
-  .article-stats { margin-top: 0; }
 }
 
 @media print {
