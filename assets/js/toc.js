@@ -14,10 +14,10 @@
 
     if (!list || !disclosure || !shell) return;
 
-    var parentSection = null;
+    var ancestors = [];
     var sections = [];
     var entries = [];
-    var headings = article.querySelectorAll("h2, h3");
+    var headings = article.querySelectorAll("h2, h3, h4, h5, h6");
 
     function uniqueId(base) {
       var id = base;
@@ -49,6 +49,7 @@
     }
 
     function addBranch(section) {
+      sections.push(section);
       section.children = document.createElement("ol");
       section.children.className = "toc-sublist";
       section.children.id = uniqueId("toc-branch-" + sections.length);
@@ -95,22 +96,24 @@
       link.href = "#" + encodeURIComponent(heading.id);
       row.appendChild(link);
       item.appendChild(row);
-      var entry = { heading: heading, item: item, row: row, link: link, title: title };
+      var level = Number(heading.tagName.slice(1));
+      var entry = { heading: heading, item: item, row: row, link: link, title: title, level: level };
 
-      if (heading.tagName === "H2") {
-        list.appendChild(item);
-        parentSection = entry;
-        entry.section = entry;
-        sections.push(entry);
-      } else if (parentSection) {
+      // Attach to the nearest preceding higher-level heading, even when levels are skipped.
+      while (ancestors.length && ancestors[ancestors.length - 1].level >= level) {
+        ancestors.pop();
+      }
+      var parentSection = ancestors[ancestors.length - 1];
+      if (parentSection) {
         if (!parentSection.children) addBranch(parentSection);
         parentSection.children.appendChild(item);
-        entry.section = parentSection;
+        entry.section = parentSection.section;
       } else {
-        // A document can start at h3 without an enclosing h2.
+        // A document can start at any supported heading level.
         list.appendChild(item);
         entry.section = entry;
       }
+      ancestors.push(entry);
       entries.push(entry);
     });
 
