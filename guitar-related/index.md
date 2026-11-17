@@ -1,112 +1,45 @@
 # Guitar Related
 
-- [音乐基础与学习路线](#music-basics)
-  - [节奏、旋律与和声](#rhythm-melody-harmony)
-  - [学习路线与视频](#learning-roadmap)
-  - [学习网站与书籍](#learning-resources)
-- [基础音乐类型入门](#music-genres)
-- [一些最基本的乐理](#music-theory)
-  - [音程](#intervals)
-    - [纯音程与大小音程](#perfect-major-minor-intervals)
-    - [增减音程及音程名称推算](#augmented-diminished-intervals)
-    - [吉他指板上的音程关系](#fretboard-intervals)
-  - [音阶](#scales)
-    - [大小调音阶及其变体](#major-minor-scales)
-    - [七种中古调式及更多调式](#modes)
-    - [如何练习吉他指板上的音阶](#scale-practice)
-  - [和弦](#chords)
-    - [三和弦七和弦构成及命名](#triads-seventh-chords)
-    - [八个重要的基本和弦](#basic-open-chords)
-  - [音乐术语中英对照](#music-terminology)
-- [指板认知与记忆（Fretboard）](#fretboard)
-  - [指板基础认知](#fretboard-basics)
-  - [各种记忆点快速定位音符](#fretboard-memory)
-    - [依靠开放和弦熟悉前三品的音](#open-chord-notes)
-    - [空弦音外5品与10品上的6个音没有升降号](#fifth-tenth-frets)
-    - [八度音相对位置与积木图形状辅助定位音符](#octaves-and-shapes)
-    - [两根低音弦的音符快速反应](#bass-string-notes)
-    - [日常随机练习或按照五度圈顺序练习指板音记忆](#fretboard-daily-practice)
-- [听音训练（Ear Training）](#ear-training)
-- [曲目练习与学习笔记（Songbook）](#songbook)
-  - [曾经的你 - 许巍](#song-ceng-jing-de-ni)
-  - [華 - 松本孝弘](#song-hana)
-  - [Layla - Eric Clapton](#song-layla)
-    - [参考视频](#layla-videos)
-    - [和弦与段落](#layla-chords)
-  - [Scuttle Buttin' - Stevie Ray Vaughan](#song-scuttle-buttin)
-  - [Promise - 山岡晃](#song-promise)
-    - [音乐人资料](#promise-artist)
-    - [曲谱](#promise-tab)
-  - [Wish You Were Here - Pink Floyd](#song-wish-you-were-here)
-    - [和弦与节奏](#wish-you-were-here-chords)
-    - [参考视频](#wish-you-were-here-videos)
-  - [Tom's Diner - Suzanne Vega](#song-toms-diner)
-    - [歌词](#toms-diner-lyrics)
-    - [现场视频](#toms-diner-live)
-  - [Like I'm Gonna Lose You - Meghan Trainor](#song-like-im-gonna-lose-you)
-    - [和弦进行与扫弦](#like-im-gonna-lose-you-chords)
-    - [Intro](#like-im-gonna-lose-you-intro)
-    - [SOLO-Guitar1](#like-im-gonna-lose-you-solo-1)
-    - [SOLO-Guitar2](#like-im-gonna-lose-you-solo-2)
+- [Roadmap](#roadmap)
+- [一些最基本的乐理](#一些最基本的乐理)
+  - [音程](#音程)
+  - [音阶](#音阶)
+  - [和弦](#和弦)
+  - [术语](#术语)
+- [指板认知与记忆（Fretboard）](#指板认知与记忆fretboard)
+  - [指板基础认知](#指板基础认知)
+  - [各种记忆点快速定位音符](#各种记忆点快速定位音符)
+- [听音训练（Ear Training）](#听音训练ear-training)
+- [曲目练习与学习笔记（Songbook）](#曲目练习与学习笔记songbook)
+  - [曾经的你 - 许巍](#曾经的你---许巍)
+  - [華 - 松本孝弘](#華---松本孝弘)
+  - [Layla - Eric Clapton](#layla---eric-clapton)
+  - [Scuttle Buttin' - Stevie Ray Vaughan](#scuttle-buttin---stevie-ray-vaughan)
+  - [Promise - 山岡晃](#promise---山岡晃)
+  - [Wish You Were Here - Pink Floyd](#wish-you-were-here---pink-floyd)
+  - [Tom's Diner - Suzanne Vega](#toms-diner---suzanne-vega)
+  - [Like I'm Gonna Lose You - Meghan Trainor](#like-im-gonna-lose-you---meghan-trainor)
 
-<a id="music-basics"></a>
-
-## 音乐基础与学习路线
-
-<a id="rhythm-melody-harmony"></a>
-
-### 节奏、旋律与和声
+## Roadmap
 
 节奏、旋律、和声是音乐的三大基本元素，它们共同构成了音乐的结构和表达。
 
-- **节奏**：节奏是音乐中时间的组织方式。它涉及到音符的持续时间、重音、节拍以及音符之间的间隔。节奏决定了音乐的“走动感”，让音乐有了时间上的结构。
-- **旋律**：旋律是音乐中的一系列连续的音符，通过它们的高低变化、长短和节奏组成了一种具有记忆性的音乐线条。旋律是音乐最容易被识别的部分。
-- **和声**：和声是指在音乐中同时响起的多个音符的组合方式。它为旋律提供了背景和深度，和声的变化可以引导旋律的发展方向，为音乐创造张力和解决，增强音乐的表现力和情感深度。
+- **节奏**：节奏是音乐中时间的组织方式。它涉及到音符的持续时间、重音、节拍以及音符之间的间隔。
+- **旋律**：旋律是音乐中的一系列连续的音符，通过它们的高低变化、长短和节奏组成了一种具有记忆性的音乐线条。
+- **和声**：和声是指在音乐中同时响起的多个音符的组合方式。它为旋律提供了背景和深度，和声的变化可以引导旋律的发展方向，为音乐创造张力和解决。
 
-<a id="learning-roadmap"></a>
+> 你花了多少时间来练习吉他，是决定你总体水平的最大因素。第二点是练习的质量，其余的是资源，天赋和运气。
 
-### 学习路线与视频
-
-> 你花了多少时间来练习吉他，是决定你总体水平的最大因素。
-> 第二点是练习的**质量**，其余的是资源，天赋和运气。
-
-* Roadmap
-  * [The Learning Guitar Roadmap](https://www.guitarorb.com/learning-guitar-roadmap/)
-  * [如何最有效率的练习吉他？](https://hubguitar.com/zh_han/articles/practice-success)
-  * [学习吉他大概要多久才能达到你想要的水平？](https://hubguitar.com/articles/how-long-does-it-take-to-learn-guitar)
-  * [How to get GOOD at ACOUSTIC GUITAR (my philosophy)](https://www.youtube.com/watch?v=cSqUVR_7xOY)
-  * [What to Learn on Guitar in Order (Complete Roadmap)](https://www.youtube.com/watch?v=O6CwG0fvqOM)
-* CAGED System
-  * [How to use the CAGED system to play a SOLO](https://youtu.be/0Qp26KcDrGw)
-
-<a id="learning-resources"></a>
-
-### 学习网站与书籍
-
+* [The Learning Guitar Roadmap](https://www.guitarorb.com/learning-guitar-roadmap/)
+* [如何最有效率的练习吉他？](https://hubguitar.com/zh_han/articles/practice-success)
+* [学习吉他大概要多久才能达到你想要的水平？](https://hubguitar.com/articles/how-long-does-it-take-to-learn-guitar)
+* [How to get GOOD at ACOUSTIC GUITAR (my philosophy)](https://www.youtube.com/watch?v=cSqUVR_7xOY)
+* [What to Learn on Guitar in Order (Complete Roadmap)](https://www.youtube.com/watch?v=O6CwG0fvqOM)
+* [How to use the CAGED system to play a SOLO](https://youtu.be/0Qp26KcDrGw)
 * [HUB GUITAR](https://hubguitar.com/)
 * [Justin Guitar](https://www.justinguitar.com/site-map-and-lesson-structure)
 
-<a id="music-genres"></a>
 
-## 基础音乐类型入门
-
-| 音乐风格 | 起源时间 | 特点 | 影响 |
-| --- | --- | --- | --- |
-| 古典音乐 | 中世纪 | 多声部和声、复杂的旋律结构、不同时期的风格变化 | 对后续所有音乐风格有深远影响 |
-| 布鲁斯 | 19世纪末 | 基于蓝调音阶、表达个人情感、12小节结构 | 影响了爵士乐、R&B、摇滚乐等 |
-| 爵士乐 | 20世纪初 | 非洲节奏、即兴演奏、复杂和声 | 影响了R&B、摇滚乐、放克等 |
-| R&B | 20世纪中叶 | 结合布鲁斯情感深度和爵士乐节奏、强调节奏和和声 | 影响了摇滚乐、灵魂乐、放克等 |
-| 摇滚乐 | 1950年代 | 受R&B、乡村音乐影响、强调电吉他和鼓点 | 成为全球最受欢迎的音乐风格之一 |
-| 灵魂乐 | 1950年代 | 强调情感表达、强有力的歌声 | 影响了放克、R&B等 |
-| 放克 | 1960年代末 | 强调节奏和低音线条、有节奏的吉他和贝斯 | 对嘻哈和迪斯科有影响 |
-| 迪斯科 | 1970年代 | 四四拍节奏、电子乐器、弦乐编排 | 影响了现代舞曲和电子音乐 |
-| 嘻哈 | 1970年代 | 说唱、DJing、街舞和涂鸦艺术 | 影响了现代流行音乐和文化 |
-| 电子舞曲 | 1980年代末 | 多种子风格、电子乐器和合成器 | 对现代流行音乐有显著影响 |
-| 乡村音乐 | 20世纪初 | 结合民谣、蓝草和西部摇摆元素 | 影响了美国流行音乐 |
-| 拉丁音乐 | 不同时期 | 包括桑巴、萨尔萨等多种风格 | 对全球音乐有广泛影响 |
-| 世界音乐 | 不同时期 | 涵盖多种非西方音乐风格 | 强调不同文化的音乐传统 |
-
-<a id="music-theory"></a>
 
 ## 一些最基本的乐理
 
@@ -115,13 +48,7 @@
 目标：理解音程、音阶、和弦概念，支撑在吉他指板上的实践练习  
 参考书：The Musician's Guide to Theory and Analysis (Third Edition) 
 
-<a id="intervals"></a>
-
 ### 音程
-
-
-
-<a id="perfect-major-minor-intervals"></a>
 
 #### 纯音程与大小音程
 
@@ -162,8 +89,6 @@ C小调：C  D ♭E  F  G ♭A ♭B  C
 • minor intervals invert to major;
 • and the two interval sizes always sum to 9 (e.g., 1 inverts to 8, 3 inverts to 6, 4 inverts to 5).
 
-<a id="augmented-diminished-intervals"></a>
-
 #### 增减音程及音程名称推算
 
 减 <- 纯 -> 增 ：比纯小半音则为减，比纯大半音则为增，小两个半音为倍减，同理推倍增，实践中基本不使用倍增倍减
@@ -177,8 +102,6 @@ C小调：C  D ♭E  F  G ♭A ♭B  C
 拓展链接：
 * 音程查找：[音程查找索引 - musicca.com](https://www.musicca.com/zh/interval-finder)
 * 一个好问题：[半音可以描述所有的音程关系吗？如果能，那度存在的意义是什么？ - 知乎](https://www.zhihu.com/question/39434850/answer/84746214)
-
-<a id="fretboard-intervals"></a>
 
 #### 吉他指板上的音程关系
 
@@ -206,13 +129,7 @@ E-|--|--|-X|--|--|--|--|--|--|--|--|--|--|-|X|-|-|-|-|-|
     1     3     5     7     9       12
 ```
 
-<a id="scales"></a>
-
 ### 音阶
-
-
-
-<a id="major-minor-scales"></a>
 
 #### 大小调音阶及其变体
 
@@ -242,8 +159,6 @@ E-|--|--|-X|--|--|--|--|--|--|--|--|--|--|-|X|-|-|-|-|-|
 | 旋律小调音阶 | 将和声小调音阶第六音升高半音即旋律小调音阶，原因是和声小调对自然小调的调整使得6、7两音距离过远听起来不够和谐。 |
 | *            | 自然大调、和声大调、旋律大调，与小调同理                                                                       |
 
-<a id="modes"></a>
-
 #### 七种中古调式及更多调式
 
 | 调式           | 模式           | 备注     |
@@ -258,8 +173,6 @@ E-|--|--|-X|--|--|--|--|--|--|--|--|--|--|-|X|-|-|-|-|-|
 
 调式音阶种类繁多，不同国家、民族、类别的音乐运用不同的调式音阶（如五声音阶、布鲁斯音阶等）产生了听感各不相同的音乐。
 
-<a id="scale-practice"></a>
-
 #### 如何练习吉他指板上的音阶
 
 循序渐进地吃掉指板音阶：
@@ -268,13 +181,7 @@ E-|--|--|-X|--|--|--|--|--|--|--|--|--|--|-|X|-|-|-|-|-|
 3. 提高熟练度：大小调音阶、布鲁斯音阶、五声音阶等等常用音阶，上行下行横向纵向模进 ～[参考1](https://www.bilibili.com/video/BV1U5411N7hV)、[参考2](https://www.bilibili.com/video/BV1th411t7SH)
 4. 先把前面的练好再说:)
 
-<a id="chords"></a>
-
 ### 和弦
-
-
-
-<a id="triads-seventh-chords"></a>
 
 #### 三和弦七和弦构成及命名
 
@@ -320,8 +227,6 @@ E-|--|--|-X|--|--|--|--|--|--|--|--|--|--|-|X|-|-|-|-|-|
 拓展链接：
 * 这个视频对和弦做了很好的串讲：[神他妈乐理·和弦：和弦的构造、标识、功能与应用](https://www.bilibili.com/video/BV1ot4y1S7jh)
 
-<a id="basic-open-chords"></a>
-
 #### 八个重要的基本和弦
 
 ```text
@@ -334,9 +239,7 @@ xxo---  xo---o  o---oo  xo---o  o--ooo  xxo---  x--o-o  -xooo-
 ....3.  ......  ......  ......  ......  ....4.  .3....  2....3
 ```
 
-<a id="music-terminology"></a>
-
-### 音乐术语中英对照
+### 术语
 
 * 音名 Pitch: A B C D E F G
 * 音高 Pitch-CLass
@@ -353,15 +256,13 @@ xxo---  xo---o  o---oo  xo---o  o--ooo  xxo---  x--o-o  -xooo-
 * 半音音阶 Chromatic Scale
 * 主音 Tonic
 
-<a id="fretboard"></a>
+
 
 ## 指板认知与记忆（Fretboard）
 
 *Posted on 2024.08.11 by [pwz](http://pwz.wiki) under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)* 
 
 如何熟悉指板以及熟悉到什么程度才算合格？这篇文档是我在探索这个话题过程的一些笔记。
-
-<a id="fretboard-basics"></a>
 
 ### 指板基础认知
 
@@ -395,13 +296,9 @@ E-|-F-|---|-G-|---|-A-|---|-B-|-C-|---|-D-|---|E-|F-|--|G-|--|A-|--|B-|C-|--|D-|
 
 从12品开始到24品，所有音符分布与空弦到12品的音符分布一模一样。6弦与1弦的音符分布也是一样的，所以只需记忆5根弦的前12品音符，即可将整个指板记下来。这种带逻辑推理的记忆对演奏帮助有限，需要更加熟悉才行，后文从一些不同的角度尝试提高对指板的熟练度。
 
-<a id="fretboard-memory"></a>
-
 ### 各种记忆点快速定位音符
 
 
-
-<a id="open-chord-notes"></a>
 
 #### 依靠开放和弦熟悉前三品的音
 
@@ -435,8 +332,6 @@ F (F+A+C)           G (G+B+D)           Am (A+C+E)
     1       3           1       3           1       3  
 ```
 
-<a id="fifth-tenth-frets"></a>
-
 #### 空弦音外5品与10品上的6个音没有升降号
 
 三组音EADGBE、ADGCEA、DGCFAD没事按一遍念叨念叨，排列顺序是有规律的很快就能记熟。
@@ -465,8 +360,6 @@ A-|---|---|---|---|-D-|---|-E-|---|---|---|---|--|--|--|--|
 E-|---|---|---|---|-A-|---|---|-C-|---|---|---|--|--|--|--|
     1       3       5       7       9          12        
 ```
-
-<a id="octaves-and-shapes"></a>
 
 #### 八度音相对位置与积木图形状辅助定位音符
 
@@ -507,8 +400,6 @@ A-|---|---|---|---|---|---|---|---|---|---|---|A-|--|--|--|--|--|--|--|--|--|--|
 --|--|--|--|--|--|--|🟣|🟣|--|--|--|🔵|🔵|--|G-|--|A-|--|B-|C-|--|D-|--|E-|
    1    3      5     7     9        12       15    17    19    21       24
 ```
-
-<a id="bass-string-notes"></a>
 
 #### 两根低音弦的音符快速反应
 
@@ -576,16 +467,12 @@ E-|-F-|---|-G-|---|-A-|---|-B-|-C-|---|-D-|---|E-|F-|--|G-|--|A-|--|B-|C-|--|D-|
    1     3     5     7     9  D     12 
 ```
 
-<a id="fretboard-daily-practice"></a>
-
 #### 日常随机练习或按照五度圈顺序练习指板音记忆
 
 可以借助一些软件进行随机找音符训练，应用商店里搜索`fretboard`等关键字，可以找到不少此类应用。
 
 * 随机音符练习：FretPro
 * 五度圈单音练习：[【跟练】吉他练脑基本功——指板音记忆](https://www.bilibili.com/video/BV1cw411a7Jh)
-
-<a id="ear-training"></a>
 
 ## 听音训练（Ear Training）
 
@@ -605,11 +492,7 @@ E-|-F-|---|-G-|---|-A-|---|-B-|-C-|---|-D-|---|E-|F-|--|G-|--|A-|--|B-|C-|--|D-|
 | 大七度 major seventh (M7)  |              |      |
 | 纯八度 perfect octave (P8) |              |      |
 
-<a id="songbook"></a>
-
 ## 曲目练习与学习笔记（Songbook）
-
-<a id="song-ceng-jing-de-ni"></a>
 
 ### 曾经的你 - 许巍
 
@@ -694,8 +577,6 @@ B           #Cm
 这笑容温暖纯真
 ```
 
-<a id="song-hana"></a>
-
 ### 華 - 松本孝弘
 
 ⭐段落划分
@@ -717,11 +598,7 @@ A3\*8 + A3p\*8
 
 A1\*8
 
-<a id="song-layla"></a>
-
 ### Layla - Eric Clapton
-
-<a id="layla-videos"></a>
 
 #### 参考视频
 
@@ -732,8 +609,6 @@ Reference Videos:
 * Electric Version
   * [Eric Clapton Layla Electric Guitar Lesson + Tutorial - Marty Music](https://www.youtube.com/watch?v=21E-FFLtuvQ)
   * [Layla Guitar Lesson (Eric Clapton - Jon MacLennan)](https://www.youtube.com/watch?v=FLqH4iAS9Z8)
-
-<a id="layla-chords"></a>
 
 #### 和弦与段落
 
@@ -823,8 +698,6 @@ Layla, I'm begging, darling, please
 Layla, darling, won't you ease my worried mind?
 ```
 
-<a id="song-scuttle-buttin"></a>
-
 ### Scuttle Buttin' - Stevie Ray Vaughan
 
 * [Stevie Ray Vaughan](https://en.wikipedia.org/wiki/Stevie_Ray_Vaughan)
@@ -837,11 +710,7 @@ Layla, darling, won't you ease my worried mind?
 * Family Style (1990)
 * The Sky Is Crying (1991)
 
-<a id="song-promise"></a>
-
 ### Promise - 山岡晃
-
-<a id="promise-artist"></a>
 
 #### 音乐人资料
 
@@ -851,17 +720,11 @@ Akira Yamaoka
 
 [【游戏杂谈】于寂静岭处听惊雷！- 游戏作曲家 山冈晃 - 游戏作曲家列传 EP3](https://www.bilibili.com/video/BV1ZY4y1r7Mk)
 
-<a id="promise-tab"></a>
-
 #### 曲谱
 
 [Promise Tab](https://www.songsterr.com/a/wsa/akira-yamaoka-promise-tab-s34008)
 
-<a id="song-wish-you-were-here"></a>
-
 ### Wish You Were Here - Pink Floyd
-
-<a id="wish-you-were-here-chords"></a>
 
 #### 和弦与节奏
 
@@ -871,21 +734,15 @@ DUD-DU-U
 Em7 -> A7sus4 -> Em7 -> A7sus4
 ```
 
-<a id="wish-you-were-here-videos"></a>
-
 #### 参考视频
 
 [Pink Floyd "Wish You Were Here" Complete Guitar Lesson](https://www.youtube.com/watch?v=4m1T4v9bIds)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4m1T4v9bIds?si=9LVdKqbHGFlaTddA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<a id="song-toms-diner"></a>
-
 ### Tom's Diner - Suzanne Vega
 
 >"Tom's Diner" is a song written in 1982 by American singer and songwriter Suzanne Vega. It was first released as a track on the January 1984 issue of Fast Folk Musical Magazine. When first featured on one of her own studio albums, it appeared as the first track of her 1987 album Solitude Standing. It was later used as the basis for a remix by the British group DNA in 1990, which reached number 1 in Austria, Germany, Greece and Switzerland. The 1991 compilation Tom's Album includes the DNA version as well as cover versions by such artists as After One, Nikki D and Bingo Hand Job (R. E. M. and Billy Bragg). It was also used as the background soundtrack for the opening scene of the 1993 film Untamed Heart.
-
-<a id="toms-diner-lyrics"></a>
 
 #### 歌词
 
@@ -951,23 +808,17 @@ I finish up my coffee
 It's time to catch the train
 ```
 
-<a id="toms-diner-live"></a>
-
 #### 现场视频
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TSi6LJck_bQ?si=Jwb8bnUOQ5mXJEyx&amp;start=3122" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 [Suzanne Vega - Live at the Duo Music Exchange - 1st April 2005](https://www.youtube.com/watch?v=TSi6LJck_bQ)
 
-<a id="song-like-im-gonna-lose-you"></a>
-
 ### Like I'm Gonna Lose You - Meghan Trainor
 
 > Meghan Elizabeth Trainor (born December 22, 1993) is an American singer-songwriter and television personality. She rose to prominence after signing with Epic Records in 2014 and releasing her debut single "All About That Bass", which reached number one on the U.S. Billboard Hot 100 chart and sold 11 million copies worldwide. Trainor has released five studio albums with the label and has received various accolades, including the 2016 Grammy Award for Best New Artist.  [Wikipedia](https://en.wikipedia.org/wiki/Meghan_Trainor)
 
 [Like I'm Gonna Lose You Guitar Cover - Meghan Trainor 🎸 |Chords + Tabs|](https://www.youtube.com/watch?v=qkMlEMUKoVs)
-
-<a id="like-im-gonna-lose-you-chords"></a>
 
 #### 和弦进行与扫弦
 
@@ -980,8 +831,6 @@ F C/E Dm G
 Strumming Pattern
 D-DDUD
 ```
-
-<a id="like-im-gonna-lose-you-intro"></a>
 
 #### Intro
 
@@ -1003,8 +852,6 @@ E|-------x-----------x-----|-------------------3-----|-
    1 2 3 2 2 3 1 2 3 2 2 3   1 2 3 2 2 3 1 2 3 2 2 3 
 ```
 
-<a id="like-im-gonna-lose-you-solo-1"></a>
-
 #### SOLO-Guitar1
 
 ```text
@@ -1022,8 +869,6 @@ D|--------------------------|---------------------------------|--------
 A|--------------------------|---------------------------------|--------
 E|--------------------------|---------------------------------|--------
 ```
-
-<a id="like-im-gonna-lose-you-solo-2"></a>
 
 #### SOLO-Guitar2
 
